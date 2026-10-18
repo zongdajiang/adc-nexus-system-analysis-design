@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 现状业务：诊疗费用结算
+actor "牙医" as D <<业务工人>>
+actor "收费员" as C <<业务工人>>
+actor "患者" as P
+D -> C: 移交治疗清单
+C -> C: 核对项目、数量与价目表
+C -> C: 计算逐项费用及合计
+C -> P: 出示费用明细
+P -> C: 确认并提交付款凭据
+C -> C: 核实收款并登记余额
+C -> P: 提供结算凭据
+@enduml

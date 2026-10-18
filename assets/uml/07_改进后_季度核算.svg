@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1400.5" viewBox="0 0 864 1400.5">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="864" height="1400.5" fill="white"/>
+<ellipse cx="180" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,90 220,50" fill="none" stroke="#666666" stroke-width="1"/>
+<ellipse cx="180" cy="37.368421052631575" rx="7.368421052631579" ry="7.368421052631579" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,44.73684210526316 180,59.473684210526315" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="165.26315789473685,49.15789473684211 194.73684210526315,49.15789473684211" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,59.473684210526315 165.26315789473685,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,59.473684210526315 194.73684210526315,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="190,1 180,10 190,19" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="124.0" y="100" width="112.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="180" y="133.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">诊所经理</text>
+<polyline points="180,141 180,1396.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="472" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="472,90 512,50" fill="none" stroke="#666666" stroke-width="1"/>
+<ellipse cx="472" cy="37.368421052631575" rx="7.368421052631579" ry="7.368421052631579" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="472,44.73684210526316 472,59.473684210526315" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="457.2631578947368,49.15789473684211 486.7368421052632,49.15789473684211" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="472,59.473684210526315 457.2631578947368,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="472,59.473684210526315 486.7368421052632,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="482,1 472,10 482,19" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="416.0" y="100" width="112.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="472" y="133.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">总部财务</text>
+<polyline points="472,141 472,1396.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="764" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="764,90 804,50" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="685.0" y="100" width="158.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="764" y="134.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">诊疗管理系统</text>
+<polyline points="764,141 764,1396.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="467.0" y="191" width="10" height="1127" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="175.0" y="390" width="10" height="201" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="175.0" y="963" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="175.0" y="1243" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="759.0" y="191" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="759.0" y="453" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="759.0" y="642" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="477.0,191 759.0,191" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="751.0,187.0 759.0,191 751.0,195.0 751.0,187.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="179.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">检查并核算季度(q)</text>
+<polyline points="759.0,254 477.0,254" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,258.0 477.0,254 485.0,250.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="242.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">初步结果及待核事项</text>
+<polyline points="467.0,390 185.0,390" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="193.0,394.0 185.0,390 193.0,386.0 193.0,394.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="377.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">请求核实差异</text>
+<polyline points="185.0,453 759.0,453" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="751.0,449.0 759.0,453 751.0,457.0 751.0,449.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="472.0" y="440.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">保存更正及依据()</text>
+<polyline points="759.0,516 185.0,516" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="193.0,520.0 185.0,516 193.0,512.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="472.0" y="503.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">更正已记录</text>
+<polyline points="185.0,579 467.0,579" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="459.0,575.0 467.0,579 459.0,583.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="567.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">提交处理说明</text>
+<polyline points="477.0,642 759.0,642" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="751.0,638.0 759.0,642 751.0,646.0 751.0,638.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="630.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">重新核算(q)</text>
+<polyline points="759.0,705 477.0,705" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,709.0 477.0,705 485.0,701.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="693.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">新版本结果</text>
+<polyline points="477.0,768 764,768" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="756.0,764.0 764,768 756.0,772.0 756.0,764.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="756.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">关闭季度(q,结果版本)</text>
+<polyline points="764,900 477.0,900" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,904.0 477.0,900 485.0,896.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="888.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">核定结果</text>
+<polyline points="467.0,963 185.0,963" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="193.0,967.0 185.0,963 193.0,959.0 193.0,967.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="951.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">告知关闭结果</text>
+<polyline points="185.0,1026 467.0,1026" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="459.0,1022.0 467.0,1026 459.0,1030.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="1013.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">已收到</text>
+<polyline points="764,1180 477.0,1180" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,1184.0 477.0,1180 485.0,1176.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="1167.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">拒绝原因</text>
+<polyline points="467.0,1243 185.0,1243" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="193.0,1247.0 185.0,1243 193.0,1239.0 193.0,1247.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="1231.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">通报阻断事项</text>
+<polyline points="185.0,1306 467.0,1306" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="459.0,1302.0 467.0,1306 459.0,1310.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="1293.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">已收到</text>
+<rect x="50.0" y="305" width="759.0" height="415" rx="0" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="50.0,305 116.0,305 116.0,315 102.0,326 50.0,326" fill="#f7dca2" stroke="#000000" stroke-width="1"/>
+<text x="54.0" y="324.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="bold" fill="#000000">opt </text>
+<text x="198" y="351.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[存在差异]</text>
+<rect x="50.0" y="815" width="759.0" height="523" rx="0" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="50.0,815 105.0,815 105.0,825 91.0,836 50.0,836" fill="#f7dca2" stroke="#000000" stroke-width="1"/>
+<text x="54.0" y="836.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="bold" fill="#000000">alt </text>
+<text x="198" y="869.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[可关闭]</text>
+<polyline points="50.0,1102 809,1102" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="198" y="1129.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[不可关闭]</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1046" height="839" viewBox="0 0 1046 839">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1046" height="839" fill="white"/>
+<rect x="28" y="30" width="290" height="133" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="28" y="30" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="173.0" y="59.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">财务期间</text>
+<text x="40" y="94.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 开始日期: Date</text>
+<text x="40" y="124.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 结束日期: Date</text>
+<text x="40" y="155.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 是否锁定: Boolean</text>
+<rect x="378" y="278" width="290" height="223" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="378" y="278" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="523.0" y="307.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">网络季度结果</text>
+<text x="390" y="343.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 结果版本: Integer</text>
+<text x="390" y="372.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 核定状态: ResultStatus</text>
+<text x="390" y="402.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 收入: Decimal</text>
+<text x="390" y="433.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 用品成本: Decimal</text>
+<text x="390" y="463.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 运营费用: Decimal</text>
+<text x="390" y="492.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- /净利润: Decimal</text>
+<rect x="28" y="616" width="290" height="103" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="28" y="616" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="173.0" y="645.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">激励基金</text>
+<text x="40" y="680.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 提取比例: Decimal</text>
+<text x="40" y="710.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- /金额: Decimal</text>
+<rect x="728" y="616" width="290" height="193" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="728" y="616" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="873.0" y="645.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">牙医季度贡献</text>
+<text x="740" y="681.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 结果版本: Integer</text>
+<text x="740" y="710.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 收入: Decimal</text>
+<text x="740" y="741.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 用品成本: Decimal</text>
+<text x="740" y="771.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 运营费用: Decimal</text>
+<text x="740" y="800.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- /贡献: Decimal</text>
+<rect x="728" y="30" width="290" height="73" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="728" y="30" width="290" height="43" rx="0" fill="#EAF2FA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="873.0" y="58.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">牙医</text>
+<text x="740" y="95.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 员工编号: String</text>
+<polyline points="173.0,163 173.0,220.5 523.0,220.5 523.0,278" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<polygon points="173.0,163 179.0,172.0 173.0,181.0 167.0,172.0" fill="#303a43" stroke="#303a43" stroke-width="1.45"/>
+<text x="348.0" y="211.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">结果版本</text>
+<text x="187.0" y="203.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="509.0" y="263.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+<polyline points="486.26666666666665,501 486.26666666666665,558.5 173.0,558.5 173.0,616" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<polygon points="486.26666666666665,501 492.26666666666665,510.0 486.26666666666665,519.0 480.26666666666665,510.0" fill="#303a43" stroke="#303a43" stroke-width="1.45"/>
+<text x="329.6333333333333" y="549.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">核定提取</text>
+<text x="500.26666666666665" y="541.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="159.0" y="601.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..1</text>
+<polyline points="559.7333333333333,501 559.7333333333333,558.5 836.2666666666667,558.5 836.2666666666667,616" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<polygon points="559.7333333333333,501 565.7333333333333,510.0 559.7333333333333,519.0 553.7333333333333,510.0" fill="#303a43" stroke="#303a43" stroke-width="1.45"/>
+<text x="698.0" y="548.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">汇总</text>
+<text x="573.7333333333333" y="541.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="822.2666666666667" y="601.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+<polyline points="873.0,103 873.0,359.5 909.7333333333333,359.5 909.7333333333333,616" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<text x="921.0" y="238.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">归属</text>
+<text x="887.0" y="130.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="895.7333333333333" y="601.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+</svg>

@@ -1,0 +1,28 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 改进后业务：季度核对与关闭
+actor "诊所经理" as M <<业务工人>>
+actor "总部财务" as F <<业务工人>>
+participant "诊疗管理系统" as S <<业务实体>>
+F -> S: 检查并核算季度(q)
+S --> F: 初步结果及待核事项
+opt [存在差异]
+F -> M: 请求核实差异
+M -> S: 保存更正及依据()
+S --> M: 更正已记录
+M --> F: 提交处理说明
+F -> S: 重新核算(q)
+S --> F: 新版本结果
+end
+F -> S: 关闭季度(q,结果版本)
+alt [可关闭]
+S --> F: 核定结果
+F -> M: 告知关闭结果
+M --> F: 已收到
+else [不可关闭]
+S --> F: 拒绝原因
+F -> M: 通报阻断事项
+M --> F: 已收到
+end
+@enduml

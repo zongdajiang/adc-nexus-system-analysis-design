@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 改进后业务：临床诊疗
+actor "患者" as P
+actor "牙医" as D <<业务工人>>
+participant "诊疗管理系统" as S <<业务实体>>
+D -> S: 调取就诊资料()
+S --> D: 病史与待复核事项
+D -> P: 核对本次风险变化
+P -> D: 陈述症状并确认病史
+D -> D: 检查并判断适应证
+D -> P: 说明方案、风险和费用
+P -> D: 表达治疗决定
+D -> S: 保存检查与患者决定()
+S --> D: 保存结果
+alt [风险与同意已核实]
+D -> S: 登记实际治疗()
+S --> D: 治疗记录已保存
+D -> S: 签署临床记录()
+S --> D: 签署结果
+D -> S: 完成临床就诊()
+S --> D: 完成时间与状态
+else [风险或同意待处理]
+D -> P: 说明暂停原因与后续安排
+end
+@enduml

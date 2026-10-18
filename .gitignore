@@ -1,0 +1,19 @@
+# LaTeX intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+*.bak
+
+# Do not commit unpublished case/reference materials or generated backups
+legacy_*/
+*_完整备份.zip

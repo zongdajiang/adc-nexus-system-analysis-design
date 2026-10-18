@@ -1,0 +1,18 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+actor "牙医" as A0
+actor "收费员" as A1
+rectangle "安德鲁牙科连锁运营管理系统" {
+  usecase "UC-06\n记录临床就诊" as U0
+  usecase "UC-07\n制定治疗计划" as U1
+  usecase "UC-08\n完成临床就诊" as U2
+  usecase "UC-09\n生成诊疗结算单" as U3
+  usecase "UC-10\n处理收款与退款" as U4
+}
+A0 --> U0
+A0 --> U1
+A0 --> U2
+A1 --> U3
+A1 --> U4
+@enduml

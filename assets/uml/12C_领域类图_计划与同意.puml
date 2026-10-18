@@ -1,0 +1,40 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "临床就诊" as 临床就诊 {
+  -就诊编号: String
+}
+class "治疗计划" as 治疗计划 {
+  -版本号: Integer
+  -形成时间: DateTime
+}
+class "计划项目" as 计划项目 {
+  -数量: Decimal
+  -牙位: ToothCode
+  -顺序: Integer
+  -患者决定: DecisionType
+}
+class "同意证据" as 同意证据 {
+  -形式: String
+  -内容版本: Integer
+  -决定时间: DateTime
+}
+class "实际治疗" as 实际治疗 {
+  -单位数: Decimal
+  -实施时间: DateTime
+  -偏离原因: String?
+}
+class "治疗目录版本" as 治疗目录版本 {
+  -项目代码: String
+  -版本号: Integer
+  -单位: String
+  -标准单价: Decimal
+}
+临床就诊 "1" *-- "0..*" 治疗计划 : 拟议
+治疗计划 "1" *-- "1..*" 计划项目
+计划项目 "1" *-- "0..*" 同意证据
+计划项目 "0..1" -- "0..1" 实际治疗 : 可选实现
+临床就诊 "1" *-- "0..*" 实际治疗
+计划项目 "0..*" -- "1" 治疗目录版本 : 项目版本
+实际治疗 "0..*" -- "1" 治疗目录版本 : 计价版本
+@enduml

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="610" viewBox="0 0 1600 610">
+<rect width="100%" height="100%" fill="white"/>
+<polyline points="68,270 118,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="118.0,270.0 100.0,278.0 100.0,262.0" fill="#43545D"/>
+<polyline points="342,270 390,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="390.0,270.0 372.0,278.0 372.0,262.0" fill="#43545D"/>
+<polyline points="590,270 660,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="660.0,270.0 642.0,278.0 642.0,262.0" fill="#43545D"/>
+<polyline points="860,270 930,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="930.0,270.0 912.0,278.0 912.0,262.0" fill="#43545D"/>
+<polyline points="1130,270 1200,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="1200.0,270.0 1182.0,278.0 1182.0,262.0" fill="#43545D"/>
+<polyline points="1400,270 1510,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="1510.0,270.0 1492.0,278.0 1492.0,262.0" fill="#43545D"/>
+<polyline points="1030,315 1030,460" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="1030.0,460.0 1022.0,442.0 1038.0,442.0" fill="#43545D"/>
+<polyline points="930,505 760,505 760,315" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
+<polygon points="760.0,315.0 768.0,333.0 752.0,333.0" fill="#43545D"/>
+<circle cx="50" cy="270" r="18" fill="#263238"/>
+<rect x="118.0" y="225.0" width="224" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
+<text x="230" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">预约日视图</text>
+<rect x="390.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
+<text x="490" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">患者检索</text>
+<rect x="660.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
+<text x="760" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">资源选择</text>
+<rect x="930.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
+<text x="1030" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">提交核对</text>
+<rect x="1200.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
+<text x="1300" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">确认结果</text>
+<rect x="930.0" y="460.0" width="200" height="90" rx="14" fill="#FFF8E9" stroke="#43545D" stroke-width="3"/>
+<text x="1030" y="518" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">冲突提示</text>
+<circle cx="1530" cy="270" r="20" fill="white" stroke="#263238" stroke-width="3"/><circle cx="1530" cy="270" r="12" fill="#263238"/>
+<rect x="334" y="170" width="64" height="42" rx="6" fill="white"/>
+<text x="366" y="201" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N1</text>
+<rect x="593" y="207" width="64" height="42" rx="6" fill="white"/>
+<text x="625" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N2</text>
+<rect x="863" y="207" width="64" height="42" rx="6" fill="white"/>
+<text x="895" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N3</text>
+<rect x="1133" y="207" width="64" height="42" rx="6" fill="white"/>
+<text x="1165" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N4</text>
+<rect x="1048" y="369" width="64" height="42" rx="6" fill="white"/>
+<text x="1080" y="400" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N5</text>
+<rect x="808" y="444" width="64" height="42" rx="6" fill="white"/>
+<text x="840" y="475" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">N6</text>
+</svg>

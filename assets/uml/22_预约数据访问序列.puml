@@ -1,0 +1,47 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam dpi 220
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 16
+skinparam sequenceMessageAlign center
+skinparam sequenceArrowThickness 1.3
+skinparam sequenceParticipantBorderColor #37474F
+skinparam sequenceParticipantBackgroundColor white
+skinparam sequenceLifeLineBorderColor #607D8B
+skinparam sequenceLifeLineBackgroundColor white
+skinparam BoxPadding 16
+hide footbox
+
+actor "前台接待" as Staff
+boundary "预约工作台" as UI
+control "预约服务" as Service
+participant "预约仓储" as Repo
+database "SQLite / D1" as DB
+
+Staff -> UI : 提交患者、诊所、牙医和时段
+activate UI
+UI -> Service : 安排预约(请求)
+activate Service
+Service -> Repo : 读取当前预约及版本
+activate Repo
+Repo -> DB : 查询时段占用与关联资料
+DB --> Repo : 候选记录
+Repo --> Service : 占用、资质与版本
+deactivate Repo
+alt 资源或版本冲突
+  Service --> UI : 返回冲突字段与原因
+  UI --> Staff : 展示替代时段 / 提示刷新
+else 校验通过
+  Service -> Repo : 原子保存预约与状态历史
+  activate Repo
+  Repo -> DB : 事务写入并校验版本
+  DB --> Repo : 预约编号、提交结果
+  Repo --> Service : 保存结果
+  deactivate Repo
+  Service --> UI : 返回预约确认信息
+  UI --> Staff : 展示预约编号与时间
+end
+deactivate Service
+deactivate UI
+@enduml

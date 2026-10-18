@@ -1,0 +1,17 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+actor "总部运营总监" as A0
+actor "诊所经理" as A1
+actor "创始人" as A2
+actor "总部财务专员" as A3
+rectangle "安德鲁牙科连锁运营管理系统" {
+  usecase "UC-11\n维护牙医资质与任职" as U0
+  usecase "UC-13\n分析经营绩效与资质覆盖" as U1
+}
+A0 --> U0
+A0 --> U1
+A1 --> U1
+A2 --> U1
+A3 --> U1
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+actor "总部财务专员" as A0
+actor "系统管理员" as A1
+rectangle "安德鲁牙科连锁运营管理系统" {
+  usecase "UC-12\n关闭季度财务期间" as U0
+  usecase "UC-14\n管理账户与访问范围" as U1
+}
+A0 --> U0
+A1 --> U1
+@enduml

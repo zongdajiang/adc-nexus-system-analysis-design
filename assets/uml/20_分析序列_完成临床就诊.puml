@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-08 完成临床就诊
+actor "牙医" as dentist
+boundary "就诊界面" as screen
+control "就诊控制器" as control
+entity "临床就诊" as visit
+entity "预约" as booking
+dentist -> screen: 请求完成(记录版本)
+screen -> control: 完成就诊(就诊号、版本)
+control -> visit: 核对风险、治疗与签署()
+visit --> control: 返回完整性结果
+alt [有待处理缺项]
+control --> screen: 返回缺失项目
+screen --> dentist: 显示待补录项
+else [条件完整且版本一致]
+control -> visit: 完成(期望版本)
+visit --> control: 完成时间与版本
+control -> booking: 标记完成(时间)
+booking --> control: 状态更新结果
+control --> screen: 返回完成结果
+screen --> dentist: 显示完成结果
+end
+@enduml

@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="report" name="报告图片">
+    <mxGraphModel dx="1049" dy="689" grid="0" page="1" pageWidth="1049" pageHeight="689">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="380" y="248" width="290" height="163" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#EAF2FA;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="380" y="248" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" value="患者" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="499.0" y="255.5" width="52.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" value="- 患者编号: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="392" y="294.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" value="- 姓名: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="392" y="324.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" value="- 出生日期: Date" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="392" y="354.0" width="164.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" value="- 电话: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="392" y="384.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="28" y="526" width="290" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#EAF2FA;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="28" y="526" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" value="紧急联系人" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="111.0" y="533.5" width="124.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" value="- 姓名: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="40" y="572.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" value="- 与患者关系: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="40" y="602.0" width="204.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" value="- 电话: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="40" y="632.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="378" y="526" width="293" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#FFF2E9;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="378" y="526" width="293" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" value="过敏" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="498.5" y="533.5" width="52.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" value="- 物质: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="390" y="572.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" value="- 反应: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="390" y="602.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" value="- 核实状态: AllergyStatus" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="390" y="632.0" width="254.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="526" width="290" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#FFF2E9;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="526" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" value="病史版本" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="826.0" y="533.5" width="100.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" value="- 版本号: Integer" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="572.0" width="174.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" value="- 形成时间: DateTime" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="602.0" width="204.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" value="- 记录来源: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="632.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="28" y="30" width="290" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#EAF2FA;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="28" y="30" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" value="诊所" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="147.0" y="37.5" width="52.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" value="- 诊所编号: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="40" y="76.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="1" value="- 名称: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="40" y="106.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="30" width="290" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="33" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#EAF2FA;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="30" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="34" parent="1" value="系统账户" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="826.0" y="37.5" width="100.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="35" parent="1" value="- 账户编号: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="76.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" value="- 状态: AccountStatus" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="106.0" width="214.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="37" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=white;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="248" width="290" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="38" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=#EAF2FA;strokeColor=#5d6a70;strokeWidth=1.35;">
+          <mxGeometry x="731" y="248" width="290" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="39" parent="1" value="患者账户绑定" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=24.0;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="802.0" y="255.5" width="148.0" height="33.0" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" value="- 核实方式: String" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="294.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="1" value="- 核实时间: DateTime" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="743" y="324.0" width="204.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="469.9" y="411" as="sourcePoint" />
+            <mxPoint x="173.0" y="526" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="469.9" y="468.5" />
+              <mxPoint x="173.0" y="468.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="43" parent="1" value="" vertex="1" style="html=0;rhombus;fillColor=#303a43;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry x="463.9" y="411" width="12.0" height="18.0" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" value="1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="476.4" y="434.0" width="15.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="45" parent="1" value="0..*" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="141.5" y="494.0" width="35.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="525.0" y="411" as="sourcePoint" />
+            <mxPoint x="524.5" y="526" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="525.0" y="468.5" />
+              <mxPoint x="524.5" y="468.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" parent="1" value="" vertex="1" style="html=0;rhombus;fillColor=#303a43;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry x="519.0" y="411" width="12.0" height="18.0" as="geometry" />
+        </mxCell>
+        <mxCell id="48" parent="1" value="1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="531.5" y="434.0" width="15.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="49" parent="1" value="0..*" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="493.0" y="494.0" width="35.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="50" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.1" y="411" as="sourcePoint" />
+            <mxPoint x="876.0" y="526" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="580.1" y="468.5" />
+              <mxPoint x="876.0" y="468.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51" parent="1" value="" vertex="1" style="html=0;rhombus;fillColor=#303a43;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry x="574.1" y="411" width="12.0" height="18.0" as="geometry" />
+        </mxCell>
+        <mxCell id="52" parent="1" value="1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="586.6" y="434.0" width="15.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="53" parent="1" value="1..*" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="844.5" y="494.0" width="35.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="54" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="173.0" y="133" as="sourcePoint" />
+            <mxPoint x="525.0" y="248" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="173.0" y="190.5" />
+              <mxPoint x="525.0" y="190.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="55" parent="1" value="首选诊所" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="307.0" y="162.5" width="84.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="56" parent="1" value="0..1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="168.0" y="143.0" width="38.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="57" parent="1" value="0..*" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="493.5" y="216.0" width="35.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="58" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="329.5" as="sourcePoint" />
+            <mxPoint x="731" y="299.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="700.5" y="329.5" />
+              <mxPoint x="700.5" y="299.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="59" parent="1" value="1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="673.5" y="276" width="15.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="60" parent="1" value="0..1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="695.0" y="332" width="38.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="61" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#303a43;strokeWidth=1.45;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="876.0" y="133" as="sourcePoint" />
+            <mxPoint x="876.0" y="248" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="876.0" y="190.5" />
+              <mxPoint x="876.0" y="190.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="62" parent="1" value="1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="882.5" y="143.0" width="15.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="63" parent="1" value="0..1" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="843.0" y="216.0" width="38.0" height="28.0" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

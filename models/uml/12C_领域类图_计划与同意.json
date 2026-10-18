@@ -1,0 +1,258 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1046,
+  "height": 997,
+  "classes": [
+    {
+      "id": "临床就诊",
+      "name": "临床就诊",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "就诊编号",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "治疗计划",
+      "name": "治疗计划",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "版本号",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "形成时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        308
+      ]
+    },
+    {
+      "id": "计划项目",
+      "name": "计划项目",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "数量",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "牙位",
+          "type": "ToothCode"
+        },
+        {
+          "visibility": "-",
+          "name": "顺序",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "患者决定",
+          "type": "DecisionType"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        556
+      ]
+    },
+    {
+      "id": "同意证据",
+      "name": "同意证据",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "形式",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "内容版本",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "决定时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        834
+      ]
+    },
+    {
+      "id": "实际治疗",
+      "name": "实际治疗",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "单位数",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "实施时间",
+          "type": "DateTime"
+        },
+        {
+          "visibility": "-",
+          "name": "偏离原因",
+          "type": "String?"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        308
+      ]
+    },
+    {
+      "id": "治疗目录版本",
+      "name": "治疗目录版本",
+      "fill": "#EAF5F1",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "项目代码",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "版本号",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "单位",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "标准单价",
+          "type": "Decimal"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        728,
+        30
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "临床就诊",
+      "to": "治疗计划",
+      "kind": "composition",
+      "label": "拟议",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 治疗计划 : 拟议",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "治疗计划",
+      "to": "计划项目",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "治疗计划 \"1\" *-- \"1..*\" 计划项目",
+      "from_multiplicity": "1",
+      "to_multiplicity": "1..*"
+    },
+    {
+      "from": "计划项目",
+      "to": "同意证据",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "计划项目 \"1\" *-- \"0..*\" 同意证据 : 记录决定",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "计划项目",
+      "to": "实际治疗",
+      "kind": "association",
+      "label": "可选实现",
+      "source_notation": "计划项目 \"0..1\" -- \"0..1\" 实际治疗 : 可选实现",
+      "from_multiplicity": "0..1",
+      "to_multiplicity": "0..1"
+    },
+    {
+      "from": "临床就诊",
+      "to": "实际治疗",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 实际治疗",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "计划项目",
+      "to": "治疗目录版本",
+      "kind": "association",
+      "label": "项目版本",
+      "source_notation": "计划项目 \"0..*\" --> \"1\" 治疗目录版本 : 项目版本",
+      "from_multiplicity": "0..*",
+      "to_multiplicity": "1",
+      "navigable": true,
+      "from_side": "right",
+      "to_side": "bottom"
+    },
+    {
+      "from": "实际治疗",
+      "to": "治疗目录版本",
+      "kind": "association",
+      "label": "计价版本",
+      "source_notation": "实际治疗 \"0..*\" --> \"1\" 治疗目录版本 : 计价版本",
+      "from_multiplicity": "0..*",
+      "to_multiplicity": "1",
+      "navigable": true
+    }
+  ],
+  "basis": "PlantUML semantic master: 12C_领域类图_计划与同意.puml; UML relation notation follows the 2026 course material"
+}

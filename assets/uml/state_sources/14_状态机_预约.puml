@@ -1,0 +1,22 @@
+@startuml
+!include _state_style.puml
+
+state "已确认" as CONFIRMED
+state "已到诊" as ARRIVED
+state "诊疗中" as IN_CARE
+state "已完成" as COMPLETED #EEF7F1
+state "已取消" as CANCELLED #F8F8F8
+state "未到诊" as NO_SHOW #F8F8F8
+
+[*] -down-> CONFIRMED : T1
+CONFIRMED -down-> ARRIVED : T2
+ARRIVED -down-> IN_CARE : T3
+IN_CARE -down-> COMPLETED : T4
+
+CONFIRMED -left-> CANCELLED : T5
+ARRIVED -left-> CANCELLED : T6
+CONFIRMED -right-> NO_SHOW : T7
+
+COMPLETED -down-> [*]
+@enduml
+

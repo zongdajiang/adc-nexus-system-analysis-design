@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-02 安排诊疗预约
+actor "前台接待" as reception
+boundary "预约界面" as screen
+control "预约控制器" as control
+entity "资源日历" as calendar
+entity "预约" as booking
+reception -> screen: 提交预约(患者、时段)
+screen -> control: 安排预约(方案、版本)
+control -> calendar: 核验资源与资格()
+calendar --> control: 返回校验结果
+alt [资格或时段不满足]
+control --> screen: 返回冲突原因
+screen --> reception: 提示重新选时段
+else [资格及时段均满足]
+control -> calendar: 占用时段()
+calendar --> control: 占用确认
+control -> booking: 建立预约与历史()
+booking --> control: 返回预约编号
+control --> screen: 返回确认摘要
+screen --> reception: 显示预约结果
+end
+@enduml

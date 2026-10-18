@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1007.5" viewBox="0 0 864 1007.5">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="864" height="1007.5" fill="white"/>
+<ellipse cx="180" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,90 220,50" fill="none" stroke="#666666" stroke-width="1"/>
+<ellipse cx="180" cy="37.368421052631575" rx="7.368421052631579" ry="7.368421052631579" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,44.73684210526316 180,59.473684210526315" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="165.26315789473685,49.15789473684211 194.73684210526315,49.15789473684211" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,59.473684210526315 165.26315789473685,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,59.473684210526315 194.73684210526315,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="190,1 180,10 190,19" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="130.0" y="100" width="100" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="180" y="133.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">收费员</text>
+<polyline points="180,141 180,1003.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="472" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="472,90 512,50" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="393.0" y="100" width="158.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="472" y="134.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">诊疗管理系统</text>
+<polyline points="472,141 472,1003.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="764" cy="37.35" rx="7.3500000000000005" ry="7.3500000000000005" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="764,44.7 764,69.32249999999999" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="749.3,49.11 778.7,49.11" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="764,69.32249999999999 749.3,88.80000000000001" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="764,69.32249999999999 778.7,88.80000000000001" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="714.0" y="100" width="100" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="764" y="133.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">患者</text>
+<polyline points="764,141 764,1003.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="175.0" y="191" width="10" height="734" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="467.0" y="612" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="185.0,191 472,191" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="464.0,187.0 472,191 464.0,195.0 464.0,187.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="328.5" y="179.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">请求生成结算单()</text>
+<polyline points="472,330 185.0,330" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="193.0,334.0 185.0,330 193.0,326.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="328.5" y="318.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">结算单与逐项费用</text>
+<polyline points="185.0,393 764,393" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="756.0,389.0 764,393 756.0,397.0 756.0,389.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="474.5" y="381.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">展示费用明细</text>
+<polyline points="764,456 185.0,456" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="193.0,460.0 185.0,456 193.0,452.0 193.0,460.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="474.5" y="444.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">确认并提交付款凭据</text>
+<polyline points="185.0,519 220.0,519 220.0,545 185.0,545" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="193.0,549.0 185.0,545 193.0,541.0 193.0,549.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="228.0" y="546.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">核实实际收款</text>
+<polyline points="185.0,612 467.0,612" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="459.0,608.0 467.0,612 459.0,616.0 459.0,608.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="600.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">登记收款与凭据()</text>
+<polyline points="467.0,675 185.0,675" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="193.0,679.0 185.0,675 193.0,671.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="326.0" y="663.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">净收款与余额</text>
+<polyline points="185.0,738 764,738" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="756.0,734.0 764,738 756.0,742.0 756.0,734.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="474.5" y="726.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">提供结算凭据</text>
+<polyline points="472,850 185.0,850" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="193.0,854.0 185.0,850 193.0,846.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="328.5" y="836.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">阻断原因</text>
+<polyline points="185.0,913 764,913" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="756.0,909.0 764,913 756.0,917.0 756.0,909.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="474.5" y="901.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">说明暂不能结算</text>
+<rect x="50.0" y="225" width="759.0" height="720" rx="0" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="50.0,225 105.0,225 105.0,235 91.0,246 50.0,246" fill="#f7dca2" stroke="#000000" stroke-width="1"/>
+<text x="54.0" y="246.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="bold" fill="#000000">alt </text>
+<text x="198" y="274.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[允许开单]</text>
+<polyline points="50.0,777 809,777" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="198" y="804.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[阻断开单]</text>
+</svg>

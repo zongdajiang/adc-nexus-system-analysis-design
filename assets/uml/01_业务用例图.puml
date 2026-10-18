@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+actor "患者" as A0
+rectangle "安德鲁牙科连锁（ADC）" {
+  usecase "BUC-01\n获得牙科诊疗服务" as U0
+  usecase "BUC-02\n安排与变更诊疗预约" as U1
+  usecase "BUC-03\n完成诊疗费用结算" as U2
+  usecase "BUC-04\n获得复诊与连续照护" as U3
+}
+A0 --> U0
+A0 --> U1
+A0 --> U2
+A0 --> U3
+@enduml

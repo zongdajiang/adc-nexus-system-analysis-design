@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "临床就诊" as 临床就诊 {
+  -就诊编号: String
+  -状态: VisitStatus
+}
+class "临床记录" as 临床记录 {
+  -记录编号: String
+  -签署状态: SignatureStatus
+  --
+  + 修订(内容: String): 记录版本
+  + 签署(期望版本: Integer): ValidationResult
+}
+class "记录版本" as 记录版本 {
+  -版本号: Integer
+  -内容: String
+  -作者: String
+  -形成时间: DateTime
+}
+class "过敏确认" as 过敏确认 {
+  -处置: String
+  -确认人: String
+  -确认时间: DateTime
+}
+class "过敏" as 过敏 {
+  -物质: String
+  -核实状态: AllergyStatus
+}
+临床就诊 "1" *-- "1" 临床记录
+临床记录 "1" *-- "1..*" 记录版本
+临床就诊 "1" *-- "0..*" 过敏确认
+过敏 "1" -- "0..*" 过敏确认
+@enduml

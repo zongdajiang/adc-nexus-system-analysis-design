@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "患者" as 患者 {
+  -患者编号: String
+  -姓名: String
+  -出生日期: Date
+  -电话: String
+}
+class "紧急联系人" as 紧急联系人 {
+  -姓名: String
+  -与患者关系: String
+  -电话: String
+}
+class "过敏" as 过敏 {
+  -物质: String
+  -反应: String
+  -核实状态: AllergyStatus
+}
+class "病史版本" as 病史版本 {
+  -版本号: Integer
+  -形成时间: DateTime
+  -记录来源: String
+}
+class "诊所" as 诊所 {
+  -诊所编号: String
+  -名称: String
+}
+class "系统账户" as 系统账户 {
+  -账户编号: String
+  -状态: AccountStatus
+}
+class "患者账户绑定" as 患者账户绑定 {
+  -核实方式: String
+  -核实时间: DateTime
+}
+患者 "1" *-- "0..*" 紧急联系人
+患者 "1" *-- "0..*" 过敏
+患者 "1" *-- "1..*" 病史版本
+诊所 "0..1" -- "0..*" 患者 : 首选诊所
+患者 "1" -- "0..1" 患者账户绑定
+系统账户 "1" -- "0..1" 患者账户绑定
+@enduml

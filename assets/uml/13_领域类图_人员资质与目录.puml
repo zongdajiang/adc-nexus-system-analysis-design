@@ -1,0 +1,47 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "诊所" as 诊所 {
+  -诊所编号: String
+  -名称: String
+}
+class "牙医" as 牙医 {
+  -员工编号: String
+  -姓名: String
+}
+class "任职" as 任职 {
+  -生效日期: Date
+  -失效日期: Date?
+  -职责: String
+}
+class "资质证书" as 资质证书 {
+  -证书编号: String
+  -签发机构: String
+  -生效日期: Date
+  -到期日期: Date?
+  --
+  + 在日期有效(服务日期: Date): Boolean
+}
+class "资质类型" as 资质类型 {
+  -资质代码: String
+  -名称: String
+}
+class "治疗目录版本" as 治疗目录版本 {
+  -项目代码: String
+  -版本号: Integer
+  -名称: String
+  -单位: String
+  -标准单价: Decimal
+}
+class "资质要求" as 资质要求 {
+  -是否必需: Boolean
+  -生效日期: Date
+  -失效日期: Date?
+}
+牙医 "1" -- "0..*" 任职 : 任职记录
+诊所 "1" -- "0..*" 任职
+牙医 "1" -- "0..*" 资质证书 : 持有
+资质类型 "1" -- "0..*" 资质证书 : 证书类别
+资质类型 "1" -- "0..*" 资质要求
+治疗目录版本 "1" -- "0..*" 资质要求 : 项目要求
+@enduml

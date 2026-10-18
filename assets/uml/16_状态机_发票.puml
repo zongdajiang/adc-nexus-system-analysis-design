@@ -1,0 +1,17 @@
+@startuml
+!include _state_style.puml
+
+state "已开具" as ISSUED
+state "部分收款" as PARTIAL #FFF8E8
+state "已结清" as SETTLED #EEF7F1
+state "已作废" as VOIDED #F8F8F8
+
+[*] -down-> ISSUED : T1
+ISSUED -left-> PARTIAL : T2
+ISSUED -down-> SETTLED : T3
+PARTIAL -down-> SETTLED : T4
+ISSUED -right-> VOIDED : T5
+
+SETTLED -down-> [*]
+@enduml
+

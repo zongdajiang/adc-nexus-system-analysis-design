@@ -1,0 +1,46 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "临床就诊" as 临床就诊 {
+  -完成时间: DateTime?
+  --
+  + 形成结算快照(): BillingSnapshot
+}
+class "实际治疗" as 实际治疗 {
+  -单位数: Decimal
+  -单价快照: Decimal
+}
+class "诊疗结算单" as 诊疗结算单 {
+  -单号: String
+  -开具时间: DateTime
+  -合计: Decimal
+  -状态: InvoiceStatus
+  --
+  + 计算金额(): Decimal
+  + 计算余额(): Decimal
+}
+class "结算明细" as 结算明细 {
+  -描述快照: String
+  -单位快照: String
+  -数量: Decimal
+  -单价快照: Decimal
+  -/小计: Decimal
+}
+class "收款" as 收款 {
+  -金额: Decimal
+  -方式: PaymentMethod
+  -核实时间: DateTime
+  -外部参考: String
+}
+class "退款" as 退款 {
+  -金额: Decimal
+  -原因: String
+  -处理时间: DateTime
+}
+临床就诊 "1" *-- "0..*" 实际治疗
+临床就诊 "1" -- "0..1" 诊疗结算单 : 开具
+诊疗结算单 "1" *-- "1..*" 结算明细
+实际治疗 "1" -- "0..1" 结算明细 : 计价来源
+诊疗结算单 "1" -- "0..*" 收款
+收款 "1" -- "0..*" 退款 : 原款项
+@enduml

@@ -1,0 +1,23 @@
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam dpi 220
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontColor #263238
+skinparam defaultFontSize 16
+skinparam stateFontName "Microsoft YaHei"
+skinparam stateFontSize 18
+skinparam stateFontColor #1F2933
+skinparam stateBorderColor #455A64
+skinparam stateBackgroundColor #F5F8FA
+skinparam stateStartColor #263238
+skinparam stateEndColor #263238
+skinparam ArrowColor #455A64
+skinparam ArrowFontName "Microsoft YaHei"
+skinparam ArrowFontSize 15
+skinparam ArrowThickness 1.4
+skinparam nodesep 180
+skinparam ranksep 130
+skinparam roundcorner 14
+skinparam linetype ortho
+hide empty description
+

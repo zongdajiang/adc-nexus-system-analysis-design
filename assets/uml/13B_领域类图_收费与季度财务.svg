@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1129" height="1057" viewBox="0 0 1129 1057">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1129" height="1057" fill="white"/>
+<rect x="378" y="30" width="373" height="103" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="378" y="30" width="373" height="43" rx="0" fill="#FFF2E9" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="564.5" y="59.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">临床就诊</text>
+<text x="390" y="94.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 完成时间: DateTime?</text>
+<polyline points="378,103 751,103" fill="none" stroke="#5d6a70" stroke-width="1"/>
+<text x="390" y="124.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">+ 形成结算快照(): BillingSnapshot</text>
+<rect x="28" y="248" width="290" height="103" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="28" y="248" width="290" height="43" rx="0" fill="#FFF2E9" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="173.0" y="277.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">实际治疗</text>
+<text x="40" y="312.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 单位数: Decimal</text>
+<text x="40" y="342.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 单价快照: Decimal</text>
+<rect x="811" y="248" width="290" height="223" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="811" y="248" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="956.0" y="277.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">诊疗结算单</text>
+<text x="823" y="313.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 单号: String</text>
+<text x="823" y="342.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 开具时间: DateTime</text>
+<text x="823" y="372.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 合计: Decimal</text>
+<text x="823" y="402.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 状态: InvoiceStatus</text>
+<polyline points="811,411 1101,411" fill="none" stroke="#5d6a70" stroke-width="1"/>
+<text x="823" y="432.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">+ 计算金额(): Decimal</text>
+<text x="823" y="462.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">+ 计算余额(): Decimal</text>
+<rect x="28" y="586" width="290" height="193" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="28" y="586" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="173.0" y="615.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">结算明细</text>
+<text x="40" y="650.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 描述快照: String</text>
+<text x="40" y="680.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 单位快照: String</text>
+<text x="40" y="711.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 数量: Decimal</text>
+<text x="40" y="740.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 单价快照: Decimal</text>
+<text x="40" y="770.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- /小计: Decimal</text>
+<rect x="811" y="586" width="290" height="163" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="811" y="586" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="956.0" y="615.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">收款</text>
+<text x="823" y="650.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 金额: Decimal</text>
+<text x="823" y="680.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 方式: PaymentMethod</text>
+<text x="823" y="710.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 核实时间: DateTime</text>
+<text x="823" y="740.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 外部参考: String</text>
+<rect x="811" y="894" width="290" height="133" rx="0" fill="white" stroke="#5d6a70" stroke-width="1.35"/>
+<rect x="811" y="894" width="290" height="43" rx="0" fill="#F2EFFA" stroke="#5d6a70" stroke-width="1.35"/>
+<text x="956.0" y="923.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="24.0" font-weight="bold" fill="#000000">退款</text>
+<text x="823" y="958.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 金额: Decimal</text>
+<text x="823" y="989.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 原因: String</text>
+<text x="823" y="1018.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">- 处理时间: DateTime</text>
+<polyline points="517.2533333333333,133 517.2533333333333,190.5 173.0,190.5 173.0,248" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<polygon points="517.2533333333333,133 523.2533333333333,142.0 517.2533333333333,151.0 511.25333333333333,142.0" fill="#303a43" stroke="#303a43" stroke-width="1.45"/>
+<text x="531.2533333333333" y="173.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="159.0" y="233.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+<polyline points="611.7466666666667,133 611.7466666666667,190.5 956.0,190.5 956.0,248" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<text x="783.8733333333333" y="179.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">开具</text>
+<text x="625.7466666666667" y="160.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="942.0" y="233.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..1</text>
+<polyline points="919.2666666666667,471 919.2666666666667,528.5 209.73333333333332,528.5 209.73333333333332,586" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<polygon points="919.2666666666667,471 925.2666666666667,480.0 919.2666666666667,489.0 913.2666666666667,480.0" fill="#303a43" stroke="#303a43" stroke-width="1.45"/>
+<text x="933.2666666666667" y="511.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="195.73333333333332" y="571.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1..*</text>
+<polyline points="173.0,351 173.0,468.5 136.26666666666665,468.5 136.26666666666665,586" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<text x="221.0" y="417.75" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">计价来源</text>
+<text x="187.0" y="378.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="122.26666666666665" y="571.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..1</text>
+<polyline points="992.7333333333333,471 992.7333333333333,528.5 956.0,528.5 956.0,586" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<text x="1006.7333333333333" y="498.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="942.0" y="571.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+<polyline points="956.0,749 956.0,821.5 956.0,821.5 956.0,894" fill="none" stroke="#303a43" stroke-width="1.45"/>
+<text x="1004.0" y="793.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">原款项</text>
+<text x="970.0" y="776.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">1</text>
+<text x="942.0" y="879.0" text-anchor="middle" font-family="Arial,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">0..*</text>
+</svg>

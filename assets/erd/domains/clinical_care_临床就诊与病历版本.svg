@@ -1,0 +1,371 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2620px" height="1722px" viewBox="0 0 2620 1722">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F6B76"/></marker></defs>
+<rect x="0" y="0" width="2620" height="1722" fill="#F4F5F6"/>
+<text x="70.0" y="72.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="32" font-weight="700" fill="#1F2A33" text-anchor="start">ADC Nexus 安德鲁牙科连锁运营管理系统 · 临床就诊与病历版本关系数据图</text>
+<text x="70.0" y="112.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="400" fill="#58636D" text-anchor="start">61 张表 · 730 个字段 · 119 条外键</text>
+<rect x="25" y="110" width="2570" height="1552" rx="38" fill="#F1DFE3" fill-opacity="0.72" stroke="#87929B" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="53.0" y="152.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="25" font-weight="700" fill="#27323A" text-anchor="start">临床就诊与病历版本</text>
+<polyline points="1780.0,955.0 1708.0,955.0 1708.0,501.0 858.0,501.0 858.0,457.0 840.0,457.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="80.0,1334.0 62.0,1334.0 62.0,450.0 80.0,450.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="930.0,1201.0 858.0,1201.0 858.0,927.0 840.0,927.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="460.0,761.0 460.0,707.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="1780.0,415.0 1708.0,415.0 1708.0,501.0 858.0,501.0 858.0,429.0 840.0,429.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="930.0,780.0 858.0,780.0 858.0,422.0 840.0,422.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<polyline points="930.0,345.0 858.0,345.0 858.0,415.0 840.0,415.0" fill="none" stroke="#5F6B76" stroke-width="2.2" opacity=".88" marker-end="url(#arrow)"/>
+<rect x="80" y="165" width="760" height="542" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="80" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="92.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">CLINICAL_VISITS（临床就诊）</text>
+<text x="90.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="152.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="830.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="247" x2="840" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_code</text>
+<text x="830.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="275" x2="840" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">appointment_id → appointments</text>
+<text x="830.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="303" x2="840" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">patient_id → patients</text>
+<text x="830.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="331" x2="840" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">clinic_id → clinics</text>
+<text x="830.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="359" x2="840" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">dentist_id → dentists</text>
+<text x="830.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="387" x2="840" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">chair_id → clinic_chairs</text>
+<text x="830.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="415" x2="840" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="830.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX · DEF</text>
+<line x1="80" y1="443" x2="840" y2="443" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">chief_complaint_en</text>
+<text x="830.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="471" x2="840" y2="471" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">chief_complaint_zh</text>
+<text x="830.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="499" x2="840" y2="499" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">safety_gate_status</text>
+<text x="830.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="527" x2="840" y2="527" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="547.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">started_at</text>
+<text x="830.0" y="547.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="555" x2="840" y2="555" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="575.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">completed_at</text>
+<text x="830.0" y="575.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="583" x2="840" y2="583" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="603.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_version</text>
+<text x="830.0" y="603.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="80" y1="611" x2="840" y2="611" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="631.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="631.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_by_user_id → app_users</text>
+<text x="830.0" y="631.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="639" x2="840" y2="639" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="659.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="830.0" y="659.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="667" x2="840" y2="667" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="687.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">updated_at</text>
+<text x="830.0" y="687.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="930" y="165" width="760" height="318" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="930" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="942.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">VISIT_ALLERGY_ACKNOWLEDGEMENTS（就诊过敏复核）</text>
+<text x="940.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1002.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="1680.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="247" x2="1690" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="1680.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="275" x2="1690" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">allergy_id → patient_allergies</text>
+<text x="1680.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="303" x2="1690" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">acknowledged_by_user_id → app_users</text>
+<text x="1680.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="331" x2="1690" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">acknowledged_at</text>
+<text x="1680.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="359" x2="1690" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">precaution_en</text>
+<text x="1680.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="387" x2="1690" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">precaution_zh</text>
+<text x="1680.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="415" x2="1690" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">outcome</text>
+<text x="1680.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="443" x2="1690" y2="443" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="1680.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="1780" y="165" width="760" height="486" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="1780" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="1792.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">ODONTOGRAM_OBSERVATIONS（牙位观察）</text>
+<text x="1790.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1852.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="2530.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="247" x2="2540" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="2530.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="275" x2="2540" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">patient_id → patients</text>
+<text x="2530.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="303" x2="2540" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">tooth_code</text>
+<text x="2530.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="331" x2="2540" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">dentition</text>
+<text x="2530.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="359" x2="2540" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">surfaces_json</text>
+<text x="2530.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="387" x2="2540" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">observation_type</text>
+<text x="2530.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="415" x2="2540" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">severity</text>
+<text x="2530.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="443" x2="2540" y2="443" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">finding_en</text>
+<text x="2530.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="471" x2="2540" y2="471" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">finding_zh</text>
+<text x="2530.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="499" x2="2540" y2="499" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="2530.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="527" x2="2540" y2="527" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="547.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="547.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">observed_by_dentist_id → dentists</text>
+<text x="2530.0" y="547.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="555" x2="2540" y2="555" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="575.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">observed_at</text>
+<text x="2530.0" y="575.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="583" x2="2540" y2="583" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="603.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">supersedes_observation_id</text>
+<text x="2530.0" y="603.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="611" x2="2540" y2="611" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="631.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="2530.0" y="631.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="930" y="537" width="760" height="458" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="930" y="537" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="942.0" y="573.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">TREATMENT_PLANS（治疗计划）</text>
+<text x="940.0" y="611.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1002.0" y="611.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="1680.0" y="611.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="619" x2="1690" y2="619" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="1680.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="647" x2="1690" y2="647" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">plan_code</text>
+<text x="1680.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="675" x2="1690" y2="675" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="1680.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX · DEF</text>
+<line x1="930" y1="703" x2="1690" y2="703" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">clinical_priority</text>
+<text x="1680.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="731" x2="1690" y2="731" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">estimated_total_fen</text>
+<text x="1680.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="930" y1="759" x2="1690" y2="759" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">acceptance_status</text>
+<text x="1680.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="787" x2="1690" y2="787" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">accepted_at</text>
+<text x="1680.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="815" x2="1690" y2="815" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">accepted_by</text>
+<text x="1680.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="843" x2="1690" y2="843" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">valid_until</text>
+<text x="1680.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="871" x2="1690" y2="871" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">notes_en</text>
+<text x="1680.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="899" x2="1690" y2="899" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">notes_zh</text>
+<text x="1680.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="927" x2="1690" y2="927" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="1680.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="955" x2="1690" y2="955" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">updated_at</text>
+<text x="1680.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="1780" y="705" width="760" height="542" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="1780" y="705" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="1792.0" y="741.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">ACTUAL_TREATMENT_ITEMS（实际治疗项目）</text>
+<text x="1790.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1852.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="2530.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="787" x2="2540" y2="787" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="2530.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="815" x2="2540" y2="815" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">requested_treatment_item_id → requested_treatmen…</text>
+<text x="2530.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL · IDX</text>
+<line x1="1780" y1="843" x2="2540" y2="843" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">treatment_id → treatment_catalog</text>
+<text x="2530.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="871" x2="2540" y2="871" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">provider_dentist_id → dentists</text>
+<text x="2530.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="899" x2="2540" y2="899" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">tooth_code</text>
+<text x="2530.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="927" x2="2540" y2="927" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">surfaces_json</text>
+<text x="2530.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="955" x2="2540" y2="955" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">units</text>
+<text x="2530.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="1780" y1="983" x2="2540" y2="983" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">effective_unit_price_fen</text>
+<text x="2530.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN</text>
+<line x1="1780" y1="1011" x2="2540" y2="1011" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1031.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">line_amount_fen</text>
+<text x="2530.0" y="1031.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN</text>
+<line x1="1780" y1="1039" x2="2540" y2="1039" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1059.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">price_source</text>
+<text x="2530.0" y="1059.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="1067" x2="2540" y2="1067" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1087.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">price_override_reason</text>
+<text x="2530.0" y="1087.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="1095" x2="2540" y2="1095" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1115.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">notes_en</text>
+<text x="2530.0" y="1115.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="1123" x2="2540" y2="1123" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1143.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">notes_zh</text>
+<text x="2530.0" y="1143.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="1151" x2="2540" y2="1151" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1171.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">performed_at</text>
+<text x="2530.0" y="1171.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="1179" x2="2540" y2="1179" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1199.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="2530.0" y="1199.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="1780" y1="1207" x2="2540" y2="1207" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="1227.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="2530.0" y="1227.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="80" y="761" width="760" height="318" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="80" y="761" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="92.0" y="797.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">CLINICAL_NOTES（临床记录）</text>
+<text x="90.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="152.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="830.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="843" x2="840" y2="843" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="830.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="871" x2="840" y2="871" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">note_type</text>
+<text x="830.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX · DEF</text>
+<line x1="80" y1="899" x2="840" y2="899" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">current_version</text>
+<text x="830.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="80" y1="927" x2="840" y2="927" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="830.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="955" x2="840" y2="955" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">signed_by_dentist_id → dentists</text>
+<text x="830.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="983" x2="840" y2="983" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">signed_at</text>
+<text x="830.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="1011" x2="840" y2="1011" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1031.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="830.0" y="1031.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="1039" x2="840" y2="1039" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1059.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">updated_at</text>
+<text x="830.0" y="1059.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="930" y="1049" width="760" height="318" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="930" y="1049" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="942.0" y="1085.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">CLINICAL_NOTE_VERSIONS（临床记录版本）</text>
+<text x="940.0" y="1123.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1002.0" y="1123.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="1680.0" y="1123.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="1131" x2="1690" y2="1131" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="1151.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="1151.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">clinical_note_id → clinical_notes</text>
+<text x="1680.0" y="1151.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="1159" x2="1690" y2="1159" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1179.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">version_number</text>
+<text x="1680.0" y="1179.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · IDX</text>
+<line x1="930" y1="1187" x2="1690" y2="1187" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1207.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">content_en</text>
+<text x="1680.0" y="1207.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="1215" x2="1690" y2="1215" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1235.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">content_zh</text>
+<text x="1680.0" y="1235.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="1243" x2="1690" y2="1243" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1263.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">amendment_reason</text>
+<text x="1680.0" y="1263.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="1271" x2="1690" y2="1271" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="1291.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="1291.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">author_user_id → app_users</text>
+<text x="1680.0" y="1291.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="1299" x2="1690" y2="1299" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1319.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">content_checksum</text>
+<text x="1680.0" y="1319.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="1327" x2="1690" y2="1327" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1347.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="1680.0" y="1347.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="80" y="1133" width="760" height="430" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="80" y="1133" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="92.0" y="1169.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">CLINICAL_ATTACHMENTS（临床附件）</text>
+<text x="90.0" y="1207.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="152.0" y="1207.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="830.0" y="1207.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="1215" x2="840" y2="1215" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="1235.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="1235.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">visit_id → clinical_visits</text>
+<text x="830.0" y="1235.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="1243" x2="840" y2="1243" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1263.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">category</text>
+<text x="830.0" y="1263.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="1271" x2="840" y2="1271" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1291.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">file_name</text>
+<text x="830.0" y="1291.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="1299" x2="840" y2="1299" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1319.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">mime_type</text>
+<text x="830.0" y="1319.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="1327" x2="840" y2="1327" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1347.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">storage_key</text>
+<text x="830.0" y="1347.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="1355" x2="840" y2="1355" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1375.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">size_bytes</text>
+<text x="830.0" y="1375.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN</text>
+<line x1="80" y1="1383" x2="840" y2="1383" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1403.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">description_en</text>
+<text x="830.0" y="1403.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="1411" x2="840" y2="1411" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1431.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">description_zh</text>
+<text x="830.0" y="1431.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="1439" x2="840" y2="1439" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1459.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">content_checksum</text>
+<text x="830.0" y="1459.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="1467" x2="840" y2="1467" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1487.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">captured_at</text>
+<text x="830.0" y="1487.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="1495" x2="840" y2="1495" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1515.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="830.0" y="1515.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="1523" x2="840" y2="1523" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="1543.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="830.0" y="1543.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<text x="70.0" y="1662.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="18" font-weight="400" fill="#43515C" text-anchor="start">图例：PK 主键｜FK 外键｜NN 不可空｜NULL 可空｜IDX 索引｜DEF 默认值｜箭头指向被引用父表</text>
+</svg>

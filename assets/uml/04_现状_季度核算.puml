@@ -1,0 +1,21 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 现状业务：季度经营核算
+actor "诊所经理" as M <<业务工人>>
+actor "总部财务" as F <<业务工人>>
+actor "负责人" as A <<业务工人>>
+M -> M: 汇总本店收入与费用
+M -> F: 提交汇总表及归属依据
+F -> F: 核对凭据及统计口径
+opt [存在差异]
+F -> M: 请求核实差异
+M -> M: 回查原始凭据
+M --> F: 提交更正与依据
+end
+F -> F: 核算贡献、利润和基金
+F -> A: 提交季度结果
+A -> F: 询问指定结果来源
+F -> F: 回查原始资料
+F --> A: 提供核算依据
+@enduml

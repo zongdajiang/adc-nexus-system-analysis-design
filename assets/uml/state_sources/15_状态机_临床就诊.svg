@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1520px" viewBox="0 0 1600 1520">
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 z" fill="#455A64"/></marker>
+</defs>
+<rect width="1600" height="1520" fill="#FFFFFF"/>
+<circle id="start" cx="800" cy="70" r="20" fill="#263238"/>
+<polygon id="gate" points="800,218 832,250 800,282 768,250" fill="#FFFFFF" stroke="#455A64" stroke-width="2.6"/>
+<text x="800" y="200" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#263238">风险分流</text>
+<g id="waiting"><rect x="270.0" y="384.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
+<text x="400" y="442" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">待诊疗</text></g>
+<g id="review"><rect x="1070.0" y="384.0" width="260" height="92" rx="18" fill="#FFF8E8" stroke="#455A64" stroke-width="2.6"/>
+<text x="1200" y="442" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">安全复核</text></g>
+<g id="in_care"><rect x="270.0" y="814.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
+<text x="400" y="872" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">诊疗中</text></g>
+<g id="completed"><rect x="270.0" y="1164.0" width="260" height="92" rx="18" fill="#EDF7F1" stroke="#455A64" stroke-width="2.6"/>
+<text x="400" y="1222" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已完成</text></g>
+<circle id="final" cx="400" cy="1430" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
+<circle cx="400" cy="1430" r="15" fill="#263238"/>
+<polyline id="t1" points="800,90 800,218" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="440.0" y="117.0" width="300" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="590" y="155" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">建立就诊记录</text>
+<polyline id="t2" points="768,250 650,250 650,430 530,430" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="345.0" y="287.0" width="310" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="500" y="325" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#263238">[无未处理风险]</text>
+<polyline id="t3" points="832,250 950,250 950,430 1070,430" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="935.0" y="287.0" width="330" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="1100" y="325" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#263238">[存在待处理风险]</text>
+<polyline id="t4" points="1200,476 1200,650 400,650 400,476" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="590.0" y="553.0" width="420" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="800" y="591" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">完成安全复核</text>
+<text x="800" y="629" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[风险已确认或处置]</text>
+<polyline id="t5" points="400,476 400,814" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="-60.0" y="653.0" width="430" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="155" y="691" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">开始诊疗</text>
+<text x="155" y="729" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[身份、资质与资源均有效]</text>
+<polyline id="t6" points="400,906 400,1164" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<rect x="440.0" y="988.0" width="470" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
+<text x="675" y="1026" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">完成就诊</text>
+<text x="675" y="1064" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[病历已签署且项目已核对]</text>
+<polyline id="t7" points="400,1256 400,1404" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+</svg>

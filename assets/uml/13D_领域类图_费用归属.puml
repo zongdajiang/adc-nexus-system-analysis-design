@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "财务期间" as 财务期间 {
+  -开始日期: Date
+  -结束日期: Date
+  -是否锁定: Boolean
+}
+class "运营费用" as 运营费用 {
+  -类别: String
+  -金额: Decimal
+  -发生日期: Date
+}
+class "费用归属" as 费用归属 {
+  -归属金额: Decimal
+  -归集方式: String
+  -分摊依据: String
+}
+class "牙医季度贡献" as 牙医季度贡献 {
+  -结果版本: Integer
+  -收入: Decimal
+  -用品成本: Decimal
+  -运营费用: Decimal
+  -/贡献: Decimal
+}
+财务期间 "1" *-- "0..*" 运营费用
+运营费用 "1" *-- "0..*" 费用归属 : 分摊记录
+牙医季度贡献 "1" -- "0..*" 费用归属 : 计入贡献
+@enduml

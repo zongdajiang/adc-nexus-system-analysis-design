@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="962.5" viewBox="0 0 864 962.5">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="864" height="962.5" fill="white"/>
+<ellipse cx="180" cy="37.35" rx="7.3500000000000005" ry="7.3500000000000005" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,44.7 180,69.32249999999999" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="165.3,49.11 194.7,49.11" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,69.32249999999999 165.3,88.80000000000001" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="180,69.32249999999999 194.7,88.80000000000001" fill="none" stroke="#000000" stroke-width="1"/>
+<rect x="130.0" y="100" width="100" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="180" y="133.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">患者</text>
+<polyline points="180,141 180,958.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="472" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="472,90 512,50" fill="none" stroke="#666666" stroke-width="1"/>
+<ellipse cx="472" cy="37.368421052631575" rx="7.368421052631579" ry="7.368421052631579" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="472,44.73684210526316 472,59.473684210526315" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="457.2631578947368,49.15789473684211 486.7368421052632,49.15789473684211" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="472,59.473684210526315 457.2631578947368,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="472,59.473684210526315 486.7368421052632,74.21052631578948" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="482,1 472,10 482,19" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="416.0" y="100" width="112.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="472" y="134.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">前台接待</text>
+<polyline points="472,141 472,958.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="764" cy="50" rx="40" ry="40" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="764,90 804,50" fill="none" stroke="#666666" stroke-width="1"/>
+<rect x="685.0" y="100" width="158.0" height="40" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="764" y="134.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">诊疗管理系统</text>
+<polyline points="764,141 764,958.5" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="467.0" y="191" width="10" height="689" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<rect x="759.0" y="254" width="10" height="75" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="180,191 467.0,191" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="459.0,187.0 467.0,191 459.0,195.0 459.0,187.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="323.5" y="178.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">报到并提供身份信息</text>
+<polyline points="477.0,254 759.0,254" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="751.0,250.0 759.0,254 751.0,258.0 751.0,250.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="242.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">查找当日预约()</text>
+<polyline points="759.0,317 477.0,317" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,321.0 477.0,317 485.0,313.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="618.0" y="305.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">预约及身份摘要</text>
+<polyline points="467.0,380 180,380" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="188.0,384.0 180,380 188.0,376.0 188.0,384.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="323.5" y="368.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">核对身份与资料变化</text>
+<polyline points="180,443 467.0,443" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="459.0,439.0 467.0,443 459.0,447.0 459.0,439.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="323.5" y="431.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">确认并申报变化</text>
+<polyline points="477.0,506 764,506" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="756.0,502.0 764,506 756.0,510.0 756.0,502.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="494.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">办理到诊(核实结果)</text>
+<polyline points="764,639 477.0,639" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,643.0 477.0,639 485.0,635.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="626.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">到诊已登记</text>
+<polyline points="467.0,702 180,702" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="188.0,706.0 180,702 188.0,698.0 188.0,706.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="323.5" y="691.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">告知候诊安排</text>
+<polyline points="764,805 477.0,805" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="485.0,809.0 477.0,805 485.0,801.0" fill="none" stroke="#000000" stroke-width="1"/>
+<text x="620.5" y="792.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">待处理原因</text>
+<polyline points="467.0,868 180,868" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="188.0,872.0 180,868 188.0,864.0 188.0,872.0" fill="#000000" stroke="#000000" stroke-width="1"/>
+<text x="323.5" y="856.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">说明核实要求</text>
+<rect x="50.0" y="574" width="759.0" height="326" rx="0" fill="none" stroke="#000000" stroke-width="1"/>
+<polygon points="50.0,574 105.0,574 105.0,584 91.0,595 50.0,595" fill="#f7dca2" stroke="#000000" stroke-width="1"/>
+<text x="54.0" y="595.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="bold" fill="#000000">alt </text>
+<text x="198" y="619.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[核实通过]</text>
+<polyline points="50.0,757 809,757" fill="none" stroke="#000000" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="198" y="784.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="23" font-weight="normal" fill="#000000">[未通过]</text>
+</svg>

@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "财务期间" as 财务期间 {
+  -开始日期: Date
+  -结束日期: Date
+  -是否锁定: Boolean
+}
+class "网络季度结果" as 网络季度结果 {
+  -结果版本: Integer
+  -核定状态: ResultStatus
+  -收入: Decimal
+  -用品成本: Decimal
+  -运营费用: Decimal
+  -/净利润: Decimal
+}
+class "激励基金" as 激励基金 {
+  -提取比例: Decimal
+  -/金额: Decimal
+}
+class "牙医季度贡献" as 牙医季度贡献 {
+  -结果版本: Integer
+  -收入: Decimal
+  -用品成本: Decimal
+  -运营费用: Decimal
+  -/贡献: Decimal
+}
+class "牙医" as 牙医 {
+  -员工编号: String
+}
+财务期间 "1" *-- "0..*" 网络季度结果 : 结果版本
+网络季度结果 "1" *-- "0..1" 激励基金 : 核定提取
+网络季度结果 "1" *-- "0..*" 牙医季度贡献 : 汇总
+牙医 "1" -- "0..*" 牙医季度贡献 : 归属
+@enduml

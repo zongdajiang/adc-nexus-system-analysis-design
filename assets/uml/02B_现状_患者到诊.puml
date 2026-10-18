@@ -1,0 +1,20 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 现状业务：预约日到诊
+actor "患者" as P
+actor "前台接待" as R <<业务工人>>
+actor "牙医" as D <<业务工人>>
+P -> R: 报到并提供身份信息
+R -> R: 查阅当日预约及本店档案
+R -> P: 核对身份和资料变化
+P -> R: 确认并申报变化
+alt [信息一致]
+R -> R: 登记到诊及变化声明
+R -> D: 移交就诊资料
+D -> D: 接收待诊资料
+R -> P: 告知候诊安排
+else [待核实]
+R -> P: 说明待核实事项
+end
+@enduml

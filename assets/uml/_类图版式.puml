@@ -1,0 +1,22 @@
+' 领域与分析类图：中文业务名、标准矩形分栏、无阴影和装饰图标。
+!pragma layout smetana
+skinparam backgroundColor white
+skinparam monochrome false
+skinparam shadowing false
+skinparam dpi 600
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 16
+skinparam classFontSize 17
+skinparam classAttributeFontSize 14
+skinparam classArrowFontSize 13
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor white
+skinparam classHeaderBackgroundColor white
+skinparam classBorderColor #5D6D75
+skinparam ArrowColor #3E4D55
+skinparam ArrowThickness 1
+skinparam nodesep 85
+skinparam ranksep 95
+skinparam linetype polyline
+hide circle
+hide empty members

@@ -1,0 +1,26 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-09 生成诊疗结算单
+actor "收费员" as cashier
+boundary "结算界面" as screen
+control "结算控制器" as control
+entity "临床就诊" as visit
+entity "诊疗结算单" as invoice
+cashier -> screen: 提交开单(就诊号)
+screen -> control: 生成结算单(就诊号)
+control -> visit: 取得实际治疗()
+visit --> control: 治疗清单与版本
+control -> invoice: 查找该就诊已有单据()
+invoice --> control: 返回已存在单据
+alt [有效单据已存在]
+control --> screen: 返回原单据编号
+screen --> cashier: 显示原单据
+else [无单据且来源完整]
+control -> invoice: 建立单据与价格快照()
+invoice -> invoice: 汇总应收金额()
+invoice --> control: 单据编号与金额
+control --> screen: 返回新单据
+screen --> cashier: 显示逐项费用
+end
+@enduml

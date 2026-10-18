@@ -1,0 +1,42 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam dpi 220
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 16
+skinparam classFontSize 17
+skinparam classBorderColor #3F4A50
+skinparam classBackgroundColor white
+skinparam ArrowColor #3F4A50
+skinparam linetype ortho
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam classAttributeIconSize 0
+top to bottom direction
+hide empty members
+hide circle
+
+class "预约服务" as Service <<控制>> {
+  +安排预约()
+  +改期()
+}
+interface "预约仓储接口" as Repository {
+  +查询占用()
+  +保存预约与历史()
+}
+class "D1 预约仓储" as Adapter <<数据访问>>
+class "预约表" as Appointment <<关系表>>
+class "状态历史表" as History <<关系表>>
+class "牙椅表" as Chair <<关系表>>
+
+Service ..> Repository
+Adapter ..|> Repository
+Adapter ..> Appointment
+Adapter ..> History
+Adapter ..> Chair
+Service -[hidden]down- Repository
+Repository -[hidden]down- Adapter
+Appointment -[hidden]right- History
+History -[hidden]right- Chair
+Adapter -[hidden]down- History
+@enduml

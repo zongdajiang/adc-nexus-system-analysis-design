@@ -1,0 +1,173 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1046,
+  "height": 749,
+  "classes": [
+    {
+      "id": "财务期间",
+      "name": "财务期间",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "开始日期",
+          "type": "Date"
+        },
+        {
+          "visibility": "-",
+          "name": "结束日期",
+          "type": "Date"
+        },
+        {
+          "visibility": "-",
+          "name": "是否锁定",
+          "type": "Boolean"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "运营费用",
+      "name": "运营费用",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "类别",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "金额",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "发生日期",
+          "type": "Date"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        338
+      ]
+    },
+    {
+      "id": "费用归属",
+      "name": "费用归属",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "归属金额",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "归集方式",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "分摊依据",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        586
+      ]
+    },
+    {
+      "id": "牙医季度贡献",
+      "name": "牙医季度贡献",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "结果版本",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "收入",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "用品成本",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "运营费用",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "/贡献",
+          "type": "Decimal"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        728,
+        30
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "财务期间",
+      "to": "运营费用",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "财务期间 \"1\" *-- \"0..*\" 运营费用 : 归集期间",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "运营费用",
+      "to": "费用归属",
+      "kind": "composition",
+      "label": "分摊记录",
+      "source_notation": "运营费用 \"1\" *-- \"0..*\" 费用归属 : 分摊记录",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "牙医季度贡献",
+      "to": "费用归属",
+      "kind": "association",
+      "label": "计入贡献",
+      "source_notation": "牙医季度贡献 \"1\" -- \"0..*\" 费用归属 : 计入贡献",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    }
+  ],
+  "basis": "PlantUML semantic master: 13D_领域类图_费用归属.puml; UML relation notation follows the 2026 course material"
+}

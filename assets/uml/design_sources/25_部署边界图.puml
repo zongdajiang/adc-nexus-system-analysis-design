@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam dpi 220
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 16
+skinparam componentBorderColor #455A64
+skinparam nodeBorderColor #455A64
+skinparam nodeBackgroundColor white
+skinparam ArrowColor #455A64
+skinparam linetype ortho
+skinparam nodesep 95
+skinparam ranksep 95
+top to bottom direction
+
+node "终端" as Client {
+  artifact "员工浏览器\n患者本人入口" as Browser
+}
+node "应用运行环境\n（Cloudflare 兼容）" as Runtime {
+  component "Web 表现层" as Web
+  component "业务服务 / 权限校验" as Service
+  component "外部服务适配器" as Adapter
+}
+database "SQLite / D1\n业务数据与审计记录" as DB
+cloud "机构批准的短信服务" as SMS
+cloud "微信开放平台" as WeChat
+
+Browser --> Runtime
+Web --> Service
+Service --> DB
+Service ..> Adapter
+Adapter ..> SMS
+Adapter ..> WeChat
+
+@enduml

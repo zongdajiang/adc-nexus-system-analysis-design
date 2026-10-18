@@ -1,0 +1,56 @@
+-- ADC Nexus 外键索引候选清单
+-- 这些语句是目标设计建议，不代表当前数据库已经实现。
+-- 上线前应以真实查询、写入开销与 EXPLAIN QUERY PLAN 结果复核。
+
+CREATE INDEX IF NOT EXISTS "idx_account_invitations_target_user_id" ON "account_invitations" ("target_user_id");
+CREATE INDEX IF NOT EXISTS "idx_account_invitations_created_by_user_id" ON "account_invitations" ("created_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_actual_treatment_items_treatment_id" ON "actual_treatment_items" ("treatment_id");
+CREATE INDEX IF NOT EXISTS "idx_actual_treatment_items_provider_dentist_id" ON "actual_treatment_items" ("provider_dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_appointment_status_history_actor_user_id" ON "appointment_status_history" ("actor_user_id");
+CREATE INDEX IF NOT EXISTS "idx_appointments_treatment_id" ON "appointments" ("treatment_id");
+CREATE INDEX IF NOT EXISTS "idx_appointments_created_by_user_id" ON "appointments" ("created_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_clinical_note_versions_author_user_id" ON "clinical_note_versions" ("author_user_id");
+CREATE INDEX IF NOT EXISTS "idx_clinical_notes_signed_by_dentist_id" ON "clinical_notes" ("signed_by_dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_clinical_visits_dentist_id" ON "clinical_visits" ("dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_clinical_visits_chair_id" ON "clinical_visits" ("chair_id");
+CREATE INDEX IF NOT EXISTS "idx_clinical_visits_created_by_user_id" ON "clinical_visits" ("created_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_dentist_availability_rules_clinic_id" ON "dentist_availability_rules" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_dentist_qualifications_qualification_type_id" ON "dentist_qualifications" ("qualification_type_id");
+CREATE INDEX IF NOT EXISTS "idx_dentist_schedule_exceptions_clinic_id" ON "dentist_schedule_exceptions" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_expansion_scenarios_created_by_user_id" ON "expansion_scenarios" ("created_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_expansion_scenarios_approved_by_user_id" ON "expansion_scenarios" ("approved_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_financial_close_exceptions_clinic_id" ON "financial_close_exceptions" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_financial_period_results_clinic_id" ON "financial_period_results" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_financial_period_results_approved_by_user_id" ON "financial_period_results" ("approved_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_financial_reporting_periods_locked_by_user_id" ON "financial_reporting_periods" ("locked_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_financial_reporting_periods_reopened_by_user_id" ON "financial_reporting_periods" ("reopened_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_incentive_pools_network_result_id" ON "incentive_pools" ("network_result_id");
+CREATE INDEX IF NOT EXISTS "idx_incentive_pools_approved_by_user_id" ON "incentive_pools" ("approved_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_invoice_adjustments_authored_by_user_id" ON "invoice_adjustments" ("authored_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_invoice_adjustments_approved_by_user_id" ON "invoice_adjustments" ("approved_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_invoices_patient_id" ON "invoices" ("patient_id");
+CREATE INDEX IF NOT EXISTS "idx_invoices_created_by_user_id" ON "invoices" ("created_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_odontogram_observations_observed_by_dentist_id" ON "odontogram_observations" ("observed_by_dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_operating_expenses_clinic_id" ON "operating_expenses" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_operating_expenses_entered_by_user_id" ON "operating_expenses" ("entered_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_operating_expenses_approved_by_user_id" ON "operating_expenses" ("approved_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_patient_allergies_verified_by_dentist_id" ON "patient_allergies" ("verified_by_dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_patient_duplicate_reviews_candidate_patient_id" ON "patient_duplicate_reviews" ("candidate_patient_id");
+CREATE INDEX IF NOT EXISTS "idx_patient_duplicate_reviews_reviewed_by_user_id" ON "patient_duplicate_reviews" ("reviewed_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_patient_timeline_events_clinic_id" ON "patient_timeline_events" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_payment_refunds_authorized_by_user_id" ON "payment_refunds" ("authorized_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_payments_recorded_by_user_id" ON "payments" ("recorded_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_requested_treatment_items_treatment_id" ON "requested_treatment_items" ("treatment_id");
+CREATE INDEX IF NOT EXISTS "idx_system_settings_updated_by_user_id" ON "system_settings" ("updated_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_treatment_cost_entries_visit_id" ON "treatment_cost_entries" ("visit_id");
+CREATE INDEX IF NOT EXISTS "idx_treatment_cost_entries_clinic_id" ON "treatment_cost_entries" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_user_role_assignments_role_id" ON "user_role_assignments" ("role_id");
+CREATE INDEX IF NOT EXISTS "idx_user_role_assignments_granted_by_user_id" ON "user_role_assignments" ("granted_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_visit_allergy_acknowledgements_allergy_id" ON "visit_allergy_acknowledgements" ("allergy_id");
+CREATE INDEX IF NOT EXISTS "idx_visit_allergy_acknowledgements_acknowledged_by_user_id" ON "visit_allergy_acknowledgements" ("acknowledged_by_user_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_entries_patient_id" ON "waitlist_entries" ("patient_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_entries_preferred_clinic_id" ON "waitlist_entries" ("preferred_clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_offers_released_appointment_id" ON "waitlist_offers" ("released_appointment_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_offers_clinic_id" ON "waitlist_offers" ("clinic_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_offers_dentist_id" ON "waitlist_offers" ("dentist_id");
+CREATE INDEX IF NOT EXISTS "idx_waitlist_offers_chair_id" ON "waitlist_offers" ("chair_id");

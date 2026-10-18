@@ -1,0 +1,44 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "患者" as 患者 {
+  -患者编号: String
+}
+class "牙医" as 牙医 {
+  -员工编号: String
+}
+class "诊所" as 诊所 {
+  -诊所编号: String
+}
+class "预约" as 预约 {
+  -预约编号: String
+  -开始时间: DateTime
+  -时长: Duration
+  -状态: AppointmentStatus
+  -版本号: Integer
+  --
+  + 改期(新时段: TimeSlot): ValidationResult
+  + 取消(原因: String): ValidationResult
+  + 标记完成(完成时间: DateTime): ValidationResult
+}
+class "牙椅" as 牙椅 {
+  -椅位代码: String
+  -是否可用: Boolean
+}
+class "预约历史" as 预约历史 {
+  -事件类型: String
+  -发生时间: DateTime
+  -变更原因: String
+}
+class "请求治疗" as 请求治疗 {
+  -诉求: String
+  -数量: Decimal
+}
+患者 "1" -- "0..*" 预约 : 就诊主体
+牙医 "1" -- "0..*" 预约 : 接诊
+诊所 "1" -- "0..*" 预约 : 接诊地点
+诊所 "1" o-- "0..*" 牙椅 : 配置
+牙椅 "0..1" -- "0..*" 预约 : 可选分配
+预约 "1" *-- "1..*" 预约历史
+预约 "1" *-- "0..*" 请求治疗
+@enduml

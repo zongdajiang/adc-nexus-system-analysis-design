@@ -1,0 +1,21 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 改进后业务：诊疗费用结算
+actor "收费员" as C <<业务工人>>
+participant "诊疗管理系统" as S <<业务实体>>
+actor "患者" as P
+C -> S: 请求生成结算单()
+alt [允许开单]
+S --> C: 结算单与逐项费用
+C -> P: 展示费用明细
+P -> C: 确认并提交付款凭据
+C -> C: 核实实际收款
+C -> S: 登记收款与凭据()
+S --> C: 净收款与余额
+C -> P: 提供结算凭据
+else [阻断开单]
+S --> C: 阻断原因
+C -> P: 说明暂不能结算
+end
+@enduml

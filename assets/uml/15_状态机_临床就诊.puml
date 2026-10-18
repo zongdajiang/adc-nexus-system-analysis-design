@@ -1,0 +1,18 @@
+@startuml
+!include _state_style.puml
+
+state "风险分流" as GATE <<choice>>
+state "待诊疗" as WAITING
+state "安全复核" as REVIEW #FFF8E8
+state "诊疗中" as IN_CARE
+state "已完成" as COMPLETED #EEF7F1
+
+[*] -down-> GATE : T1
+GATE -left-> WAITING : T2
+GATE -right-> REVIEW : T3
+REVIEW -left-> WAITING : T4
+WAITING -down-> IN_CARE : T5
+IN_CARE -down-> COMPLETED : T6
+COMPLETED -down-> [*]
+@enduml
+

@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "患者" as 患者 {
+  -患者编号: String
+}
+class "预约" as 预约 {
+  -预约编号: String
+}
+class "牙医" as 牙医 {
+  -员工编号: String
+}
+class "诊所" as 诊所 {
+  -诊所编号: String
+}
+class "临床就诊" as 临床就诊 {
+  -就诊编号: String
+  -开始时间: DateTime
+  -完成时间: DateTime?
+  -状态: VisitStatus
+  -版本号: Integer
+  --
+  + 完成(期望版本: Integer): ValidationResult
+  + 形成结算快照(): BillingSnapshot
+}
+class "牙位观察" as 牙位观察 {
+  -牙位: ToothCode
+  -牙面: String
+  -发现: String
+}
+class "实际治疗" as 实际治疗 {
+  -项目名称快照: String
+  -单位数: Decimal
+  -单价快照: Decimal
+  -实施时间: DateTime
+}
+患者 "1" -- "0..*" 临床就诊 : 就诊主体
+预约 "1" -- "0..1" 临床就诊
+牙医 "1" -- "0..*" 临床就诊 : 主诊
+诊所 "1" -- "0..*" 临床就诊 : 发生地点
+临床就诊 "1" *-- "0..*" 牙位观察
+临床就诊 "1" *-- "0..*" 实际治疗
+@enduml

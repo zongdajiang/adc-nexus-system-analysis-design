@@ -1,0 +1,32 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam dpi 220
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 17
+skinparam stateBorderColor #455A64
+skinparam stateBackgroundColor #F5F8FA
+skinparam ArrowColor #455A64
+skinparam ArrowFontSize 15
+skinparam linetype ortho
+skinparam nodesep 145
+skinparam ranksep 110
+skinparam roundcorner 12
+hide empty description
+
+state "预约日视图" as Calendar
+state "患者检索" as Search
+state "时段与资源选择" as Slot
+state "提交核对" as Review
+state "确认结果" as Success #EEF7F1
+state "冲突提示" as Conflict #FFF8E8
+
+[*] -down-> Calendar
+Calendar -down-> Search : N1
+Search -down-> Slot : N2
+Slot -down-> Review : N3
+Review -down-> Success : N4
+Review -right-> Conflict : N5
+Conflict -left-> Slot : N6
+Success -down-> [*]
+@enduml

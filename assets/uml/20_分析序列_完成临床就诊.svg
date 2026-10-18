@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1088.0" height="1110.0" viewBox="0 0 1088.0 1110.0">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1088.0" height="1110.0" fill="white"/>
+<ellipse cx="80" cy="47.69" rx="4.69" ry="4.69" fill="#fce5c4" stroke="#111111" stroke-width="1"/>
+<polyline points="80,52.38 80,61.760000000000005" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="70.62,55.194 89.38,55.194" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,61.760000000000005 70.62,71.14" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,61.760000000000005 89.38,71.14" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="80" y="98.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">牙医</text>
+<polyline points="80,130 80,1065.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="298.0" cy="66" rx="22" ry="22" fill="#dddddd" stroke="none" stroke-width="0"/>
+<ellipse cx="296.0" cy="64" rx="22" ry="22" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<polyline points="269.0,42 269.0,86" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="269.0,64 274.0,64" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="296.0" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">就诊界面</text>
+<polyline points="296.0,130 296.0,1065.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="554.0" cy="66" rx="22" ry="22" fill="#dddddd" stroke="none" stroke-width="0"/>
+<ellipse cx="552.0" cy="64" rx="22" ry="22" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<polyline points="551.0,36 543.0,42 551.0,48" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="552.0" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">就诊控制器</text>
+<polyline points="552.0,130 552.0,1065.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="733.0" y="43" width="150" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="808.0" y="64.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">临床就诊</text>
+<polyline points="808.0,130 808.0,1065.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="928.0" y="43" width="120" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="988.0" y="63.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">预约</text>
+<polyline points="988.0,130 988.0,1065.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="75.5" y="150" width="9" height="874" rx="2" fill="#fce5b7" stroke="#111111" stroke-width="1"/>
+<rect x="291.5" y="150" width="9" height="874" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="547.5" y="218" width="9" height="720" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="803.5" y="286" width="9" height="68" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="803.5" y="666" width="9" height="68" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="983.5" y="802" width="9" height="68" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<polyline points="84.5,150 291.5,150" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="283.5,146.0 291.5,150 283.5,154.0 283.5,146.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="188.0" y="138.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">请求完成(记录版本)</text>
+<polyline points="300.5,218 547.5,218" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="539.5,214.0 547.5,218 539.5,222.0 539.5,214.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="424.0" y="207.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">完成就诊(就诊号、版本)</text>
+<polyline points="556.5,286 803.5,286" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="795.5,282.0 803.5,286 795.5,290.0 795.5,282.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="680.0" y="274.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">核对风险、治疗与签署()</text>
+<polyline points="803.5,354 556.5,354" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="564.5,358.0 556.5,354 564.5,350.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="680.0" y="343.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">返回完整性结果</text>
+<polyline points="547.5,492 300.5,492" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="308.5,496.0 300.5,492 308.5,488.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="424.0" y="480.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">返回缺失项目</text>
+<polyline points="291.5,560 84.5,560" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="92.5,564.0 84.5,560 92.5,556.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="188.0" y="549.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">显示待补录项</text>
+<polyline points="556.5,668 803.5,668" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="795.5,664.0 803.5,668 795.5,672.0 795.5,664.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="680.0" y="656.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">完成(期望版本)</text>
+<polyline points="808.0,736 556.5,736" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="564.5,740.0 556.5,736 564.5,732.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="682.25" y="724.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">完成时间与版本</text>
+<polyline points="556.5,804 983.5,804" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="975.5,800.0 983.5,804 975.5,808.0 975.5,800.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="770.0" y="792.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">标记完成(时间)</text>
+<polyline points="988.0,872 556.5,872" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="564.5,876.0 556.5,872 564.5,868.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="772.25" y="861.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">状态更新结果</text>
+<polyline points="552.0,940 300.5,940" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="308.5,944.0 300.5,940 308.5,936.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="426.25" y="929.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">返回完成结果</text>
+<polyline points="291.5,1008 84.5,1008" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="92.5,1012.0 84.5,1008 92.5,1004.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="188.0" y="997.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">显示完成结果</text>
+<rect x="12" y="427" width="1021.0" height="613" rx="0" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="12,427 152.0,427 152.0,437 138.0,448 12,448" fill="#f7dca2" stroke="#111111" stroke-width="1"/>
+<text x="16" y="447.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="bold" fill="#000000">alt 完成条件</text>
+<text x="98" y="469.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">[有待处理缺项]</text>
+<polyline points="12,620 1033.0,620" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="98" y="645.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="20" font-weight="normal" fill="#000000">[条件完整且版本一致]</text>
+</svg>

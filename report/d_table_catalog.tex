@@ -1,0 +1,68 @@
+\begingroup\scriptsize\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{@{}C{8mm}L{27mm}L{42mm}C{10mm}C{10mm}L{49mm}@{}}
+\caption{关系数据表目录（61 表）}\label{tab:relational-catalog}\\
+\toprule 序 & 业务簇 & 物理表 & 字段 & 外键 & 业务责任\\\midrule\endfirsthead
+\toprule 序 & 业务簇 & 物理表 & 字段 & 外键 & 业务责任\\\midrule\endhead
+1 & 组织、账户与授权 & \path{account_invitations} & 10 & 2 & 受控创建账户或授予初始角色时的邀请及失效记录。 \\
+2 & 组织、账户与授权 & \path{app_users} & 18 & 0 & 员工或患者入口所使用的系统账户，保存受保护的认证状态与界面偏好。 \\
+3 & 组织、账户与授权 & \path{audit_events} & 15 & 2 & 关键读取、修改、拒绝和审批事件的追加式审计轨迹。 \\
+4 & 组织、账户与授权 & \path{clinics} & 16 & 1 & 组织下的门店主数据，保存中英文名称、地址、联系方式和牙椅容量。 \\
+5 & 组织、账户与授权 & \path{organizations} & 9 & 0 & 连锁运营主体的根主数据，统一默认时区、币种及状态。 \\
+6 & 组织、账户与授权 & \path{permissions} & 6 & 0 & 按业务域定义的最小授权动作目录。 \\
+7 & 组织、账户与授权 & \path{role_permissions} & 3 & 2 & 角色与权限的多对多桥接表，复合主键防止重复授权。 \\
+8 & 组织、账户与授权 & \path{roles} & 10 & 0 & 可分配给账户的岗位或系统角色目录。 \\
+9 & 组织、账户与授权 & \path{system_settings} & 5 & 2 & 组织范围的键值配置，记录最后修改人。 \\
+10 & 组织、账户与授权 & \path{user_role_assignments} & 9 & 4 & 账户、角色与可选诊所范围的有效期授权记录。 \\
+11 & 身份认证与通知 & \path{auth_identities} & 8 & 1 & 微信等外部身份提供方主体与本地账户的唯一映射。 \\
+12 & 身份认证与通知 & \path{auth_oauth_states} & 7 & 0 & OAuth 发起与回调之间的一次性状态校验记录。 \\
+13 & 身份认证与通知 & \path{auth_otp_challenges} & 11 & 0 & 短信验证码挑战的哈希、有效期、尝试次数和消费状态。 \\
+14 & 身份认证与通知 & \path{auth_sessions} & 10 & 1 & 可撤销的登录会话和最小化终端指纹。 \\
+15 & 身份认证与通知 & \path{notification_events} & 13 & 1 & 短信、微信或站内通知的请求、供应商回执和投递结果。 \\
+16 & 身份认证与通知 & \path{patient_account_links} & 6 & 2 & 经核实的患者主档与本人门户账户的一对一绑定。 \\
+17 & 患者主档与风险资料 & \path{emergency_contacts} & 10 & 1 & 患者可重复的紧急联系人及联系优先级。 \\
+18 & 患者主档与风险资料 & \path{patient_allergies} & 14 & 2 & 过敏物、反应、严重度、状态和最近核实责任。 \\
+19 & 患者主档与风险资料 & \path{patient_consents} & 9 & 1 & 患者对特定对象或用途作出的同意、撤回及证据。 \\
+20 & 患者主档与风险资料 & \path{patient_duplicate_reviews} & 10 & 3 & 疑似重复患者主档的人工复核任务与处置结论。 \\
+21 & 患者主档与风险资料 & \path{patient_timeline_events} & 15 & 2 & 跨预约、就诊和结算的患者事件索引，不复制病历全文。 \\
+22 & 患者主档与风险资料 & \path{patients} & 16 & 1 & 患者全网主档；内部键、全网患者编号和联系方式相互分离。 \\
+23 & 牙医、资质与治疗目录 & \path{dentist_clinic_assignments} & 9 & 2 & 牙医在诊所的任职关系、有效期及主要执业点。 \\
+24 & 牙医、资质与治疗目录 & \path{dentist_qualifications} & 11 & 2 & 牙医持有的证书、编号、签发机构和有效期。 \\
+25 & 牙医、资质与治疗目录 & \path{dentists} & 15 & 0 & 牙医员工主档及当前雇佣状态。 \\
+26 & 牙医、资质与治疗目录 & \path{qualification_types} & 9 & 0 & 执业证书、专项能力等可复用的资质类型目录。 \\
+27 & 牙医、资质与治疗目录 & \path{treatment_catalog} & 16 & 0 & 带版本和生效区间的治疗项目、时长、价格与估算成本目录。 \\
+28 & 牙医、资质与治疗目录 & \path{treatment_qualification_requirements} & 4 & 2 & 治疗项目与所需资质类型之间的桥接关系。 \\
+29 & 排班、资源与预约 & \path{appointment_status_history} & 10 & 2 & 预约每次状态变化、原因、操作者和版本的追加历史。 \\
+30 & 排班、资源与预约 & \path{appointments} & 21 & 6 & 患者、诊所、牙医、牙椅、治疗项目及计划时段的预约主记录。 \\
+31 & 排班、资源与预约 & \path{clinic_chairs} & 12 & 1 & 诊所内可预约牙椅、房间、设备和可访问性状态。 \\
+32 & 排班、资源与预约 & \path{clinic_closures} & 9 & 1 & 节假日、维护或临时停诊等营业例外。 \\
+33 & 排班、资源与预约 & \path{clinic_operating_hours} & 7 & 1 & 诊所按星期定义的常规营业时段。 \\
+34 & 排班、资源与预约 & \path{dentist_availability_rules} & 11 & 2 & 牙医在特定诊所的周期性可用时间规则。 \\
+35 & 排班、资源与预约 & \path{dentist_schedule_exceptions} & 10 & 2 & 请假、加班或临时调班等一次性排班例外。 \\
+36 & 排班、资源与预约 & \path{requested_treatment_items} & 13 & 3 & 一次预约中患者提出的一个或多个治疗诉求。 \\
+37 & 排班、资源与预约 & \path{waitlist_entries} & 13 & 3 & 患者对治疗、诊所和候选时段的候补需求。 \\
+38 & 排班、资源与预约 & \path{waitlist_offers} & 14 & 5 & 空档向候补患者发出的限时邀约与接受结果。 \\
+39 & 临床就诊与病历版本 & \path{actual_treatment_items} & 17 & 4 & 本次实际实施的目录项目、牙位、数量、操作者和时间。 \\
+40 & 临床就诊与病历版本 & \path{clinical_attachments} & 13 & 1 & 与就诊关联的影像、文档或其他受控附件元数据。 \\
+41 & 临床就诊与病历版本 & \path{clinical_note_versions} & 9 & 2 & 临床记录每次草拟、签署或修订的不可覆盖版本。 \\
+42 & 临床就诊与病历版本 & \path{clinical_notes} & 9 & 2 & 一次就诊的临床记录容器及当前版本指针。 \\
+43 & 临床就诊与病历版本 & \path{clinical_visits} & 17 & 6 & 由预约进入的一次临床就诊边界及风险复核状态。 \\
+44 & 临床就诊与病历版本 & \path{odontogram_observations} & 15 & 3 & 按标准牙位和牙面记录的检查所见。 \\
+45 & 临床就诊与病历版本 & \path{treatment_plans} & 14 & 1 & 就诊中形成的治疗方案版本、状态和临床说明。 \\
+46 & 临床就诊与病历版本 & \path{visit_allergy_acknowledgements} & 9 & 3 & 牙医在本次就诊对具体过敏记录的复核与结论。 \\
+47 & 结算、收款与成本 & \path{financial_reporting_periods} & 16 & 2 & 季度等财务边界、关闭清单、锁定和重开版本。 \\
+48 & 结算、收款与成本 & \path{invoice_adjustments} & 10 & 3 & 经说明和审批的折让、补差或其他结算调整。 \\
+49 & 结算、收款与成本 & \path{invoice_lines} & 15 & 2 & 来源于实际治疗项目的价格、数量和成本快照。 \\
+50 & 结算、收款与成本 & \path{invoices} & 23 & 5 & 由已完成就诊形成的诊疗结算单及应收余额。 \\
+51 & 结算、收款与成本 & \path{payment_refunds} & 10 & 2 & 指向原收款的退款流水，不覆盖原收款事实。 \\
+52 & 结算、收款与成本 & \path{payments} & 11 & 2 & 已核实收款的独立流水及外部参考号。 \\
+53 & 结算、收款与成本 & \path{treatment_cost_entries} & 13 & 4 & 按实际治疗项目归集的目录、材料、技工室和提供者成本。 \\
+54 & 期间核算与激励 & \path{financial_close_exceptions} & 13 & 2 & 阻断期间关闭的数据缺项、差异或归属异常。 \\
+55 & 期间核算与激励 & \path{financial_period_results} & 17 & 3 & 按期间和范围保存的核定输入快照与利润结果。 \\
+56 & 期间核算与激励 & \path{incentive_pools} & 11 & 3 & 从已批准全网期间结果计算并审批的激励资金池。 \\
+57 & 期间核算与激励 & \path{operating_expenses} & 13 & 4 & 诊所和财务期间范围内的运营费用及审批责任。 \\
+58 & 扩张情景与候选诊所 & \path{expansion_assumptions} & 10 & 1 & 每项预测假设的值、单位和可追溯来源。 \\
+59 & 扩张情景与候选诊所 & \path{expansion_candidate_clinics} & 20 & 1 & 情景中的候选地区、资源、需求与初始投资假设。 \\
+60 & 扩张情景与候选诊所 & \path{expansion_scenario_results} & 15 & 1 & 扩张情景计算的收入、成本、利润、回收期与风险结果。 \\
+61 & 扩张情景与候选诊所 & \path{expansion_scenarios} & 16 & 2 & 带版本、期限、免责声明和审批状态的扩张规划情景。 \\
+\bottomrule\end{longtable}
+\endgroup

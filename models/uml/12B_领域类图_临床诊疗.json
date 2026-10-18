@@ -1,0 +1,258 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1229,
+  "height": 779,
+  "classes": [
+    {
+      "id": "患者",
+      "name": "患者",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "患者编号",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "预约",
+      "name": "预约",
+      "fill": "#EAF5F1",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "预约编号",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        218
+      ]
+    },
+    {
+      "id": "牙医",
+      "name": "牙医",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "员工编号",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        470,
+        30
+      ]
+    },
+    {
+      "id": "诊所",
+      "name": "诊所",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "诊所编号",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        911,
+        30
+      ]
+    },
+    {
+      "id": "临床就诊",
+      "name": "临床就诊",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "就诊编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "开始时间",
+          "type": "DateTime"
+        },
+        {
+          "visibility": "-",
+          "name": "完成时间",
+          "type": "DateTime?"
+        },
+        {
+          "visibility": "-",
+          "name": "状态",
+          "type": "VisitStatus"
+        },
+        {
+          "visibility": "-",
+          "name": "版本号",
+          "type": "Integer"
+        }
+      ],
+      "methods": [
+        "+ 完成(期望版本: Integer): ValidationResult",
+        "+ 形成结算快照(): BillingSnapshot"
+      ],
+      "width": 473,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        218
+      ]
+    },
+    {
+      "id": "牙位观察",
+      "name": "牙位观察",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "牙位",
+          "type": "ToothCode"
+        },
+        {
+          "visibility": "-",
+          "name": "牙面",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "发现",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        586
+      ]
+    },
+    {
+      "id": "实际治疗",
+      "name": "实际治疗",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "项目名称快照",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "单位数",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "单价快照",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "实施时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        470,
+        586
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "患者",
+      "to": "临床就诊",
+      "kind": "association",
+      "label": "就诊主体",
+      "source_notation": "患者 \"1\" -- \"0..*\" 临床就诊 : 就诊主体",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "预约",
+      "to": "临床就诊",
+      "kind": "association",
+      "label": "",
+      "source_notation": "预约 \"1\" -- \"0..1\" 临床就诊 : 到诊后建立",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..1"
+    },
+    {
+      "from": "牙医",
+      "to": "临床就诊",
+      "kind": "association",
+      "label": "主诊",
+      "source_notation": "牙医 \"1\" -- \"0..*\" 临床就诊 : 主诊",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "诊所",
+      "to": "临床就诊",
+      "kind": "association",
+      "label": "发生地点",
+      "source_notation": "诊所 \"1\" -- \"0..*\" 临床就诊 : 发生地点",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "临床就诊",
+      "to": "牙位观察",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 牙位观察",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "临床就诊",
+      "to": "实际治疗",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 实际治疗",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    }
+  ],
+  "basis": "PlantUML semantic master: 12B_领域类图_临床诊疗.puml; UML relation notation follows the 2026 course material"
+}

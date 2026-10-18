@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+class "«边界类» 预约界面" as bv {
+  --
+  + 提交预约(): Result
+}
+class "«控制类» 预约控制器" as bc {
+  --
+  + 校验并预约(): Result
+}
+class "«实体类» 预约" as be {
+  状态: AppointmentStatus
+}
+class "«边界类» 就诊界面" as vv {
+  --
+  + 完成就诊(): Result
+}
+class "«控制类» 就诊控制器" as vc {
+  --
+  + 核验并完成(): Result
+}
+class "«实体类» 临床就诊" as ve {
+  记录版本: Integer
+}
+class "«边界类» 结算界面" as iv {
+  --
+  + 开具结算单(): Result
+}
+class "«控制类» 结算控制器" as ic {
+  --
+  + 按实际治疗建单(): Result
+}
+class "«实体类» 诊疗结算单" as ie {
+  金额（分）: Integer
+}
+bv ..> bc
+bc ..> be
+vv ..> vc
+vc ..> ve
+iv ..> ic
+ic ..> ie
+@enduml

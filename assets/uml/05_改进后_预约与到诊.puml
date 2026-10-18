@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 改进后业务：电话预约
+actor "患者" as P
+actor "前台接待" as R <<业务工人>>
+participant "诊疗管理系统" as S <<业务实体>>
+P -> R: 提出就诊诉求与时间
+R -> S: 查找患者档案()
+S --> R: 匹配结果
+R -> P: 核对身份与病史变化
+P -> R: 确认或补充资料
+R -> S: 保存核实后资料()
+S --> R: 患者编号
+R -> S: 查询可行方案()
+S --> R: 可选时段及限制
+R -> P: 说明可选方案
+P -> R: 选定诊所、牙医和时间
+R -> S: 安排预约(选定方案)
+alt [资源可占用]
+S --> R: 预约编号及确认信息
+R -> P: 告知预约结果
+else [资源冲突]
+S --> R: 冲突原因
+R -> P: 协商替代时段
+end
+@enduml

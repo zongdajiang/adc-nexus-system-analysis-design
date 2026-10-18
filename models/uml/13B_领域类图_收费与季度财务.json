@@ -1,0 +1,260 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1129,
+  "height": 1057,
+  "classes": [
+    {
+      "id": "临床就诊",
+      "name": "临床就诊",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "完成时间",
+          "type": "DateTime?"
+        }
+      ],
+      "methods": [
+        "+ 形成结算快照(): BillingSnapshot"
+      ],
+      "width": 373,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        30
+      ]
+    },
+    {
+      "id": "实际治疗",
+      "name": "实际治疗",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "单位数",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "单价快照",
+          "type": "Decimal"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        248
+      ]
+    },
+    {
+      "id": "诊疗结算单",
+      "name": "诊疗结算单",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "单号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "开具时间",
+          "type": "DateTime"
+        },
+        {
+          "visibility": "-",
+          "name": "合计",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "状态",
+          "type": "InvoiceStatus"
+        }
+      ],
+      "methods": [
+        "+ 计算金额(): Decimal",
+        "+ 计算余额(): Decimal"
+      ],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        811,
+        248
+      ]
+    },
+    {
+      "id": "结算明细",
+      "name": "结算明细",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "描述快照",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "单位快照",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "数量",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "单价快照",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "/小计",
+          "type": "Decimal"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        586
+      ]
+    },
+    {
+      "id": "收款",
+      "name": "收款",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "金额",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "方式",
+          "type": "PaymentMethod"
+        },
+        {
+          "visibility": "-",
+          "name": "核实时间",
+          "type": "DateTime"
+        },
+        {
+          "visibility": "-",
+          "name": "外部参考",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        811,
+        586
+      ]
+    },
+    {
+      "id": "退款",
+      "name": "退款",
+      "fill": "#F2EFFA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "金额",
+          "type": "Decimal"
+        },
+        {
+          "visibility": "-",
+          "name": "原因",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "处理时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        811,
+        894
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "临床就诊",
+      "to": "实际治疗",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 实际治疗",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "临床就诊",
+      "to": "诊疗结算单",
+      "kind": "association",
+      "label": "开具",
+      "source_notation": "临床就诊 \"1\" -- \"0..1\" 诊疗结算单 : 开具",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..1"
+    },
+    {
+      "from": "诊疗结算单",
+      "to": "结算明细",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "诊疗结算单 \"1\" *-- \"1..*\" 结算明细",
+      "from_multiplicity": "1",
+      "to_multiplicity": "1..*"
+    },
+    {
+      "from": "实际治疗",
+      "to": "结算明细",
+      "kind": "association",
+      "label": "计价来源",
+      "source_notation": "实际治疗 \"1\" -- \"0..1\" 结算明细 : 计价来源",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..1"
+    },
+    {
+      "from": "诊疗结算单",
+      "to": "收款",
+      "kind": "association",
+      "label": "",
+      "source_notation": "诊疗结算单 \"1\" -- \"0..*\" 收款 : 资金流入",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "收款",
+      "to": "退款",
+      "kind": "association",
+      "label": "原款项",
+      "source_notation": "收款 \"1\" -- \"0..*\" 退款 : 原款项",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    }
+  ],
+  "basis": "PlantUML semantic master: 13B_领域类图_收费与季度财务.puml; UML relation notation follows the 2026 course material"
+}

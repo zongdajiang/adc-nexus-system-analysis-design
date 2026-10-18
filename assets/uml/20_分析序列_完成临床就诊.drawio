@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="report" name="报告图片">
+    <mxGraphModel dx="1088.0" dy="1110.0" grid="0" page="1" pageWidth="1088.0" pageHeight="1110.0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#fce5c4;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="75.31" y="43.0" width="9.38" height="9.38" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="52.38" as="sourcePoint" />
+            <mxPoint x="80" y="61.760000000000005" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70.62" y="55.194" as="sourcePoint" />
+            <mxPoint x="89.38" y="55.194" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="61.760000000000005" as="sourcePoint" />
+            <mxPoint x="70.62" y="71.14" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="61.760000000000005" as="sourcePoint" />
+            <mxPoint x="89.38" y="71.14" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" parent="1" value="牙医" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=18;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="60.0" y="81" width="40.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="130" as="sourcePoint" />
+            <mxPoint x="80" y="1065.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#dddddd;strokeColor=none;strokeWidth=0;">
+          <mxGeometry x="276.0" y="44" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#fcead9;strokeColor=#111111;strokeWidth=1;gradientColor=#ffffff;gradientDirection=east;">
+          <mxGeometry x="274.0" y="42" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="269.0" y="42" as="sourcePoint" />
+            <mxPoint x="269.0" y="86" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="269.0" y="64" as="sourcePoint" />
+            <mxPoint x="274.0" y="64" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" parent="1" value="就诊界面" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=18;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="258.0" y="92" width="76.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="296.0" y="130" as="sourcePoint" />
+            <mxPoint x="296.0" y="1065.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#dddddd;strokeColor=none;strokeWidth=0;">
+          <mxGeometry x="532.0" y="44" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#fcead9;strokeColor=#111111;strokeWidth=1;gradientColor=#ffffff;gradientDirection=east;">
+          <mxGeometry x="530.0" y="42" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="551.0" y="36" as="sourcePoint" />
+            <mxPoint x="551.0" y="48" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="543.0" y="42" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" parent="1" value="就诊控制器" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=18;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="505.0" y="92" width="94.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="552.0" y="130" as="sourcePoint" />
+            <mxPoint x="552.0" y="1065.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#fcead9;strokeColor=#111111;strokeWidth=1;gradientColor=#ffffff;gradientDirection=east;">
+          <mxGeometry x="733.0" y="43" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" value="临床就诊" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=18;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="770.0" y="47" width="76.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="808.0" y="130" as="sourcePoint" />
+            <mxPoint x="808.0" y="1065.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#fcead9;strokeColor=#111111;strokeWidth=1;gradientColor=#ffffff;gradientDirection=east;">
+          <mxGeometry x="928.0" y="43" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" value="预约" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=18;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="968.0" y="47" width="40.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="988.0" y="130" as="sourcePoint" />
+            <mxPoint x="988.0" y="1065.0" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#fce5b7;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="75.5" y="150" width="9" height="874" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=white;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="291.5" y="150" width="9" height="874" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=white;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="547.5" y="218" width="9" height="720" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=white;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="803.5" y="286" width="9" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=white;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="803.5" y="666" width="9" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=white;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="983.5" y="802" width="9" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="84.5" y="150" as="sourcePoint" />
+            <mxPoint x="291.5" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" parent="1" value="请求完成(记录版本)" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="96.0" y="120.0" width="184.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="34" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300.5" y="218" as="sourcePoint" />
+            <mxPoint x="547.5" y="218" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="35" parent="1" value="完成就诊(就诊号、版本)" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="312.0" y="188.0" width="224.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="556.5" y="286" as="sourcePoint" />
+            <mxPoint x="803.5" y="286" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="37" parent="1" value="核对风险、治疗与签署()" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="568.0" y="256.0" width="224.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="38" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="803.5" y="354" as="sourcePoint" />
+            <mxPoint x="556.5" y="354" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="39" parent="1" value="返回完整性结果" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="608.0" y="324.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="40" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="547.5" y="492" as="sourcePoint" />
+            <mxPoint x="300.5" y="492" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="41" parent="1" value="返回缺失项目" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="362.0" y="462.0" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="291.5" y="560" as="sourcePoint" />
+            <mxPoint x="84.5" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="43" parent="1" value="显示待补录项" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="126.0" y="530.0" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="556.5" y="668" as="sourcePoint" />
+            <mxPoint x="803.5" y="668" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="45" parent="1" value="完成(期望版本)" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="608.0" y="638.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="808.0" y="736" as="sourcePoint" />
+            <mxPoint x="556.5" y="736" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" parent="1" value="完成时间与版本" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="610.25" y="706.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="48" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="556.5" y="804" as="sourcePoint" />
+            <mxPoint x="983.5" y="804" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49" parent="1" value="标记完成(时间)" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="698.0" y="774.0" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="50" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="988.0" y="872" as="sourcePoint" />
+            <mxPoint x="556.5" y="872" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51" parent="1" value="状态更新结果" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="710.25" y="842.0" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="52" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="552.0" y="940" as="sourcePoint" />
+            <mxPoint x="300.5" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="53" parent="1" value="返回完成结果" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="364.25" y="910.0" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="54" parent="1" value="" edge="1" style="html=0;endArrow=open;endFill=0;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="291.5" y="1008" as="sourcePoint" />
+            <mxPoint x="84.5" y="1008" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="55" parent="1" value="显示完成结果" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="126.0" y="978.0" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="56" parent="1" value="" vertex="1" style="html=0;rounded=0;fillColor=none;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="12" y="427" width="1021.0" height="613" as="geometry" />
+        </mxCell>
+        <mxCell id="57" parent="1" value="" vertex="1" style="html=0;shape=note;size=16;fillColor=#f7dca2;strokeColor=#111111;strokeWidth=1;">
+          <mxGeometry x="12" y="427" width="140.0" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="58" parent="1" value="alt 完成条件" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=1;whiteSpace=wrap;">
+          <mxGeometry x="16" y="428" width="124.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="59" parent="1" value="[有待处理缺项]" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="98" y="451" width="144.0" height="28.0" as="geometry" />
+        </mxCell>
+        <mxCell id="60" parent="1" value="" edge="1" style="html=0;endArrow=none;endFill=1;strokeColor=#111111;strokeWidth=1;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="12" y="620" as="sourcePoint" />
+            <mxPoint x="1033.0" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="61" parent="1" value="[条件完整且版本一致]" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=SimSun;fontSize=20;fontColor=#000000;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="98" y="626" width="204.0" height="28.0" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,195 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1047,
+  "height": 719,
+  "classes": [
+    {
+      "id": "临床就诊",
+      "name": "临床就诊",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "就诊编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "状态",
+          "type": "VisitStatus"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        120,
+        30
+      ]
+    },
+    {
+      "id": "临床记录",
+      "name": "临床记录",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "记录编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "签署状态",
+          "type": "SignatureStatus"
+        }
+      ],
+      "methods": [
+        "+ 修订(内容: String): 记录版本",
+        "+ 签署(期望版本: Integer): ValidationResult"
+      ],
+      "width": 473,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        248
+      ]
+    },
+    {
+      "id": "记录版本",
+      "name": "记录版本",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "版本号",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "内容",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "作者",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "形成时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        120,
+        526
+      ]
+    },
+    {
+      "id": "过敏确认",
+      "name": "过敏确认",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "处置",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "确认人",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "确认时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        728,
+        248
+      ]
+    },
+    {
+      "id": "过敏",
+      "name": "过敏",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "物质",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "核实状态",
+          "type": "AllergyStatus"
+        }
+      ],
+      "methods": [],
+      "width": 293,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        726,
+        30
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "临床就诊",
+      "to": "临床记录",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"1\" 临床记录",
+      "from_multiplicity": "1",
+      "to_multiplicity": "1"
+    },
+    {
+      "from": "临床记录",
+      "to": "记录版本",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床记录 \"1\" *-- \"1..*\" 记录版本",
+      "from_multiplicity": "1",
+      "to_multiplicity": "1..*"
+    },
+    {
+      "from": "临床就诊",
+      "to": "过敏确认",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "临床就诊 \"1\" *-- \"0..*\" 过敏确认",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "过敏",
+      "to": "过敏确认",
+      "kind": "association",
+      "label": "",
+      "source_notation": "过敏 \"1\" -- \"0..*\" 过敏确认 : 复核对象",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    }
+  ],
+  "basis": "PlantUML semantic master: 12D_领域类图_记录与风险.puml; UML relation notation follows the 2026 course material"
+}

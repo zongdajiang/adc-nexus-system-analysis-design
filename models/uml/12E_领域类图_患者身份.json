@@ -1,0 +1,278 @@
+{
+  "type": "class",
+  "profile": "mayuyang",
+  "font_size": 20,
+  "semantic_relationship_view": true,
+  "columns": 3,
+  "multiplicity_font_size": 20,
+  "relation_label_font_size": 20,
+  "width": 1049,
+  "height": 689,
+  "classes": [
+    {
+      "id": "患者",
+      "name": "患者",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "患者编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "姓名",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "出生日期",
+          "type": "Date"
+        },
+        {
+          "visibility": "-",
+          "name": "电话",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        380,
+        248
+      ]
+    },
+    {
+      "id": "紧急联系人",
+      "name": "紧急联系人",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "姓名",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "与患者关系",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "电话",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        526
+      ]
+    },
+    {
+      "id": "过敏",
+      "name": "过敏",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "物质",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "反应",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "核实状态",
+          "type": "AllergyStatus"
+        }
+      ],
+      "methods": [],
+      "width": 293,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        378,
+        526
+      ]
+    },
+    {
+      "id": "病史版本",
+      "name": "病史版本",
+      "fill": "#FFF2E9",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "版本号",
+          "type": "Integer"
+        },
+        {
+          "visibility": "-",
+          "name": "形成时间",
+          "type": "DateTime"
+        },
+        {
+          "visibility": "-",
+          "name": "记录来源",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        731,
+        526
+      ]
+    },
+    {
+      "id": "诊所",
+      "name": "诊所",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "诊所编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "名称",
+          "type": "String"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "系统账户",
+      "name": "系统账户",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "账户编号",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "状态",
+          "type": "AccountStatus"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        731,
+        30
+      ]
+    },
+    {
+      "id": "患者账户绑定",
+      "name": "患者账户绑定",
+      "fill": "#EAF2FA",
+      "attributes": [
+        {
+          "visibility": "-",
+          "name": "核实方式",
+          "type": "String"
+        },
+        {
+          "visibility": "-",
+          "name": "核实时间",
+          "type": "DateTime"
+        }
+      ],
+      "methods": [],
+      "width": 290,
+      "row_height": 30,
+      "header_height": 43,
+      "position": [
+        731,
+        248
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "患者",
+      "to": "紧急联系人",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "患者 \"1\" *-- \"0..*\" 紧急联系人 : 登记",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "患者",
+      "to": "过敏",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "患者 \"1\" *-- \"0..*\" 过敏 : 风险资料",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "患者",
+      "to": "病史版本",
+      "kind": "composition",
+      "label": "",
+      "source_notation": "患者 \"1\" *-- \"1..*\" 病史版本",
+      "from_multiplicity": "1",
+      "to_multiplicity": "1..*"
+    },
+    {
+      "from": "诊所",
+      "to": "患者",
+      "kind": "association",
+      "label": "首选诊所",
+      "source_notation": "诊所 \"0..1\" -- \"0..*\" 患者 : 首选诊所",
+      "from_multiplicity": "0..1",
+      "to_multiplicity": "0..*"
+    },
+    {
+      "from": "患者",
+      "to": "患者账户绑定",
+      "kind": "association",
+      "label": "",
+      "source_notation": "患者 \"1\" -- \"0..1\" 患者账户绑定 : 本人绑定",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..1",
+      "from_multiplicity_position": [
+        681,
+        278
+      ],
+      "to_multiplicity_position": [
+        714,
+        334
+      ]
+    },
+    {
+      "from": "系统账户",
+      "to": "患者账户绑定",
+      "kind": "association",
+      "label": "",
+      "source_notation": "系统账户 \"1\" -- \"0..1\" 患者账户绑定 : 验证账户",
+      "from_multiplicity": "1",
+      "to_multiplicity": "0..1"
+    }
+  ],
+  "basis": "PlantUML semantic master: 12E_领域类图_患者身份.puml; UML relation notation follows the 2026 course material"
+}

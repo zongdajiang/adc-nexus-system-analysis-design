@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="370" viewBox="0 0 1040 370">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1040" height="370" fill="white"/>
+<rect x="25" y="25" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="25" y="25" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="175.0" y="50.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«边界类» 预约界面</text>
+<polyline points="25,61.1 325,61.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="37" y="81.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 提交预约(): Result</text>
+<rect x="370" y="25" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="370" y="25" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="520.0" y="50.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«控制类» 预约控制器</text>
+<polyline points="370,61.1 670,61.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="382" y="81.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 校验并预约(): Result</text>
+<rect x="715" y="25" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="715" y="25" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="865.0" y="50.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«实体类» 预约</text>
+<text x="727" y="81.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">状态: AppointmentStatus</text>
+<rect x="25" y="145" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="25" y="145" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="175.0" y="170.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«边界类» 就诊界面</text>
+<polyline points="25,181.1 325,181.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="37" y="201.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 完成就诊(): Result</text>
+<rect x="370" y="145" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="370" y="145" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="520.0" y="170.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«控制类» 就诊控制器</text>
+<polyline points="370,181.1 670,181.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="382" y="201.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 核验并完成(): Result</text>
+<rect x="715" y="145" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="715" y="145" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="865.0" y="170.65" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«实体类» 临床就诊</text>
+<text x="727" y="201.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">记录版本: Integer</text>
+<rect x="25" y="265" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="25" y="265" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="175.0" y="290.65000000000003" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«边界类» 结算界面</text>
+<polyline points="25,301.1 325,301.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="37" y="321.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 开具结算单(): Result</text>
+<rect x="370" y="265" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="370" y="265" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="520.0" y="290.65000000000003" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«控制类» 结算控制器</text>
+<polyline points="370,301.1 670,301.1" fill="none" stroke="#d0d0d0" stroke-width="1"/>
+<text x="382" y="321.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">+ 按实际治疗建单(): Result</text>
+<rect x="715" y="265" width="300" height="64.6" rx="0" fill="white" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="715" y="265" width="300" height="36.1" rx="0" fill="#e0e0e0" stroke="#d0d0d0" stroke-width="1"/>
+<text x="865.0" y="290.65000000000003" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="22.8" font-weight="bold" fill="#000000">«实体类» 诊疗结算单</text>
+<text x="727" y="321.85" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="19" font-weight="normal" fill="#000000">金额（分）: Integer</text>
+<polyline points="325,54 370,54" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="362.0,50.0 370,54 362.0,58.0" fill="none" stroke="#303a43" stroke-width="1"/>
+<polyline points="670,54 715,54" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="707.0,50.0 715,54 707.0,58.0" fill="none" stroke="#303a43" stroke-width="1"/>
+<polyline points="325,174 370,174" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="362.0,170.0 370,174 362.0,178.0" fill="none" stroke="#303a43" stroke-width="1"/>
+<polyline points="670,174 715,174" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="707.0,170.0 715,174 707.0,178.0" fill="none" stroke="#303a43" stroke-width="1"/>
+<polyline points="325,294 370,294" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="362.0,290.0 370,294 362.0,298.0" fill="none" stroke="#303a43" stroke-width="1"/>
+<polyline points="670,294 715,294" fill="none" stroke="#303a43" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="707.0,290.0 715,294 707.0,298.0" fill="none" stroke="#303a43" stroke-width="1"/>
+</svg>

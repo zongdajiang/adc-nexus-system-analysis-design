@@ -1,0 +1,17 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 现状业务：临床诊疗
+actor "患者" as P
+actor "牙医" as D <<业务工人>>
+actor "收费员" as C <<业务工人>>
+D -> D: 查阅本店病史及治疗记录
+D -> P: 询问症状与风险变化
+P -> D: 陈述症状并确认病史
+D -> D: 检查并形成治疗建议
+D -> P: 说明方案、风险和费用
+P -> D: 表达治疗决定
+D -> D: 实施治疗并记录实际项目
+D -> D: 完成病历与治疗清单
+D -> C: 移交实际治疗清单
+@enduml
