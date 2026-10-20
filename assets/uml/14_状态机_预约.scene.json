@@ -1,0 +1,594 @@
+{
+  "width": 1040,
+  "height": 530,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 35,
+      "cy": 150,
+      "rx": 10,
+      "ry": 10,
+      "fill": "#20313B",
+      "stroke": "none",
+      "sw": 1.8
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 106.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 109.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 121,
+      "text": "已确认",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        125.0,
+        106.0,
+        335.0,
+        194.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 166,
+      "text": "资源已复核",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        125.0,
+        106.0,
+        335.0,
+        194.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 106.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 109.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 121,
+      "text": "已到诊",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        455.0,
+        106.0,
+        665.0,
+        194.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 166,
+      "text": "身份已核对",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        455.0,
+        106.0,
+        665.0,
+        194.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 106.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 109.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 121,
+      "text": "诊疗中",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        785.0,
+        106.0,
+        995.0,
+        194.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 166,
+      "text": "正在提供服务",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        785.0,
+        106.0,
+        995.0,
+        194.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 386.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#FFF7E8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 389.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 401,
+      "text": "未到诊",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        125.0,
+        386.0,
+        335.0,
+        474.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 446,
+      "text": "超过保留时限",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        125.0,
+        386.0,
+        335.0,
+        474.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 386.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#FFF7E8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 389.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 401,
+      "text": "已取消",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        455.0,
+        386.0,
+        665.0,
+        474.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 446,
+      "text": "保留发起方与原因",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        455.0,
+        386.0,
+        665.0,
+        474.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 386.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#EDF7F1",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 389.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 401,
+      "text": "已完成",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        785.0,
+        386.0,
+        995.0,
+        474.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 446,
+      "text": "临床完成条件满足",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        785.0,
+        386.0,
+        995.0,
+        474.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          45,
+          150
+        ],
+        [
+          125,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 80,
+      "y": 96,
+      "text": "T1\n创建预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          335,
+          150
+        ],
+        [
+          455,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 395,
+      "y": 116,
+      "text": "T2 登记到诊",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          665,
+          150
+        ],
+        [
+          785,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 725,
+      "y": 116,
+      "text": "T3 开始诊疗",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          890,
+          194
+        ],
+        [
+          890,
+          386
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 910,
+      "y": 275,
+      "text": "T4 完成就诊",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          282,
+          194
+        ],
+        [
+          282,
+          290
+        ],
+        [
+          505,
+          290
+        ],
+        [
+          505,
+          386
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 395,
+      "y": 254,
+      "text": "T5 取消预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          592,
+          194
+        ],
+        [
+          592,
+          386
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 615,
+      "y": 320,
+      "text": "T6 撤销到诊",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          178,
+          194
+        ],
+        [
+          178,
+          386
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 157,
+      "y": 274,
+      "text": "T7 标记未到诊",
+      "size": 18,
+      "anchor": "end",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-13 分析经营绩效与资质覆盖",
+  "font_size": 18,
+  "frame": false,
+  "lane_gap": 180,
+  "message_gap": 61,
+  "participants": [
+    {
+      "id": "manager",
+      "label": "管理岗位",
+      "kind": "actor",
+      "label_size": 17,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "绩效看板",
+      "kind": "boundary",
+      "label_size": 17
+    },
+    {
+      "id": "control",
+      "label": "指标分析控制",
+      "kind": "control",
+      "label_size": 17
+    },
+    {
+      "id": "schedule",
+      "label": "预约与资源",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "visit",
+      "label": "就诊与结算",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "quarter",
+      "label": "季度核定快照",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "metric",
+      "label": "指标口径",
+      "kind": "entity",
+      "label_size": 17
+    }
+  ],
+  "messages": [
+    {
+      "from": "manager",
+      "to": "screen",
+      "label": "查询绩效(季度、诊所范围)"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "分析绩效(范围、口径版本)"
+    },
+    {
+      "from": "control",
+      "to": "schedule",
+      "label": "统计预约履约、排班和牙椅分钟()"
+    },
+    {
+      "from": "schedule",
+      "to": "control",
+      "label": "返回分子分母及排除项",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "visit",
+      "label": "统计已完成治疗与结算来源()"
+    },
+    {
+      "from": "visit",
+      "to": "control",
+      "label": "返回治疗与收入事实",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "quarter",
+      "label": "读取核定期间与费用归属()"
+    },
+    {
+      "from": "quarter",
+      "to": "control",
+      "label": "返回快照版本与待归属项",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "metric",
+      "label": "按口径计算指标与分母()"
+    },
+    {
+      "from": "metric",
+      "to": "control",
+      "label": "指标值、排除项与归属标识",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回估算并标记未核定",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "manager",
+      "label": "展示待核口径和缺项",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回核定指标及来源",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "manager",
+      "label": "展示分子、分母与贡献依据",
+      "kind": "return"
+    }
+  ],
+  "fragments": [
+    {
+      "from": "control",
+      "to": "metric",
+      "start": 10,
+      "end": 13,
+      "operator": "alt",
+      "label": "期间与费用口径",
+      "operands": [
+        {
+          "guard": "未关闭或费用待归属",
+          "start": 10
+        },
+        {
+          "guard": "已关闭且归属已核定",
+          "start": 12
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "manager",
+      "start_message": 0,
+      "end_message": 13
+    },
+    {
+      "participant": "screen",
+      "start_message": 0,
+      "end_message": 13
+    },
+    {
+      "participant": "control",
+      "start_message": 1,
+      "end_message": 12
+    },
+    {
+      "participant": "schedule",
+      "start_message": 2,
+      "end_message": 3
+    },
+    {
+      "participant": "visit",
+      "start_message": 4,
+      "end_message": 5
+    },
+    {
+      "participant": "quarter",
+      "start_message": 6,
+      "end_message": 7
+    },
+    {
+      "participant": "metric",
+      "start_message": 8,
+      "end_message": 9
+    }
+  ],
+  "basis": "UC-13；经营指标定义表；季度费用归属尚未完成时只能标记估算，不得显示牙医个人净利润为已核定。"
+}

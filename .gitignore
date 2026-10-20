@@ -17,3 +17,28 @@ Thumbs.db
 # Do not commit unpublished case/reference materials or generated backups
 legacy_*/
 *_完整备份.zip
+
+# Local rendering, backups and build caches
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+/report/main.pdf
+/qa/style_review/
+/qa/state_preview/
+/qa/final_review/
+/qa/overview_preview/
+/qa/history_notes/
+/history/
+/tmp/
+/backups/
+*_更新前备份_*/
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json

@@ -1,213 +1,167 @@
 {
+  "type": "state",
+  "renderer": "tools/render_state_diagrams_v4.py",
   "title": "诊疗结算单收款状态机",
-  "canvas": [
-    1600,
-    610
-  ],
-  "states": [
+  "width": 1040,
+  "height": 550,
+  "caption_location": "report-below",
+  "nodes": [
     {
       "id": "initial",
-      "kind": "start",
-      "label": "",
-      "x": 50,
-      "y": 270,
-      "w": 42,
-      "h": 42,
-      "fill": "#FFFFFF"
+      "kind": "initial",
+      "center": [
+        35,
+        195
+      ]
     },
     {
-      "id": "s0",
+      "id": "issued",
       "kind": "state",
-      "label": "已开具",
-      "x": 280,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "已开具",
+      "note": "尚无有效净收款",
+      "box": [
+        125.0,
+        151.0,
+        335.0,
+        239.0
+      ]
     },
     {
-      "id": "s1",
+      "id": "partial",
       "kind": "state",
-      "label": "部分收款",
-      "x": 680,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "部分收款",
+      "note": "0 < 净收款 < 应收",
+      "box": [
+        455.0,
+        151.0,
+        665.0,
+        239.0
+      ]
     },
     {
-      "id": "s2",
+      "id": "paid",
       "kind": "state",
-      "label": "已结清",
-      "x": 1130,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "已结清",
+      "note": "净收款 = 应收",
+      "box": [
+        785.0,
+        151.0,
+        995.0,
+        239.0
+      ]
     },
     {
       "id": "voided",
       "kind": "state",
-      "label": "已作废",
-      "x": 680,
-      "y": 505,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
-    },
-    {
-      "id": "settled_end",
-      "kind": "final",
-      "label": "",
-      "x": 1530,
-      "y": 270,
-      "w": 42,
-      "h": 42,
-      "fill": "#FFFFFF"
-    },
-    {
-      "id": "voided_end",
-      "kind": "final",
-      "label": "",
-      "x": 940,
-      "y": 505,
-      "w": 42,
-      "h": 42,
-      "fill": "#FFFFFF"
+      "title": "已作废",
+      "note": "净收款 = 0 且已授权",
+      "box": [
+        125.0,
+        411.0,
+        335.0,
+        499.0
+      ]
     }
   ],
   "transitions": [
     {
-      "code": "T1",
+      "id": "T1",
+      "source": "initial",
+      "target": "issued",
+      "trigger": "生成结算单",
+      "guard": "同一就诊未重复开单，明细来自实际治疗",
       "points": [
         [
-          68,
-          270
+          45,
+          195
         ],
         [
-          180,
-          270
+          125,
+          195
         ]
       ],
-      "label_at": [
-        125,
-        228
-      ],
-      "meaning": "生成结算单"
+      "display": "T1\n生成结算单"
     },
     {
-      "code": "T2",
+      "id": "T2",
+      "source": "issued",
+      "target": "partial",
+      "trigger": "部分收款",
+      "guard": "净收款大于零且小于应收金额",
       "points": [
         [
-          380,
-          270
+          335,
+          195
         ],
         [
-          580,
-          270
+          455,
+          195
         ]
       ],
-      "label_at": [
-        480,
-        228
-      ],
-      "meaning": "部分收款"
+      "display": "T2 部分收款"
     },
     {
-      "code": "T4",
+      "id": "T3",
+      "source": "issued",
+      "target": "paid",
+      "trigger": "全额收款",
+      "guard": "一次收款后净收款等于应收金额",
       "points": [
         [
-          780,
-          270
+          230,
+          151
         ],
         [
-          1030,
-          270
+          230,
+          80
+        ],
+        [
+          890,
+          80
+        ],
+        [
+          890,
+          151
         ]
       ],
-      "label_at": [
-        905,
-        228
-      ],
-      "meaning": "结清尾款"
+      "display": "T3 一次全额收款"
     },
     {
-      "code": "",
+      "id": "T4",
+      "source": "partial",
+      "target": "paid",
+      "trigger": "结清尾款",
+      "guard": "追加收款后净收款等于应收金额",
       "points": [
         [
-          1230,
-          270
+          665,
+          195
         ],
         [
-          1510,
-          270
+          785,
+          195
         ]
       ],
-      "label_at": null,
-      "meaning": ""
+      "display": "T4 结清尾款"
     },
     {
-      "code": "T3",
+      "id": "T5",
+      "source": "issued",
+      "target": "voided",
+      "trigger": "授权作废",
+      "guard": "净收款为零，记录作废原因与审批人",
       "points": [
         [
-          280,
-          225
+          230,
+          239
         ],
         [
-          280,
-          85
-        ],
-        [
-          1130,
-          85
-        ],
-        [
-          1130,
-          225
+          230,
+          411
         ]
       ],
-      "label_at": [
-        720,
-        52
-      ],
-      "meaning": "一次全额收款"
-    },
-    {
-      "code": "T5",
-      "points": [
-        [
-          280,
-          315
-        ],
-        [
-          280,
-          505
-        ],
-        [
-          580,
-          505
-        ]
-      ],
-      "label_at": [
-        420,
-        465
-      ],
-      "meaning": "授权作废"
-    },
-    {
-      "code": "",
-      "points": [
-        [
-          780,
-          505
-        ],
-        [
-          920,
-          505
-        ]
-      ],
-      "label_at": null,
-      "meaning": ""
+      "display": "T5 授权作废"
     }
-  ]
+  ],
+  "notation": "UML state, initial pseudostate, choice; filled transition arrows"
 }

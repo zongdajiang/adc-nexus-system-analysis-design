@@ -1,0 +1,212 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "02A_现状业务序列全景：单次就诊",
+  "frame": false,
+  "font_size": 20,
+  "message_top": 190,
+  "message_gap": 58,
+  "width": 1680,
+  "first_lane": 100,
+  "lane_gap": 296.0,
+  "nested_self_activation": false,
+  "participants": [
+    {
+      "id": "p0",
+      "label": "患者",
+      "kind": "actor",
+      "x": 100.0
+    },
+    {
+      "id": "p1",
+      "label": "前台接待",
+      "kind": "business-worker",
+      "x": 396.0
+    },
+    {
+      "id": "p2",
+      "label": "本店排班表",
+      "kind": "business-entity",
+      "x": 692.0
+    },
+    {
+      "id": "p3",
+      "label": "牙医",
+      "kind": "business-worker",
+      "x": 988.0
+    },
+    {
+      "id": "p4",
+      "label": "牙椅",
+      "kind": "business-entity",
+      "x": 1284.0
+    },
+    {
+      "id": "p5",
+      "label": "收费员",
+      "kind": "business-worker",
+      "x": 1580.0
+    }
+  ],
+  "messages": [
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "提出就诊诉求",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p2",
+      "label": "查阅本店排班",
+      "kind": "call"
+    },
+    {
+      "from": "p2",
+      "to": "p1",
+      "label": "反馈时段记录",
+      "kind": "return"
+    },
+    {
+      "from": "p1",
+      "to": "p3",
+      "label": "核实可接诊项目与时段",
+      "kind": "call"
+    },
+    {
+      "from": "p3",
+      "to": "p4",
+      "label": "查看牙椅现场占用",
+      "kind": "call"
+    },
+    {
+      "from": "p4",
+      "to": "p3",
+      "label": "反馈可用状态",
+      "kind": "return"
+    },
+    {
+      "from": "p3",
+      "to": "p1",
+      "label": "告知可接诊安排",
+      "kind": "return"
+    },
+    {
+      "from": "p1",
+      "to": "p0",
+      "label": "提出预约方案",
+      "kind": "call"
+    },
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "确认诊所、牙医和时间",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p2",
+      "label": "登记预约台账",
+      "kind": "call"
+    },
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "到诊并提供身份资料",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p3",
+      "label": "移交病史变化与预约资料",
+      "kind": "call"
+    },
+    {
+      "from": "p3",
+      "to": "p0",
+      "label": "复核风险并说明方案",
+      "kind": "call"
+    },
+    {
+      "from": "p0",
+      "to": "p3",
+      "label": "表达治疗决定",
+      "kind": "call"
+    },
+    {
+      "from": "p3",
+      "to": "p5",
+      "label": "移交实际治疗清单",
+      "kind": "call"
+    },
+    {
+      "from": "p5",
+      "to": "p0",
+      "label": "出示逐项费用",
+      "kind": "call"
+    },
+    {
+      "from": "p0",
+      "to": "p5",
+      "label": "提交付款凭据",
+      "kind": "call"
+    },
+    {
+      "from": "p5",
+      "to": "p0",
+      "label": "交付结算凭据",
+      "kind": "call"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "p1",
+      "start_message": 0,
+      "end_message": 9,
+      "end_offset": 14
+    },
+    {
+      "participant": "p1",
+      "start_message": 10,
+      "end_message": 11,
+      "end_offset": 14
+    },
+    {
+      "participant": "p2",
+      "start_message": 1,
+      "end_message": 2,
+      "end_offset": 14
+    },
+    {
+      "participant": "p2",
+      "start_message": 9,
+      "end_message": 9,
+      "end_offset": 24
+    },
+    {
+      "participant": "p3",
+      "start_message": 3,
+      "end_message": 6,
+      "end_offset": 14
+    },
+    {
+      "participant": "p3",
+      "start_message": 11,
+      "end_message": 14,
+      "end_offset": 14
+    },
+    {
+      "participant": "p4",
+      "start_message": 4,
+      "end_message": 5,
+      "end_offset": 14
+    },
+    {
+      "participant": "p5",
+      "start_message": 14,
+      "end_message": 17,
+      "end_offset": 14
+    }
+  ],
+  "basis": "报告现状/改进分解序列与用例规约；单次就诊和季度核对分为独立交互。现状台账与资源核验仍须门店访谈确认。"
+}

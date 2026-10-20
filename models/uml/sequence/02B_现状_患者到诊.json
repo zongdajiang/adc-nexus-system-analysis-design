@@ -1,0 +1,126 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "现状业务：预约日到诊",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    },
+    {
+      "id": "R",
+      "label": "前台接待",
+      "kind": "business-worker"
+    },
+    {
+      "id": "D",
+      "label": "牙医",
+      "kind": "business-worker"
+    }
+  ],
+  "messages": [
+    {
+      "from": "P",
+      "to": "R",
+      "label": "报到并提供身份信息",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "R",
+      "label": "查阅当日预约及本店档案",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "核对身份和资料变化",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "R",
+      "label": "确认并申报变化",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "R",
+      "label": "登记到诊及变化声明",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "D",
+      "label": "移交就诊资料",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "label": "接收待诊资料",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "告知候诊安排",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "说明待核实事项",
+      "kind": "call",
+      "y": 865
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 02B_现状_患者到诊.puml",
+  "fragments": [
+    {
+      "start": 4,
+      "end": 8,
+      "from": "P",
+      "to": "D",
+      "operator": "alt",
+      "operands": [
+        {
+          "guard": "信息一致",
+          "start": 4
+        },
+        {
+          "guard": "待核实",
+          "start": 8,
+          "y": 790
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "R",
+      "start_message": 0,
+      "end_message": 8,
+      "end_offset": 12
+    },
+    {
+      "participant": "D",
+      "start_message": 5,
+      "end_message": 6,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

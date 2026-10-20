@@ -1,0 +1,387 @@
+{
+  "width": 790,
+  "height": 570,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 212,
+      "y": 32,
+      "w": 515,
+      "h": 510,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 469.5,
+      "y": 51,
+      "text": "安德鲁牙科连锁（ADC）",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 93,
+      "cy": 295.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          303.4
+        ],
+        [
+          93,
+          329.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          77.6,
+          308.02
+        ],
+        [
+          108.4,
+          308.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          329.195
+        ],
+        [
+          77.6,
+          349.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          329.195
+        ],
+        [
+          108.4,
+          349.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          87.764,
+          300.936
+        ],
+        [
+          98.236,
+          290.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 93,
+      "y": 354.6,
+      "text": "患者",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          304.555
+        ],
+        [
+          401.32224372986286,
+          150.96302543757125
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          312.51166666666666
+        ],
+        [
+          356.39937437850153,
+          253.38731041783674
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          320.46833333333336
+        ],
+        [
+          320.36302767351657,
+          331.6593448636646
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          93,
+          328.425
+        ],
+        [
+          376.4481792325656,
+          419.95278855298585
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 469.5,
+      "cy": 117,
+      "rx": 152.0,
+      "ry": 38.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          594.0111107319267,
+          138.79590458133976
+        ],
+        [
+          621.5,
+          117.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 469.5,
+      "y": 96.5,
+      "text": "BUC-01\n获得牙科诊疗服务",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        324.5,
+        84.0,
+        614.5,
+        150.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 469.5,
+      "cy": 228,
+      "rx": 152.0,
+      "ry": 38.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          594.0111107319267,
+          249.79590458133976
+        ],
+        [
+          621.5,
+          228.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 469.5,
+      "y": 207.5,
+      "text": "BUC-02\n安排与变更诊疗预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        324.5,
+        195.0,
+        614.5,
+        261.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 469.5,
+      "cy": 339,
+      "rx": 152.0,
+      "ry": 38.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          594.0111107319267,
+          360.79590458133976
+        ],
+        [
+          621.5,
+          339.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 469.5,
+      "y": 318.5,
+      "text": "BUC-03\n完成诊疗费用结算",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        324.5,
+        306.0,
+        614.5,
+        372.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 469.5,
+      "cy": 450,
+      "rx": 152.0,
+      "ry": 38.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          594.0111107319267,
+          471.79590458133976
+        ],
+        [
+          621.5,
+          450.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 469.5,
+      "y": 429.5,
+      "text": "BUC-04\n获得复诊与连续照护",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        324.5,
+        417.0,
+        614.5,
+        483.0
+      ],
+      "role": null
+    }
+  ]
+}

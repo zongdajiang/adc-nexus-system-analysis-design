@@ -1,0 +1,190 @@
+{
+  "type": "state",
+  "renderer": "tools/render_state_diagrams_v4.py",
+  "title": "临床就诊状态机",
+  "width": 1040,
+  "height": 550,
+  "caption_location": "report-below",
+  "nodes": [
+    {
+      "id": "initial",
+      "kind": "initial",
+      "center": [
+        40,
+        160
+      ]
+    },
+    {
+      "id": "risk_choice",
+      "kind": "choice",
+      "center": [
+        180,
+        160
+      ],
+      "radius": 25
+    },
+    {
+      "id": "waiting",
+      "kind": "state",
+      "title": "待诊疗",
+      "note": "待牙医接诊",
+      "box": [
+        390.0,
+        116.0,
+        610.0,
+        204.0
+      ]
+    },
+    {
+      "id": "in_care",
+      "kind": "state",
+      "title": "诊疗中",
+      "note": "实际治疗留痕",
+      "box": [
+        790.0,
+        116.0,
+        1010.0,
+        204.0
+      ]
+    },
+    {
+      "id": "review",
+      "kind": "state",
+      "title": "安全复核",
+      "note": "人工核实并签认",
+      "box": [
+        390.0,
+        396.0,
+        610.0,
+        484.0
+      ]
+    },
+    {
+      "id": "completed",
+      "kind": "state",
+      "title": "已完成",
+      "note": "病历签署与项目核对",
+      "box": [
+        790.0,
+        396.0,
+        1010.0,
+        484.0
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "T1",
+      "source": "initial",
+      "target": "risk_choice",
+      "trigger": "建立就诊",
+      "guard": "到诊及预约资料有效",
+      "points": [
+        [
+          50,
+          160
+        ],
+        [
+          155,
+          160
+        ]
+      ],
+      "display": "T1 建立就诊"
+    },
+    {
+      "id": "T2",
+      "source": "risk_choice",
+      "target": "waiting",
+      "trigger": "进入待诊疗",
+      "guard": "无待处理的过敏、同意或资质风险",
+      "points": [
+        [
+          205,
+          160
+        ],
+        [
+          390,
+          160
+        ]
+      ],
+      "display": "T2 无待处理风险"
+    },
+    {
+      "id": "T3",
+      "source": "risk_choice",
+      "target": "review",
+      "trigger": "进入安全复核",
+      "guard": "存在需要人工确认的风险事项",
+      "points": [
+        [
+          180,
+          185
+        ],
+        [
+          180,
+          440
+        ],
+        [
+          390,
+          440
+        ]
+      ],
+      "display": "T3 存在待处理风险"
+    },
+    {
+      "id": "T4",
+      "source": "review",
+      "target": "waiting",
+      "trigger": "完成安全复核",
+      "guard": "复核结论、处理人及时间已留痕",
+      "points": [
+        [
+          500,
+          396
+        ],
+        [
+          500,
+          204
+        ]
+      ],
+      "display": "T4 完成复核"
+    },
+    {
+      "id": "T5",
+      "source": "waiting",
+      "target": "in_care",
+      "trigger": "开始诊疗",
+      "guard": "牙医任职与项目资质有效",
+      "points": [
+        [
+          610,
+          160
+        ],
+        [
+          790,
+          160
+        ]
+      ],
+      "display": "T5 开始诊疗"
+    },
+    {
+      "id": "T6",
+      "source": "in_care",
+      "target": "completed",
+      "trigger": "完成就诊",
+      "guard": "实施项目和病历版本均已核对",
+      "points": [
+        [
+          900,
+          204
+        ],
+        [
+          900,
+          396
+        ]
+      ],
+      "display": "T6 完成就诊"
+    }
+  ],
+  "notation": "UML state, initial pseudostate, choice; filled transition arrows"
+}

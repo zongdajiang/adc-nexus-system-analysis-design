@@ -1,18 +1,14 @@
 @startuml
 !include _state_style.puml
-
-state "风险分流" as GATE <<choice>>
-state "待诊疗" as WAITING
-state "安全复核" as REVIEW #FFF8E8
-state "诊疗中" as IN_CARE
-state "已完成" as COMPLETED #EEF7F1
-
-[*] -down-> GATE : T1
-GATE -left-> WAITING : T2
-GATE -right-> REVIEW : T3
-REVIEW -left-> WAITING : T4
-WAITING -down-> IN_CARE : T5
-IN_CARE -down-> COMPLETED : T6
-COMPLETED -down-> [*]
+state risk_choice <<choice>>
+state "待诊疗" as waiting
+state "诊疗中" as in_care
+state "安全复核" as review
+state "已完成" as completed
+[*] --> risk_choice : T1 建立就诊 [到诊及预约资料有效]
+risk_choice --> waiting : T2 进入待诊疗 [无待处理的过敏、同意或资质风险]
+risk_choice --> review : T3 进入安全复核 [存在需要人工确认的风险事项]
+review --> waiting : T4 完成安全复核 [复核结论、处理人及时间已留痕]
+waiting --> in_care : T5 开始诊疗 [牙医任职与项目资质有效]
+in_care --> completed : T6 完成就诊 [实施项目和病历版本均已核对]
 @enduml
-

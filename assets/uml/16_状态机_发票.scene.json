@@ -1,0 +1,427 @@
+{
+  "width": 1040,
+  "height": 550,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 35,
+      "cy": 195,
+      "rx": 10,
+      "ry": 10,
+      "fill": "#20313B",
+      "stroke": "none",
+      "sw": 1.8
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 151.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 154.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 166,
+      "text": "已开具",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        125.0,
+        151.0,
+        335.0,
+        239.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 211,
+      "text": "尚无有效净收款",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        125.0,
+        151.0,
+        335.0,
+        239.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 151.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 455.0,
+      "y": 154.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 166,
+      "text": "部分收款",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        455.0,
+        151.0,
+        665.0,
+        239.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 211,
+      "text": "0 < 净收款 < 应收",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        455.0,
+        151.0,
+        665.0,
+        239.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 151.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#EDF7F1",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 785.0,
+      "y": 154.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 166,
+      "text": "已结清",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        785.0,
+        151.0,
+        995.0,
+        239.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 890,
+      "y": 211,
+      "text": "净收款 = 应收",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        785.0,
+        151.0,
+        995.0,
+        239.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 411.0,
+      "w": 210,
+      "h": 88,
+      "fill": "#FFF7E8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 125.0,
+      "y": 414.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 426,
+      "text": "已作废",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        125.0,
+        411.0,
+        335.0,
+        499.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 230,
+      "y": 471,
+      "text": "净收款 = 0 且已授权",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        125.0,
+        411.0,
+        335.0,
+        499.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          45,
+          195
+        ],
+        [
+          125,
+          195
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 68,
+      "y": 137,
+      "text": "T1\n生成结算单",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          335,
+          195
+        ],
+        [
+          455,
+          195
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 395,
+      "y": 161,
+      "text": "T2 部分收款",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          230,
+          151
+        ],
+        [
+          230,
+          80
+        ],
+        [
+          890,
+          80
+        ],
+        [
+          890,
+          151
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 560,
+      "y": 42,
+      "text": "T3 一次全额收款",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          665,
+          195
+        ],
+        [
+          785,
+          195
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 725,
+      "y": 161,
+      "text": "T4 结清尾款",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          230,
+          239
+        ],
+        [
+          230,
+          411
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 252,
+      "y": 315,
+      "text": "T5 授权作废",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "text",
+      "x": 515,
+      "y": 432,
+      "text": "净收款按有效收款扣减退款计算。\n退款后的状态转换见下一图。",
+      "size": 17,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": null,
+      "role": "diagram-note"
+    }
+  ]
+}

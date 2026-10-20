@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+actor "总部运营" as A0
+actor "诊所经理" as A1
+actor "前台接待" as A2
+rectangle "ADC Nexus 诊所资源管理" {
+  usecase "UC-11\n维护牙医资质与任职" as U0
+  usecase "UC-18\n维护排班与牙椅资源" as U1
+  usecase "UC-02\n安排诊疗预约" as U2
+}
+A0 --> U0
+A1 --> U1
+A2 --> U2
+@enduml

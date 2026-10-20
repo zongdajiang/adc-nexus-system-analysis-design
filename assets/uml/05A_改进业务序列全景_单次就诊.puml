@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 05A_改进业务序列全景：单次就诊
+actor "患者" as p0
+actor "前台接待" as p1 <<业务工人>>
+participant "ADC Nexus" as p2 <<业务实体>>
+participant "排班表" as p3 <<业务实体>>
+participant "牙椅资源" as p4 <<业务实体>>
+actor "牙医" as p5 <<业务工人>>
+actor "收费员" as p6 <<业务工人>>
+p0 -> p1: 提出就诊诉求
+p1 -> p2: 查找患者与需求()
+p2 -> p3: 查询服务日排班\n与例外()
+p3 --> p2: 返回可行牙医时段
+p2 -> p4: 核验牙椅可用性()
+p4 --> p2: 返回牙椅状态
+p2 --> p1: 给出候选方案
+p1 -> p0: 说明诊所、牙医与时段
+p0 -> p1: 确认方案
+p1 -> p2: 提交预约并复核占用()
+p2 --> p1: 返回预约编号
+p0 -> p1: 到诊并申报变化
+p1 -> p2: 登记到诊与声明()
+p2 -> p5: 提供待复核资料
+p5 -> p2: 记录风险、实际治疗并签署()
+p2 -> p6: 提供可结算治疗清单
+p6 -> p2: 建立结算单并登记收款()
+p6 -> p0: 交付逐项结算凭据
+@enduml

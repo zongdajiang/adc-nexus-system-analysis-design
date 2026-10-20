@@ -1,0 +1,204 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-18 维护排班与牙椅资源",
+  "font_size": 18,
+  "frame": false,
+  "lane_gap": 170,
+  "message_gap": 58,
+  "participants": [
+    {
+      "id": "manager",
+      "label": "诊所经理",
+      "kind": "actor",
+      "label_size": 17,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "资源工作台",
+      "kind": "boundary",
+      "label_size": 17
+    },
+    {
+      "id": "control",
+      "label": "资源维护控制",
+      "kind": "control",
+      "label_size": 17
+    },
+    {
+      "id": "employment",
+      "label": "牙医任职",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "calendar",
+      "label": "资源日历",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "chair",
+      "label": "牙椅资源",
+      "kind": "entity",
+      "label_size": 17
+    }
+  ],
+  "messages": [
+    {
+      "from": "manager",
+      "to": "screen",
+      "label": "提交排班与牙椅联合调整()"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "维护资源(诊所、日期、版本)"
+    },
+    {
+      "from": "control",
+      "to": "employment",
+      "label": "核对服务日任职()"
+    },
+    {
+      "from": "employment",
+      "to": "control",
+      "label": "任职范围与有效期",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "calendar",
+      "label": "检查排班例外与预约影响()"
+    },
+    {
+      "from": "calendar",
+      "to": "control",
+      "label": "冲突与受影响预约",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "chair",
+      "label": "核对牙椅所属诊所和状态()"
+    },
+    {
+      "from": "chair",
+      "to": "control",
+      "label": "牙椅校验结果",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回冲突及受影响预约",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "manager",
+      "label": "提示调整方案",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "calendar",
+      "label": "保存排班规则或例外()"
+    },
+    {
+      "from": "calendar",
+      "to": "control",
+      "label": "返回排班版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "chair",
+      "label": "保存牙椅可用状态()"
+    },
+    {
+      "from": "chair",
+      "to": "control",
+      "label": "返回牙椅版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回生效范围与版本",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "manager",
+      "label": "显示更新结果",
+      "kind": "return"
+    }
+  ],
+  "fragments": [
+    {
+      "from": "control",
+      "to": "chair",
+      "start": 8,
+      "end": 15,
+      "operator": "alt",
+      "label": "资源变更复核",
+      "operands": [
+        {
+          "guard": "任职、预约或牙椅冲突",
+          "start": 8
+        },
+        {
+          "guard": "可生效且版本一致",
+          "start": 10
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "manager",
+      "start_message": 0,
+      "end_message": 15
+    },
+    {
+      "participant": "screen",
+      "start_message": 0,
+      "end_message": 15
+    },
+    {
+      "participant": "control",
+      "start_message": 1,
+      "end_message": 14
+    },
+    {
+      "participant": "employment",
+      "start_message": 2,
+      "end_message": 3
+    },
+    {
+      "participant": "calendar",
+      "start_message": 4,
+      "end_message": 5
+    },
+    {
+      "participant": "chair",
+      "start_message": 6,
+      "end_message": 7
+    },
+    {
+      "participant": "calendar",
+      "start_message": 10,
+      "end_message": 11
+    },
+    {
+      "participant": "chair",
+      "start_message": 12,
+      "end_message": 13
+    }
+  ],
+  "basis": "UC-18目标设计的一条联合调整主路径；BR-04、BR-06；同一牙医/牙椅不得重叠占用。仅调整单项资源时按相同规则省略另一写入，变更控制尚待门店流程确认。"
+}

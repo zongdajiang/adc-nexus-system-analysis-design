@@ -1,0 +1,891 @@
+{
+  "width": 1028.0,
+  "height": 1085.0,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 80,
+      "cy": 47.0,
+      "rx": 7.0,
+      "ry": 7.0,
+      "fill": "#fce5c4",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          54.0
+        ],
+        [
+          80,
+          68.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          66.0,
+          58.2
+        ],
+        [
+          94.0,
+          58.2
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          66.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          94.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 80,
+      "y": 94,
+      "text": "前台接待",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          130
+        ],
+        [
+          80,
+          1040.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 318.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 316.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          289.0,
+          42
+        ],
+        [
+          289.0,
+          86
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          289.0,
+          64
+        ],
+        [
+          294.0,
+          64
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 316.0,
+      "y": 94,
+      "text": "预约界面",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          316.0,
+          130
+        ],
+        [
+          316.0,
+          1040.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 554.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 552.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          551.0,
+          36
+        ],
+        [
+          543.0,
+          42
+        ],
+        [
+          551.0,
+          48
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 552.0,
+      "y": 94,
+      "text": "预约控制器",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          552.0,
+          130
+        ],
+        [
+          552.0,
+          1040.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 673.0,
+      "y": 43,
+      "w": 150,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 748.0,
+      "y": 49,
+      "text": "资源日历",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        676.0,
+        45,
+        820.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          748.0,
+          130
+        ],
+        [
+          748.0,
+          1040.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 868.0,
+      "y": 43,
+      "w": 120,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 928.0,
+      "y": 49,
+      "text": "预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        871.0,
+        45,
+        985.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          928.0,
+          130
+        ],
+        [
+          928.0,
+          1040.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 75.5,
+      "y": 150,
+      "w": 9,
+      "h": 854,
+      "fill": "#fce5b7",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 311.5,
+      "y": 150,
+      "w": 9,
+      "h": 854,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 547.5,
+      "y": 216,
+      "w": 9,
+      "h": 704,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 743.5,
+      "y": 282,
+      "w": 9,
+      "h": 66,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 743.5,
+      "y": 656,
+      "w": 9,
+      "h": 66,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 923.5,
+      "y": 788,
+      "w": 9,
+      "h": 66,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.5,
+          150
+        ],
+        [
+          311.5,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 198.0,
+      "y": 122.0,
+      "text": "提交预约(患者、时段)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          320.5,
+          216
+        ],
+        [
+          547.5,
+          216
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 434.0,
+      "y": 188.0,
+      "text": "安排预约(方案、版本)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          282
+        ],
+        [
+          743.5,
+          282
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 650.0,
+      "y": 254.0,
+      "text": "核验资源与资格()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          743.5,
+          348
+        ],
+        [
+          556.5,
+          348
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 650.0,
+      "y": 320.0,
+      "text": "返回校验结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          547.5,
+          484
+        ],
+        [
+          320.5,
+          484
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 434.0,
+      "y": 456.0,
+      "text": "返回冲突原因",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          311.5,
+          550
+        ],
+        [
+          84.5,
+          550
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 198.0,
+      "y": 522.0,
+      "text": "提示重新选时段",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          656
+        ],
+        [
+          743.5,
+          656
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 650.0,
+      "y": 628.0,
+      "text": "占用时段()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          743.5,
+          722
+        ],
+        [
+          556.5,
+          722
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 650.0,
+      "y": 694.0,
+      "text": "占用确认",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          788
+        ],
+        [
+          923.5,
+          788
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 740.0,
+      "y": 760.0,
+      "text": "建立预约与历史()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          923.5,
+          854
+        ],
+        [
+          556.5,
+          854
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 740.0,
+      "y": 826.0,
+      "text": "返回预约编号",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          547.5,
+          920
+        ],
+        [
+          320.5,
+          920
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 434.0,
+      "y": 892.0,
+      "text": "返回确认摘要",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          311.5,
+          986
+        ],
+        [
+          84.5,
+          986
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 198.0,
+      "y": 958.0,
+      "text": "显示预约结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "rect",
+      "x": 12,
+      "y": 419,
+      "w": 961.0,
+      "h": 599,
+      "fill": "none",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          12,
+          419
+        ],
+        [
+          212.0,
+          419
+        ],
+        [
+          212.0,
+          429
+        ],
+        [
+          198.0,
+          440
+        ],
+        [
+          12,
+          440
+        ]
+      ],
+      "fill": "#f7dca2",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 422,
+      "text": "alt 提交时资源复核",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 445,
+      "text": "[资格或时段不满足]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          12,
+          608
+        ],
+        [
+          973.0,
+          608
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 616,
+      "text": "[资格及时段均满足]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "accepted_diagrams_preserved": 51,
+  "byte_identical_art_files": 208,
+  "numbered_figures": 55,
+  "usecases": 18,
+  "unchanged_usecase_specs": 17,
+  "clarified_usecase": "UC-07: evidence gap blocks completion, not factual recording",
+  "state_transition_counts": [
+    7,
+    6,
+    5,
+    4
+  ],
+  "state_diagrams": [
+    {
+      "name": "14_状态机_预约",
+      "transitions": 7,
+      "min_label_node_clearance": 9.0,
+      "issues": 0
+    },
+    {
+      "name": "15_状态机_临床就诊",
+      "transitions": 6,
+      "min_label_node_clearance": 10.0,
+      "issues": 0
+    },
+    {
+      "name": "16_状态机_发票",
+      "transitions": 5,
+      "min_label_node_clearance": 11.0,
+      "issues": 0
+    },
+    {
+      "name": "16B_状态机_退款",
+      "transitions": 4,
+      "min_label_node_clearance": 21.0,
+      "issues": 0
+    }
+  ],
+  "unchanged_guard_tables": 4,
+  "state_figure_and_guard_table_same_page": [
+    38,
+    39,
+    40,
+    41
+  ],
+  "state_fonts_embedded": true,
+  "database_structure_unchanged": true,
+  "prose_changed_blocks": 78
+}

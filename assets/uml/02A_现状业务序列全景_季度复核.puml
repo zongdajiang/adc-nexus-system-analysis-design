@@ -1,0 +1,15 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 02A_现状业务序列全景：季度复核
+actor "诊所经理" as p0 <<业务工人>>
+actor "总部财务" as p1 <<业务工人>>
+actor "负责人" as p2 <<业务工人>>
+p0 -> p1: 提交本店收入和费用汇总
+p1 -> p0: 要求补充凭据
+p0 -> p1: 提交更正与依据
+p1 -> p1: 人工核算利润与贡献
+p1 -> p2: 提交季度结果
+p2 -> p1: 询问牙医贡献来源
+p1 -> p2: 说明统计口径与依据
+@enduml

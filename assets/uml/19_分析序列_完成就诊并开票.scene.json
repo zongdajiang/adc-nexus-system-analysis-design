@@ -1,0 +1,929 @@
+{
+  "width": 1077.0,
+  "height": 1185.0,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 80,
+      "cy": 47.0,
+      "rx": 7.0,
+      "ry": 7.0,
+      "fill": "#fce5c4",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          54.0
+        ],
+        [
+          80,
+          68.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          66.0,
+          58.2
+        ],
+        [
+          94.0,
+          58.2
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          66.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          94.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 80,
+      "y": 94,
+      "text": "收费员",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          130
+        ],
+        [
+          80,
+          1140.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 278.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 276.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          249.0,
+          42
+        ],
+        [
+          249.0,
+          86
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          249.0,
+          64
+        ],
+        [
+          254.0,
+          64
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 276.0,
+      "y": 94,
+      "text": "结算界面",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          276.0,
+          130
+        ],
+        [
+          276.0,
+          1140.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 494.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 492.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          491.0,
+          36
+        ],
+        [
+          483.0,
+          42
+        ],
+        [
+          491.0,
+          48
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 492.0,
+      "y": 94,
+      "text": "结算控制器",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          492.0,
+          130
+        ],
+        [
+          492.0,
+          1140.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 597.0,
+      "y": 43,
+      "w": 150,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 672.0,
+      "y": 49,
+      "text": "临床就诊",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        600.0,
+        45,
+        744.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          672.0,
+          130
+        ],
+        [
+          672.0,
+          1140.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 777.0,
+      "y": 43,
+      "w": 150,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 852.0,
+      "y": 49,
+      "text": "诊疗结算单",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        780.0,
+        45,
+        924.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          852.0,
+          130
+        ],
+        [
+          852.0,
+          1140.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 75.5,
+      "y": 150,
+      "w": 9,
+      "h": 944,
+      "fill": "#fce5b7",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 271.5,
+      "y": 150,
+      "w": 9,
+      "h": 944,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 487.5,
+      "y": 218,
+      "w": 9,
+      "h": 790,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 667.5,
+      "y": 286,
+      "w": 9,
+      "h": 68,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 847.5,
+      "y": 422,
+      "w": 9,
+      "h": 68,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 847.5,
+      "y": 804,
+      "w": 9,
+      "h": 136,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.5,
+          150
+        ],
+        [
+          271.5,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 178.0,
+      "y": 122.0,
+      "text": "提交开单(就诊号)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          280.5,
+          218
+        ],
+        [
+          487.5,
+          218
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 384.0,
+      "y": 190.0,
+      "text": "生成结算单(就诊号)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          496.5,
+          286
+        ],
+        [
+          667.5,
+          286
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 582.0,
+      "y": 258.0,
+      "text": "取得实际治疗()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          667.5,
+          354
+        ],
+        [
+          496.5,
+          354
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 582.0,
+      "y": 326.0,
+      "text": "治疗清单与版本",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          496.5,
+          422
+        ],
+        [
+          847.5,
+          422
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 672.0,
+      "y": 394.0,
+      "text": "查找该就诊已有单据()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          847.5,
+          490
+        ],
+        [
+          496.5,
+          490
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 672.0,
+      "y": 462.0,
+      "text": "返回已存在单据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          487.5,
+          628
+        ],
+        [
+          280.5,
+          628
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 384.0,
+      "y": 600.0,
+      "text": "返回原单据编号",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          271.5,
+          696
+        ],
+        [
+          84.5,
+          696
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 178.0,
+      "y": 668.0,
+      "text": "显示原单据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          496.5,
+          804
+        ],
+        [
+          847.5,
+          804
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 672.0,
+      "y": 776.0,
+      "text": "建立单据与价格快照()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          856.5,
+          872
+        ],
+        [
+          896.5,
+          872
+        ],
+        [
+          896.5,
+          894
+        ],
+        [
+          856.5,
+          894
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 904.5,
+      "y": 879,
+      "text": "汇总应收金额()",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          852.0,
+          947.0
+        ],
+        [
+          496.5,
+          947.0
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 674.25,
+      "y": 919.0,
+      "text": "单据编号与金额",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          492.0,
+          1015.0
+        ],
+        [
+          280.5,
+          1015.0
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 386.25,
+      "y": 987.0,
+      "text": "返回新单据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          271.5,
+          1083.0
+        ],
+        [
+          84.5,
+          1083.0
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 178.0,
+      "y": 1055.0,
+      "text": "显示逐项费用",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "rect",
+      "x": 12,
+      "y": 563,
+      "w": 885.0,
+      "h": 552.0,
+      "fill": "none",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          12,
+          563
+        ],
+        [
+          212.0,
+          563
+        ],
+        [
+          212.0,
+          573
+        ],
+        [
+          198.0,
+          584
+        ],
+        [
+          12,
+          584
+        ]
+      ],
+      "fill": "#f7dca2",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 566,
+      "text": "alt 按就诊号防重复",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 589,
+      "text": "[有效单据已存在]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          12,
+          756
+        ],
+        [
+          897.0,
+          756
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 764,
+      "text": "[无单据且来源完整]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

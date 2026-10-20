@@ -1,0 +1,477 @@
+{
+  "width": 1040,
+  "height": 550,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 40,
+      "cy": 160,
+      "rx": 10,
+      "ry": 10,
+      "fill": "#20313B",
+      "stroke": "none",
+      "sw": 1.8
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          180,
+          135
+        ],
+        [
+          205,
+          160
+        ],
+        [
+          180,
+          185
+        ],
+        [
+          155,
+          160
+        ]
+      ],
+      "fill": "white",
+      "stroke": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 180,
+      "y": 77,
+      "text": "风险分流",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#2D6E73",
+      "container": null,
+      "role": "choice-note"
+    },
+    {
+      "type": "rect",
+      "x": 390.0,
+      "y": 116.0,
+      "w": 220,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 390.0,
+      "y": 119.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 500,
+      "y": 131,
+      "text": "待诊疗",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        390.0,
+        116.0,
+        610.0,
+        204.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 500,
+      "y": 176,
+      "text": "待牙医接诊",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        390.0,
+        116.0,
+        610.0,
+        204.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 790.0,
+      "y": 116.0,
+      "w": 220,
+      "h": 88,
+      "fill": "#F3F8F8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 790.0,
+      "y": 119.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 131,
+      "text": "诊疗中",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        790.0,
+        116.0,
+        1010.0,
+        204.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 176,
+      "text": "实际治疗留痕",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        790.0,
+        116.0,
+        1010.0,
+        204.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 390.0,
+      "y": 396.0,
+      "w": 220,
+      "h": 88,
+      "fill": "#FFF7E8",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 390.0,
+      "y": 399.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 500,
+      "y": 411,
+      "text": "安全复核",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        390.0,
+        396.0,
+        610.0,
+        484.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 500,
+      "y": 456,
+      "text": "人工核实并签认",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        390.0,
+        396.0,
+        610.0,
+        484.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "rect",
+      "x": 790.0,
+      "y": 396.0,
+      "w": 220,
+      "h": 88,
+      "fill": "#EDF7F1",
+      "stroke": "#53656F",
+      "sw": 1.8,
+      "rx": 12,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 790.0,
+      "y": 399.0,
+      "w": 5,
+      "h": 82,
+      "fill": "#2D6E73",
+      "stroke": "none",
+      "sw": 1.8,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 411,
+      "text": "已完成",
+      "size": 28,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": [
+        790.0,
+        396.0,
+        1010.0,
+        484.0
+      ],
+      "role": "state-title"
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 456,
+      "text": "病历签署与项目核对",
+      "size": 17,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#64747C",
+      "container": [
+        790.0,
+        396.0,
+        1010.0,
+        484.0
+      ],
+      "role": "state-note"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          50,
+          160
+        ],
+        [
+          155,
+          160
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 96,
+      "y": 126,
+      "text": "T1 建立就诊",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          205,
+          160
+        ],
+        [
+          390,
+          160
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 297,
+      "y": 126,
+      "text": "T2 无待处理风险",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          180,
+          185
+        ],
+        [
+          180,
+          440
+        ],
+        [
+          390,
+          440
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 202,
+      "y": 290,
+      "text": "T3 存在待处理风险",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          500,
+          396
+        ],
+        [
+          500,
+          204
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 522,
+      "y": 290,
+      "text": "T4 完成复核",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          610,
+          160
+        ],
+        [
+          790,
+          160
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 700,
+      "y": 126,
+      "text": "T5 开始诊疗",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900,
+          204
+        ],
+        [
+          900,
+          396
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#53656F",
+      "sw": 1.8
+    },
+    {
+      "type": "text",
+      "x": 922,
+      "y": 290,
+      "text": "T6 完成就诊",
+      "size": 18,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#20313B",
+      "container": null,
+      "role": "transition-label"
+    }
+  ]
+}

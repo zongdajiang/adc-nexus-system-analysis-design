@@ -1,0 +1,653 @@
+{
+  "width": 1046,
+  "height": 749,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#F2EFFA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 39.5,
+      "text": "财务期间",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        32,
+        310,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 78.0,
+      "text": "- 开始日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        73,
+        310,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 108.0,
+      "text": "- 结束日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        103,
+        310,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 138.0,
+      "text": "- 是否锁定: Boolean",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        133,
+        310,
+        163
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 338,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 338,
+      "w": 290,
+      "h": 43,
+      "fill": "#F2EFFA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 347.5,
+      "text": "运营费用",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        340,
+        310,
+        379
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 386.0,
+      "text": "- 类别: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        381,
+        310,
+        411
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 416.0,
+      "text": "- 金额: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        411,
+        310,
+        441
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 446.0,
+      "text": "- 发生日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        441,
+        310,
+        471
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 586,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 586,
+      "w": 290,
+      "h": 43,
+      "fill": "#F2EFFA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 523.0,
+      "y": 595.5,
+      "text": "费用归属",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        386,
+        588,
+        660,
+        627
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 634.0,
+      "text": "- 归属金额: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        629,
+        660,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 664.0,
+      "text": "- 归集方式: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        659,
+        660,
+        689
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 694.0,
+      "text": "- 分摊依据: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        689,
+        660,
+        719
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 728,
+      "y": 30,
+      "w": 290,
+      "h": 193,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 728,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#F2EFFA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 873.0,
+      "y": 39.5,
+      "text": "牙医季度贡献",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        736,
+        32,
+        1010,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 78.0,
+      "text": "- 结果版本: Integer",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        73,
+        1010,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 108.0,
+      "text": "- 收入: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        103,
+        1010,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 138.0,
+      "text": "- 用品成本: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        133,
+        1010,
+        163
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 168.0,
+      "text": "- 运营费用: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        163,
+        1010,
+        193
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 198.0,
+      "text": "- /贡献: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        193,
+        1010,
+        223
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          173.0,
+          163
+        ],
+        [
+          173.0,
+          250.5
+        ],
+        [
+          173.0,
+          250.5
+        ],
+        [
+          173.0,
+          338
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          173.0,
+          163
+        ],
+        [
+          179.0,
+          172.0
+        ],
+        [
+          173.0,
+          181.0
+        ],
+        [
+          167.0,
+          172.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 187.0,
+      "y": 188.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 159.0,
+      "y": 308.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          173.0,
+          471
+        ],
+        [
+          173.0,
+          528.5
+        ],
+        [
+          486.26666666666665,
+          528.5
+        ],
+        [
+          486.26666666666665,
+          586
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          173.0,
+          471
+        ],
+        [
+          179.0,
+          480.0
+        ],
+        [
+          173.0,
+          489.0
+        ],
+        [
+          167.0,
+          480.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 329.6333333333333,
+      "y": 502.5,
+      "text": "分摊记录",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 187.0,
+      "y": 496.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 472.26666666666665,
+      "y": 556.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          873.0,
+          223
+        ],
+        [
+          873.0,
+          404.5
+        ],
+        [
+          559.7333333333333,
+          404.5
+        ],
+        [
+          559.7333333333333,
+          586
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 716.3666666666667,
+      "y": 378.5,
+      "text": "计入贡献",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 887.0,
+      "y": 235.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 545.7333333333333,
+      "y": 556.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-09 生成诊疗结算单",
+  "font_size": 20,
+  "frame": false,
+  "lane_gap": 180,
+  "message_gap": 68,
+  "participants": [
+    {
+      "id": "cashier",
+      "label": "收费员",
+      "kind": "actor",
+      "label_size": 18,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "结算界面",
+      "kind": "boundary",
+      "label_size": 18
+    },
+    {
+      "id": "control",
+      "label": "结算控制器",
+      "kind": "control",
+      "label_size": 18
+    },
+    {
+      "id": "visit",
+      "label": "临床就诊",
+      "kind": "entity",
+      "width": 150,
+      "label_size": 18
+    },
+    {
+      "id": "invoice",
+      "label": "诊疗结算单",
+      "kind": "entity",
+      "width": 150,
+      "label_size": 18
+    }
+  ],
+  "messages": [
+    {
+      "from": "cashier",
+      "to": "screen",
+      "label": "提交开单(就诊号)"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "生成结算单(就诊号)"
+    },
+    {
+      "from": "control",
+      "to": "visit",
+      "label": "取得实际治疗()"
+    },
+    {
+      "from": "visit",
+      "to": "control",
+      "label": "治疗清单与版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "invoice",
+      "label": "查找该就诊已有单据()"
+    },
+    {
+      "from": "invoice",
+      "to": "control",
+      "label": "返回已存在单据",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回原单据编号",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "cashier",
+      "label": "显示原单据",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "invoice",
+      "label": "建立单据与价格快照()"
+    },
+    {
+      "from": "invoice",
+      "to": "invoice",
+      "label": "汇总应收金额()"
+    },
+    {
+      "from": "invoice",
+      "to": "control",
+      "label": "单据编号与金额",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回新单据",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "cashier",
+      "label": "显示逐项费用",
+      "kind": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "cashier",
+      "y": 150,
+      "end": 1094
+    },
+    {
+      "participant": "screen",
+      "y": 150,
+      "end": 1094
+    },
+    {
+      "participant": "control",
+      "y": 218,
+      "end": 1008
+    },
+    {
+      "participant": "visit",
+      "y": 286,
+      "end": 354
+    },
+    {
+      "participant": "invoice",
+      "y": 422,
+      "end": 490
+    },
+    {
+      "participant": "invoice",
+      "y": 804,
+      "end": 940
+    }
+  ],
+  "fragments": [
+    {
+      "from": "control",
+      "to": "invoice",
+      "start": 6,
+      "end": 12,
+      "operator": "alt",
+      "label": "按就诊号防重复",
+      "operands": [
+        {
+          "guard": "有效单据已存在",
+          "start": 6
+        },
+        {
+          "guard": "无单据且来源完整",
+          "start": 8
+        }
+      ]
+    }
+  ],
+  "basis": "main.tex UC-09；重复请求返回既有单据，结算行只来自已实施治疗。",
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="report" name="报告图片">
+    <mxGraphModel dx="1040" dy="550" grid="0" page="1" pageWidth="1040" pageHeight="550">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" value="" vertex="1" style="html=0;ellipse;fillColor=#20313B;strokeColor=none;strokeWidth=1.8;">
+          <mxGeometry x="25" y="185" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#F3F8F8;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry x="125.0" y="151.0" width="210" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#2D6E73;strokeColor=none;strokeWidth=1.8;">
+          <mxGeometry x="125.0" y="154.0" width="5" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" value="已开具" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=28;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="186.0" y="164" width="88.0" height="38.0" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" value="尚无有效净收款" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#64747C;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="168.5" y="209" width="123.0" height="24.25" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#F3F8F8;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry x="455.0" y="151.0" width="210" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#2D6E73;strokeColor=none;strokeWidth=1.8;">
+          <mxGeometry x="455.0" y="154.0" width="5" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" value="部分收款" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=28;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="502.0" y="164" width="116.0" height="38.0" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" value="0 &lt; 净收款 &lt; 应收" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#64747C;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="487.5" y="209" width="145.0" height="24.25" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#EDF7F1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry x="785.0" y="151.0" width="210" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#2D6E73;strokeColor=none;strokeWidth=1.8;">
+          <mxGeometry x="785.0" y="154.0" width="5" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" value="已结清" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=28;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="846.0" y="164" width="88.0" height="38.0" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" value="净收款 = 应收" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#64747C;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="834.0" y="209" width="112.0" height="24.25" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#FFF7E8;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry x="125.0" y="411.0" width="210" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" value="" vertex="1" style="html=0;rounded=1;fillColor=#2D6E73;strokeColor=none;strokeWidth=1.8;">
+          <mxGeometry x="125.0" y="414.0" width="5" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" value="已作废" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=28;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="186.0" y="424" width="88.0" height="38.0" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" value="净收款 = 0 且已授权" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#64747C;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="149.5" y="469" width="161.0" height="24.25" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="45" y="195" as="sourcePoint" />
+            <mxPoint x="125" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" parent="1" value="T1&#10;生成结算单" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="21.0" y="135" width="94.0" height="48.0" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="335" y="195" as="sourcePoint" />
+            <mxPoint x="455" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" parent="1" value="T2 部分收款" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="344.0" y="159" width="102.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="151" as="sourcePoint" />
+            <mxPoint x="890" y="151" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="230" y="80" />
+              <mxPoint x="890" y="80" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" parent="1" value="T3 一次全额收款" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="491.0" y="40" width="138.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="665" y="195" as="sourcePoint" />
+            <mxPoint x="785" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" parent="1" value="T4 结清尾款" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="674.0" y="159" width="102.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" value="" edge="1" style="html=0;endArrow=block;endFill=1;strokeColor=#53656F;strokeWidth=1.8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="239" as="sourcePoint" />
+            <mxPoint x="230" y="411" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" parent="1" value="T5 授权作废" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=18;fontColor=#20313B;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="252" y="313" width="102.0" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" value="净收款按有效收款扣减退款计算。&#10;退款后的状态转换见下一图。" vertex="1" style="html=0;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacing=0;fontFamily=Microsoft YaHei;fontSize=17;fontColor=#64747C;fontStyle=0;whiteSpace=wrap;">
+          <mxGeometry x="515" y="430" width="259.0" height="45.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

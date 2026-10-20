@@ -1,0 +1,2258 @@
+{
+  "width": 1800,
+  "height": 2185.0,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 160.0,
+      "cy": 72.35,
+      "rx": 7.3500000000000005,
+      "ry": 7.3500000000000005,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          79.7
+        ],
+        [
+          160.0,
+          104.32249999999999
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          145.3,
+          84.11
+        ],
+        [
+          174.7,
+          84.11
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          104.32249999999999
+        ],
+        [
+          145.3,
+          123.80000000000001
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          104.32249999999999
+        ],
+        [
+          174.7,
+          123.80000000000001
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 110.0,
+      "y": 135,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 160.0,
+      "y": 149,
+      "text": "患者",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        112.0,
+        136,
+        208.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          176
+        ],
+        [
+          160.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 456.0,
+      "cy": 85,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          456.0,
+          125
+        ],
+        [
+          496.0,
+          85
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 456.0,
+      "cy": 72.36842105263158,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          456.0,
+          79.73684210526315
+        ],
+        [
+          456.0,
+          94.47368421052632
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          441.2631578947368,
+          84.15789473684211
+        ],
+        [
+          470.7368421052632,
+          84.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          456.0,
+          94.47368421052632
+        ],
+        [
+          441.2631578947368,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          456.0,
+          94.47368421052632
+        ],
+        [
+          470.7368421052632,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          466.0,
+          36
+        ],
+        [
+          456.0,
+          45
+        ],
+        [
+          466.0,
+          54
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 406.0,
+      "y": 135,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 456.0,
+      "y": 149,
+      "text": "前台接待",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        408.0,
+        136,
+        504.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          456.0,
+          176
+        ],
+        [
+          456.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 752.0,
+      "cy": 85,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          752.0,
+          125
+        ],
+        [
+          792.0,
+          85
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 692.0,
+      "y": 135,
+      "w": 120.0,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 752.0,
+      "y": 149,
+      "text": "本店排班表",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        694.0,
+        136,
+        810.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          752.0,
+          176
+        ],
+        [
+          752.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1048.0,
+      "cy": 85,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1048.0,
+          125
+        ],
+        [
+          1088.0,
+          85
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1048.0,
+      "cy": 72.36842105263158,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1048.0,
+          79.73684210526315
+        ],
+        [
+          1048.0,
+          94.47368421052632
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1033.2631578947369,
+          84.15789473684211
+        ],
+        [
+          1062.7368421052631,
+          84.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1048.0,
+          94.47368421052632
+        ],
+        [
+          1033.2631578947369,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1048.0,
+          94.47368421052632
+        ],
+        [
+          1062.7368421052631,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1058.0,
+          36
+        ],
+        [
+          1048.0,
+          45
+        ],
+        [
+          1058.0,
+          54
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 998.0,
+      "y": 135,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1048.0,
+      "y": 149,
+      "text": "牙医",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1000.0,
+        136,
+        1096.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1048.0,
+          176
+        ],
+        [
+          1048.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1344.0,
+      "cy": 85,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1344.0,
+          125
+        ],
+        [
+          1384.0,
+          85
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1294.0,
+      "y": 135,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1344.0,
+      "y": 149,
+      "text": "牙椅",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1296.0,
+        136,
+        1392.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1344.0,
+          176
+        ],
+        [
+          1344.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1640.0,
+      "cy": 85,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          125
+        ],
+        [
+          1680.0,
+          85
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1640.0,
+      "cy": 72.36842105263158,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          79.73684210526315
+        ],
+        [
+          1640.0,
+          94.47368421052632
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1625.2631578947369,
+          84.15789473684211
+        ],
+        [
+          1654.7368421052631,
+          84.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          94.47368421052632
+        ],
+        [
+          1625.2631578947369,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          94.47368421052632
+        ],
+        [
+          1654.7368421052631,
+          109.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1650.0,
+          36
+        ],
+        [
+          1640.0,
+          45
+        ],
+        [
+          1650.0,
+          54
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1590.0,
+      "y": 135,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1640.0,
+      "y": 149,
+      "text": "收费员",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1592.0,
+        136,
+        1688.0,
+        174
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          176
+        ],
+        [
+          1640.0,
+          1294.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 451.0,
+      "y": 225,
+      "w": 10,
+      "h": 536,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 451.0,
+      "y": 805,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 747.0,
+      "y": 283,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 747.0,
+      "y": 747,
+      "w": 10,
+      "h": 24,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1043.0,
+      "y": 399,
+      "w": 10,
+      "h": 188,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1043.0,
+      "y": 863,
+      "w": 10,
+      "h": 188,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1339.0,
+      "y": 457,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1635.0,
+      "y": 1037,
+      "w": 10,
+      "h": 188,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          225
+        ],
+        [
+          451.0,
+          225
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 305.5,
+      "y": 197.0,
+      "text": "提出就诊诉求",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          461.0,
+          283
+        ],
+        [
+          747.0,
+          283
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 604.0,
+      "y": 255.0,
+      "text": "查阅本店排班",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          747.0,
+          341
+        ],
+        [
+          461.0,
+          341
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 604.0,
+      "y": 313.0,
+      "text": "反馈时段记录",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          461.0,
+          399
+        ],
+        [
+          1043.0,
+          399
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 752.0,
+      "y": 371.0,
+      "text": "核实可接诊项目与时段",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1053.0,
+          457
+        ],
+        [
+          1339.0,
+          457
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1196.0,
+      "y": 429.0,
+      "text": "查看牙椅现场占用",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1339.0,
+          515
+        ],
+        [
+          1053.0,
+          515
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1196.0,
+      "y": 487.0,
+      "text": "反馈可用状态",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1043.0,
+          573
+        ],
+        [
+          461.0,
+          573
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 752.0,
+      "y": 545.0,
+      "text": "告知可接诊安排",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          451.0,
+          631
+        ],
+        [
+          160.0,
+          631
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 305.5,
+      "y": 603.0,
+      "text": "提出预约方案",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          689
+        ],
+        [
+          451.0,
+          689
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 305.5,
+      "y": 661.0,
+      "text": "确认诊所、牙医和时间",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          461.0,
+          747
+        ],
+        [
+          747.0,
+          747
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 604.0,
+      "y": 719.0,
+      "text": "登记预约台账",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          805
+        ],
+        [
+          451.0,
+          805
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 305.5,
+      "y": 777.0,
+      "text": "到诊并提供身份资料",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          461.0,
+          863
+        ],
+        [
+          1043.0,
+          863
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 752.0,
+      "y": 835.0,
+      "text": "移交病史变化与预约资料",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1043.0,
+          921
+        ],
+        [
+          160.0,
+          921
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 601.5,
+      "y": 893.0,
+      "text": "复核风险并说明方案",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          979
+        ],
+        [
+          1043.0,
+          979
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 601.5,
+      "y": 951.0,
+      "text": "表达治疗决定",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1053.0,
+          1037
+        ],
+        [
+          1635.0,
+          1037
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1344.0,
+      "y": 1009.0,
+      "text": "移交实际治疗清单",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1635.0,
+          1095
+        ],
+        [
+          160.0,
+          1095
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 897.5,
+      "y": 1067.0,
+      "text": "出示逐项费用",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1153
+        ],
+        [
+          1635.0,
+          1153
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 897.5,
+      "y": 1125.0,
+      "text": "提交付款凭据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1635.0,
+          1211
+        ],
+        [
+          160.0,
+          1211
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 897.5,
+      "y": 1183.0,
+      "text": "交付结算凭据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "ellipse",
+      "cx": 160.0,
+      "cy": 1443.0,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1483.0
+        ],
+        [
+          200.0,
+          1443.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 160.0,
+      "cy": 1430.3684210526317,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1437.7368421052631
+        ],
+        [
+          160.0,
+          1452.4736842105262
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          145.26315789473685,
+          1442.157894736842
+        ],
+        [
+          174.73684210526315,
+          1442.157894736842
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1452.4736842105262
+        ],
+        [
+          145.26315789473685,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1452.4736842105262
+        ],
+        [
+          174.73684210526315,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          170.0,
+          1394.0
+        ],
+        [
+          160.0,
+          1403.0
+        ],
+        [
+          170.0,
+          1412.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 110.0,
+      "y": 1493.0,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 160.0,
+      "y": 1507.0,
+      "text": "诊所经理",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        112.0,
+        1494.0,
+        208.0,
+        1532.0
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1534.0
+        ],
+        [
+          160.0,
+          2031.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 900.0,
+      "cy": 1443.0,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900.0,
+          1483.0
+        ],
+        [
+          940.0,
+          1443.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 900.0,
+      "cy": 1430.3684210526317,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900.0,
+          1437.7368421052631
+        ],
+        [
+          900.0,
+          1452.4736842105262
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          885.2631578947369,
+          1442.157894736842
+        ],
+        [
+          914.7368421052631,
+          1442.157894736842
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900.0,
+          1452.4736842105262
+        ],
+        [
+          885.2631578947369,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900.0,
+          1452.4736842105262
+        ],
+        [
+          914.7368421052631,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          910.0,
+          1394.0
+        ],
+        [
+          900.0,
+          1403.0
+        ],
+        [
+          910.0,
+          1412.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 850.0,
+      "y": 1493.0,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 900.0,
+      "y": 1507.0,
+      "text": "总部财务",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        852.0,
+        1494.0,
+        948.0,
+        1532.0
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          900.0,
+          1534.0
+        ],
+        [
+          900.0,
+          2031.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1640.0,
+      "cy": 1443.0,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          1483.0
+        ],
+        [
+          1680.0,
+          1443.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1640.0,
+      "cy": 1430.3684210526317,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          1437.7368421052631
+        ],
+        [
+          1640.0,
+          1452.4736842105262
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1625.2631578947369,
+          1442.157894736842
+        ],
+        [
+          1654.7368421052631,
+          1442.157894736842
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          1452.4736842105262
+        ],
+        [
+          1625.2631578947369,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          1452.4736842105262
+        ],
+        [
+          1654.7368421052631,
+          1467.2105263157896
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1650.0,
+          1394.0
+        ],
+        [
+          1640.0,
+          1403.0
+        ],
+        [
+          1650.0,
+          1412.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1590.0,
+      "y": 1493.0,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1640.0,
+      "y": 1507.0,
+      "text": "负责人",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1592.0,
+        1494.0,
+        1688.0,
+        1532.0
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1640.0,
+          1534.0
+        ],
+        [
+          1640.0,
+          2031.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 155.0,
+      "y": 1641.0,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 895.0,
+      "y": 1583.0,
+      "w": 10,
+      "h": 263.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 895.0,
+      "y": 1890.0,
+      "w": 10,
+      "h": 72.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1635.0,
+      "y": 1832.0,
+      "w": 10,
+      "h": 130.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          160.0,
+          1583.0
+        ],
+        [
+          895.0,
+          1583.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 527.5,
+      "y": 1555.0,
+      "text": "提交本店收入和费用汇总",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          895.0,
+          1641.0
+        ],
+        [
+          165.0,
+          1641.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 530.0,
+      "y": 1613.0,
+      "text": "要求补充凭据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          165.0,
+          1699.0
+        ],
+        [
+          895.0,
+          1699.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 530.0,
+      "y": 1671.0,
+      "text": "提交更正与依据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          905.0,
+          1757.0
+        ],
+        [
+          940.0,
+          1757.0
+        ],
+        [
+          940.0,
+          1783.0
+        ],
+        [
+          905.0,
+          1783.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 948.0,
+      "y": 1764.0,
+      "text": "人工核算利润与贡献",
+      "size": 20,
+      "anchor": "start",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          905.0,
+          1832.0
+        ],
+        [
+          1635.0,
+          1832.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1270.0,
+      "y": 1804.0,
+      "text": "提交季度结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1635.0,
+          1890.0
+        ],
+        [
+          905.0,
+          1890.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1270.0,
+      "y": 1862.0,
+      "text": "询问牙医贡献来源",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          905.0,
+          1948.0
+        ],
+        [
+          1635.0,
+          1948.0
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1270.0,
+      "y": 1920.0,
+      "text": "说明统计口径与依据",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 1320.0,
+      "text": "（a）单次就诊主路径",
+      "size": 23,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 2063.0,
+      "text": "（b）季度经营复核（独立周期）",
+      "size": 23,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 900,
+      "y": 2108.0,
+      "text": "图 2　现状业务序列全景：单次就诊与季度经营复核",
+      "size": 27,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

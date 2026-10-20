@@ -1,0 +1,212 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "改进后业务：季度核对与关闭",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "M",
+      "label": "诊所经理",
+      "kind": "business-worker"
+    },
+    {
+      "id": "F",
+      "label": "总部财务",
+      "kind": "business-worker"
+    },
+    {
+      "id": "S",
+      "label": "诊疗管理系统",
+      "kind": "business-entity"
+    }
+  ],
+  "messages": [
+    {
+      "from": "F",
+      "to": "S",
+      "label": "检查并核算季度(q)",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "F",
+      "label": "初步结果及待核事项",
+      "kind": "return"
+    },
+    {
+      "from": "F",
+      "to": "M",
+      "label": "请求核实差异",
+      "kind": "call",
+      "y": 390
+    },
+    {
+      "from": "M",
+      "to": "S",
+      "label": "保存更正及依据()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "M",
+      "label": "更正已记录",
+      "kind": "return"
+    },
+    {
+      "from": "M",
+      "to": "F",
+      "label": "提交处理说明",
+      "kind": "return"
+    },
+    {
+      "from": "F",
+      "to": "S",
+      "label": "重新核算(q)",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "F",
+      "label": "新版本结果",
+      "kind": "return"
+    },
+    {
+      "from": "F",
+      "to": "S",
+      "label": "关闭季度(q,结果版本)",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "F",
+      "label": "核定结果",
+      "kind": "return",
+      "y": 900
+    },
+    {
+      "from": "F",
+      "to": "M",
+      "label": "告知关闭结果",
+      "kind": "call"
+    },
+    {
+      "from": "M",
+      "to": "F",
+      "label": "已收到",
+      "kind": "return"
+    },
+    {
+      "from": "S",
+      "to": "F",
+      "label": "拒绝原因",
+      "kind": "return",
+      "y": 1180
+    },
+    {
+      "from": "F",
+      "to": "M",
+      "label": "通报阻断事项",
+      "kind": "call"
+    },
+    {
+      "from": "M",
+      "to": "F",
+      "label": "已收到",
+      "kind": "return"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 07_改进后_季度核算.puml",
+  "fragments": [
+    {
+      "start": 2,
+      "end": 7,
+      "from": "M",
+      "to": "S",
+      "operator": "opt",
+      "y": 305,
+      "bottom": 720,
+      "operands": [
+        {
+          "guard": "存在差异",
+          "start": 2,
+          "y": 315
+        }
+      ]
+    },
+    {
+      "start": 9,
+      "end": 14,
+      "from": "M",
+      "to": "S",
+      "operator": "alt",
+      "y": 815,
+      "operands": [
+        {
+          "guard": "可关闭",
+          "start": 9,
+          "y": 850
+        },
+        {
+          "guard": "不可关闭",
+          "start": 12,
+          "y": 1110
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "F",
+      "start_message": 0,
+      "end_message": 14,
+      "end_offset": 12
+    },
+    {
+      "participant": "M",
+      "start_message": 2,
+      "end_message": 5,
+      "end_offset": 12
+    },
+    {
+      "participant": "M",
+      "start_message": 10,
+      "end_message": 11,
+      "end_offset": 12
+    },
+    {
+      "participant": "M",
+      "start_message": 13,
+      "end_message": 14,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 0,
+      "end_message": 1,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 3,
+      "end_message": 4,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 6,
+      "end_message": 7,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

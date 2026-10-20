@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="800" height="600" fill="white"/>
+<rect x="205" y="30" width="520" height="535" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="465" y="78.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">ADC Nexus 诊所资源管理</text>
+<ellipse cx="88" cy="148.7" rx="7.700000000000001" ry="7.700000000000001" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="88,156.4 88,182.195" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="72.6,161.02 103.4,161.02" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,182.195 72.6,202.60000000000002" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,182.195 103.4,202.60000000000002" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="82.764,153.936 93.236,143.464" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="88" y="222.60000000000002" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">总部运营</text>
+<ellipse cx="88" cy="298.7" rx="7.700000000000001" ry="7.700000000000001" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="88,306.4 88,332.195" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="72.6,311.02 103.4,311.02" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,332.195 72.6,352.6" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,332.195 103.4,352.6" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="82.764,303.936 93.236,293.464" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="88" y="372.6" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">诊所经理</text>
+<ellipse cx="88" cy="448.7" rx="7.700000000000001" ry="7.700000000000001" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="88,456.4 88,482.195" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="72.6,461.02 103.4,461.02" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,482.195 72.6,502.6" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,482.195 103.4,502.6" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="82.764,453.936 93.236,443.464" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="88" y="522.6" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">前台接待</text>
+<polyline points="88,169.49 285.0035083528043,169.7565034197876" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="277.0089268085372,165.74568480857332 285.0035083528043,169.7565034197876 276.9981045372726,173.74567748847275" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,319.49 285.0035083528043,319.75650341978763" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="277.0089268085372,315.7456848085733 285.0035083528043,319.75650341978763 276.9981045372726,323.7456774884728" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="88,469.49 285.0035083528043,469.75650341978763" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="277.0089268085372,465.7456848085733 285.0035083528043,469.75650341978763 276.9981045372726,473.7456774884728" fill="none" stroke="#000000" stroke-width="1"/>
+<ellipse cx="465" cy="170" rx="180.0" ry="39.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="612.4473679720186,192.3694810176908 645.0,170.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="465" y="163.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">UC-11</text>
+<text x="465" y="187.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">维护牙医资质与任职</text>
+<ellipse cx="465" cy="320" rx="180.0" ry="39.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="612.4473679720186,342.3694810176908 645.0,320.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="465" y="313.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">UC-18</text>
+<text x="465" y="337.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">维护排班与牙椅资源</text>
+<ellipse cx="465" cy="470" rx="180.0" ry="39.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="612.4473679720186,492.3694810176908 645.0,470.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="465" y="463.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">UC-02</text>
+<text x="465" y="488.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">安排诊疗预约</text>
+</svg>

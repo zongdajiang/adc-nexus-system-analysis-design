@@ -1,12 +1,10 @@
 @startuml
 !include _state_style.puml
-
-state "已结清" as SETTLED #EEF7F1
-state "部分收款" as PARTIAL #FFF8E8
-state "已开具" as ISSUED
-
-SETTLED -down-> PARTIAL : T1
-SETTLED -right-> ISSUED : T2
-PARTIAL -down-> ISSUED : T3
-PARTIAL -right-> PARTIAL : T4
+state "已结清" as paid
+state "部分收款" as partial
+state "已开具" as issued
+paid --> partial : T1 已结清后部分退款 [0 < 净收款 < 应收]
+paid --> issued : T2 已结清后全额退款 [净收款为零，单据仍保留]
+partial --> issued : T3 部分收款后退至零 [净收款为零]
+partial --> partial : T4 部分收款后继续退款 [退款后净收款仍大于零且小于应收]
 @enduml

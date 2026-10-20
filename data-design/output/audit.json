@@ -1,0 +1,606 @@
+{
+  "passed": true,
+  "issues": [],
+  "warnings": [
+    "account_invitations_target_user_id_app_users_id_fk: FK columns are not a leading index",
+    "account_invitations_created_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "actual_treatment_items_treatment_id_treatment_catalog_id_fk: FK columns are not a leading index",
+    "actual_treatment_items_provider_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "appointment_status_history_actor_user_id_app_users_id_fk: FK columns are not a leading index",
+    "appointments_treatment_id_treatment_catalog_id_fk: FK columns are not a leading index",
+    "appointments_created_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "clinical_note_versions_author_user_id_app_users_id_fk: FK columns are not a leading index",
+    "clinical_notes_signed_by_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "clinical_visits_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "clinical_visits_chair_id_clinic_chairs_id_fk: FK columns are not a leading index",
+    "clinical_visits_created_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "dentist_availability_rules_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "dentist_qualifications_qualification_type_id_qualification_types_id_fk: FK columns are not a leading index",
+    "dentist_schedule_exceptions_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "expansion_scenarios_created_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "expansion_scenarios_approved_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "financial_close_exceptions_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "financial_period_results_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "financial_period_results_approved_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "financial_reporting_periods_locked_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "financial_reporting_periods_reopened_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "incentive_pools_network_result_id_financial_period_results_id_fk: FK columns are not a leading index",
+    "incentive_pools_approved_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "invoice_adjustments_authored_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "invoice_adjustments_approved_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "invoices_patient_id_patients_id_fk: FK columns are not a leading index",
+    "invoices_created_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "odontogram_observations_observed_by_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "operating_expenses_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "operating_expenses_entered_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "operating_expenses_approved_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "patient_allergies_verified_by_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "patient_duplicate_reviews_candidate_patient_id_patients_id_fk: FK columns are not a leading index",
+    "patient_duplicate_reviews_reviewed_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "patient_timeline_events_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "payment_refunds_authorized_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "payments_recorded_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "requested_treatment_items_treatment_id_treatment_catalog_id_fk: FK columns are not a leading index",
+    "system_settings_updated_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "treatment_cost_entries_visit_id_clinical_visits_id_fk: FK columns are not a leading index",
+    "treatment_cost_entries_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "user_role_assignments_role_id_roles_id_fk: FK columns are not a leading index",
+    "user_role_assignments_granted_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "visit_allergy_acknowledgements_allergy_id_patient_allergies_id_fk: FK columns are not a leading index",
+    "visit_allergy_acknowledgements_acknowledged_by_user_id_app_users_id_fk: FK columns are not a leading index",
+    "waitlist_entries_patient_id_patients_id_fk: FK columns are not a leading index",
+    "waitlist_entries_preferred_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "waitlist_offers_released_appointment_id_appointments_id_fk: FK columns are not a leading index",
+    "waitlist_offers_clinic_id_clinics_id_fk: FK columns are not a leading index",
+    "waitlist_offers_dentist_id_dentists_id_fk: FK columns are not a leading index",
+    "waitlist_offers_chair_id_clinic_chairs_id_fk: FK columns are not a leading index"
+  ],
+  "counts": {
+    "tables": 61,
+    "columns": 730,
+    "foreign_keys": 119,
+    "indexes": 124,
+    "domains": 9,
+    "business_rules": 20,
+    "relationship_recommendations": 3
+  },
+  "index_recommendations": [
+    {
+      "constraint": "account_invitations_target_user_id_app_users_id_fk",
+      "table": "account_invitations",
+      "columns": [
+        "target_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_account_invitations_target_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "account_invitations_created_by_user_id_app_users_id_fk",
+      "table": "account_invitations",
+      "columns": [
+        "created_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_account_invitations_created_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "actual_treatment_items_treatment_id_treatment_catalog_id_fk",
+      "table": "actual_treatment_items",
+      "columns": [
+        "treatment_id"
+      ],
+      "target_table": "treatment_catalog",
+      "index_name": "idx_actual_treatment_items_treatment_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "actual_treatment_items_provider_dentist_id_dentists_id_fk",
+      "table": "actual_treatment_items",
+      "columns": [
+        "provider_dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_actual_treatment_items_provider_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "appointment_status_history_actor_user_id_app_users_id_fk",
+      "table": "appointment_status_history",
+      "columns": [
+        "actor_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_appointment_status_history_actor_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "appointments_treatment_id_treatment_catalog_id_fk",
+      "table": "appointments",
+      "columns": [
+        "treatment_id"
+      ],
+      "target_table": "treatment_catalog",
+      "index_name": "idx_appointments_treatment_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "appointments_created_by_user_id_app_users_id_fk",
+      "table": "appointments",
+      "columns": [
+        "created_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_appointments_created_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "clinical_note_versions_author_user_id_app_users_id_fk",
+      "table": "clinical_note_versions",
+      "columns": [
+        "author_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_clinical_note_versions_author_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "clinical_notes_signed_by_dentist_id_dentists_id_fk",
+      "table": "clinical_notes",
+      "columns": [
+        "signed_by_dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_clinical_notes_signed_by_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "clinical_visits_dentist_id_dentists_id_fk",
+      "table": "clinical_visits",
+      "columns": [
+        "dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_clinical_visits_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "clinical_visits_chair_id_clinic_chairs_id_fk",
+      "table": "clinical_visits",
+      "columns": [
+        "chair_id"
+      ],
+      "target_table": "clinic_chairs",
+      "index_name": "idx_clinical_visits_chair_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "clinical_visits_created_by_user_id_app_users_id_fk",
+      "table": "clinical_visits",
+      "columns": [
+        "created_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_clinical_visits_created_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "dentist_availability_rules_clinic_id_clinics_id_fk",
+      "table": "dentist_availability_rules",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_dentist_availability_rules_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "dentist_qualifications_qualification_type_id_qualification_types_id_fk",
+      "table": "dentist_qualifications",
+      "columns": [
+        "qualification_type_id"
+      ],
+      "target_table": "qualification_types",
+      "index_name": "idx_dentist_qualifications_qualification_type_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "dentist_schedule_exceptions_clinic_id_clinics_id_fk",
+      "table": "dentist_schedule_exceptions",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_dentist_schedule_exceptions_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "expansion_scenarios_created_by_user_id_app_users_id_fk",
+      "table": "expansion_scenarios",
+      "columns": [
+        "created_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_expansion_scenarios_created_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "expansion_scenarios_approved_by_user_id_app_users_id_fk",
+      "table": "expansion_scenarios",
+      "columns": [
+        "approved_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_expansion_scenarios_approved_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "financial_close_exceptions_clinic_id_clinics_id_fk",
+      "table": "financial_close_exceptions",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_financial_close_exceptions_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "financial_period_results_clinic_id_clinics_id_fk",
+      "table": "financial_period_results",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_financial_period_results_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "financial_period_results_approved_by_user_id_app_users_id_fk",
+      "table": "financial_period_results",
+      "columns": [
+        "approved_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_financial_period_results_approved_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "financial_reporting_periods_locked_by_user_id_app_users_id_fk",
+      "table": "financial_reporting_periods",
+      "columns": [
+        "locked_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_financial_reporting_periods_locked_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "financial_reporting_periods_reopened_by_user_id_app_users_id_fk",
+      "table": "financial_reporting_periods",
+      "columns": [
+        "reopened_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_financial_reporting_periods_reopened_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "incentive_pools_network_result_id_financial_period_results_id_fk",
+      "table": "incentive_pools",
+      "columns": [
+        "network_result_id"
+      ],
+      "target_table": "financial_period_results",
+      "index_name": "idx_incentive_pools_network_result_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "incentive_pools_approved_by_user_id_app_users_id_fk",
+      "table": "incentive_pools",
+      "columns": [
+        "approved_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_incentive_pools_approved_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "invoice_adjustments_authored_by_user_id_app_users_id_fk",
+      "table": "invoice_adjustments",
+      "columns": [
+        "authored_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_invoice_adjustments_authored_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "invoice_adjustments_approved_by_user_id_app_users_id_fk",
+      "table": "invoice_adjustments",
+      "columns": [
+        "approved_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_invoice_adjustments_approved_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "invoices_patient_id_patients_id_fk",
+      "table": "invoices",
+      "columns": [
+        "patient_id"
+      ],
+      "target_table": "patients",
+      "index_name": "idx_invoices_patient_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "invoices_created_by_user_id_app_users_id_fk",
+      "table": "invoices",
+      "columns": [
+        "created_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_invoices_created_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "odontogram_observations_observed_by_dentist_id_dentists_id_fk",
+      "table": "odontogram_observations",
+      "columns": [
+        "observed_by_dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_odontogram_observations_observed_by_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "operating_expenses_clinic_id_clinics_id_fk",
+      "table": "operating_expenses",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_operating_expenses_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "operating_expenses_entered_by_user_id_app_users_id_fk",
+      "table": "operating_expenses",
+      "columns": [
+        "entered_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_operating_expenses_entered_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "operating_expenses_approved_by_user_id_app_users_id_fk",
+      "table": "operating_expenses",
+      "columns": [
+        "approved_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_operating_expenses_approved_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "patient_allergies_verified_by_dentist_id_dentists_id_fk",
+      "table": "patient_allergies",
+      "columns": [
+        "verified_by_dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_patient_allergies_verified_by_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "patient_duplicate_reviews_candidate_patient_id_patients_id_fk",
+      "table": "patient_duplicate_reviews",
+      "columns": [
+        "candidate_patient_id"
+      ],
+      "target_table": "patients",
+      "index_name": "idx_patient_duplicate_reviews_candidate_patient_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "patient_duplicate_reviews_reviewed_by_user_id_app_users_id_fk",
+      "table": "patient_duplicate_reviews",
+      "columns": [
+        "reviewed_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_patient_duplicate_reviews_reviewed_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "patient_timeline_events_clinic_id_clinics_id_fk",
+      "table": "patient_timeline_events",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_patient_timeline_events_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "payment_refunds_authorized_by_user_id_app_users_id_fk",
+      "table": "payment_refunds",
+      "columns": [
+        "authorized_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_payment_refunds_authorized_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "payments_recorded_by_user_id_app_users_id_fk",
+      "table": "payments",
+      "columns": [
+        "recorded_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_payments_recorded_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "requested_treatment_items_treatment_id_treatment_catalog_id_fk",
+      "table": "requested_treatment_items",
+      "columns": [
+        "treatment_id"
+      ],
+      "target_table": "treatment_catalog",
+      "index_name": "idx_requested_treatment_items_treatment_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "system_settings_updated_by_user_id_app_users_id_fk",
+      "table": "system_settings",
+      "columns": [
+        "updated_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_system_settings_updated_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "treatment_cost_entries_visit_id_clinical_visits_id_fk",
+      "table": "treatment_cost_entries",
+      "columns": [
+        "visit_id"
+      ],
+      "target_table": "clinical_visits",
+      "index_name": "idx_treatment_cost_entries_visit_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "treatment_cost_entries_clinic_id_clinics_id_fk",
+      "table": "treatment_cost_entries",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_treatment_cost_entries_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "user_role_assignments_role_id_roles_id_fk",
+      "table": "user_role_assignments",
+      "columns": [
+        "role_id"
+      ],
+      "target_table": "roles",
+      "index_name": "idx_user_role_assignments_role_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "user_role_assignments_granted_by_user_id_app_users_id_fk",
+      "table": "user_role_assignments",
+      "columns": [
+        "granted_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_user_role_assignments_granted_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "visit_allergy_acknowledgements_allergy_id_patient_allergies_id_fk",
+      "table": "visit_allergy_acknowledgements",
+      "columns": [
+        "allergy_id"
+      ],
+      "target_table": "patient_allergies",
+      "index_name": "idx_visit_allergy_acknowledgements_allergy_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "visit_allergy_acknowledgements_acknowledged_by_user_id_app_users_id_fk",
+      "table": "visit_allergy_acknowledgements",
+      "columns": [
+        "acknowledged_by_user_id"
+      ],
+      "target_table": "app_users",
+      "index_name": "idx_visit_allergy_acknowledgements_acknowledged_by_user_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_entries_patient_id_patients_id_fk",
+      "table": "waitlist_entries",
+      "columns": [
+        "patient_id"
+      ],
+      "target_table": "patients",
+      "index_name": "idx_waitlist_entries_patient_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_entries_preferred_clinic_id_clinics_id_fk",
+      "table": "waitlist_entries",
+      "columns": [
+        "preferred_clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_waitlist_entries_preferred_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_offers_released_appointment_id_appointments_id_fk",
+      "table": "waitlist_offers",
+      "columns": [
+        "released_appointment_id"
+      ],
+      "target_table": "appointments",
+      "index_name": "idx_waitlist_offers_released_appointment_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_offers_clinic_id_clinics_id_fk",
+      "table": "waitlist_offers",
+      "columns": [
+        "clinic_id"
+      ],
+      "target_table": "clinics",
+      "index_name": "idx_waitlist_offers_clinic_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_offers_dentist_id_dentists_id_fk",
+      "table": "waitlist_offers",
+      "columns": [
+        "dentist_id"
+      ],
+      "target_table": "dentists",
+      "index_name": "idx_waitlist_offers_dentist_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    },
+    {
+      "constraint": "waitlist_offers_chair_id_clinic_chairs_id_fk",
+      "table": "waitlist_offers",
+      "columns": [
+        "chair_id"
+      ],
+      "target_table": "clinic_chairs",
+      "index_name": "idx_waitlist_offers_chair_id",
+      "reason": "建议结合真实查询计划评估；常用于连接、筛选及父记录删除校验。"
+    }
+  ],
+  "outputs": {
+    "panorama": [
+      "ADC_Nexus_全景关系数据图.pdf",
+      "ADC_Nexus_全景关系数据图.svg",
+      "ADC_Nexus_全景关系数据图.png",
+      "ADC_Nexus_全景关系数据图.drawio"
+    ],
+    "domain_diagrams": 9,
+    "domain_vector_pdfs": 9,
+    "report": "ADC_Nexus_D部分_全景与九分域_矢量审阅本.pdf",
+    "ddl": "schema.sql",
+    "index_recommendations": "index_recommendations.sql"
+  },
+  "source_hashes": {
+    "snapshot": "f26269352cf8e9427aaf2ae2a77e4cd37e0d86abb9276a6a2e71f324d4211882",
+    "config": "69670116ed78f677982ec313ae0d2278239044bc862465daec1f25b999b0dfed"
+  }
+}

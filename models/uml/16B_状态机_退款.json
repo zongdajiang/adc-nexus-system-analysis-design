@@ -1,0 +1,141 @@
+{
+  "type": "state",
+  "renderer": "tools/render_state_diagrams_v4.py",
+  "title": "退款后结算状态判定",
+  "width": 1040,
+  "height": 550,
+  "caption_location": "report-below",
+  "nodes": [
+    {
+      "id": "paid",
+      "kind": "state",
+      "title": "已结清",
+      "note": "退款前净收款 = 应收",
+      "box": [
+        120.0,
+        146.0,
+        340.0,
+        234.0
+      ]
+    },
+    {
+      "id": "partial",
+      "kind": "state",
+      "title": "部分收款",
+      "note": "0 < 净收款 < 应收",
+      "box": [
+        700.0,
+        146.0,
+        920.0,
+        234.0
+      ]
+    },
+    {
+      "id": "issued",
+      "kind": "state",
+      "title": "已开具",
+      "note": "退款后净收款 = 0",
+      "box": [
+        410.0,
+        406.0,
+        630.0,
+        494.0
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "id": "T1",
+      "source": "paid",
+      "target": "partial",
+      "trigger": "已结清后部分退款",
+      "guard": "0 < 净收款 < 应收",
+      "points": [
+        [
+          340,
+          190
+        ],
+        [
+          700,
+          190
+        ]
+      ],
+      "display": "T1 部分退款"
+    },
+    {
+      "id": "T2",
+      "source": "paid",
+      "target": "issued",
+      "trigger": "已结清后全额退款",
+      "guard": "净收款为零，单据仍保留",
+      "points": [
+        [
+          230,
+          234
+        ],
+        [
+          230,
+          450
+        ],
+        [
+          410,
+          450
+        ]
+      ],
+      "display": "T2 全额退款"
+    },
+    {
+      "id": "T3",
+      "source": "partial",
+      "target": "issued",
+      "trigger": "部分收款后退至零",
+      "guard": "净收款为零",
+      "points": [
+        [
+          810,
+          234
+        ],
+        [
+          810,
+          450
+        ],
+        [
+          630,
+          450
+        ]
+      ],
+      "display": "T3 退至零"
+    },
+    {
+      "id": "T4",
+      "source": "partial",
+      "target": "partial",
+      "trigger": "部分收款后继续退款",
+      "guard": "退款后净收款仍大于零且小于应收",
+      "points": [
+        [
+          920,
+          190
+        ],
+        [
+          990,
+          190
+        ],
+        [
+          990,
+          80
+        ],
+        [
+          810,
+          80
+        ],
+        [
+          810,
+          146
+        ]
+      ],
+      "display": "T4 退款后仍部分收款"
+    }
+  ],
+  "notation": "UML state, initial pseudostate, choice; filled transition arrows"
+}

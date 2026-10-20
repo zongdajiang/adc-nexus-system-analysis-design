@@ -1,0 +1,1071 @@
+{
+  "width": 1169,
+  "height": 779,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 39.5,
+      "text": "诊所",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        32,
+        310,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 78.0,
+      "text": "- 诊所编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        73,
+        310,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 108.0,
+      "text": "- 名称: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        103,
+        310,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 440,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 440,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 585.0,
+      "y": 39.5,
+      "text": "牙医",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        448,
+        32,
+        722,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 452,
+      "y": 78.0,
+      "text": "- 员工编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        448,
+        73,
+        722,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 452,
+      "y": 108.0,
+      "text": "- 姓名: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        448,
+        103,
+        722,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 248,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 248,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 257.5,
+      "text": "任职",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        250,
+        310,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 296.0,
+      "text": "- 生效日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        291,
+        310,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 326.0,
+      "text": "- 失效日期: Date?",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        321,
+        310,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 356.0,
+      "text": "- 职责: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        351,
+        310,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 248,
+      "w": 413,
+      "h": 193,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 248,
+      "w": 413,
+      "h": 43,
+      "fill": "#EAF5F1",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 584.5,
+      "y": 257.5,
+      "text": "资质证书",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        386,
+        250,
+        783,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 296.0,
+      "text": "- 证书编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        291,
+        783,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 326.0,
+      "text": "- 签发机构: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        321,
+        783,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 356.0,
+      "text": "- 生效日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        351,
+        783,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 386.0,
+      "text": "- 到期日期: Date?",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        381,
+        783,
+        411
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          378,
+          411
+        ],
+        [
+          791,
+          411
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#5d6a70",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 416.0,
+      "text": "+ 在日期有效(服务日期: Date): Boolean",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        411,
+        783,
+        441
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF5F1",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 996.0,
+      "y": 39.5,
+      "text": "资质类型",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        859,
+        32,
+        1133,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 78.0,
+      "text": "- 资质代码: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        73,
+        1133,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 108.0,
+      "text": "- 名称: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        103,
+        1133,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 556,
+      "w": 290,
+      "h": 193,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 556,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF5F1",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 996.0,
+      "y": 565.5,
+      "text": "治疗目录版本",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        859,
+        558,
+        1133,
+        597
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 604.0,
+      "text": "- 项目代码: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        599,
+        1133,
+        629
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 634.0,
+      "text": "- 版本号: Integer",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        629,
+        1133,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 664.0,
+      "text": "- 名称: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        659,
+        1133,
+        689
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 694.0,
+      "text": "- 单位: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        689,
+        1133,
+        719
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 724.0,
+      "text": "- 标准单价: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        719,
+        1133,
+        749
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 248,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 851,
+      "y": 248,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF5F1",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 996.0,
+      "y": 257.5,
+      "text": "资质要求",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        859,
+        250,
+        1133,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 296.0,
+      "text": "- 是否必需: Boolean",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        291,
+        1133,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 326.0,
+      "text": "- 生效日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        321,
+        1133,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 863,
+      "y": 356.0,
+      "text": "- 失效日期: Date?",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        859,
+        351,
+        1133,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          548.2666666666667,
+          133
+        ],
+        [
+          548.2666666666667,
+          190.5
+        ],
+        [
+          209.73333333333332,
+          190.5
+        ],
+        [
+          209.73333333333332,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 379.0,
+      "y": 164.5,
+      "text": "任职记录",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 562.2666666666667,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 195.73333333333332,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          173.0,
+          133
+        ],
+        [
+          173.0,
+          190.5
+        ],
+        [
+          136.26666666666665,
+          190.5
+        ],
+        [
+          136.26666666666665,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 187.0,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 122.26666666666665,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          621.7333333333333,
+          133
+        ],
+        [
+          621.7333333333333,
+          190.5
+        ],
+        [
+          532.1866666666666,
+          190.5
+        ],
+        [
+          532.1866666666666,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 576.96,
+      "y": 164.5,
+      "text": "持有",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 635.7333333333333,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 518.1866666666666,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          959.2666666666667,
+          133
+        ],
+        [
+          959.2666666666667,
+          190.5
+        ],
+        [
+          636.8133333333333,
+          190.5
+        ],
+        [
+          636.8133333333333,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 798.04,
+      "y": 164.5,
+      "text": "证书类别",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 973.2666666666667,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 622.8133333333333,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1032.7333333333333,
+          133
+        ],
+        [
+          1032.7333333333333,
+          190.5
+        ],
+        [
+          996.0,
+          190.5
+        ],
+        [
+          996.0,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 1046.7333333333333,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 982.0,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          996.0,
+          556
+        ],
+        [
+          996.0,
+          468.5
+        ],
+        [
+          996.0,
+          468.5
+        ],
+        [
+          996.0,
+          381
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 1044.0,
+      "y": 503.25,
+      "text": "项目要求",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 982.0,
+      "y": 526.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 1010.0,
+      "y": 393.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

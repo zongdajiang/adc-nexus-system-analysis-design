@@ -1,129 +1,141 @@
 {
+  "type": "state",
+  "renderer": "tools/render_state_diagrams_v4.py",
   "title": "退款后结算状态判定",
-  "canvas": [
-    1600,
-    610
-  ],
-  "states": [
+  "width": 1040,
+  "height": 550,
+  "caption_location": "report-below",
+  "nodes": [
     {
-      "id": "s0",
+      "id": "paid",
       "kind": "state",
-      "label": "已结清",
-      "x": 280,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "已结清",
+      "note": "退款前净收款 = 应收",
+      "box": [
+        120.0,
+        146.0,
+        340.0,
+        234.0
+      ]
     },
     {
-      "id": "s1",
+      "id": "partial",
       "kind": "state",
-      "label": "部分收款",
-      "x": 750,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "部分收款",
+      "note": "0 < 净收款 < 应收",
+      "box": [
+        700.0,
+        146.0,
+        920.0,
+        234.0
+      ]
     },
     {
-      "id": "s2",
+      "id": "issued",
       "kind": "state",
-      "label": "已开具",
-      "x": 1230,
-      "y": 270,
-      "w": 200,
-      "h": 90,
-      "fill": "#F3F7F8"
+      "title": "已开具",
+      "note": "退款后净收款 = 0",
+      "box": [
+        410.0,
+        406.0,
+        630.0,
+        494.0
+      ]
     }
   ],
   "transitions": [
     {
-      "code": "T1",
+      "id": "T1",
+      "source": "paid",
+      "target": "partial",
+      "trigger": "已结清后部分退款",
+      "guard": "0 < 净收款 < 应收",
       "points": [
         [
-          380,
-          270
+          340,
+          190
         ],
         [
-          650,
-          270
+          700,
+          190
         ]
       ],
-      "label_at": [
-        515,
-        228
-      ],
-      "meaning": "结清后部分退款"
+      "display": "T1 部分退款"
     },
     {
-      "code": "T3",
+      "id": "T2",
+      "source": "paid",
+      "target": "issued",
+      "trigger": "已结清后全额退款",
+      "guard": "净收款为零，单据仍保留",
       "points": [
         [
-          850,
-          270
+          230,
+          234
         ],
         [
-          1130,
-          270
+          230,
+          450
+        ],
+        [
+          410,
+          450
         ]
       ],
-      "label_at": [
-        990,
-        228
-      ],
-      "meaning": "部分收款退至零"
+      "display": "T2 全额退款"
     },
     {
-      "code": "T2",
+      "id": "T3",
+      "source": "partial",
+      "target": "issued",
+      "trigger": "部分收款后退至零",
+      "guard": "净收款为零",
       "points": [
         [
-          280,
-          225
+          810,
+          234
         ],
         [
-          280,
-          85
+          810,
+          450
         ],
         [
-          1230,
-          85
-        ],
-        [
-          1230,
-          225
+          630,
+          450
         ]
       ],
-      "label_at": [
-        750,
-        52
-      ],
-      "meaning": "结清后全额退款"
+      "display": "T3 退至零"
     },
     {
-      "code": "T4",
+      "id": "T4",
+      "source": "partial",
+      "target": "partial",
+      "trigger": "部分收款后继续退款",
+      "guard": "退款后净收款仍大于零且小于应收",
       "points": [
         [
-          705,
-          315
+          920,
+          190
         ],
         [
-          705,
-          485
+          990,
+          190
         ],
         [
-          795,
-          485
+          990,
+          80
         ],
         [
-          795,
-          315
+          810,
+          80
+        ],
+        [
+          810,
+          146
         ]
       ],
-      "label_at": [
-        750,
-        448
-      ],
-      "meaning": "部分收款后仍为部分收款"
+      "display": "T4 退款后仍部分收款"
     }
-  ]
+  ],
+  "notation": "UML state, initial pseudostate, choice; filled transition arrows"
 }

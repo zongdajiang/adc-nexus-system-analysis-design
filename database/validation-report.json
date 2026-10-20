@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "root": "C:\\Users\\Jiangzongda\\Documents\\ChatGPT\\系统分析与设计\\deliverables\\ADC_Nexus_终极版_图表精修版_20261018\\data-design",
+  "counts": {
+    "tables": 61,
+    "columns": 730,
+    "foreign_keys": 119,
+    "indexes": 124,
+    "domains": 9,
+    "business_rules": 20,
+    "relationship_recommendations": 3
+  },
+  "ddl_counts": {
+    "tables": 61,
+    "columns": 730,
+    "foreign_keys": 119,
+    "indexes": 124
+  },
+  "checks_passed": 338,
+  "errors": [],
+  "warnings": [
+    {
+      "code": "INDEX_RECOMMENDATIONS",
+      "message": "保留 52 条外键前导索引候选；它们是需结合查询计划评估的建议，不是完整性错误。"
+    }
+  ],
+  "pdf": {
+    "report": {
+      "pages": 54,
+      "low_text_pages": [],
+      "box_glyph_pages": [],
+      "page_sizes": [
+        [
+          595.28,
+          841.89
+        ],
+        [
+          841.89,
+          595.28
+        ],
+        [
+          1190.55,
+          841.89
+        ]
+      ]
+    },
+    "panorama": {
+      "pages": 1,
+      "low_text_pages": [],
+      "box_glyph_pages": [],
+      "page_sizes": [
+        [
+          4371.0,
+          2507.9
+        ]
+      ]
+    }
+  },
+  "png_dimensions": {
+    "ADC_Nexus_全景关系数据图.png": [
+      7050,
+      4045
+    ],
+    "domains\\authentication_notifications_身份认证与通知.png": [
+      2620,
+      1182
+    ],
+    "domains\\billing_cash_结算、收款与成本.png": [
+      2620,
+      1694
+    ],
+    "domains\\clinical_care_临床就诊与病历版本.png": [
+      2620,
+      1722
+    ],
+    "domains\\expansion_planning_扩张情景与候选诊所.png": [
+      1900,
+      1490
+    ],
+    "domains\\financial_management_期间核算与激励.png": [
+      1900,
+      1350
+    ],
+    "domains\\organization_access_组织、账户与授权.png": [
+      2620,
+      1786
+    ],
+    "domains\\patient_master_患者主档与风险资料.png": [
+      2620,
+      1378
+    ],
+    "domains\\scheduling_resources_排班、资源与预约.png": [
+      2620,
+      1926
+    ],
+    "domains\\workforce_catalog_牙医、资质与治疗目录.png": [
+      2620,
+      1266
+    ]
+  },
+  "hashes": {
+    "snapshot": "f26269352cf8e9427aaf2ae2a77e4cd37e0d86abb9276a6a2e71f324d4211882",
+    "config": "69670116ed78f677982ec313ae0d2278239044bc862465daec1f25b999b0dfed"
+  }
+}

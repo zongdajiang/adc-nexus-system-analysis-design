@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-13 分析经营绩效与资质覆盖
+actor "管理岗位" as manager
+boundary "绩效看板" as screen
+control "指标分析控制" as control
+entity "预约与资源" as schedule
+entity "就诊与结算" as visit
+entity "季度核定快照" as quarter
+entity "指标口径" as metric
+manager -> screen: 查询绩效(季度、诊所范围)
+screen -> control: 分析绩效(范围、口径版本)
+control -> schedule: 统计预约履约、排班和牙椅分钟()
+schedule --> control: 返回分子分母及排除项
+control -> visit: 统计已完成治疗与结算来源()
+visit --> control: 返回治疗与收入事实
+control -> quarter: 读取核定期间与费用归属()
+quarter --> control: 返回快照版本与待归属项
+control -> metric: 按口径计算指标与分母()
+metric --> control: 指标值、排除项与归属标识
+alt [未关闭或费用待归属]
+control --> screen: 返回估算并标记未核定
+screen --> manager: 展示待核口径和缺项
+else [已关闭且归属已核定]
+control --> screen: 返回核定指标及来源
+screen --> manager: 展示分子、分母与贡献依据
+end
+@enduml

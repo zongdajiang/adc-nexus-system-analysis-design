@@ -1,0 +1,541 @@
+{
+  "width": 800,
+  "height": 600,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 205,
+      "y": 30,
+      "w": 520,
+      "h": 535,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 465,
+      "y": 62,
+      "text": "ADC Nexus 诊所资源管理",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 88,
+      "cy": 148.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          156.4
+        ],
+        [
+          88,
+          182.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          72.6,
+          161.02
+        ],
+        [
+          103.4,
+          161.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          182.195
+        ],
+        [
+          72.6,
+          202.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          182.195
+        ],
+        [
+          103.4,
+          202.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          82.764,
+          153.936
+        ],
+        [
+          93.236,
+          143.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 207.60000000000002,
+      "text": "总部运营",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 88,
+      "cy": 298.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          306.4
+        ],
+        [
+          88,
+          332.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          72.6,
+          311.02
+        ],
+        [
+          103.4,
+          311.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          332.195
+        ],
+        [
+          72.6,
+          352.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          332.195
+        ],
+        [
+          103.4,
+          352.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          82.764,
+          303.936
+        ],
+        [
+          93.236,
+          293.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 357.6,
+      "text": "诊所经理",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 88,
+      "cy": 448.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          456.4
+        ],
+        [
+          88,
+          482.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          72.6,
+          461.02
+        ],
+        [
+          103.4,
+          461.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          482.195
+        ],
+        [
+          72.6,
+          502.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          482.195
+        ],
+        [
+          103.4,
+          502.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          82.764,
+          453.936
+        ],
+        [
+          93.236,
+          443.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 507.6,
+      "text": "前台接待",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          169.49
+        ],
+        [
+          285.0035083528043,
+          169.7565034197876
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          319.49
+        ],
+        [
+          285.0035083528043,
+          319.75650341978763
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          88,
+          469.49
+        ],
+        [
+          285.0035083528043,
+          469.75650341978763
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 465,
+      "cy": 170,
+      "rx": 180.0,
+      "ry": 39.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          612.4473679720186,
+          192.3694810176908
+        ],
+        [
+          645.0,
+          170.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 465,
+      "y": 149.5,
+      "text": "UC-11\n维护牙医资质与任职",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        292.0,
+        136.0,
+        638.0,
+        204.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 465,
+      "cy": 320,
+      "rx": 180.0,
+      "ry": 39.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          612.4473679720186,
+          342.3694810176908
+        ],
+        [
+          645.0,
+          320.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 465,
+      "y": 299.5,
+      "text": "UC-18\n维护排班与牙椅资源",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        292.0,
+        286.0,
+        638.0,
+        354.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 465,
+      "cy": 470,
+      "rx": 180.0,
+      "ry": 39.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          612.4473679720186,
+          492.3694810176908
+        ],
+        [
+          645.0,
+          470.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 465,
+      "y": 449.5,
+      "text": "UC-02\n安排诊疗预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        292.0,
+        436.0,
+        638.0,
+        504.0
+      ],
+      "role": null
+    }
+  ]
+}

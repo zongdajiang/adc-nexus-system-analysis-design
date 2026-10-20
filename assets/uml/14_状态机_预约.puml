@@ -1,22 +1,16 @@
 @startuml
 !include _state_style.puml
-
-state "已确认" as CONFIRMED
-state "已到诊" as ARRIVED
-state "诊疗中" as IN_CARE
-state "已完成" as COMPLETED #EEF7F1
-state "已取消" as CANCELLED #F8F8F8
-state "未到诊" as NO_SHOW #F8F8F8
-
-[*] -down-> CONFIRMED : T1
-CONFIRMED -down-> ARRIVED : T2
-ARRIVED -down-> IN_CARE : T3
-IN_CARE -down-> COMPLETED : T4
-
-CONFIRMED -left-> CANCELLED : T5
-ARRIVED -left-> CANCELLED : T6
-CONFIRMED -right-> NO_SHOW : T7
-
-COMPLETED -down-> [*]
+state "已确认" as confirmed
+state "已到诊" as arrived
+state "诊疗中" as in_care
+state "未到诊" as no_show
+state "已取消" as cancelled
+state "已完成" as completed
+[*] --> confirmed : T1 创建预约 [患者、牙医、诊所、时段及必要资质校验通过]
+confirmed --> arrived : T2 登记到诊 [身份与预约匹配，预约尚有效]
+arrived --> in_care : T3 开始诊疗 [到诊交接和待处理风险已核对]
+in_care --> completed : T4 完成就诊 [实施项目、病历签署及必要同意材料已核对]
+confirmed --> cancelled : T5 取消预约 [尚未到诊，保留取消原因与操作人]
+arrived --> cancelled : T6 撤销到诊 [尚未实施治疗，授权人员记录更正原因]
+confirmed --> no_show : T7 标记未到诊 [已超过约定时点及保留时限，未办理到诊]
 @enduml
-

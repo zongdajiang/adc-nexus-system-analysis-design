@@ -1,0 +1,598 @@
+{
+  "width": 1090,
+  "height": 535,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 240,
+      "y": 35,
+      "w": 600,
+      "h": 465,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 540,
+      "y": 54,
+      "text": "安德鲁牙科连锁运营管理系统",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 100,
+      "cy": 123.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          131.4
+        ],
+        [
+          100,
+          157.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.6,
+          136.02
+        ],
+        [
+          115.4,
+          136.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          157.195
+        ],
+        [
+          84.6,
+          177.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          157.195
+        ],
+        [
+          115.4,
+          177.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          94.764,
+          128.936
+        ],
+        [
+          105.236,
+          118.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 100,
+      "y": 182.60000000000002,
+      "text": "患者",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 125,
+      "cy": 308.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          125,
+          316.4
+        ],
+        [
+          125,
+          342.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          109.6,
+          321.02
+        ],
+        [
+          140.4,
+          321.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          125,
+          342.195
+        ],
+        [
+          109.6,
+          362.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          125,
+          342.195
+        ],
+        [
+          140.4,
+          362.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          119.764,
+          313.936
+        ],
+        [
+          130.236,
+          303.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 125,
+      "y": 367.6,
+      "text": "用户（患者、员工）",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 978,
+      "cy": 232,
+      "rx": 27,
+      "ry": 27,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1.4
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          978,
+          259
+        ],
+        [
+          1005,
+          232
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#444444",
+      "sw": 1.4
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          949,
+          260
+        ],
+        [
+          1007,
+          260
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1.2
+    },
+    {
+      "type": "text",
+      "x": 978,
+      "y": 267,
+      "text": "微信开放平台",
+      "size": 18.48,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 978,
+      "cy": 357,
+      "rx": 27,
+      "ry": 27,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1.4
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          978,
+          384
+        ],
+        [
+          1005,
+          357
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#444444",
+      "sw": 1.4
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          949,
+          385
+        ],
+        [
+          1007,
+          385
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1.2
+    },
+    {
+      "type": "text",
+      "x": 978,
+      "y": 392,
+      "text": "短信身份服务",
+      "size": 18.48,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          144.49
+        ],
+        [
+          396.77579223067994,
+          134.7166335694942
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          125,
+          325.49
+        ],
+        [
+          411.1733245162053,
+          280.329780668515
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          951,
+          353.0
+        ],
+        [
+          657.0753756602293,
+          286.4915083610738
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          951,
+          232.0
+        ],
+        [
+          680.7652657725423,
+          250.4101522101431
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          125,
+          333.49
+        ],
+        [
+          407.7573385688624,
+          371.9926920542805
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          951,
+          361.0
+        ],
+        [
+          680.5385015596398,
+          380.083658040804
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 540,
+      "cy": 130,
+      "rx": 144.0,
+      "ry": 45.5,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          657.9578943776148,
+          156.0977278539726
+        ],
+        [
+          684.0,
+          130.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 540,
+      "y": 102.0,
+      "text": "UC-15\n查阅本人诊疗信息",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        403.0,
+        89.5,
+        677.0,
+        170.5
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 540,
+      "cy": 260,
+      "rx": 144.0,
+      "ry": 45.5,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          657.9578943776148,
+          286.0977278539726
+        ],
+        [
+          684.0,
+          260.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 540,
+      "y": 232.0,
+      "text": "UC-16\n验证登录身份",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        403.0,
+        219.5,
+        677.0,
+        300.5
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 540,
+      "cy": 390,
+      "rx": 144.0,
+      "ry": 45.5,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          657.9578943776148,
+          416.0977278539726
+        ],
+        [
+          684.0,
+          390.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 540,
+      "y": 362.0,
+      "text": "UC-17\n管理账号密码",
+      "size": 24,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        403.0,
+        349.5,
+        677.0,
+        430.5
+      ],
+      "role": null
+    }
+  ]
+}

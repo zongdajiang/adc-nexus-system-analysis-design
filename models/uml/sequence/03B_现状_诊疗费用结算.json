@@ -1,0 +1,87 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "现状业务：诊疗费用结算",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "D",
+      "label": "牙医",
+      "kind": "business-worker"
+    },
+    {
+      "id": "C",
+      "label": "收费员",
+      "kind": "business-worker"
+    },
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    }
+  ],
+  "messages": [
+    {
+      "from": "D",
+      "to": "C",
+      "label": "移交治疗清单",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "C",
+      "label": "核对项目、数量与价目表",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "C",
+      "label": "计算逐项费用及合计",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "label": "出示费用明细",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "C",
+      "label": "确认并提交付款凭据",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "C",
+      "label": "核实收款并登记余额",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "label": "提供结算凭据",
+      "kind": "call"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 03B_现状_诊疗费用结算.puml",
+  "activations": [
+    {
+      "participant": "C",
+      "start_message": 0,
+      "end_message": 6,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

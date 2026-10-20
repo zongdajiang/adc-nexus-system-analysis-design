@@ -1,43 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1260px" viewBox="0 0 1600 1260">
-<defs>
-<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 z" fill="#455A64"/></marker>
-</defs>
-<rect width="1600" height="1260" fill="#FFFFFF"/>
-<g id="before_settled"><rect x="320.0" y="144.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="450" y="183" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="600" fill="#263238">已结清</text>
-<text x="450" y="218" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#60717B">退款前状态</text></g>
-<g id="before_partial"><rect x="1000.0" y="144.0" width="300" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="1150" y="183" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="600" fill="#263238">部分收款</text>
-<text x="1150" y="218" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#60717B">退款前状态</text></g>
-<polygon id="merge" points="800,468 832,500 800,532 768,500" fill="#FFFFFF" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="450" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#263238"></text>
-<polygon id="recompute" points="800,618 832,650 800,682 768,650" fill="#FFFFFF" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="600" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" font-weight="600" fill="#263238"></text>
-<g id="after_partial"><rect x="300.0" y="814.0" width="300" height="92" rx="18" fill="#FFF8E8" stroke="#455A64" stroke-width="2.6"/>
-<text x="450" y="853" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="600" fill="#263238">部分收款</text>
-<text x="450" y="888" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#60717B">退款后状态</text></g>
-<g id="after_issued"><rect x="1020.0" y="814.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="1150" y="853" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="34" font-weight="600" fill="#263238">已开具</text>
-<text x="1150" y="888" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#60717B">退款后状态</text></g>
-<rect x="350.0" y="1054.5" width="900" height="131" rx="16" fill="#FBF8E9" stroke="#9A8F63" stroke-width="2"/>
-<text x="384.0" y="1102.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="600" fill="#263238">规则说明</text>
-<text x="384.0" y="1141.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#263238">累计退款不得超过原收款。</text>
-<text x="384.0" y="1179.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#263238">退款流水只追加保存，既有收款记录不得覆盖或删除。</text>
-<polyline id="t1" points="450,236 450,500 768,500" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="85.0" y="328.0" width="390" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="280" y="366" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">登记退款</text>
-<text x="280" y="404" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[校验累计退款上限]</text>
-<polyline id="t2" points="1150,236 1150,500 832,500" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="1125.0" y="328.0" width="390" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1320" y="366" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">登记退款</text>
-<text x="1320" y="404" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[校验累计退款上限]</text>
-<polyline id="t3" points="800,532 800,618" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="850.0" y="547.0" width="360" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1030" y="585" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">重新计算净收款</text>
-<polyline id="t4" points="768,650 450,650 450,814" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="215.0" y="707.0" width="380" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="405" y="745" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#263238">[0 &lt; 净收款 &lt; 应收]</text>
-<polyline id="t5" points="832,650 1150,650 1150,814" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="1035.0" y="707.0" width="300" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1185" y="745" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="400" fill="#263238">[净收款 = 0]</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="550" viewBox="0 0 1040 550">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1040" height="550" fill="white"/>
+<rect x="120.0" y="146.0" width="220" height="88" rx="12" fill="#EDF7F1" stroke="#53656F" stroke-width="1.8"/>
+<rect x="120.0" y="149.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="185.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已结清</text>
+<text x="230" y="220.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">退款前净收款 = 应收</text>
+<rect x="700.0" y="146.0" width="220" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="700.0" y="149.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="810" y="185.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">部分收款</text>
+<text x="810" y="220.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">0 &lt; 净收款 &lt; 应收</text>
+<rect x="410.0" y="406.0" width="220" height="88" rx="12" fill="#FFF7E8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="410.0" y="409.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="520" y="442.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已开具</text>
+<text x="520" y="480.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">退款后净收款 = 0</text>
+<polyline points="340,190 700,190" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="689.2,184.6 700,190 689.2,195.4 689.2,184.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="520" y="165.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T1 部分退款</text>
+<polyline points="230,234 230,450 410,450" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="399.2,444.6 410,450 399.2,455.4 399.2,444.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="252" y="333.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T2 全额退款</text>
+<polyline points="810,234 810,450 630,450" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="640.8,455.4 630,450 640.8,444.6 640.8,455.4" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="788" y="332.0" text-anchor="end" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T3 退至零</text>
+<polyline points="920,190 990,190 990,80 810,80 810,146" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="815.4,135.2 810,146 804.6,135.2 815.4,135.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="850" y="58.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T4 退款后仍部分收款</text>
+<text x="520" y="530.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">每笔退款均关联原收款；原始流水与凭据保留不变。</text>
 </svg>

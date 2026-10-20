@@ -1,0 +1,891 @@
+{
+  "width": 1088.0,
+  "height": 1110.0,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 80,
+      "cy": 47.0,
+      "rx": 7.0,
+      "ry": 7.0,
+      "fill": "#fce5c4",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          54.0
+        ],
+        [
+          80,
+          68.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          66.0,
+          58.2
+        ],
+        [
+          94.0,
+          58.2
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          66.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          94.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 80,
+      "y": 94,
+      "text": "牙医",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          130
+        ],
+        [
+          80,
+          1065.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 298.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 296.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          269.0,
+          42
+        ],
+        [
+          269.0,
+          86
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          269.0,
+          64
+        ],
+        [
+          274.0,
+          64
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 296.0,
+      "y": 94,
+      "text": "就诊界面",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          296.0,
+          130
+        ],
+        [
+          296.0,
+          1065.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 554.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 552.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          551.0,
+          36
+        ],
+        [
+          543.0,
+          42
+        ],
+        [
+          551.0,
+          48
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 552.0,
+      "y": 94,
+      "text": "就诊控制器",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          552.0,
+          130
+        ],
+        [
+          552.0,
+          1065.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 733.0,
+      "y": 43,
+      "w": 150,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 808.0,
+      "y": 49,
+      "text": "临床就诊",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736.0,
+        45,
+        880.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          808.0,
+          130
+        ],
+        [
+          808.0,
+          1065.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 928.0,
+      "y": 43,
+      "w": 120,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 988.0,
+      "y": 49,
+      "text": "预约",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        931.0,
+        45,
+        1045.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          988.0,
+          130
+        ],
+        [
+          988.0,
+          1065.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 75.5,
+      "y": 150,
+      "w": 9,
+      "h": 874,
+      "fill": "#fce5b7",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 291.5,
+      "y": 150,
+      "w": 9,
+      "h": 874,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 547.5,
+      "y": 218,
+      "w": 9,
+      "h": 720,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 803.5,
+      "y": 286,
+      "w": 9,
+      "h": 68,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 803.5,
+      "y": 666,
+      "w": 9,
+      "h": 68,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 983.5,
+      "y": 802,
+      "w": 9,
+      "h": 68,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.5,
+          150
+        ],
+        [
+          291.5,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 188.0,
+      "y": 122.0,
+      "text": "请求完成(记录版本)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          300.5,
+          218
+        ],
+        [
+          547.5,
+          218
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 424.0,
+      "y": 190.0,
+      "text": "完成就诊(就诊号、版本)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          286
+        ],
+        [
+          803.5,
+          286
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 680.0,
+      "y": 258.0,
+      "text": "核对风险、治疗与签署()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          803.5,
+          354
+        ],
+        [
+          556.5,
+          354
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 680.0,
+      "y": 326.0,
+      "text": "返回完整性结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          547.5,
+          492
+        ],
+        [
+          300.5,
+          492
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 424.0,
+      "y": 464.0,
+      "text": "返回缺失项目",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          291.5,
+          560
+        ],
+        [
+          84.5,
+          560
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 188.0,
+      "y": 532.0,
+      "text": "显示待补录项",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          668
+        ],
+        [
+          803.5,
+          668
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 680.0,
+      "y": 640.0,
+      "text": "完成(期望版本)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          808.0,
+          736
+        ],
+        [
+          556.5,
+          736
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 682.25,
+      "y": 708.0,
+      "text": "完成时间与版本",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          556.5,
+          804
+        ],
+        [
+          983.5,
+          804
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 770.0,
+      "y": 776.0,
+      "text": "标记完成(时间)",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          988.0,
+          872
+        ],
+        [
+          556.5,
+          872
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 772.25,
+      "y": 844.0,
+      "text": "状态更新结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          552.0,
+          940
+        ],
+        [
+          300.5,
+          940
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 426.25,
+      "y": 912.0,
+      "text": "返回完成结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          291.5,
+          1008
+        ],
+        [
+          84.5,
+          1008
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 188.0,
+      "y": 980.0,
+      "text": "显示完成结果",
+      "size": 20,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "rect",
+      "x": 12,
+      "y": 427,
+      "w": 1021.0,
+      "h": 613,
+      "fill": "none",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          12,
+          427
+        ],
+        [
+          152.0,
+          427
+        ],
+        [
+          152.0,
+          437
+        ],
+        [
+          138.0,
+          448
+        ],
+        [
+          12,
+          448
+        ]
+      ],
+      "fill": "#f7dca2",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 430,
+      "text": "alt 完成条件",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 453,
+      "text": "[有待处理缺项]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          12,
+          620
+        ],
+        [
+          1033.0,
+          620
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 628,
+      "text": "[条件完整且版本一致]",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

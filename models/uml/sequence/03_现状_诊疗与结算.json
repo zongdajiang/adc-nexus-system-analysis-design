@@ -1,0 +1,105 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "现状业务：临床诊疗",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    },
+    {
+      "id": "D",
+      "label": "牙医",
+      "kind": "business-worker"
+    },
+    {
+      "id": "C",
+      "label": "收费员",
+      "kind": "business-worker"
+    }
+  ],
+  "messages": [
+    {
+      "from": "D",
+      "to": "D",
+      "label": "查阅本店病史及治疗记录",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "label": "询问症状与风险变化",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "D",
+      "label": "陈述症状并确认病史",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "label": "检查并形成治疗建议",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "label": "说明方案、风险和费用",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "D",
+      "label": "表达治疗决定",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "label": "实施治疗并记录实际项目",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "label": "完成病历与治疗清单",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "C",
+      "label": "移交实际治疗清单",
+      "kind": "call"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 03_现状_诊疗与结算.puml",
+  "activations": [
+    {
+      "participant": "D",
+      "start_message": 0,
+      "end_message": 8,
+      "end_offset": 12
+    },
+    {
+      "participant": "C",
+      "start_message": 8,
+      "end_message": 8,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

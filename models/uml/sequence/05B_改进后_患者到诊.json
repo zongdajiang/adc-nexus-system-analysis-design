@@ -1,0 +1,130 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "改进后业务：预约日到诊",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    },
+    {
+      "id": "R",
+      "label": "前台接待",
+      "kind": "business-worker"
+    },
+    {
+      "id": "S",
+      "label": "诊疗管理系统",
+      "kind": "business-entity"
+    }
+  ],
+  "messages": [
+    {
+      "from": "P",
+      "to": "R",
+      "label": "报到并提供身份信息",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "S",
+      "label": "查找当日预约()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "R",
+      "label": "预约及身份摘要",
+      "kind": "return"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "核对身份与资料变化",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "R",
+      "label": "确认并申报变化",
+      "kind": "call"
+    },
+    {
+      "from": "R",
+      "to": "S",
+      "label": "办理到诊(核实结果)",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "R",
+      "label": "到诊已登记",
+      "kind": "return"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "告知候诊安排",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "R",
+      "label": "待处理原因",
+      "kind": "return"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "label": "说明核实要求",
+      "kind": "call"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 05B_改进后_患者到诊.puml",
+  "fragments": [
+    {
+      "start": 6,
+      "end": 9,
+      "from": "P",
+      "to": "S",
+      "operator": "alt",
+      "operands": [
+        {
+          "guard": "核实通过",
+          "start": 6
+        },
+        {
+          "guard": "未通过",
+          "start": 8
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "R",
+      "start_message": 0,
+      "end_message": 9,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 1,
+      "end_message": 2,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

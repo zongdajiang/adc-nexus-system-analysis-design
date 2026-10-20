@@ -1,6 +1,6 @@
-\noindent\textbf{关系图阅读方法。}\quad 图中的表卡显示物理表和字段；以下\emph{Key Path} 按“子表外键 $\rightarrow$ 父表主键”书写。
-\emph{Nullable} 描述子表外键是否可空，\emph{ON DELETE} 是现有快照的删除动作，均不等同于业务操作权限。
-\emph{UNIQUE}、状态互斥、金额上限与时段不重叠另由唯一约束、事务或应用规则执行。
+\noindent\textbf{关系说明的记法。}\quad 以下 \emph{Key Path} 按“引用表外键 $\rightarrow$ 被引用表主键”书写，与关系图的箭头方向一致。
+\emph{Nullable} 表示外键可空性，\emph{ON DELETE} 记录当前快照的删除动作；删除动作描述数据依赖，业务删除权限另行判断。
+唯一性由 \emph{UNIQUE} 约束，状态互斥、金额上限及时间区间不重叠等规则由事务与应用服务补充执行。
 
 \begin{table}[!htbp]\centering\small
 \caption{关系图与关系说明的阅读层次}\label{tab:erd-reading-levels}
@@ -8,12 +8,13 @@
 层次 / View & 回答的问题 & 阅读范围\\\midrule
 全景 / Panorama & 有哪些业务簇和跨域依赖？ & 61 张表及跨域连线；用于总览，不在 A4 上逐字段阅读。\\
 分域 / Domain ERD & 本域的表怎样相连？ & 每张分域图显示字段、PK/FK 及关系箭头，九域逐张放大检查。\\
-关系说明 / Key Path & 外键方向和可空性是什么？ & 下列九张关系表列出现有约束及其业务语义；未选的完整关系见附属清单。\\
+关系说明 / Key Path & 外键方向和可空性是什么？ & 九张关系说明表列出主链约束及业务含义；完整关系见附属清单。\\
 字段字典 / Data Dictionary & 每个字段的类型和默认值是什么？ & 独立附录逐字段列出类型、键、可空、默认值和索引。\\
 \bottomrule\end{tabular}\end{table}
 
+\Needspace{12\baselineskip}
 \subsubsection{组织、账户与授权：关键关系与约束}
-组织边界与岗位授权分开保存。组织、诊所是权限范围的定位点，岗位角色通过中间表授予用户，操作人不能由患者资料代替。
+组织归属与岗位授权分别保存。组织、诊所界定访问范围，关联表记录账户持有的角色；审计主体以操作账户识别，与患者主档相区分。
 
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}L{43mm}L{32mm}L{24mm}L{49mm}@{}}
@@ -29,6 +30,7 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{身份认证与通知：关键关系与约束}
 身份凭证、会话和患者本人绑定采用不同生命周期；通知记录与业务预约关联，但通知成功不等于预约已确认。
 
@@ -45,8 +47,9 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{患者主档与风险资料：关键关系与约束}
-患者全网主档是临床、预约与收费的共同锚点。紧急联系人、过敏和同意材料是可重复、可追溯的独立事实。
+患者全网主档为临床、预约与收费提供共同身份依据。紧急联系人、过敏及同意材料分别保存，支持多条记录和来源追溯。
 
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}L{43mm}L{32mm}L{24mm}L{49mm}@{}}
@@ -56,12 +59,13 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \texttt{patients}\newline\texttt{primary\_clinic\_id} & \texttt{clinics}\newline\texttt{id} & YES\newline\texttt{SET NULL} & 首诊诊所为主档来源，不限制患者后续跨店就诊。\\
 \rowcolor{Pale}\texttt{patient\_allergies}\newline\texttt{patient\_id} & \texttt{patients}\newline\texttt{id} & NO\newline\texttt{CASCADE} & 同一患者可记录多种过敏，复核记录不可覆盖原始事实。\\
 \texttt{patient\_consents}\newline\texttt{patient\_id} & \texttt{patients}\newline\texttt{id} & NO\newline\texttt{CASCADE} & 每次同意材料与患者关联，并保留签署和适用范围。\\
-\rowcolor{Pale}\texttt{emergency\_contacts}\newline\texttt{patient\_id} & \texttt{patients}\newline\texttt{id} & NO\newline\texttt{CASCADE} & 紧急联系人可重复，不能压成患者表的固定单字段。\\
+\rowcolor{Pale}\texttt{emergency\_contacts}\newline\texttt{patient\_id} & \texttt{patients}\newline\texttt{id} & NO\newline\texttt{CASCADE} & 一名患者可登记多位紧急联系人，各自保存联系方式与优先级。\\
 \texttt{patient\_duplicate}\newline\texttt{reviews}\newline\texttt{source\_patient\_id} & \texttt{patients}\newline\texttt{id} & NO\newline\texttt{RESTRICT} & 疑似重复患者先进入复核流程，不自动合并主档。\\
 \rowcolor{Pale}\texttt{patient\_timeline}\newline\texttt{events}\newline\texttt{clinic\_id} & \texttt{clinics}\newline\texttt{id} & YES\newline\texttt{SET NULL} & 时间线事件保留发生诊所，支持跨店追溯。\\
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{牙医、资质与治疗目录：关键关系与约束}
 牙医任职、资质证书、治疗目录和项目所需资质分别建模；能否执业须同时考虑门店、项目和服务日期。
 
@@ -78,6 +82,7 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{排班、资源与预约：关键关系与约束}
 可用时段由营业时间、停诊、牙医排班和牙椅占用共同决定；预约表只保存已确认的选择，冲突校验仍需事务执行。
 
@@ -96,6 +101,7 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{临床就诊与病历版本：关键关系与约束}
 临床事实沿预约—就诊—实施项目展开。病历版本、过敏确认和附件独立保存，以区分草稿、签署和后续更正。
 
@@ -112,8 +118,9 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{结算、收款与成本：关键关系与约束}
-结算关系以实际治疗为来源。单据、明细、收款、退款和调整采用分表事实，净收款通过有效流水重算。
+结算以实际治疗为来源，单据、明细、收款、退款及调整按各自生命周期保存。净收款根据有效资金流水计算，历史交易保持可追溯。
 
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}L{43mm}L{32mm}L{24mm}L{49mm}@{}}
@@ -129,8 +136,9 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{期间核算与激励：关键关系与约束}
-期间、门店和网络三个核算层级须分开。期间核定结果和激励池是快照，缺失成本或费用凭据时先生成关闭异常。
+核算以期间和组织范围共同定位，门店结果与全网结果分别保存。核定结果保留输入快照，激励池据获批准的全网结果形成；成本或费用凭据缺失时先列入关闭异常。
 
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}L{43mm}L{32mm}L{24mm}L{49mm}@{}}
@@ -138,15 +146,16 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务含义\\\midrule\endfirsthead
 \toprule Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务含义\\\midrule\endhead
 \texttt{operating\_expenses}\newline\texttt{reporting\_period\_id} & \texttt{financial}\newline\texttt{reporting}\newline\texttt{periods}\newline\texttt{id} & NO\newline\texttt{RESTRICT} & 费用归属明确核算期间，不能只按录入日统计。\\
-\rowcolor{Pale}\texttt{financial\_close}\newline\texttt{exceptions}\newline\texttt{reporting\_period\_id} & \texttt{financial}\newline\texttt{reporting}\newline\texttt{periods}\newline\texttt{id} & NO\newline\texttt{RESTRICT} & 关闭异常指向待核定期间，异常未消除不得伪造完整结果。\\
+\rowcolor{Pale}\texttt{financial\_close}\newline\texttt{exceptions}\newline\texttt{reporting\_period\_id} & \texttt{financial}\newline\texttt{reporting}\newline\texttt{periods}\newline\texttt{id} & NO\newline\texttt{RESTRICT} & 关闭异常归属于待核定期间；阻断项未解决时期间保持开放。\\
 \texttt{financial\_period}\newline\texttt{results}\newline\texttt{clinic\_id} & \texttt{clinics}\newline\texttt{id} & YES\newline\texttt{RESTRICT} & 门店结果与网络结果的范围必须明确区分。\\
 \rowcolor{Pale}\texttt{incentive\_pools}\newline\texttt{network\_result\_id} & \texttt{financial\_period}\newline\texttt{results}\newline\texttt{id} & NO\newline\texttt{RESTRICT} & 激励池依据已核定网络结果，而非实时估算。\\
 \texttt{incentive\_pools}\newline\texttt{approved\_by\_user\_id} & \texttt{app\_users}\newline\texttt{id} & YES\newline\texttt{SET NULL} & 批准责任独立留存，计算结果不自动等于可发放结果。\\
 \bottomrule\end{longtable}\endgroup
 
 
+\Needspace{12\baselineskip}
 \subsubsection{扩张情景与候选诊所：关键关系与约束}
-扩张测算是情景分析，不是已批准开店事实。假设、候选诊所和模拟结果分别保存，使每次预测可复算。
+扩张测算保存假设、候选诊所及模拟结果，使每次预测均可按版本复算。测算结果与实际经营记录分开，审批状态明确表示方案是否获批。
 
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{longtable}{@{}L{43mm}L{32mm}L{24mm}L{49mm}@{}}
@@ -160,6 +169,5 @@ Child table / FK & Parent table / PK & Null; Delete & Business meaning / 业务�
 \texttt{expansion\_scenario}\newline\texttt{results}\newline\texttt{scenario\_id} & \texttt{expansion}\newline\texttt{scenarios}\newline\texttt{id} & NO\newline\texttt{CASCADE} & 预测结果与输入情景关联，展示时注明非实际经营数据。\\
 \bottomrule\end{longtable}\endgroup
 
-\noindent\emph{说明：}上表精选的是能够解释九张分域图主线的关系，不以节省篇幅隐藏其余外键。
-附属关系清单记录现有 119 条外键的完整目标、字段和删除动作；
-图中未显示的三个目标增强外键仍按本节后文的迁移建议处理，未混入现有关系。
+\noindent\emph{说明：}上述关系说明覆盖九个业务簇的主要依赖；附属清单完整记录现有 119 条外键的目标、字段与删除动作。
+后文另列三项外键增强建议，其尚未进入当前迁移快照，与现有关系分别说明。

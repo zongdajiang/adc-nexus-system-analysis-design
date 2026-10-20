@@ -1,0 +1,188 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-12 关闭季度财务期间（目标设计）",
+  "font_size": 18,
+  "frame": false,
+  "lane_gap": 178,
+  "message_gap": 62,
+  "participants": [
+    {
+      "id": "finance",
+      "label": "总部财务",
+      "kind": "actor",
+      "label_size": 17,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "期间核对工作台",
+      "kind": "boundary",
+      "label_size": 17
+    },
+    {
+      "id": "control",
+      "label": "关账控制",
+      "kind": "control",
+      "label_size": 17
+    },
+    {
+      "id": "ledger",
+      "label": "期间输入账簿",
+      "kind": "entity",
+      "label_size": 17
+    },
+    {
+      "id": "result",
+      "label": "期间核定结果",
+      "kind": "entity",
+      "label_size": 17
+    }
+  ],
+  "messages": [
+    {
+      "from": "finance",
+      "to": "screen",
+      "label": "选择季度与组织范围并发起核对()"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "检查关闭条件(期间版本、授权范围)"
+    },
+    {
+      "from": "control",
+      "to": "ledger",
+      "label": "核对收入、退款、用品成本与费用归属()"
+    },
+    {
+      "from": "ledger",
+      "to": "control",
+      "label": "返回差异、缺项与输入版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回阻断事项清单",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "finance",
+      "label": "展示缺项并保持期间开放",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "result",
+      "label": "计算净利润与基金候选结果()"
+    },
+    {
+      "from": "result",
+      "to": "control",
+      "label": "返回金额、口径与输入版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回待确认核定预览",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "finance",
+      "label": "展示金额、来源与口径",
+      "kind": "return"
+    },
+    {
+      "from": "finance",
+      "to": "screen",
+      "label": "确认结果版本并提交关闭()"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "关闭期间(候选输入版本)"
+    },
+    {
+      "from": "control",
+      "to": "result",
+      "label": "原子复核版本、保存快照与基金并锁定()"
+    },
+    {
+      "from": "result",
+      "to": "control",
+      "label": "返回关闭凭证及快照版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回核定结果与关闭凭证",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "finance",
+      "label": "展示已关闭结果",
+      "kind": "return"
+    }
+  ],
+  "fragments": [
+    {
+      "from": "finance",
+      "to": "result",
+      "start": 4,
+      "end": 15,
+      "operator": "alt",
+      "label": "期间核对结论",
+      "operands": [
+        {
+          "guard": "存在阻断事项",
+          "start": 4
+        },
+        {
+          "guard": "无阻断且输入版本可用",
+          "start": 6
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "finance",
+      "start_message": 0,
+      "end_message": 15
+    },
+    {
+      "participant": "screen",
+      "start_message": 0,
+      "end_message": 15
+    },
+    {
+      "participant": "control",
+      "start_message": 1,
+      "end_message": 14
+    },
+    {
+      "participant": "ledger",
+      "start_message": 2,
+      "end_message": 3
+    },
+    {
+      "participant": "result",
+      "start_message": 6,
+      "end_message": 7
+    },
+    {
+      "participant": "result",
+      "start_message": 12,
+      "end_message": 13
+    }
+  ],
+  "basis": "UC-12 与报告季度核算口径；失败分支保持期间开放。财务核对候选版本后才提交关闭；第二次输入版本复核、快照与基金写入及锁定必须处于同一事务。牙医级费用分摊仍待机构确认，此图为目标设计而非现有实现。"
+}

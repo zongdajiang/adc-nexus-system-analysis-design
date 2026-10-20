@@ -1,0 +1,192 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "改进后业务：临床诊疗",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    },
+    {
+      "id": "D",
+      "label": "牙医",
+      "kind": "business-worker"
+    },
+    {
+      "id": "S",
+      "label": "诊疗管理系统",
+      "kind": "business-entity"
+    }
+  ],
+  "messages": [
+    {
+      "from": "D",
+      "to": "S",
+      "label": "调取就诊资料()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "label": "病史与待复核事项",
+      "kind": "return"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "label": "核对本次风险变化",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "D",
+      "label": "陈述症状并确认病史",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "label": "检查并判断适应证",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "label": "说明方案、风险和费用",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "D",
+      "label": "表达治疗决定",
+      "kind": "call"
+    },
+    {
+      "from": "D",
+      "to": "S",
+      "label": "保存检查与患者决定()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "label": "保存结果",
+      "kind": "return"
+    },
+    {
+      "from": "D",
+      "to": "S",
+      "label": "登记实际治疗()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "label": "治疗记录已保存",
+      "kind": "return"
+    },
+    {
+      "from": "D",
+      "to": "S",
+      "label": "签署临床记录()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "label": "签署结果",
+      "kind": "return"
+    },
+    {
+      "from": "D",
+      "to": "S",
+      "label": "完成临床就诊()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "label": "完成时间与状态",
+      "kind": "return"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "label": "说明暂停原因与后续安排",
+      "kind": "call",
+      "y": 1265
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 06_改进后_诊疗与结算.puml",
+  "fragments": [
+    {
+      "start": 9,
+      "end": 15,
+      "from": "P",
+      "to": "S",
+      "operator": "alt",
+      "operands": [
+        {
+          "guard": "风险与同意已核实",
+          "start": 9
+        },
+        {
+          "guard": "风险或同意待处理",
+          "start": 15,
+          "y": 1190
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "D",
+      "start_message": 0,
+      "end_message": 15,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 0,
+      "end_message": 1,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 7,
+      "end_message": 8,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 9,
+      "end_message": 10,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 11,
+      "end_message": 12,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 13,
+      "end_message": 14,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

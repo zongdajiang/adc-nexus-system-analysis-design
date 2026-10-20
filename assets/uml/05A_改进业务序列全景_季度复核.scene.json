@@ -1,0 +1,881 @@
+{
+  "width": 1680,
+  "height": 625.0,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 100.0,
+      "cy": 50,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          90
+        ],
+        [
+          140.0,
+          50
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 100.0,
+      "cy": 37.368421052631575,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          44.73684210526316
+        ],
+        [
+          100.0,
+          59.473684210526315
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          85.26315789473685,
+          49.15789473684211
+        ],
+        [
+          114.73684210526315,
+          49.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          59.473684210526315
+        ],
+        [
+          85.26315789473685,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          59.473684210526315
+        ],
+        [
+          114.73684210526315,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          110.0,
+          1
+        ],
+        [
+          100.0,
+          10
+        ],
+        [
+          110.0,
+          19
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 50.0,
+      "y": 100,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 100.0,
+      "y": 114,
+      "text": "诊所经理",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        52.0,
+        101,
+        148.0,
+        139
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          141
+        ],
+        [
+          100.0,
+          621.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 593.3333333333333,
+      "cy": 50,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          593.3333333333333,
+          90
+        ],
+        [
+          633.3333333333333,
+          50
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 530.3333333333333,
+      "y": 100,
+      "w": 126.0,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 593.3333333333333,
+      "y": 114,
+      "text": "ADC Nexus",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        532.3333333333333,
+        101,
+        654.3333333333333,
+        139
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          593.3333333333333,
+          141
+        ],
+        [
+          593.3333333333333,
+          621.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1086.6666666666665,
+      "cy": 50,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1086.6666666666665,
+          90
+        ],
+        [
+          1126.6666666666665,
+          50
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1086.6666666666665,
+      "cy": 37.368421052631575,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1086.6666666666665,
+          44.73684210526316
+        ],
+        [
+          1086.6666666666665,
+          59.473684210526315
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1071.9298245614034,
+          49.15789473684211
+        ],
+        [
+          1101.4035087719296,
+          49.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1086.6666666666665,
+          59.473684210526315
+        ],
+        [
+          1071.9298245614034,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1086.6666666666665,
+          59.473684210526315
+        ],
+        [
+          1101.4035087719296,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1096.6666666666665,
+          1
+        ],
+        [
+          1086.6666666666665,
+          10
+        ],
+        [
+          1096.6666666666665,
+          19
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1036.6666666666665,
+      "y": 100,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1086.6666666666665,
+      "y": 114,
+      "text": "总部财务",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1038.6666666666665,
+        101,
+        1134.6666666666665,
+        139
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1086.6666666666665,
+          141
+        ],
+        [
+          1086.6666666666665,
+          621.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1580.0,
+      "cy": 50,
+      "rx": 40,
+      "ry": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1580.0,
+          90
+        ],
+        [
+          1620.0,
+          50
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 1580.0,
+      "cy": 37.368421052631575,
+      "rx": 7.368421052631579,
+      "ry": 7.368421052631579,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1580.0,
+          44.73684210526316
+        ],
+        [
+          1580.0,
+          59.473684210526315
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1565.2631578947369,
+          49.15789473684211
+        ],
+        [
+          1594.7368421052631,
+          49.15789473684211
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1580.0,
+          59.473684210526315
+        ],
+        [
+          1565.2631578947369,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1580.0,
+          59.473684210526315
+        ],
+        [
+          1594.7368421052631,
+          74.21052631578948
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1590.0,
+          1
+        ],
+        [
+          1580.0,
+          10
+        ],
+        [
+          1590.0,
+          19
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#666666",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1530.0,
+      "y": 100,
+      "w": 100,
+      "h": 40,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1580.0,
+      "y": 114,
+      "text": "负责人",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1532.0,
+        101,
+        1628.0,
+        139
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1580.0,
+          141
+        ],
+        [
+          1580.0,
+          621.0
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 588.3333333333333,
+      "y": 190,
+      "w": 10,
+      "h": 24,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 588.3333333333333,
+      "y": 248,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 588.3333333333333,
+      "y": 364,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 588.3333333333333,
+      "y": 480,
+      "w": 10,
+      "h": 72,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1081.6666666666665,
+      "y": 248,
+      "w": 10,
+      "h": 130,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1575.0,
+      "y": 422,
+      "w": 10,
+      "h": 130,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100.0,
+          190
+        ],
+        [
+          588.3333333333333,
+          190
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 344.16666666666663,
+      "y": 162.0,
+      "text": "提交成本与费用归属()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1081.6666666666665,
+          248
+        ],
+        [
+          598.3333333333333,
+          248
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 839.9999999999999,
+      "y": 220.0,
+      "text": "发起季度核对()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          598.3333333333333,
+          306
+        ],
+        [
+          1081.6666666666665,
+          306
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 839.9999999999999,
+      "y": 278.0,
+      "text": "返回异常清单和结果版本",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1081.6666666666665,
+          364
+        ],
+        [
+          598.3333333333333,
+          364
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 839.9999999999999,
+      "y": 336.0,
+      "text": "确认口径并关闭期间()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          598.3333333333333,
+          422
+        ],
+        [
+          1575.0,
+          422
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1086.6666666666665,
+      "y": 394.0,
+      "text": "提供核定绩效快照",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1575.0,
+          480
+        ],
+        [
+          598.3333333333333,
+          480
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1086.6666666666665,
+      "y": 452.0,
+      "text": "查询牙医贡献依据()",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          598.3333333333333,
+          538
+        ],
+        [
+          1575.0,
+          538
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1086.6666666666665,
+      "y": 510.0,
+      "text": "返回指标与口径标识",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    }
+  ]
+}

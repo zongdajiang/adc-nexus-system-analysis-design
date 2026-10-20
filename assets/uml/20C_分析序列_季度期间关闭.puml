@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-12 关闭季度财务期间（目标设计）
+actor "总部财务" as finance
+boundary "期间核对工作台" as screen
+control "关账控制" as control
+entity "期间输入账簿" as ledger
+entity "期间核定结果" as result
+finance -> screen: 选择季度与组织范围并发起核对()
+screen -> control: 检查关闭条件(期间版本、授权范围)
+control -> ledger: 核对收入、退款、用品成本与费用归属()
+ledger --> control: 返回差异、缺项与输入版本
+alt [存在阻断事项]
+control --> screen: 返回阻断事项清单
+screen --> finance: 展示缺项并保持期间开放
+else [无阻断且输入版本可用]
+control -> result: 计算净利润与基金候选结果()
+result --> control: 返回金额、口径与输入版本
+control --> screen: 返回待确认核定预览
+screen --> finance: 展示金额、来源与口径
+finance -> screen: 确认结果版本并提交关闭()
+screen -> control: 关闭期间(候选输入版本)
+control -> result: 原子复核版本、保存快照与基金并锁定()
+result --> control: 返回关闭凭证及快照版本
+control --> screen: 返回核定结果与关闭凭证
+screen --> finance: 展示已关闭结果
+end
+@enduml

@@ -1,0 +1,153 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "现状业务：季度经营核算",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "M",
+      "label": "诊所经理",
+      "kind": "business-worker"
+    },
+    {
+      "id": "F",
+      "label": "总部财务",
+      "kind": "business-worker"
+    },
+    {
+      "id": "A",
+      "label": "负责人",
+      "kind": "business-worker"
+    }
+  ],
+  "messages": [
+    {
+      "from": "M",
+      "to": "M",
+      "label": "汇总本店收入与费用",
+      "kind": "call"
+    },
+    {
+      "from": "M",
+      "to": "F",
+      "label": "提交汇总表及归属依据",
+      "kind": "call"
+    },
+    {
+      "from": "F",
+      "to": "F",
+      "label": "核对凭据及统计口径",
+      "kind": "call"
+    },
+    {
+      "from": "F",
+      "to": "M",
+      "label": "请求核实差异",
+      "kind": "call",
+      "y": 480
+    },
+    {
+      "from": "M",
+      "to": "M",
+      "label": "回查原始凭据",
+      "kind": "call"
+    },
+    {
+      "from": "M",
+      "to": "F",
+      "label": "提交更正与依据",
+      "kind": "return"
+    },
+    {
+      "from": "F",
+      "to": "F",
+      "label": "核算贡献、利润和基金",
+      "kind": "call"
+    },
+    {
+      "from": "F",
+      "to": "A",
+      "label": "提交季度结果",
+      "kind": "call"
+    },
+    {
+      "from": "A",
+      "to": "F",
+      "label": "询问指定结果来源",
+      "kind": "call"
+    },
+    {
+      "from": "F",
+      "to": "F",
+      "label": "回查原始资料",
+      "kind": "call"
+    },
+    {
+      "from": "F",
+      "to": "A",
+      "label": "提供核算依据",
+      "kind": "return"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 04_现状_季度核算.puml",
+  "fragments": [
+    {
+      "start": 3,
+      "end": 5,
+      "from": "M",
+      "to": "F",
+      "operator": "opt",
+      "y": 350,
+      "operands": [
+        {
+          "guard": "存在差异",
+          "start": 3,
+          "y": 385
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "M",
+      "start_message": 0,
+      "end_message": 1,
+      "end_offset": 12
+    },
+    {
+      "participant": "M",
+      "start_message": 3,
+      "end_message": 5,
+      "end_offset": 12
+    },
+    {
+      "participant": "F",
+      "start_message": 1,
+      "end_message": 7,
+      "end_offset": 12
+    },
+    {
+      "participant": "F",
+      "start_message": 8,
+      "end_message": 10,
+      "end_offset": 12
+    },
+    {
+      "participant": "A",
+      "start_message": 7,
+      "end_message": 10,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

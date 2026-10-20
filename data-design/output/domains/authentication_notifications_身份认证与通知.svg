@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2620px" height="1182px" viewBox="0 0 2620 1182">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5F6B76"/></marker></defs>
+<rect x="0" y="0" width="2620" height="1182" fill="#F4F5F6"/>
+<text x="70.0" y="72.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="32" font-weight="700" fill="#1F2A33" text-anchor="start">ADC Nexus 安德鲁牙科连锁运营管理系统 · 身份认证与通知关系数据图</text>
+<text x="70.0" y="112.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="400" fill="#58636D" text-anchor="start">61 张表 · 730 个字段 · 119 条外键</text>
+<rect x="25" y="110" width="2570" height="1012" rx="38" fill="#E7E1F3" fill-opacity="0.72" stroke="#87929B" stroke-width="2" stroke-dasharray="12 8"/>
+<text x="53.0" y="152.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="25" font-weight="700" fill="#27323A" text-anchor="start">身份认证与通知</text>
+<rect x="80" y="165" width="760" height="290" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="80" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="92.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">AUTH_IDENTITIES（外部身份）</text>
+<text x="90.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="152.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="830.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="247" x2="840" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="90.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="152.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">user_id → app_users</text>
+<text x="830.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="275" x2="840" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">provider</text>
+<text x="830.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="303" x2="840" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">provider_subject</text>
+<text x="830.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="331" x2="840" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">profile_json</text>
+<text x="830.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="359" x2="840" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">last_used_at</text>
+<text x="830.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="387" x2="840" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="830.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="415" x2="840" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">updated_at</text>
+<text x="830.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="930" y="165" width="760" height="374" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="930" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="942.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">AUTH_OTP_CHALLENGES（验证码挑战）</text>
+<text x="940.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1002.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="1680.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="247" x2="1690" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">phone_e164</text>
+<text x="1680.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="275" x2="1690" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">purpose</text>
+<text x="1680.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="303" x2="1690" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">code_hash</text>
+<text x="1680.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="331" x2="1690" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">code_salt</text>
+<text x="1680.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="359" x2="1690" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">expires_at</text>
+<text x="1680.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="387" x2="1690" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">consumed_at</text>
+<text x="1680.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="415" x2="1690" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">attempt_count</text>
+<text x="1680.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="930" y1="443" x2="1690" y2="443" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">max_attempts</text>
+<text x="1680.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">INTEGER · NN · DEF</text>
+<line x1="930" y1="471" x2="1690" y2="471" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">request_ip_hash</text>
+<text x="1680.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="499" x2="1690" y2="499" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="1680.0" y="519.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX · DEF</text>
+<rect x="1780" y="165" width="760" height="346" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="1780" y="165" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="1792.0" y="201.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">AUTH_SESSIONS（认证会话）</text>
+<text x="1790.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1852.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="2530.0" y="239.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="247" x2="2540" y2="247" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">user_id → app_users</text>
+<text x="2530.0" y="267.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="275" x2="2540" y2="275" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">token_hash</text>
+<text x="2530.0" y="295.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="303" x2="2540" y2="303" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">auth_method</text>
+<text x="2530.0" y="323.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="331" x2="2540" y2="331" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">expires_at</text>
+<text x="2530.0" y="351.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="359" x2="2540" y2="359" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">revoked_at</text>
+<text x="2530.0" y="379.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="387" x2="2540" y2="387" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">last_seen_at</text>
+<text x="2530.0" y="407.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="415" x2="2540" y2="415" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">ip_hash</text>
+<text x="2530.0" y="435.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="443" x2="2540" y2="443" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">user_agent_hash</text>
+<text x="2530.0" y="463.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="1780" y1="471" x2="2540" y2="471" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="2530.0" y="491.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="80" y="509" width="760" height="262" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="80" y="509" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="92.0" y="545.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">AUTH_OAUTH_STATES（OAuth 状态）</text>
+<text x="90.0" y="583.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="152.0" y="583.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="830.0" y="583.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="591" x2="840" y2="591" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="611.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">provider</text>
+<text x="830.0" y="611.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="80" y1="619" x2="840" y2="619" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">state_hash</text>
+<text x="830.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="647" x2="840" y2="647" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">return_to</text>
+<text x="830.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="80" y1="675" x2="840" y2="675" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">expires_at</text>
+<text x="830.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="80" y1="703" x2="840" y2="703" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">consumed_at</text>
+<text x="830.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="80" y1="731" x2="840" y2="731" stroke="#E6E9EB" stroke-width="1"/>
+<text x="152.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="830.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="1780" y="565" width="760" height="234" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="1780" y="565" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="1792.0" y="601.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">PATIENT_ACCOUNT_LINKS（患者账户绑定）</text>
+<text x="1790.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1852.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="2530.0" y="639.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="647" x2="2540" y2="647" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">user_id → app_users</text>
+<text x="2530.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="675" x2="2540" y2="675" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1790.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1852.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">patient_id → patients</text>
+<text x="2530.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="1780" y1="703" x2="2540" y2="703" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">verification_method</text>
+<text x="2530.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="731" x2="2540" y2="731" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">verified_at</text>
+<text x="2530.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="1780" y1="759" x2="2540" y2="759" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1852.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="2530.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<rect x="930" y="593" width="760" height="430" rx="3" fill="#FFFFFF" stroke="#35414A" stroke-width="1.8"/>
+<rect x="930" y="593" width="760" height="54" rx="3" fill="#E8EEF3" stroke="#35414A" stroke-width="1.8"/>
+<text x="942.0" y="629.7" font-family="Arial,Microsoft YaHei,sans-serif" font-size="19" font-weight="700" fill="#172129" text-anchor="start">NOTIFICATION_EVENTS（通知事件）</text>
+<text x="940.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#A46F00" text-anchor="start">PK</text>
+<text x="1002.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">id</text>
+<text x="1680.0" y="667.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="675" x2="1690" y2="675" stroke="#E6E9EB" stroke-width="1"/>
+<text x="940.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#087EA4" text-anchor="start">FK</text>
+<text x="1002.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">appointment_id → appointments</text>
+<text x="1680.0" y="695.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL · IDX</text>
+<line x1="930" y1="703" x2="1690" y2="703" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">channel</text>
+<text x="1680.0" y="723.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="731" x2="1690" y2="731" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">template_code</text>
+<text x="1680.0" y="751.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="759" x2="1690" y2="759" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">recipient_masked</text>
+<text x="1680.0" y="779.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN</text>
+<line x1="930" y1="787" x2="1690" y2="787" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">locale</text>
+<text x="1680.0" y="807.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="815" x2="1690" y2="815" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">status</text>
+<text x="1680.0" y="835.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<line x1="930" y1="843" x2="1690" y2="843" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">idempotency_key</text>
+<text x="1680.0" y="863.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="871" x2="1690" y2="871" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">queued_at</text>
+<text x="1680.0" y="891.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · IDX</text>
+<line x1="930" y1="899" x2="1690" y2="899" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">sent_at</text>
+<text x="1680.0" y="919.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="927" x2="1690" y2="927" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">delivered_at</text>
+<text x="1680.0" y="947.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="955" x2="1690" y2="955" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">failure_code</text>
+<text x="1680.0" y="975.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NULL</text>
+<line x1="930" y1="983" x2="1690" y2="983" stroke="#E6E9EB" stroke-width="1"/>
+<text x="1002.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="17" font-weight="400" fill="#27323A" text-anchor="start">created_at</text>
+<text x="1680.0" y="1003.2" font-family="Arial,Microsoft YaHei,sans-serif" font-size="16" font-weight="400" fill="#62717D" text-anchor="end">TEXT · NN · DEF</text>
+<text x="70.0" y="1122.0" font-family="Arial,Microsoft YaHei,sans-serif" font-size="18" font-weight="400" fill="#43515C" text-anchor="start">图例：PK 主键｜FK 外键｜NN 不可空｜NULL 可空｜IDX 索引｜DEF 默认值｜箭头指向被引用父表</text>
+</svg>

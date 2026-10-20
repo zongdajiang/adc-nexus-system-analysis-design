@@ -1,0 +1,371 @@
+{
+  "width": 800,
+  "height": 500,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 214,
+      "y": 35,
+      "w": 500,
+      "h": 430,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 464,
+      "y": 54,
+      "text": "安德鲁牙科连锁运营管理系统",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 100,
+      "cy": 168.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          176.4
+        ],
+        [
+          100,
+          202.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.6,
+          181.02
+        ],
+        [
+          115.4,
+          181.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          202.195
+        ],
+        [
+          84.6,
+          222.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          202.195
+        ],
+        [
+          115.4,
+          222.60000000000002
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          94.764,
+          173.936
+        ],
+        [
+          105.236,
+          163.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 100,
+      "y": 227.60000000000002,
+      "text": "总部财务专员",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 100,
+      "cy": 358.7,
+      "rx": 7.700000000000001,
+      "ry": 7.700000000000001,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          366.4
+        ],
+        [
+          100,
+          392.195
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.6,
+          371.02
+        ],
+        [
+          115.4,
+          371.02
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          392.195
+        ],
+        [
+          84.6,
+          412.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          392.195
+        ],
+        [
+          115.4,
+          412.6
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          94.764,
+          363.936
+        ],
+        [
+          105.236,
+          353.464
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 100,
+      "y": 417.6,
+      "text": "系统管理员",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          189.49
+        ],
+        [
+          309.12064531576175,
+          179.03994260979238
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          100,
+          379.49
+        ],
+        [
+          306.2120781830827,
+          376.84459362559414
+        ]
+      ],
+      "arrow": "open",
+      "dash": false,
+      "color": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 450,
+      "cy": 172,
+      "rx": 144.0,
+      "ry": 34.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          567.9578943776148,
+          191.50159883593557
+        ],
+        [
+          594.0,
+          172.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 450,
+      "y": 151.5,
+      "text": "UC-12\n关闭季度财务期间",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        313.0,
+        143.0,
+        587.0,
+        201.0
+      ],
+      "role": null
+    },
+    {
+      "type": "ellipse",
+      "cx": 450,
+      "cy": 375,
+      "rx": 144.0,
+      "ry": 34.0,
+      "fill": "white",
+      "stroke": "#000000",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          567.9578943776148,
+          394.50159883593557
+        ],
+        [
+          594.0,
+          375.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#555555",
+      "sw": 1.3
+    },
+    {
+      "type": "text",
+      "x": 450,
+      "y": 354.5,
+      "text": "UC-14\n管理账户与访问范围",
+      "size": 18,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        313.0,
+        346.0,
+        587.0,
+        404.0
+      ],
+      "role": null
+    }
+  ]
+}

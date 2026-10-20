@@ -1,0 +1,1034 @@
+{
+  "width": 1229,
+  "height": 779,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 39.5,
+      "text": "患者",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        32,
+        310,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 78.0,
+      "text": "- 患者编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        73,
+        310,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 218,
+      "w": 290,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 218,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF5F1",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 227.5,
+      "text": "预约",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        220,
+        310,
+        259
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 266.0,
+      "text": "- 预约编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        261,
+        310,
+        291
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 470,
+      "y": 30,
+      "w": 290,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 470,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 615.0,
+      "y": 39.5,
+      "text": "牙医",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        478,
+        32,
+        752,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 482,
+      "y": 78.0,
+      "text": "- 员工编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        478,
+        73,
+        752,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 911,
+      "y": 30,
+      "w": 290,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 911,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1056.0,
+      "y": 39.5,
+      "text": "诊所",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        919,
+        32,
+        1193,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 923,
+      "y": 78.0,
+      "text": "- 诊所编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        919,
+        73,
+        1193,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 218,
+      "w": 473,
+      "h": 253,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 218,
+      "w": 473,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 614.5,
+      "y": 227.5,
+      "text": "临床就诊",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        386,
+        220,
+        843,
+        259
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 266.0,
+      "text": "- 就诊编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        261,
+        843,
+        291
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 296.0,
+      "text": "- 开始时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        291,
+        843,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 326.0,
+      "text": "- 完成时间: DateTime?",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        321,
+        843,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 356.0,
+      "text": "- 状态: VisitStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        351,
+        843,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 386.0,
+      "text": "- 版本号: Integer",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        381,
+        843,
+        411
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          378,
+          411
+        ],
+        [
+          851,
+          411
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#5d6a70",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 416.0,
+      "text": "+ 完成(期望版本: Integer): ValidationResult",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        411,
+        843,
+        441
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 446.0,
+      "text": "+ 形成结算快照(): BillingSnapshot",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        441,
+        843,
+        471
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 586,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 586,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 595.5,
+      "text": "牙位观察",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        588,
+        310,
+        627
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 634.0,
+      "text": "- 牙位: ToothCode",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        629,
+        310,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 664.0,
+      "text": "- 牙面: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        659,
+        310,
+        689
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 694.0,
+      "text": "- 发现: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        689,
+        310,
+        719
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 470,
+      "y": 586,
+      "w": 290,
+      "h": 163,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 470,
+      "y": 586,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 615.0,
+      "y": 595.5,
+      "text": "实际治疗",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        478,
+        588,
+        752,
+        627
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 482,
+      "y": 634.0,
+      "text": "- 项目名称快照: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        478,
+        629,
+        752,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 482,
+      "y": 664.0,
+      "text": "- 单位数: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        478,
+        659,
+        752,
+        689
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 482,
+      "y": 694.0,
+      "text": "- 单价快照: Decimal",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        478,
+        689,
+        752,
+        719
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 482,
+      "y": 724.0,
+      "text": "- 实施时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        478,
+        719,
+        752,
+        749
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          173.0,
+          103
+        ],
+        [
+          173.0,
+          160.5
+        ],
+        [
+          524.63,
+          160.5
+        ],
+        [
+          524.63,
+          218
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 348.815,
+      "y": 134.5,
+      "text": "就诊主体",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 187.0,
+      "y": 115.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 510.63,
+      "y": 188.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          318,
+          254.5
+        ],
+        [
+          348.0,
+          254.5
+        ],
+        [
+          348.0,
+          344.5
+        ],
+        [
+          378,
+          344.5
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 339.0,
+      "y": 231.5,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 357.0,
+      "y": 349.5,
+      "text": "0..1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          615.0,
+          103
+        ],
+        [
+          615.0,
+          160.5
+        ],
+        [
+          614.5,
+          160.5
+        ],
+        [
+          614.5,
+          218
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 663.0,
+      "y": 122.75,
+      "text": "主诊",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 629.0,
+      "y": 115.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 600.5,
+      "y": 188.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1056.0,
+          103
+        ],
+        [
+          1056.0,
+          160.5
+        ],
+        [
+          704.37,
+          160.5
+        ],
+        [
+          704.37,
+          218
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 880.185,
+      "y": 134.5,
+      "text": "发生地点",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 1070.0,
+      "y": 115.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 690.37,
+      "y": 188.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          554.5866666666666,
+          471
+        ],
+        [
+          554.5866666666666,
+          528.5
+        ],
+        [
+          173.0,
+          528.5
+        ],
+        [
+          173.0,
+          586
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          554.5866666666666,
+          471
+        ],
+        [
+          560.5866666666666,
+          480.0
+        ],
+        [
+          554.5866666666666,
+          489.0
+        ],
+        [
+          548.5866666666666,
+          480.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 568.5866666666666,
+      "y": 496.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 159.0,
+      "y": 556.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          674.4133333333333,
+          471
+        ],
+        [
+          674.4133333333333,
+          528.5
+        ],
+        [
+          615.0,
+          528.5
+        ],
+        [
+          615.0,
+          586
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          674.4133333333333,
+          471
+        ],
+        [
+          680.4133333333333,
+          480.0
+        ],
+        [
+          674.4133333333333,
+          489.0
+        ],
+        [
+          668.4133333333333,
+          480.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 688.4133333333333,
+      "y": 496.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 601.0,
+      "y": 556.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

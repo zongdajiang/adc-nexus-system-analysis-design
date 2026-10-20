@@ -1,0 +1,387 @@
+[
+  {
+    "number": 1,
+    "macro": "figshort",
+    "base": "01_业务用例图",
+    "title": "ADC 业务用例图",
+    "label": "fig:business-usecase"
+  },
+  {
+    "number": 2,
+    "macro": "figoverview",
+    "base": "02A_现状业务序列全景",
+    "title": "现状业务序列全景：单次就诊与季度经营复核",
+    "label": "fig:as-is-overview"
+  },
+  {
+    "number": 3,
+    "macro": "figvectorlong",
+    "base": "02_现状_预约与到诊",
+    "title": "现状业务序列：电话预约",
+    "label": "fig:as-is-booking"
+  },
+  {
+    "number": 4,
+    "macro": "figvectorlong",
+    "base": "02B_现状_患者到诊",
+    "title": "现状业务序列：预约日到诊",
+    "label": "fig:as-is-arrival"
+  },
+  {
+    "number": 5,
+    "macro": "figvectorlong",
+    "base": "03_现状_诊疗与结算",
+    "title": "现状业务序列：临床诊疗",
+    "label": "fig:as-is-clinical"
+  },
+  {
+    "number": 6,
+    "macro": "figvectorlong",
+    "base": "03B_现状_诊疗费用结算",
+    "title": "现状业务序列：诊疗费用结算",
+    "label": "fig:as-is-billing"
+  },
+  {
+    "number": 7,
+    "macro": "figcompact",
+    "base": "04_现状_季度核算",
+    "title": "现状业务序列：季度经营核算",
+    "label": "fig:as-is-quarter"
+  },
+  {
+    "number": 8,
+    "macro": "figoverview",
+    "base": "05A_改进业务序列全景",
+    "title": "改进后业务序列全景：单次就诊与季度经营复核",
+    "label": "fig:to-be-overview"
+  },
+  {
+    "number": 9,
+    "macro": "figvectorlong",
+    "base": "05_改进后_预约与到诊",
+    "title": "改进后业务序列：电话预约",
+    "label": "fig:to-be-booking"
+  },
+  {
+    "number": 10,
+    "macro": "figvectorlong",
+    "base": "05B_改进后_患者到诊",
+    "title": "改进后业务序列：预约日到诊",
+    "label": "fig:to-be-arrival"
+  },
+  {
+    "number": 11,
+    "macro": "figvectorlong",
+    "base": "06_改进后_诊疗与结算",
+    "title": "改进后业务序列：临床诊疗",
+    "label": "fig:to-be-clinical"
+  },
+  {
+    "number": 12,
+    "macro": "figvectorlong",
+    "base": "06B_改进后_诊疗费用结算",
+    "title": "改进后业务序列：诊疗费用结算",
+    "label": "fig:to-be-billing"
+  },
+  {
+    "number": 13,
+    "macro": "figvectorlong",
+    "base": "07_改进后_季度核算",
+    "title": "改进后业务序列：季度核对与关闭",
+    "label": "fig:to-be-quarter"
+  },
+  {
+    "number": 14,
+    "macro": "figoverview",
+    "base": "08_系统用例全景",
+    "title": "安德鲁牙科连锁运营管理系统用例全景图",
+    "label": "fig:system-usecase-overview"
+  },
+  {
+    "number": 15,
+    "macro": "figuc",
+    "base": "09_系统用例_患者与预约",
+    "title": "患者与预约系统用例图",
+    "label": "fig:uc-patient"
+  },
+  {
+    "number": 16,
+    "macro": "figuc",
+    "base": "10_系统用例_临床与结算",
+    "title": "临床与结算系统用例图",
+    "label": "fig:uc-care"
+  },
+  {
+    "number": 17,
+    "macro": "figuc",
+    "base": "11_系统用例_网络经营与治理",
+    "title": "经营与组织管理系统用例图",
+    "label": "fig:uc-management"
+  },
+  {
+    "number": 18,
+    "macro": "figuc",
+    "base": "11B_系统用例_财务与账户",
+    "title": "财务与账户管理系统用例图",
+    "label": "fig:uc-account"
+  },
+  {
+    "number": 19,
+    "macro": "figuc",
+    "base": "11C_系统用例_排班与牙椅",
+    "title": "排班与牙椅资源管理系统用例图",
+    "label": "fig:uc-resources"
+  },
+  {
+    "number": 20,
+    "macro": "figuc",
+    "base": "21_系统用例_门户与身份",
+    "title": "患者查询与身份认证系统用例图",
+    "label": "fig:uc-identity"
+  },
+  {
+    "number": 21,
+    "macro": "figclassvector",
+    "base": "12_领域类图_患者与预约",
+    "title": "患者与预约领域类图",
+    "label": "fig:domain-patient"
+  },
+  {
+    "number": 22,
+    "macro": "figclassvector",
+    "base": "12E_领域类图_患者身份",
+    "title": "患者身份、过敏与绑定领域类图",
+    "label": "fig:domain-identity"
+  },
+  {
+    "number": 23,
+    "macro": "figclassvector",
+    "base": "13_领域类图_人员资质与目录",
+    "title": "牙医任职、资质与治疗目录领域类图",
+    "label": "fig:domain-workforce"
+  },
+  {
+    "number": 24,
+    "macro": "figclassvector",
+    "base": "12B_领域类图_临床诊疗",
+    "title": "就诊与实际治疗领域类图",
+    "label": "fig:domain-clinical"
+  },
+  {
+    "number": 25,
+    "macro": "figclassvector",
+    "base": "12D_领域类图_记录与风险",
+    "title": "临床记录版本与过敏复核领域类图",
+    "label": "fig:domain-risk"
+  },
+  {
+    "number": 26,
+    "macro": "figclassvector",
+    "base": "12C_领域类图_计划与同意",
+    "title": "治疗计划、项目与同意证据领域类图",
+    "label": "fig:domain-plan"
+  },
+  {
+    "number": 27,
+    "macro": "figclassvector",
+    "base": "13B_领域类图_收费与季度财务",
+    "title": "结算单、明细与收退款领域类图",
+    "label": "fig:domain-finance"
+  },
+  {
+    "number": 28,
+    "macro": "figclassvector",
+    "base": "13C_领域类图_季度贡献",
+    "title": "季度结果与牙医贡献领域类图（目标设计）",
+    "label": "fig:domain-contribution"
+  },
+  {
+    "number": 29,
+    "macro": "figclassvector",
+    "base": "13D_领域类图_费用归属",
+    "title": "期间费用与归属领域类图（目标设计）",
+    "label": "fig:domain-allocation"
+  },
+  {
+    "number": 30,
+    "macro": "figstatevector",
+    "base": "14_状态机_预约",
+    "title": "预约状态机",
+    "label": "fig:state-appointment"
+  },
+  {
+    "number": 31,
+    "macro": "figstatevector",
+    "base": "15_状态机_临床就诊",
+    "title": "临床就诊状态机",
+    "label": "fig:state-visit"
+  },
+  {
+    "number": 32,
+    "macro": "figstatevector",
+    "base": "16_状态机_发票",
+    "title": "诊疗结算单收款状态机",
+    "label": "fig:state-invoice"
+  },
+  {
+    "number": 33,
+    "macro": "figstatevector",
+    "base": "16B_状态机_退款",
+    "title": "退款后结算状态判定",
+    "label": "fig:state-refund"
+  },
+  {
+    "number": 34,
+    "macro": "figvector",
+    "base": "24_分析类_边界与控制",
+    "title": "安排预约的分析类协作",
+    "label": "fig:bce"
+  },
+  {
+    "number": 35,
+    "macro": "figanalysisplate",
+    "base": "18_分析序列_安排预约",
+    "title": "安排预约分析序列图",
+    "label": "fig:seq-booking"
+  },
+  {
+    "number": 36,
+    "macro": "figanalysisplate",
+    "base": "18B_分析序列_维护排班与牙椅",
+    "title": "维护排班与牙椅资源分析序列图",
+    "label": "fig:seq-resource-maint"
+  },
+  {
+    "number": 37,
+    "macro": "figanalysisplate",
+    "base": "20_分析序列_完成临床就诊",
+    "title": "完成临床就诊分析序列图",
+    "label": "fig:seq-clinical"
+  },
+  {
+    "number": 38,
+    "macro": "figanalysisplate",
+    "base": "19_分析序列_完成就诊并开票",
+    "title": "生成诊疗结算单分析序列图",
+    "label": "fig:seq-invoice"
+  },
+  {
+    "number": 39,
+    "macro": "figanalysisplate",
+    "base": "20C_分析序列_季度期间关闭",
+    "title": "季度财务期间关闭分析序列图（目标设计）",
+    "label": "fig:seq-quarter-close"
+  },
+  {
+    "number": 40,
+    "macro": "figanalysisplate",
+    "base": "20B_分析序列_经营绩效查询",
+    "title": "经营绩效与资源利用分析序列图",
+    "label": "fig:seq-performance"
+  },
+  {
+    "number": 41,
+    "macro": "figvector",
+    "base": "17_逻辑架构",
+    "title": "系统逻辑架构",
+    "label": "fig:architecture"
+  },
+  {
+    "number": 42,
+    "macro": "figvector",
+    "base": "25_部署边界图",
+    "title": "系统部署边界与外部依赖",
+    "label": "fig:deployment"
+  },
+  {
+    "number": 43,
+    "macro": "figstate",
+    "base": "23_预约界面导航状态",
+    "title": "预约工作台界面导航",
+    "label": "fig:ui-navigation"
+  },
+  {
+    "number": 44,
+    "macro": "figvector",
+    "base": "21_持久化映射类图",
+    "title": "预约服务的持久化职责映射",
+    "label": "fig:persistence-class"
+  },
+  {
+    "number": 45,
+    "macro": "figvectorlong",
+    "base": "22_预约数据访问序列",
+    "title": "安排预约的数据访问序列",
+    "label": "fig:data-access-sequence"
+  },
+  {
+    "number": 46,
+    "macro": "figerdplate",
+    "base": "00_panorama",
+    "title": "ADC Nexus 全景关系数据图",
+    "label": "fig:erd-panorama"
+  },
+  {
+    "number": 47,
+    "macro": "figerdplate",
+    "base": "01_organization_access",
+    "title": "组织、账户与授权关系数据图",
+    "label": "fig:erd-organization"
+  },
+  {
+    "number": 48,
+    "macro": "figerdplate",
+    "base": "02_authentication_notifications",
+    "title": "身份认证与通知关系数据图",
+    "label": "fig:erd-authentication"
+  },
+  {
+    "number": 49,
+    "macro": "figerdplate",
+    "base": "03_patient_master",
+    "title": "患者主档与风险资料关系数据图",
+    "label": "fig:erd-patient"
+  },
+  {
+    "number": 50,
+    "macro": "figerdplate",
+    "base": "04_workforce_catalog",
+    "title": "牙医、资质与治疗目录关系数据图",
+    "label": "fig:erd-workforce"
+  },
+  {
+    "number": 51,
+    "macro": "figerdplate",
+    "base": "05_scheduling_resources",
+    "title": "排班、资源与预约关系数据图",
+    "label": "fig:erd-scheduling"
+  },
+  {
+    "number": 52,
+    "macro": "figerdplate",
+    "base": "06_clinical_care",
+    "title": "临床就诊与病历版本关系数据图",
+    "label": "fig:erd-clinical"
+  },
+  {
+    "number": 53,
+    "macro": "figerdplate",
+    "base": "07_billing_cash",
+    "title": "结算、收款与成本关系数据图",
+    "label": "fig:erd-billing"
+  },
+  {
+    "number": 54,
+    "macro": "figerdplate",
+    "base": "08_financial_management",
+    "title": "期间核算与激励关系数据图",
+    "label": "fig:erd-financial"
+  },
+  {
+    "number": 55,
+    "macro": "figerdplate",
+    "base": "09_expansion_planning",
+    "title": "扩张情景与候选诊所关系数据图",
+    "label": "fig:erd-expansion"
+  }
+]

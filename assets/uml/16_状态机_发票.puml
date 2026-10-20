@@ -1,17 +1,12 @@
 @startuml
 !include _state_style.puml
-
-state "已开具" as ISSUED
-state "部分收款" as PARTIAL #FFF8E8
-state "已结清" as SETTLED #EEF7F1
-state "已作废" as VOIDED #F8F8F8
-
-[*] -down-> ISSUED : T1
-ISSUED -left-> PARTIAL : T2
-ISSUED -down-> SETTLED : T3
-PARTIAL -down-> SETTLED : T4
-ISSUED -right-> VOIDED : T5
-
-SETTLED -down-> [*]
+state "已开具" as issued
+state "部分收款" as partial
+state "已结清" as paid
+state "已作废" as voided
+[*] --> issued : T1 生成结算单 [同一就诊未重复开单，明细来自实际治疗]
+issued --> partial : T2 部分收款 [净收款大于零且小于应收金额]
+issued --> paid : T3 全额收款 [一次收款后净收款等于应收金额]
+partial --> paid : T4 结清尾款 [追加收款后净收款等于应收金额]
+issued --> voided : T5 授权作废 [净收款为零，记录作废原因与审批人]
 @enduml
-

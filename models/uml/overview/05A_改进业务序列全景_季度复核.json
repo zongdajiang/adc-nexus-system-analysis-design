@@ -1,0 +1,122 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "05A_改进业务序列全景：季度复核",
+  "frame": false,
+  "font_size": 20,
+  "message_top": 190,
+  "message_gap": 58,
+  "width": 1680,
+  "first_lane": 100,
+  "lane_gap": 493.3333333333333,
+  "nested_self_activation": false,
+  "participants": [
+    {
+      "id": "p0",
+      "label": "诊所经理",
+      "kind": "business-worker",
+      "x": 100.0
+    },
+    {
+      "id": "p1",
+      "label": "ADC Nexus",
+      "kind": "business-entity",
+      "x": 593.3333333333333
+    },
+    {
+      "id": "p2",
+      "label": "总部财务",
+      "kind": "business-worker",
+      "x": 1086.6666666666665
+    },
+    {
+      "id": "p3",
+      "label": "负责人",
+      "kind": "business-worker",
+      "x": 1580.0
+    }
+  ],
+  "messages": [
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "提交成本与费用归属()",
+      "kind": "call"
+    },
+    {
+      "from": "p2",
+      "to": "p1",
+      "label": "发起季度核对()",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p2",
+      "label": "返回异常清单和结果版本",
+      "kind": "return"
+    },
+    {
+      "from": "p2",
+      "to": "p1",
+      "label": "确认口径并关闭期间()",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p3",
+      "label": "提供核定绩效快照",
+      "kind": "call"
+    },
+    {
+      "from": "p3",
+      "to": "p1",
+      "label": "查询牙医贡献依据()",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p3",
+      "label": "返回指标与口径标识",
+      "kind": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "p1",
+      "start_message": 0,
+      "end_message": 0,
+      "end_offset": 24
+    },
+    {
+      "participant": "p1",
+      "start_message": 1,
+      "end_message": 2,
+      "end_offset": 14
+    },
+    {
+      "participant": "p1",
+      "start_message": 3,
+      "end_message": 4,
+      "end_offset": 14
+    },
+    {
+      "participant": "p1",
+      "start_message": 5,
+      "end_message": 6,
+      "end_offset": 14
+    },
+    {
+      "participant": "p2",
+      "start_message": 1,
+      "end_message": 3,
+      "end_offset": 14
+    },
+    {
+      "participant": "p3",
+      "start_message": 4,
+      "end_message": 6,
+      "end_offset": 14
+    }
+  ],
+  "basis": "报告现状/改进分解序列与用例规约；单次就诊和季度核对分为独立交互。现状台账与资源核验仍须门店访谈确认。"
+}

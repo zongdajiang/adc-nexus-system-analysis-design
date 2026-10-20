@@ -1,0 +1,370 @@
+{
+  "type": "usecase",
+  "profile": "mayuyang",
+  "system": "安德鲁牙科连锁运营管理系统",
+  "system_bold": true,
+  "font_size": 22,
+  "system_font_size": 26,
+  "width": 1800,
+  "height": 1260,
+  "boundary": [
+    400,
+    25,
+    990,
+    1195
+  ],
+  "system_position": [
+    895,
+    48
+  ],
+  "ellipse_width": 410,
+  "ellipse_height": 72,
+  "ellipse_slash": true,
+  "ellipse_slash_angles": [
+    35,
+    0
+  ],
+  "directed_associations": true,
+  "association_arrow": "open",
+  "association_routes": {
+    "ops:UC13": [
+      [
+        1440,
+        127
+      ],
+      [
+        1440,
+        504
+      ],
+      [
+        1400,
+        504
+      ]
+    ]
+  },
+  "actors": [
+    {
+      "id": "reception",
+      "label": "前台接待",
+      "center": [
+        200,
+        351
+      ],
+      "top": 301,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "dentist",
+      "label": "牙医",
+      "center": [
+        200,
+        783
+      ],
+      "top": 733,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "cashier",
+      "label": "收费员",
+      "center": [
+        200,
+        1053
+      ],
+      "top": 1003,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "ops",
+      "label": "总部运营",
+      "center": [
+        1580,
+        135
+      ],
+      "top": 85,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "manager_resource",
+      "label": "诊所经理",
+      "center": [
+        1580,
+        275
+      ],
+      "top": 225,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "finance",
+      "label": "总部财务",
+      "center": [
+        1580,
+        415
+      ],
+      "top": 365,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "manager_performance",
+      "label": "诊所经理",
+      "center": [
+        1580,
+        555
+      ],
+      "top": 505,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "admin",
+      "label": "系统管理员",
+      "center": [
+        1580,
+        695
+      ],
+      "top": 645,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "patient",
+      "label": "患者",
+      "center": [
+        1580,
+        835
+      ],
+      "top": 785,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    },
+    {
+      "id": "user",
+      "label": "用户",
+      "center": [
+        1580,
+        1045
+      ],
+      "top": 995,
+      "scale": 1.5,
+      "font_size": 24,
+      "face_slash": true
+    }
+  ],
+  "usecases": [
+    {
+      "id": "UC01",
+      "label": "UC-01  建立并维护患者档案",
+      "actors": [
+        "reception"
+      ],
+      "center": [
+        645,
+        135
+      ]
+    },
+    {
+      "id": "UC02",
+      "label": "UC-02  安排诊疗预约",
+      "actors": [
+        "reception"
+      ],
+      "center": [
+        645,
+        243
+      ]
+    },
+    {
+      "id": "UC03",
+      "label": "UC-03  变更诊疗预约",
+      "actors": [
+        "reception"
+      ],
+      "center": [
+        645,
+        351
+      ]
+    },
+    {
+      "id": "UC04",
+      "label": "UC-04  办理患者到诊",
+      "actors": [
+        "reception"
+      ],
+      "center": [
+        645,
+        459
+      ]
+    },
+    {
+      "id": "UC05",
+      "label": "UC-05  安排候补预约",
+      "actors": [
+        "reception"
+      ],
+      "center": [
+        645,
+        567
+      ]
+    },
+    {
+      "id": "UC06",
+      "label": "UC-06  记录临床就诊",
+      "actors": [
+        "dentist"
+      ],
+      "center": [
+        645,
+        675
+      ]
+    },
+    {
+      "id": "UC07",
+      "label": "UC-07  制定治疗计划",
+      "actors": [
+        "dentist"
+      ],
+      "center": [
+        645,
+        783
+      ]
+    },
+    {
+      "id": "UC08",
+      "label": "UC-08  完成临床就诊",
+      "actors": [
+        "dentist"
+      ],
+      "center": [
+        645,
+        891
+      ]
+    },
+    {
+      "id": "UC09",
+      "label": "UC-09  生成诊疗结算单",
+      "actors": [
+        "cashier"
+      ],
+      "center": [
+        645,
+        999
+      ]
+    },
+    {
+      "id": "UC10",
+      "label": "UC-10  处理收款与退款",
+      "actors": [
+        "cashier"
+      ],
+      "center": [
+        645,
+        1107
+      ]
+    },
+    {
+      "id": "UC11",
+      "label": "UC-11  维护牙医资质与任职",
+      "actors": [
+        "ops"
+      ],
+      "center": [
+        1125,
+        135
+      ]
+    },
+    {
+      "id": "UC18",
+      "label": "UC-18  维护排班与牙椅资源",
+      "actors": [
+        "manager_resource"
+      ],
+      "center": [
+        1125,
+        275
+      ]
+    },
+    {
+      "id": "UC12",
+      "label": "UC-12  关闭季度财务期间",
+      "actors": [
+        "finance"
+      ],
+      "center": [
+        1125,
+        415
+      ]
+    },
+    {
+      "id": "UC13",
+      "label": "UC-13  分析经营绩效与资质覆盖",
+      "actors": [
+        "ops",
+        "finance",
+        "manager_performance"
+      ],
+      "center": [
+        1125,
+        555
+      ]
+    },
+    {
+      "id": "UC14",
+      "label": "UC-14  管理账户与访问范围",
+      "actors": [
+        "admin"
+      ],
+      "center": [
+        1125,
+        695
+      ]
+    },
+    {
+      "id": "UC15",
+      "label": "UC-15  查阅本人诊疗信息",
+      "actors": [
+        "patient"
+      ],
+      "center": [
+        1125,
+        835
+      ]
+    },
+    {
+      "id": "UC16",
+      "label": "UC-16  验证登录身份",
+      "actors": [
+        "user"
+      ],
+      "center": [
+        1125,
+        975
+      ]
+    },
+    {
+      "id": "UC17",
+      "label": "UC-17  管理账号密码",
+      "actors": [
+        "user"
+      ],
+      "center": [
+        1125,
+        1115
+      ]
+    }
+  ],
+  "basis": "报告 UC-01 至 UC-18 及岗位权限表。重复的诊所经理表示同一角色；微信与短信辅助关联见身份认证分图。"
+}

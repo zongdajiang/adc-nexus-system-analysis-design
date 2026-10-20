@@ -1,0 +1,16 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 05A_改进业务序列全景：季度复核
+actor "诊所经理" as p0 <<业务工人>>
+participant "ADC Nexus" as p1 <<业务实体>>
+actor "总部财务" as p2 <<业务工人>>
+actor "负责人" as p3 <<业务工人>>
+p0 -> p1: 提交成本与费用归属()
+p2 -> p1: 发起季度核对()
+p1 --> p2: 返回异常清单和结果版本
+p2 -> p1: 确认口径并关闭期间()
+p1 -> p3: 提供核定绩效快照
+p3 -> p1: 查询牙医贡献依据()
+p1 --> p3: 返回指标与口径标识
+@enduml

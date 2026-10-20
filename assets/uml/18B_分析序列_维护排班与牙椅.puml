@@ -1,0 +1,30 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title UC-18 维护排班与牙椅资源
+actor "诊所经理" as manager
+boundary "资源工作台" as screen
+control "资源维护控制" as control
+entity "牙医任职" as employment
+entity "资源日历" as calendar
+entity "牙椅资源" as chair
+manager -> screen: 提交排班与牙椅联合调整()
+screen -> control: 维护资源(诊所、日期、版本)
+control -> employment: 核对服务日任职()
+employment --> control: 任职范围与有效期
+control -> calendar: 检查排班例外与预约影响()
+calendar --> control: 冲突与受影响预约
+control -> chair: 核对牙椅所属诊所和状态()
+chair --> control: 牙椅校验结果
+alt [任职、预约或牙椅冲突]
+control --> screen: 返回冲突及受影响预约
+screen --> manager: 提示调整方案
+else [可生效且版本一致]
+control -> calendar: 保存排班规则或例外()
+calendar --> control: 返回排班版本
+control -> chair: 保存牙椅可用状态()
+chair --> control: 返回牙椅版本
+control --> screen: 返回生效范围与版本
+screen --> manager: 显示更新结果
+end
+@enduml

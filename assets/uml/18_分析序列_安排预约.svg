@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1028.0" height="1085.0" viewBox="0 0 1028.0 1085.0">
 <defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
 <rect width="1028.0" height="1085.0" fill="white"/>
-<ellipse cx="80" cy="47.69" rx="4.69" ry="4.69" fill="#fce5c4" stroke="#111111" stroke-width="1"/>
-<polyline points="80,52.38 80,61.760000000000005" fill="none" stroke="#111111" stroke-width="1"/>
-<polyline points="70.62,55.194 89.38,55.194" fill="none" stroke="#111111" stroke-width="1"/>
-<polyline points="80,61.760000000000005 70.62,71.14" fill="none" stroke="#111111" stroke-width="1"/>
-<polyline points="80,61.760000000000005 89.38,71.14" fill="none" stroke="#111111" stroke-width="1"/>
-<text x="80" y="98.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">前台接待</text>
+<ellipse cx="80" cy="47.0" rx="7.0" ry="7.0" fill="#fce5c4" stroke="#111111" stroke-width="1"/>
+<polyline points="80,54.0 80,68.0" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="66.0,58.2 94.0,58.2" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,68.0 66.0,82.0" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,68.0 94.0,82.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="80" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">前台接待</text>
 <polyline points="80,130 80,1040.0" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
 <ellipse cx="318.0" cy="66" rx="22" ry="22" fill="#dddddd" stroke="none" stroke-width="0"/>
 <ellipse cx="316.0" cy="64" rx="22" ry="22" fill="url(#peach)" stroke="#111111" stroke-width="1"/>

@@ -1,0 +1,1057 @@
+{
+  "width": 1530.0,
+  "height": 1144.5,
+  "ops": [
+    {
+      "type": "ellipse",
+      "cx": 80,
+      "cy": 47.0,
+      "rx": 7.0,
+      "ry": 7.0,
+      "fill": "#fce5c4",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          54.0
+        ],
+        [
+          80,
+          68.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          66.0,
+          58.2
+        ],
+        [
+          94.0,
+          58.2
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          66.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          68.0
+        ],
+        [
+          94.0,
+          82.0
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 80,
+      "y": 94,
+      "text": "管理岗位",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          80,
+          130
+        ],
+        [
+          80,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 334.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 332.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          305.0,
+          42
+        ],
+        [
+          305.0,
+          86
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          305.0,
+          64
+        ],
+        [
+          310.0,
+          64
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 332.0,
+      "y": 94,
+      "text": "绩效看板",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          332.0,
+          130
+        ],
+        [
+          332.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "ellipse",
+      "cx": 586.0,
+      "cy": 66,
+      "rx": 22,
+      "ry": 22,
+      "fill": "#dddddd",
+      "stroke": "none",
+      "sw": 0
+    },
+    {
+      "type": "ellipse",
+      "cx": 584.0,
+      "cy": 64,
+      "rx": 22,
+      "ry": 22,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          583.0,
+          36
+        ],
+        [
+          575.0,
+          42
+        ],
+        [
+          583.0,
+          48
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 584.0,
+      "y": 94,
+      "text": "指标分析控制",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          584.0,
+          130
+        ],
+        [
+          584.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 839.5,
+      "y": 43,
+      "w": 101.0,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 890.0,
+      "y": 49,
+      "text": "预约与资源",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        842.5,
+        45,
+        937.5,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          890.0,
+          130
+        ],
+        [
+          890.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1019.5,
+      "y": 43,
+      "w": 101.0,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1070.0,
+      "y": 49,
+      "text": "就诊与结算",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1022.5,
+        45,
+        1117.5,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1070.0,
+          130
+        ],
+        [
+          1070.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1191.0,
+      "y": 43,
+      "w": 118.0,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1250.0,
+      "y": 49,
+      "text": "季度核定快照",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1194.0,
+        45,
+        1306.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1250.0,
+          130
+        ],
+        [
+          1250.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 1388.0,
+      "y": 43,
+      "w": 84.0,
+      "h": 50,
+      "fill": "peach",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 1430.0,
+      "y": 49,
+      "text": "指标口径",
+      "size": 17,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        1391.0,
+        45,
+        1469.0,
+        91
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1430.0,
+          130
+        ],
+        [
+          1430.0,
+          1099.5
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "rect",
+      "x": 75.5,
+      "y": 150,
+      "w": 9,
+      "h": 915,
+      "fill": "#fce5b7",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 327.5,
+      "y": 150,
+      "w": 9,
+      "h": 915,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 579.5,
+      "y": 211,
+      "w": 9,
+      "h": 793,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 885.5,
+      "y": 272,
+      "w": 9,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1065.5,
+      "y": 394,
+      "w": 9,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1245.5,
+      "y": 516,
+      "w": 9,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 1425.5,
+      "y": 638,
+      "w": 9,
+      "h": 73,
+      "fill": "white",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 2,
+      "dash": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          84.5,
+          150
+        ],
+        [
+          327.5,
+          150
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 206.0,
+      "y": 124.5,
+      "text": "查询绩效(季度、诊所范围)",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          336.5,
+          211
+        ],
+        [
+          579.5,
+          211
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 458.0,
+      "y": 185.5,
+      "text": "分析绩效(范围、口径版本)",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          588.5,
+          272
+        ],
+        [
+          885.5,
+          272
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 737.0,
+      "y": 246.5,
+      "text": "统计预约履约、排班和牙椅分钟()",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          885.5,
+          333
+        ],
+        [
+          588.5,
+          333
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 737.0,
+      "y": 307.5,
+      "text": "返回分子分母及排除项",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          588.5,
+          394
+        ],
+        [
+          1065.5,
+          394
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 827.0,
+      "y": 368.5,
+      "text": "统计已完成治疗与结算来源()",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1065.5,
+          455
+        ],
+        [
+          588.5,
+          455
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 827.0,
+      "y": 429.5,
+      "text": "返回治疗与收入事实",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          588.5,
+          516
+        ],
+        [
+          1245.5,
+          516
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 917.0,
+      "y": 490.5,
+      "text": "读取核定期间与费用归属()",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1245.5,
+          577
+        ],
+        [
+          588.5,
+          577
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 917.0,
+      "y": 551.5,
+      "text": "返回快照版本与待归属项",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          588.5,
+          638
+        ],
+        [
+          1425.5,
+          638
+        ]
+      ],
+      "arrow": "filled",
+      "dash": false,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1007.0,
+      "y": 612.5,
+      "text": "按口径计算指标与分母()",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          1425.5,
+          699
+        ],
+        [
+          588.5,
+          699
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 1007.0,
+      "y": 673.5,
+      "text": "指标值、排除项与归属标识",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          579.5,
+          830
+        ],
+        [
+          336.5,
+          830
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 458.0,
+      "y": 804.5,
+      "text": "返回估算并标记未核定",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          327.5,
+          891
+        ],
+        [
+          84.5,
+          891
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 206.0,
+      "y": 865.5,
+      "text": "展示待核口径和缺项",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          579.5,
+          992
+        ],
+        [
+          336.5,
+          992
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 458.0,
+      "y": 966.5,
+      "text": "返回核定指标及来源",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          327.5,
+          1053
+        ],
+        [
+          84.5,
+          1053
+        ]
+      ],
+      "arrow": "open",
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 206.0,
+      "y": 1027.5,
+      "text": "展示分子、分母与贡献依据",
+      "size": 18,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": "message-label"
+    },
+    {
+      "type": "rect",
+      "x": 12,
+      "y": 765,
+      "w": 1463.0,
+      "h": 320,
+      "fill": "none",
+      "stroke": "#111111",
+      "sw": 1,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          12,
+          765
+        ],
+        [
+          194.0,
+          765
+        ],
+        [
+          194.0,
+          775
+        ],
+        [
+          180.0,
+          786
+        ],
+        [
+          12,
+          786
+        ]
+      ],
+      "fill": "#f7dca2",
+      "stroke": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 16,
+      "y": 768,
+      "text": "alt 期间与费用口径",
+      "size": 18,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 791,
+      "text": "[未关闭或费用待归属]",
+      "size": 18,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          12,
+          944
+        ],
+        [
+          1475.0,
+          944
+        ]
+      ],
+      "arrow": null,
+      "dash": true,
+      "color": "#111111",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 98,
+      "y": 952,
+      "text": "[已关闭且归属已核定]",
+      "size": 18,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

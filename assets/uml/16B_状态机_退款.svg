@@ -1,25 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="610" viewBox="0 0 1600 610">
-<rect width="100%" height="100%" fill="white"/>
-<polyline points="380,270 650,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
-<polygon points="650.0,270.0 632.0,278.0 632.0,262.0" fill="#43545D"/>
-<polyline points="850,270 1130,270" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
-<polygon points="1130.0,270.0 1112.0,278.0 1112.0,262.0" fill="#43545D"/>
-<polyline points="280,225 280,85 1230,85 1230,225" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
-<polygon points="1230.0,225.0 1222.0,207.0 1238.0,207.0" fill="#43545D"/>
-<polyline points="705,315 705,485 795,485 795,315" fill="none" stroke="#43545D" stroke-width="3" stroke-linejoin="miter"/>
-<polygon points="795.0,315.0 803.0,333.0 787.0,333.0" fill="#43545D"/>
-<rect x="180.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
-<text x="280" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">已结清</text>
-<rect x="650.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
-<text x="750" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">部分收款</text>
-<rect x="1130.0" y="225.0" width="200" height="90" rx="14" fill="#F3F7F8" stroke="#43545D" stroke-width="3"/>
-<text x="1230" y="283" text-anchor="middle" font-family="Microsoft YaHei,SimHei,sans-serif" font-size="38" font-weight="600" fill="#263238">已开具</text>
-<rect x="483" y="207" width="64" height="42" rx="6" fill="white"/>
-<text x="515" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">T1</text>
-<rect x="958" y="207" width="64" height="42" rx="6" fill="white"/>
-<text x="990" y="238" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">T3</text>
-<rect x="718" y="31" width="64" height="42" rx="6" fill="white"/>
-<text x="750" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">T2</text>
-<rect x="718" y="427" width="64" height="42" rx="6" fill="white"/>
-<text x="750" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#263238">T4</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="550" viewBox="0 0 1040 550">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1040" height="550" fill="white"/>
+<rect x="120.0" y="146.0" width="220" height="88" rx="12" fill="#EDF7F1" stroke="#53656F" stroke-width="1.8"/>
+<rect x="120.0" y="149.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="185.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已结清</text>
+<text x="230" y="220.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">退款前净收款 = 应收</text>
+<rect x="700.0" y="146.0" width="220" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="700.0" y="149.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="810" y="185.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">部分收款</text>
+<text x="810" y="220.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">0 &lt; 净收款 &lt; 应收</text>
+<rect x="410.0" y="406.0" width="220" height="88" rx="12" fill="#FFF7E8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="410.0" y="409.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="520" y="442.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已开具</text>
+<text x="520" y="480.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">退款后净收款 = 0</text>
+<polyline points="340,190 700,190" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="689.2,184.6 700,190 689.2,195.4 689.2,184.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="520" y="165.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T1 部分退款</text>
+<polyline points="230,234 230,450 410,450" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="399.2,444.6 410,450 399.2,455.4 399.2,444.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="252" y="333.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T2 全额退款</text>
+<polyline points="810,234 810,450 630,450" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="640.8,455.4 630,450 640.8,444.6 640.8,455.4" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="788" y="332.0" text-anchor="end" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T3 退至零</text>
+<polyline points="920,190 990,190 990,80 810,80 810,146" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="815.4,135.2 810,146 804.6,135.2 815.4,135.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="850" y="58.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T4 退款后仍部分收款</text>
+<text x="520" y="530.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">每笔退款均关联原收款；原始流水与凭据保留不变。</text>
 </svg>

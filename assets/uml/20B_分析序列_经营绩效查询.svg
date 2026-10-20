@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1530.0" height="1144.5" viewBox="0 0 1530.0 1144.5">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1530.0" height="1144.5" fill="white"/>
+<ellipse cx="80" cy="47.0" rx="7.0" ry="7.0" fill="#fce5c4" stroke="#111111" stroke-width="1"/>
+<polyline points="80,54.0 80,68.0" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="66.0,58.2 94.0,58.2" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,68.0 66.0,82.0" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="80,68.0 94.0,82.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="80" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">管理岗位</text>
+<polyline points="80,130 80,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="334.0" cy="66" rx="22" ry="22" fill="#dddddd" stroke="none" stroke-width="0"/>
+<ellipse cx="332.0" cy="64" rx="22" ry="22" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<polyline points="305.0,42 305.0,86" fill="none" stroke="#111111" stroke-width="1"/>
+<polyline points="305.0,64 310.0,64" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="332.0" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">绩效看板</text>
+<polyline points="332.0,130 332.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<ellipse cx="586.0" cy="66" rx="22" ry="22" fill="#dddddd" stroke="none" stroke-width="0"/>
+<ellipse cx="584.0" cy="64" rx="22" ry="22" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<polyline points="583.0,36 575.0,42 583.0,48" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="584.0" y="109.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">指标分析控制</text>
+<polyline points="584.0,130 584.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="839.5" y="43" width="101.0" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="890.0" y="64.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">预约与资源</text>
+<polyline points="890.0,130 890.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="1019.5" y="43" width="101.0" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="1070.0" y="64.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">就诊与结算</text>
+<polyline points="1070.0,130 1070.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="1191.0" y="43" width="118.0" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="1250.0" y="64.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">季度核定快照</text>
+<polyline points="1250.0,130 1250.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="1388.0" y="43" width="84.0" height="50" rx="2" fill="url(#peach)" stroke="#111111" stroke-width="1"/>
+<text x="1430.0" y="64.0" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#000000">指标口径</text>
+<polyline points="1430.0,130 1430.0,1099.5" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="75.5" y="150" width="9" height="915" rx="2" fill="#fce5b7" stroke="#111111" stroke-width="1"/>
+<rect x="327.5" y="150" width="9" height="915" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="579.5" y="211" width="9" height="793" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="885.5" y="272" width="9" height="73" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="1065.5" y="394" width="9" height="73" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="1245.5" y="516" width="9" height="73" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<rect x="1425.5" y="638" width="9" height="73" rx="2" fill="white" stroke="#111111" stroke-width="1"/>
+<polyline points="84.5,150 327.5,150" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="319.5,146.0 327.5,150 319.5,154.0 319.5,146.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="206.0" y="139.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">查询绩效(季度、诊所范围)</text>
+<polyline points="336.5,211 579.5,211" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="571.5,207.0 579.5,211 571.5,215.0 571.5,207.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="458.0" y="200.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">分析绩效(范围、口径版本)</text>
+<polyline points="588.5,272 885.5,272" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="877.5,268.0 885.5,272 877.5,276.0 877.5,268.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="737.0" y="261.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">统计预约履约、排班和牙椅分钟()</text>
+<polyline points="885.5,333 588.5,333" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="596.5,337.0 588.5,333 596.5,329.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="737.0" y="322.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">返回分子分母及排除项</text>
+<polyline points="588.5,394 1065.5,394" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="1057.5,390.0 1065.5,394 1057.5,398.0 1057.5,390.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="827.0" y="383.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">统计已完成治疗与结算来源()</text>
+<polyline points="1065.5,455 588.5,455" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="596.5,459.0 588.5,455 596.5,451.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="827.0" y="444.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">返回治疗与收入事实</text>
+<polyline points="588.5,516 1245.5,516" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="1237.5,512.0 1245.5,516 1237.5,520.0 1237.5,512.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="917.0" y="505.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">读取核定期间与费用归属()</text>
+<polyline points="1245.5,577 588.5,577" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="596.5,581.0 588.5,577 596.5,573.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="917.0" y="566.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">返回快照版本与待归属项</text>
+<polyline points="588.5,638 1425.5,638" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="1417.5,634.0 1425.5,638 1417.5,642.0 1417.5,634.0" fill="#111111" stroke="#111111" stroke-width="1"/>
+<text x="1007.0" y="627.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">按口径计算指标与分母()</text>
+<polyline points="1425.5,699 588.5,699" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="596.5,703.0 588.5,699 596.5,695.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="1007.0" y="688.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">指标值、排除项与归属标识</text>
+<polyline points="579.5,830 336.5,830" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="344.5,834.0 336.5,830 344.5,826.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="458.0" y="819.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">返回估算并标记未核定</text>
+<polyline points="327.5,891 84.5,891" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="92.5,895.0 84.5,891 92.5,887.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="206.0" y="880.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">展示待核口径和缺项</text>
+<polyline points="579.5,992 336.5,992" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="344.5,996.0 336.5,992 344.5,988.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="458.0" y="981.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">返回核定指标及来源</text>
+<polyline points="327.5,1053 84.5,1053" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<polyline points="92.5,1057.0 84.5,1053 92.5,1049.0" fill="none" stroke="#111111" stroke-width="1"/>
+<text x="206.0" y="1043.5" text-anchor="middle" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">展示分子、分母与贡献依据</text>
+<rect x="12" y="765" width="1463.0" height="320" rx="0" fill="none" stroke="#111111" stroke-width="1"/>
+<polygon points="12,765 194.0,765 194.0,775 180.0,786 12,786" fill="#f7dca2" stroke="#111111" stroke-width="1"/>
+<text x="16" y="783.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="bold" fill="#000000">alt 期间与费用口径</text>
+<text x="98" y="806.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">[未关闭或费用待归属]</text>
+<polyline points="12,944 1475.0,944" fill="none" stroke="#111111" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="98" y="967.0" text-anchor="start" font-family="SimSun,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#000000">[已关闭且归属已核定]</text>
+</svg>

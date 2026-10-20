@@ -1,0 +1,27 @@
+{
+  "type": "usecase",
+  "profile": "mayuyang",
+  "system": "ADC Nexus 诊所资源管理",
+  "font_size": 18,
+  "system_font_size": 18,
+  "width": 800,
+  "height": 600,
+  "boundary": [205, 30, 520, 535],
+  "system_position": [465, 62],
+  "ellipse_width": 360,
+  "ellipse_height": 78,
+  "ellipse_slash": true,
+  "directed_associations": true,
+  "association_arrow": "open",
+  "actors": [
+    {"id": "ops", "label": "总部运营", "face_slash": true, "center": [88, 170]},
+    {"id": "manager", "label": "诊所经理", "face_slash": true, "center": [88, 320]},
+    {"id": "reception", "label": "前台接待", "face_slash": true, "center": [88, 470]}
+  ],
+  "usecases": [
+    {"id": "uc11", "label": "UC-11\n维护牙医资质与任职", "actors": ["ops"], "center": [465, 170]},
+    {"id": "uc18", "label": "UC-18\n维护排班与牙椅资源", "actors": ["manager"], "center": [465, 320]},
+    {"id": "uc02", "label": "UC-02\n安排诊疗预约", "actors": ["reception"], "center": [465, 470]}
+  ],
+  "basis": "main.tex UC-02/11/18；资质、任职、排班、牙椅在预约时共同受检，维护与预约是不同用户目标，不使用 include 伪装时间先后。"
+}

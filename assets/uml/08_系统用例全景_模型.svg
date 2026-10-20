@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1260" viewBox="0 0 1800 1260">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1800" height="1260" fill="white"/>
+<rect x="400" y="25" width="990" height="1195" rx="0" fill="white" stroke="#000000" stroke-width="1"/>
+<text x="895" y="71.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="26" font-weight="bold" fill="#000000">安德鲁牙科连锁运营管理系统</text>
+<ellipse cx="200" cy="311.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="200,322.0 200,357.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="179.0,328.3 221.0,328.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,357.175 179.0,385.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,357.175 221.0,385.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="192.86,318.64 207.14,304.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="200" y="410.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">前台接待</text>
+<ellipse cx="200" cy="743.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="200,754.0 200,789.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="179.0,760.3 221.0,760.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,789.175 179.0,817.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,789.175 221.0,817.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="192.86,750.64 207.14,736.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="200" y="840.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">牙医</text>
+<ellipse cx="200" cy="1013.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="200,1024.0 200,1059.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="179.0,1030.3 221.0,1030.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,1059.175 179.0,1087.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,1059.175 221.0,1087.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="192.86,1020.64 207.14,1006.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="200" y="1112.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">收费员</text>
+<ellipse cx="1580" cy="95.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,106.0 1580,141.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,112.3 1601.0,112.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,141.175 1559.0,169.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,141.175 1601.0,169.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,102.64 1587.14,88.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="194.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">总部运营</text>
+<ellipse cx="1580" cy="235.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,246.0 1580,281.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,252.3 1601.0,252.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,281.175 1559.0,309.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,281.175 1601.0,309.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,242.64 1587.14,228.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="333.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">诊所经理</text>
+<ellipse cx="1580" cy="375.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,386.0 1580,421.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,392.3 1601.0,392.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,421.175 1559.0,449.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,421.175 1601.0,449.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,382.64 1587.14,368.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="474.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">总部财务</text>
+<ellipse cx="1580" cy="515.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,526.0 1580,561.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,532.3 1601.0,532.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,561.175 1559.0,589.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,561.175 1601.0,589.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,522.64 1587.14,508.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="613.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">诊所经理</text>
+<ellipse cx="1580" cy="655.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,666.0 1580,701.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,672.3 1601.0,672.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,701.175 1559.0,729.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,701.175 1601.0,729.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,662.64 1587.14,648.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="754.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">系统管理员</text>
+<ellipse cx="1580" cy="795.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,806.0 1580,841.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,812.3 1601.0,812.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,841.175 1559.0,869.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,841.175 1601.0,869.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,802.64 1587.14,788.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="894.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">患者</text>
+<ellipse cx="1580" cy="1005.5" rx="10.5" ry="10.5" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,1016.0 1580,1051.175" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1559.0,1022.3 1601.0,1022.3" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,1051.175 1559.0,1079.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,1051.175 1601.0,1079.0" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1572.86,1012.64 1587.14,998.36" fill="none" stroke="#555555" stroke-width="1"/>
+<text x="1580" y="1103.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="24" font-weight="normal" fill="#000000">用户</text>
+<polyline points="200,329.85 568.691245283956,168.4129457447667" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="559.7585713048735,167.95760457221448 568.691245283956,168.4129457447667 562.9673679584647,175.28588022450143" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,334.85 512.1592158000977,270.4189348960922" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="503.5157945769412,268.11865892154333 512.1592158000977,270.4189348960922 505.1329422865647,275.9535062898881" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,339.85 442.0553528813099,345.91498243736316" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="434.15805622082286,341.7158509252216 442.0553528813099,345.91498243736316 433.95766967530443,349.71334085846786" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,344.85 529.1956820939788,429.2942406989386" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="522.44045887723,423.431906753154 529.1956820939788,429.2942406989386 520.4526810073019,431.1810189048669" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,349.85 575.5842591733601,533.126678380888" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="570.1487966601034,526.0234574729492 575.5842591733601,533.126678380888 566.640404939055,533.2131158467301" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,766.85 512.1592158000977,702.4189348960922" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="503.5157945769412,700.1186589215433 512.1592158000977,702.4189348960922 505.1329422865647,707.9535062898881" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,771.85 442.0553528813099,777.9149824373632" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="434.15805622082286,773.7158509252216 442.0553528813099,777.9149824373632 433.95766967530443,781.7133408584679" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,776.85 529.1956820939788,861.2942406989387" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="522.44045887723,855.4319067531542 529.1956820939788,861.2942406989387 520.4526810073019,863.181018904867" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,1039.35 462.84835170276887,1015.5164472107714" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="454.51982274869584,1012.2552196104394 462.84835170276887,1015.5164472107714 455.2422522500595,1020.2225338138306" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="200,1044.35 485.05469551944367,1084.4818576950408" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="477.6904661016119,1079.405626309304 485.05469551944367,1084.4818576950408 476.575172760155,1087.327502397864" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,121.35 1327.0725594334635,128.9378232169961" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1335.1889078980653,132.6961323582402 1327.0725594334635,128.9378232169961 1334.9490158252197,124.69972993006125" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,263.85 1328.0327174974273,270.0245828569312" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1336.1283090609406,273.8273972406172 1328.0327174974273,270.0245828569312 1335.9323239424841,265.82979823633195" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,401.35 1327.0725594334635,408.9378232169961" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1335.1889078980653,412.6961323582402 1327.0725594334635,408.9378232169961 1334.9490158252197,404.69972993006127" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,126.35 1440,127 1440,504 1400,504 1265.95210679656,528.8597911031834" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1274.5473644851763,531.3339667772776 1265.95210679656,528.8597911031834 1273.0886019490054,523.4680903567468" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,406.35 1222.0587258896353,523.2905942780345" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1230.9053824078626,524.6084214474714 1222.0587258896353,523.2905942780345 1228.4209815361212,517.0039653651148" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,543.85 1328.0327174974273,550.0245828569311" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1336.1283090609406,553.8273972406171 1328.0327174974273,550.0245828569311 1335.9323239424841,545.829798236332" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,683.85 1328.0327174974273,690.0245828569311" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1336.1283090609406,693.8273972406171 1328.0327174974273,690.0245828569311 1335.9323239424841,685.829798236332" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,823.85 1328.0327174974273,830.0245828569311" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1336.1283090609406,833.8273972406171 1328.0327174974273,830.0245828569311 1335.9323239424841,825.829798236332" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,1031.35 1292.5294875153738,995.7478826845962" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1299.9772041915728,1000.7008127579029 1292.5294875153738,995.7478826845962 1300.9604615797386,992.761467387621" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1580,1036.35 1271.0973770849866,1089.7460248181665" fill="none" stroke="#000000" stroke-width="1"/>
+<polyline points="1279.6617967352847,1092.324923042911 1271.0973770849866,1089.7460248181665 1278.299147454961,1084.441828032775" fill="none" stroke="#000000" stroke-width="1"/>
+<ellipse cx="645" cy="135" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,155.64875170863766 850.0,135.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="142.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-01  建立并维护患者档案</text>
+<ellipse cx="645" cy="243" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,263.64875170863763 850.0,243.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="250.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-02  安排诊疗预约</text>
+<ellipse cx="645" cy="351" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,371.64875170863763 850.0,351.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="358.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-03  变更诊疗预约</text>
+<ellipse cx="645" cy="459" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,479.64875170863763 850.0,459.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="466.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-04  办理患者到诊</text>
+<ellipse cx="645" cy="567" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,587.6487517086376 850.0,567.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="574.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-05  安排候补预约</text>
+<ellipse cx="645" cy="675" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,695.6487517086376 850.0,675.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="682.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-06  记录临床就诊</text>
+<ellipse cx="645" cy="783" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,803.6487517086376 850.0,783.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="790.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-07  制定治疗计划</text>
+<ellipse cx="645" cy="891" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,911.6487517086376 850.0,891.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="898.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-08  完成临床就诊</text>
+<ellipse cx="645" cy="999" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,1019.6487517086376 850.0,999.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="1006.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-09  生成诊疗结算单</text>
+<ellipse cx="645" cy="1107" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="812.9261690792433,1127.6487517086377 850.0,1107.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="645" y="1114.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-10  处理收款与退款</text>
+<ellipse cx="1125" cy="135" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,155.64875170863766 1330.0,135.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="141.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-11  维护牙医资质与任职</text>
+<ellipse cx="1125" cy="275" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,295.64875170863763 1330.0,275.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="282.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-18  维护排班与牙椅资源</text>
+<ellipse cx="1125" cy="415" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,435.64875170863763 1330.0,415.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="422.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-12  关闭季度财务期间</text>
+<ellipse cx="1125" cy="555" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,575.6487517086376 1330.0,555.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="562.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-13  分析经营绩效与资质覆盖</text>
+<ellipse cx="1125" cy="695" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,715.6487517086376 1330.0,695.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="702.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-14  管理账户与访问范围</text>
+<ellipse cx="1125" cy="835" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,855.6487517086376 1330.0,835.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="842.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-15  查阅本人诊疗信息</text>
+<ellipse cx="1125" cy="975" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,995.6487517086376 1330.0,975.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="981.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-16  验证登录身份</text>
+<ellipse cx="1125" cy="1115" rx="205.0" ry="36.0" fill="white" stroke="#000000" stroke-width="1"/>
+<polyline points="1292.9261690792432,1135.6487517086377 1330.0,1115.0" fill="none" stroke="#555555" stroke-width="1.3"/>
+<text x="1125" y="1122.25" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="22" font-weight="normal" fill="#000000">UC-17  管理账号密码</text>
+</svg>

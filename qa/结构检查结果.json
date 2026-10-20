@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "report_pages": 83,
+  "native_size_vector_pages": 19,
+  "native_size_erd_pages": 10,
+  "native_size_analysis_pages": 6,
+  "native_size_interaction_overviews": 3,
+  "class_atlas_pages": 9,
+  "figures": 36,
+  "numbered_figures": 55,
+  "figure_numbers": [
+    1,
+    55
+  ],
+  "native_captions_at_bottom": 19,
+  "database_tables": 61,
+  "database_columns": 730,
+  "foreign_keys": 119,
+  "domain_drawio_sources": 9,
+  "smallest_figure_long_side_px": 1595
+}

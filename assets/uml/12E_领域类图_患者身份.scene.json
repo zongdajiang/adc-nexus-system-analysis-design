@@ -1,0 +1,1033 @@
+{
+  "width": 1049,
+  "height": 689,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 380,
+      "y": 248,
+      "w": 290,
+      "h": 163,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 380,
+      "y": 248,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 525.0,
+      "y": 257.5,
+      "text": "患者",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        388,
+        250,
+        662,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 392,
+      "y": 296.0,
+      "text": "- 患者编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        388,
+        291,
+        662,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 392,
+      "y": 326.0,
+      "text": "- 姓名: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        388,
+        321,
+        662,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 392,
+      "y": 356.0,
+      "text": "- 出生日期: Date",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        388,
+        351,
+        662,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 392,
+      "y": 386.0,
+      "text": "- 电话: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        388,
+        381,
+        662,
+        411
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 526,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 526,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 535.5,
+      "text": "紧急联系人",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        528,
+        310,
+        567
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 574.0,
+      "text": "- 姓名: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        569,
+        310,
+        599
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 604.0,
+      "text": "- 与患者关系: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        599,
+        310,
+        629
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 634.0,
+      "text": "- 电话: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        629,
+        310,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 526,
+      "w": 293,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 378,
+      "y": 526,
+      "w": 293,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 524.5,
+      "y": 535.5,
+      "text": "过敏",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        386,
+        528,
+        663,
+        567
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 574.0,
+      "text": "- 物质: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        569,
+        663,
+        599
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 604.0,
+      "text": "- 反应: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        599,
+        663,
+        629
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 390,
+      "y": 634.0,
+      "text": "- 核实状态: AllergyStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        386,
+        629,
+        663,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 526,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 526,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 876.0,
+      "y": 535.5,
+      "text": "病史版本",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        739,
+        528,
+        1013,
+        567
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 574.0,
+      "text": "- 版本号: Integer",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        569,
+        1013,
+        599
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 604.0,
+      "text": "- 形成时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        599,
+        1013,
+        629
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 634.0,
+      "text": "- 记录来源: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        629,
+        1013,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 173.0,
+      "y": 39.5,
+      "text": "诊所",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        32,
+        310,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 78.0,
+      "text": "- 诊所编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        73,
+        310,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 108.0,
+      "text": "- 名称: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        103,
+        310,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 876.0,
+      "y": 39.5,
+      "text": "系统账户",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        739,
+        32,
+        1013,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 78.0,
+      "text": "- 账户编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        73,
+        1013,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 108.0,
+      "text": "- 状态: AccountStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        103,
+        1013,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 248,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 731,
+      "y": 248,
+      "w": 290,
+      "h": 43,
+      "fill": "#EAF2FA",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 876.0,
+      "y": 257.5,
+      "text": "患者账户绑定",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        739,
+        250,
+        1013,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 296.0,
+      "text": "- 核实方式: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        291,
+        1013,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 743,
+      "y": 326.0,
+      "text": "- 核实时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        739,
+        321,
+        1013,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          469.9,
+          411
+        ],
+        [
+          469.9,
+          468.5
+        ],
+        [
+          173.0,
+          468.5
+        ],
+        [
+          173.0,
+          526
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          469.9,
+          411
+        ],
+        [
+          475.9,
+          420.0
+        ],
+        [
+          469.9,
+          429.0
+        ],
+        [
+          463.9,
+          420.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 483.9,
+      "y": 436.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 159.0,
+      "y": 496.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          525.0,
+          411
+        ],
+        [
+          525.0,
+          468.5
+        ],
+        [
+          524.5,
+          468.5
+        ],
+        [
+          524.5,
+          526
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          525.0,
+          411
+        ],
+        [
+          531.0,
+          420.0
+        ],
+        [
+          525.0,
+          429.0
+        ],
+        [
+          519.0,
+          420.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 539.0,
+      "y": 436.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 510.5,
+      "y": 496.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          580.1,
+          411
+        ],
+        [
+          580.1,
+          468.5
+        ],
+        [
+          876.0,
+          468.5
+        ],
+        [
+          876.0,
+          526
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          580.1,
+          411
+        ],
+        [
+          586.1,
+          420.0
+        ],
+        [
+          580.1,
+          429.0
+        ],
+        [
+          574.1,
+          420.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 594.1,
+      "y": 436.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 862.0,
+      "y": 496.0,
+      "text": "1..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          173.0,
+          133
+        ],
+        [
+          173.0,
+          190.5
+        ],
+        [
+          525.0,
+          190.5
+        ],
+        [
+          525.0,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 349.0,
+      "y": 164.5,
+      "text": "首选诊所",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Microsoft YaHei",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 187.0,
+      "y": 145.0,
+      "text": "0..1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 511.0,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          670,
+          329.5
+        ],
+        [
+          700.5,
+          329.5
+        ],
+        [
+          700.5,
+          299.5
+        ],
+        [
+          731,
+          299.5
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 681,
+      "y": 278,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 714,
+      "y": 334,
+      "text": "0..1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          876.0,
+          133
+        ],
+        [
+          876.0,
+          190.5
+        ],
+        [
+          876.0,
+          190.5
+        ],
+        [
+          876.0,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 890.0,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 862.0,
+      "y": 218.0,
+      "text": "0..1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

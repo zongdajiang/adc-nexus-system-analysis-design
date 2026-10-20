@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+title 02A_现状业务序列全景：单次就诊
+actor "患者" as p0
+actor "前台接待" as p1 <<业务工人>>
+participant "本店排班表" as p2 <<业务实体>>
+actor "牙医" as p3 <<业务工人>>
+participant "牙椅" as p4 <<业务实体>>
+actor "收费员" as p5 <<业务工人>>
+p0 -> p1: 提出就诊诉求
+p1 -> p2: 查阅本店排班
+p2 --> p1: 反馈时段记录
+p1 -> p3: 核实可接诊项目与时段
+p3 -> p4: 查看牙椅现场占用
+p4 --> p3: 反馈可用状态
+p3 --> p1: 告知可接诊安排
+p1 -> p0: 提出预约方案
+p0 -> p1: 确认诊所、牙医和时间
+p1 -> p2: 登记预约台账
+p0 -> p1: 到诊并提供身份资料
+p1 -> p3: 移交病史变化与预约资料
+p3 -> p0: 复核风险并说明方案
+p0 -> p3: 表达治疗决定
+p3 -> p5: 移交实际治疗清单
+p5 -> p0: 出示逐项费用
+p0 -> p5: 提交付款凭据
+p5 -> p0: 交付结算凭据
+@enduml

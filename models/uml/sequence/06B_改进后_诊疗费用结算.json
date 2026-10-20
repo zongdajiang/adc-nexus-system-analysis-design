@@ -1,0 +1,136 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "改进后业务：诊疗费用结算",
+  "font_size": 23,
+  "message_top": 191,
+  "message_gap": 63,
+  "first_lane": 180,
+  "lane_gap": 292,
+  "participants": [
+    {
+      "id": "C",
+      "label": "收费员",
+      "kind": "business-worker"
+    },
+    {
+      "id": "S",
+      "label": "诊疗管理系统",
+      "kind": "business-entity"
+    },
+    {
+      "id": "P",
+      "label": "患者",
+      "kind": "actor"
+    }
+  ],
+  "messages": [
+    {
+      "from": "C",
+      "to": "S",
+      "label": "请求生成结算单()",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "C",
+      "label": "结算单与逐项费用",
+      "kind": "return",
+      "y": 330
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "label": "展示费用明细",
+      "kind": "call"
+    },
+    {
+      "from": "P",
+      "to": "C",
+      "label": "确认并提交付款凭据",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "C",
+      "label": "核实实际收款",
+      "kind": "call"
+    },
+    {
+      "from": "C",
+      "to": "S",
+      "label": "登记收款与凭据()",
+      "kind": "call",
+      "y": 612
+    },
+    {
+      "from": "S",
+      "to": "C",
+      "label": "净收款与余额",
+      "kind": "return"
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "label": "提供结算凭据",
+      "kind": "call"
+    },
+    {
+      "from": "S",
+      "to": "C",
+      "label": "阻断原因",
+      "kind": "return",
+      "y": 850
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "label": "说明暂不能结算",
+      "kind": "call"
+    }
+  ],
+  "basis": "report/main.tex 第4—5章；对应 PlantUML 原稿 06B_改进后_诊疗费用结算.puml",
+  "fragments": [
+    {
+      "start": 1,
+      "end": 9,
+      "from": "C",
+      "to": "P",
+      "operator": "alt",
+      "y": 225,
+      "operands": [
+        {
+          "guard": "允许开单",
+          "start": 1,
+          "y": 254
+        },
+        {
+          "guard": "阻断开单",
+          "start": 8,
+          "y": 785
+        }
+      ]
+    }
+  ],
+  "activations": [
+    {
+      "participant": "C",
+      "start_message": 0,
+      "end_message": 9,
+      "end_offset": 12
+    },
+    {
+      "participant": "S",
+      "start_message": 5,
+      "end_message": 6,
+      "end_offset": 12
+    }
+  ],
+  "frame": false,
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

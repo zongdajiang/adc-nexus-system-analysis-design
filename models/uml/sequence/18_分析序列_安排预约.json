@@ -1,0 +1,174 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-02 安排诊疗预约",
+  "font_size": 20,
+  "frame": false,
+  "lane_gap": 180,
+  "message_gap": 66,
+  "participants": [
+    {
+      "id": "reception",
+      "label": "前台接待",
+      "kind": "actor",
+      "label_size": 18,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "预约界面",
+      "kind": "boundary",
+      "label_size": 18
+    },
+    {
+      "id": "control",
+      "label": "预约控制器",
+      "kind": "control",
+      "label_size": 18
+    },
+    {
+      "id": "calendar",
+      "label": "资源日历",
+      "kind": "entity",
+      "width": 150,
+      "label_size": 18
+    },
+    {
+      "id": "booking",
+      "label": "预约",
+      "kind": "entity",
+      "width": 120,
+      "label_size": 18
+    }
+  ],
+  "messages": [
+    {
+      "from": "reception",
+      "to": "screen",
+      "label": "提交预约(患者、时段)"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "安排预约(方案、版本)"
+    },
+    {
+      "from": "control",
+      "to": "calendar",
+      "label": "核验资源与资格()"
+    },
+    {
+      "from": "calendar",
+      "to": "control",
+      "label": "返回校验结果",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回冲突原因",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "reception",
+      "label": "提示重新选时段",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "calendar",
+      "label": "占用时段()"
+    },
+    {
+      "from": "calendar",
+      "to": "control",
+      "label": "占用确认",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "booking",
+      "label": "建立预约与历史()"
+    },
+    {
+      "from": "booking",
+      "to": "control",
+      "label": "返回预约编号",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回确认摘要",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "reception",
+      "label": "显示预约结果",
+      "kind": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "reception",
+      "y": 150,
+      "end": 1004
+    },
+    {
+      "participant": "screen",
+      "y": 150,
+      "end": 1004
+    },
+    {
+      "participant": "control",
+      "y": 216,
+      "end": 920
+    },
+    {
+      "participant": "calendar",
+      "y": 282,
+      "end": 348
+    },
+    {
+      "participant": "calendar",
+      "y": 656,
+      "end": 722
+    },
+    {
+      "participant": "booking",
+      "y": 788,
+      "end": 854
+    }
+  ],
+  "fragments": [
+    {
+      "from": "control",
+      "to": "booking",
+      "start": 4,
+      "end": 11,
+      "operator": "alt",
+      "label": "提交时资源复核",
+      "operands": [
+        {
+          "guard": "资格或时段不满足",
+          "start": 4
+        },
+        {
+          "guard": "资格及时段均满足",
+          "start": 6
+        }
+      ]
+    }
+  ],
+  "basis": "main.tex UC-02；资源校验及占用需在同一提交边界；报告说明并发专项验收未完成。",
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

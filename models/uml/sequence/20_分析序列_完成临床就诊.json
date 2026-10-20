@@ -1,0 +1,174 @@
+{
+  "type": "sequence",
+  "profile": "b-enterprise",
+  "title": "UC-08 完成临床就诊",
+  "font_size": 20,
+  "frame": false,
+  "lane_gap": 180,
+  "message_gap": 68,
+  "participants": [
+    {
+      "id": "dentist",
+      "label": "牙医",
+      "kind": "actor",
+      "label_size": 18,
+      "actor_scale": 1.0,
+      "actor_top": 40,
+      "name_y": 94
+    },
+    {
+      "id": "screen",
+      "label": "就诊界面",
+      "kind": "boundary",
+      "label_size": 18
+    },
+    {
+      "id": "control",
+      "label": "就诊控制器",
+      "kind": "control",
+      "label_size": 18
+    },
+    {
+      "id": "visit",
+      "label": "临床就诊",
+      "kind": "entity",
+      "width": 150,
+      "label_size": 18
+    },
+    {
+      "id": "booking",
+      "label": "预约",
+      "kind": "entity",
+      "width": 120,
+      "label_size": 18
+    }
+  ],
+  "messages": [
+    {
+      "from": "dentist",
+      "to": "screen",
+      "label": "请求完成(记录版本)"
+    },
+    {
+      "from": "screen",
+      "to": "control",
+      "label": "完成就诊(就诊号、版本)"
+    },
+    {
+      "from": "control",
+      "to": "visit",
+      "label": "核对风险、治疗与签署()"
+    },
+    {
+      "from": "visit",
+      "to": "control",
+      "label": "返回完整性结果",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回缺失项目",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "dentist",
+      "label": "显示待补录项",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "visit",
+      "label": "完成(期望版本)"
+    },
+    {
+      "from": "visit",
+      "to": "control",
+      "label": "完成时间与版本",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "booking",
+      "label": "标记完成(时间)"
+    },
+    {
+      "from": "booking",
+      "to": "control",
+      "label": "状态更新结果",
+      "kind": "return"
+    },
+    {
+      "from": "control",
+      "to": "screen",
+      "label": "返回完成结果",
+      "kind": "return"
+    },
+    {
+      "from": "screen",
+      "to": "dentist",
+      "label": "显示完成结果",
+      "kind": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "dentist",
+      "y": 150,
+      "end": 1024
+    },
+    {
+      "participant": "screen",
+      "y": 150,
+      "end": 1024
+    },
+    {
+      "participant": "control",
+      "y": 218,
+      "end": 938
+    },
+    {
+      "participant": "visit",
+      "y": 286,
+      "end": 354
+    },
+    {
+      "participant": "visit",
+      "y": 666,
+      "end": 734
+    },
+    {
+      "participant": "booking",
+      "y": 802,
+      "end": 870
+    }
+  ],
+  "fragments": [
+    {
+      "from": "control",
+      "to": "booking",
+      "start": 4,
+      "end": 11,
+      "operator": "alt",
+      "label": "完成条件",
+      "operands": [
+        {
+          "guard": "有待处理缺项",
+          "start": 4
+        },
+        {
+          "guard": "条件完整且版本一致",
+          "start": 6
+        }
+      ]
+    }
+  ],
+  "basis": "main.tex UC-08；临床完成与预约状态同步；签署不等于法定电子签章。",
+  "nested_self_activation": false,
+  "message_arrow_convention": {
+    "call": "solid-filled",
+    "return": "dashed-open",
+    "self_call": "u-turn-without-extra-nested-bar"
+  }
+}

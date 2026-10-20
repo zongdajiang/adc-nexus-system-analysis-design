@@ -1,55 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1800px" viewBox="0 0 1600 1800">
-<defs>
-<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 z" fill="#455A64"/></marker>
-</defs>
-<rect width="1600" height="1800" fill="#FFFFFF"/>
-<circle id="start" cx="800" cy="70" r="20" fill="#263238"/>
-<g id="confirmed"><rect x="670.0" y="204.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="262" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已确认</text></g>
-<g id="arrived"><rect x="670.0" y="604.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="662" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已到诊</text></g>
-<g id="in_care"><rect x="670.0" y="1004.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="1062" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">诊疗中</text></g>
-<g id="completed"><rect x="670.0" y="1404.0" width="260" height="92" rx="18" fill="#EDF7F1" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="1462" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已完成</text></g>
-<g id="cancelled"><rect x="170.0" y="604.0" width="260" height="92" rx="18" fill="#F7F7F7" stroke="#455A64" stroke-width="2.6"/>
-<text x="300" y="662" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已取消</text></g>
-<g id="no_show"><rect x="1170.0" y="204.0" width="260" height="92" rx="18" fill="#F7F7F7" stroke="#455A64" stroke-width="2.6"/>
-<text x="1300" y="262" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">未到诊</text></g>
-<circle id="final_completed" cx="800" cy="1700" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
-<circle cx="800" cy="1700" r="15" fill="#263238"/>
-<circle id="final_cancelled" cx="300" cy="880" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
-<circle cx="300" cy="880" r="15" fill="#263238"/>
-<circle id="final_no_show" cx="1300" cy="480" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
-<circle cx="1300" cy="480" r="15" fill="#263238"/>
-<polyline id="t1" points="800,90 800,204" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="380.0" y="117.0" width="360" height="56" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="560" y="155" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">创建预约并锁定时段</text>
-<polyline id="t2" points="800,296 800,604" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="835.0" y="403.0" width="390" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1030" y="441" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">登记到诊</text>
-<text x="1030" y="479" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[身份与预约匹配]</text>
-<polyline id="t3" points="800,696 800,1004" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="815.0" y="803.0" width="430" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1030" y="841" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">开始诊疗</text>
-<text x="1030" y="879" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[牙医资质与资源有效]</text>
-<polyline id="t4" points="800,1096 800,1404" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="815.0" y="1203.0" width="470" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1050" y="1241" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">完成就诊</text>
-<text x="1050" y="1279" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[病历已签署且项目已核对]</text>
-<polyline id="t5" points="670,250 520,250 520,650 430,650" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="130.0" y="318.0" width="340" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="300" y="356" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">取消预约</text>
-<text x="300" y="394" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[尚未登记到诊]</text>
-<polyline id="t6" points="670,650 430,650" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="335.0" y="528.0" width="350" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="510" y="566" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">撤销到诊</text>
-<text x="510" y="604" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[尚未实施治疗]</text>
-<polyline id="t7" points="930,250 1170,250" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="855.0" y="128.0" width="390" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1050" y="166" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">标记未到诊</text>
-<text x="1050" y="204" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[超过预约保留时限]</text>
-<polyline id="t8" points="800,1496 800,1674" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<polyline id="t9" points="300,696 300,854" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<polyline id="t10" points="1300,296 1300,454" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="530" viewBox="0 0 1040 530">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1040" height="530" fill="white"/>
+<ellipse cx="35" cy="150" rx="10" ry="10" fill="#20313B" stroke="none" stroke-width="1.8"/>
+<rect x="125.0" y="106.0" width="210" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="125.0" y="109.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="145.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已确认</text>
+<text x="230" y="180.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">资源已复核</text>
+<rect x="455.0" y="106.0" width="210" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="455.0" y="109.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="560" y="144.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已到诊</text>
+<text x="560" y="181.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">身份已核对</text>
+<rect x="785.0" y="106.0" width="210" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="785.0" y="109.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="890" y="144.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">诊疗中</text>
+<text x="890" y="180.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">正在提供服务</text>
+<rect x="125.0" y="386.0" width="210" height="88" rx="12" fill="#FFF7E8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="125.0" y="389.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="425.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">未到诊</text>
+<text x="230" y="460.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">超过保留时限</text>
+<rect x="455.0" y="386.0" width="210" height="88" rx="12" fill="#FFF7E8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="455.0" y="389.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="560" y="424.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已取消</text>
+<text x="560" y="461.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">保留发起方与原因</text>
+<rect x="785.0" y="386.0" width="210" height="88" rx="12" fill="#EDF7F1" stroke="#53656F" stroke-width="1.8"/>
+<rect x="785.0" y="389.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="890" y="425.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已完成</text>
+<text x="890" y="461.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">临床完成条件满足</text>
+<polyline points="45,150 125,150" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="114.2,144.6 125,150 114.2,155.4 114.2,144.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="80" y="110.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T1</text>
+<text x="80" y="134.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">创建预约</text>
+<polyline points="335,150 455,150" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="444.2,144.6 455,150 444.2,155.4 444.2,144.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="395" y="131.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T2 登记到诊</text>
+<polyline points="665,150 785,150" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="774.2,144.6 785,150 774.2,155.4 774.2,144.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="725" y="131.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T3 开始诊疗</text>
+<polyline points="890,194 890,386" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="895.4,375.2 890,386 884.6,375.2 895.4,375.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="910" y="290.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T4 完成就诊</text>
+<polyline points="282,194 282,290 505,290 505,386" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="510.4,375.2 505,386 499.6,375.2 510.4,375.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="395" y="270.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T5 取消预约</text>
+<polyline points="592,194 592,386" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="597.4,375.2 592,386 586.6,375.2 597.4,375.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="615" y="335.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T6 撤销到诊</text>
+<polyline points="178,194 178,386" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="183.4,375.2 178,386 172.6,375.2 183.4,375.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="157" y="289.0" text-anchor="end" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T7 标记未到诊</text>
 </svg>

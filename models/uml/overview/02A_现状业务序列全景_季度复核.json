@@ -1,0 +1,104 @@
+{
+  "type": "sequence",
+  "profile": "mayuyang",
+  "title": "02A_现状业务序列全景：季度复核",
+  "frame": false,
+  "font_size": 20,
+  "message_top": 190,
+  "message_gap": 58,
+  "width": 1680,
+  "first_lane": 100,
+  "lane_gap": 740.0,
+  "nested_self_activation": false,
+  "participants": [
+    {
+      "id": "p0",
+      "label": "诊所经理",
+      "kind": "business-worker",
+      "x": 100.0
+    },
+    {
+      "id": "p1",
+      "label": "总部财务",
+      "kind": "business-worker",
+      "x": 840.0
+    },
+    {
+      "id": "p2",
+      "label": "负责人",
+      "kind": "business-worker",
+      "x": 1580.0
+    }
+  ],
+  "messages": [
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "提交本店收入和费用汇总",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p0",
+      "label": "要求补充凭据",
+      "kind": "call"
+    },
+    {
+      "from": "p0",
+      "to": "p1",
+      "label": "提交更正与依据",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p1",
+      "label": "人工核算利润与贡献",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p2",
+      "label": "提交季度结果",
+      "kind": "call"
+    },
+    {
+      "from": "p2",
+      "to": "p1",
+      "label": "询问牙医贡献来源",
+      "kind": "call"
+    },
+    {
+      "from": "p1",
+      "to": "p2",
+      "label": "说明统计口径与依据",
+      "kind": "call"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "p0",
+      "start_message": 1,
+      "end_message": 2,
+      "end_offset": 14
+    },
+    {
+      "participant": "p1",
+      "start_message": 0,
+      "end_message": 4,
+      "end_offset": 14
+    },
+    {
+      "participant": "p1",
+      "start_message": 5,
+      "end_message": 6,
+      "end_offset": 14
+    },
+    {
+      "participant": "p2",
+      "start_message": 4,
+      "end_message": 6,
+      "end_offset": 14
+    }
+  ],
+  "basis": "报告现状/改进分解序列与用例规约；单次就诊和季度核对分为独立交互。现状台账与资源核验仍须门店访谈确认。"
+}

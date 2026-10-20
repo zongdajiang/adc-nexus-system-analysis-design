@@ -1,0 +1,779 @@
+{
+  "width": 1047,
+  "height": 719,
+  "ops": [
+    {
+      "type": "rect",
+      "x": 120,
+      "y": 30,
+      "w": 290,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 120,
+      "y": 30,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 265.0,
+      "y": 39.5,
+      "text": "临床就诊",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        128,
+        32,
+        402,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 78.0,
+      "text": "- 就诊编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        73,
+        402,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 108.0,
+      "text": "- 状态: VisitStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        103,
+        402,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 248,
+      "w": 473,
+      "h": 163,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 28,
+      "y": 248,
+      "w": 473,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 264.5,
+      "y": 257.5,
+      "text": "临床记录",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        36,
+        250,
+        493,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 296.0,
+      "text": "- 记录编号: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        291,
+        493,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 326.0,
+      "text": "- 签署状态: SignatureStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        321,
+        493,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          28,
+          351
+        ],
+        [
+          501,
+          351
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#5d6a70",
+      "sw": 1
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 356.0,
+      "text": "+ 修订(内容: String): 记录版本",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        351,
+        493,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 386.0,
+      "text": "+ 签署(期望版本: Integer): ValidationResult",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        36,
+        381,
+        493,
+        411
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 120,
+      "y": 526,
+      "w": 290,
+      "h": 163,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 120,
+      "y": 526,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 265.0,
+      "y": 535.5,
+      "text": "记录版本",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        128,
+        528,
+        402,
+        567
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 574.0,
+      "text": "- 版本号: Integer",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        569,
+        402,
+        599
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 604.0,
+      "text": "- 内容: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        599,
+        402,
+        629
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 634.0,
+      "text": "- 作者: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        629,
+        402,
+        659
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 132,
+      "y": 664.0,
+      "text": "- 形成时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        128,
+        659,
+        402,
+        689
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 728,
+      "y": 248,
+      "w": 290,
+      "h": 133,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 728,
+      "y": 248,
+      "w": 290,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 873.0,
+      "y": 257.5,
+      "text": "过敏确认",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        736,
+        250,
+        1010,
+        289
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 296.0,
+      "text": "- 处置: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        291,
+        1010,
+        321
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 326.0,
+      "text": "- 确认人: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        321,
+        1010,
+        351
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 740,
+      "y": 356.0,
+      "text": "- 确认时间: DateTime",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        736,
+        351,
+        1010,
+        381
+      ],
+      "role": null
+    },
+    {
+      "type": "rect",
+      "x": 726,
+      "y": 30,
+      "w": 293,
+      "h": 103,
+      "fill": "white",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "rect",
+      "x": 726,
+      "y": 30,
+      "w": 293,
+      "h": 43,
+      "fill": "#FFF2E9",
+      "stroke": "#5d6a70",
+      "sw": 1.35,
+      "rx": 0,
+      "dash": null
+    },
+    {
+      "type": "text",
+      "x": 872.5,
+      "y": 39.5,
+      "text": "过敏",
+      "size": 24.0,
+      "anchor": "middle",
+      "family": "SimSun",
+      "bold": true,
+      "color": "#000000",
+      "container": [
+        734,
+        32,
+        1011,
+        71
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 738,
+      "y": 78.0,
+      "text": "- 物质: String",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        734,
+        73,
+        1011,
+        103
+      ],
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 738,
+      "y": 108.0,
+      "text": "- 核实状态: AllergyStatus",
+      "size": 20,
+      "anchor": "start",
+      "family": "SimSun",
+      "bold": false,
+      "color": "#000000",
+      "container": [
+        734,
+        103,
+        1011,
+        133
+      ],
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          228.26666666666665,
+          133
+        ],
+        [
+          228.26666666666665,
+          190.5
+        ],
+        [
+          264.5,
+          190.5
+        ],
+        [
+          264.5,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          228.26666666666665,
+          133
+        ],
+        [
+          234.26666666666665,
+          142.0
+        ],
+        [
+          228.26666666666665,
+          151.0
+        ],
+        [
+          222.26666666666665,
+          142.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 242.26666666666665,
+      "y": 158.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 250.5,
+      "y": 218.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          264.5,
+          411
+        ],
+        [
+          264.5,
+          468.5
+        ],
+        [
+          265.0,
+          468.5
+        ],
+        [
+          265.0,
+          526
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          264.5,
+          411
+        ],
+        [
+          270.5,
+          420.0
+        ],
+        [
+          264.5,
+          429.0
+        ],
+        [
+          258.5,
+          420.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 278.5,
+      "y": 436.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 251.0,
+      "y": 496.0,
+      "text": "1..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          301.73333333333335,
+          133
+        ],
+        [
+          301.73333333333335,
+          190.5
+        ],
+        [
+          836.2666666666667,
+          190.5
+        ],
+        [
+          836.2666666666667,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "polygon",
+      "points": [
+        [
+          301.73333333333335,
+          133
+        ],
+        [
+          307.73333333333335,
+          142.0
+        ],
+        [
+          301.73333333333335,
+          151.0
+        ],
+        [
+          295.73333333333335,
+          142.0
+        ]
+      ],
+      "fill": "#303a43",
+      "stroke": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 315.73333333333335,
+      "y": 158.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 822.2666666666667,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "line",
+      "points": [
+        [
+          872.5,
+          133
+        ],
+        [
+          872.5,
+          190.5
+        ],
+        [
+          909.7333333333333,
+          190.5
+        ],
+        [
+          909.7333333333333,
+          248
+        ]
+      ],
+      "arrow": null,
+      "dash": false,
+      "color": "#303a43",
+      "sw": 1.45
+    },
+    {
+      "type": "text",
+      "x": 886.5,
+      "y": 145.0,
+      "text": "1",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    },
+    {
+      "type": "text",
+      "x": 895.7333333333333,
+      "y": 218.0,
+      "text": "0..*",
+      "size": 20,
+      "anchor": "middle",
+      "family": "Arial",
+      "bold": false,
+      "color": "#000000",
+      "container": null,
+      "role": null
+    }
+  ]
+}

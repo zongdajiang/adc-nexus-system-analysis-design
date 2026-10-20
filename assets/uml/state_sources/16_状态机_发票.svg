@@ -1,44 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600px" height="1480px" viewBox="0 0 1600 1480">
-<defs>
-<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 z" fill="#455A64"/></marker>
-</defs>
-<rect width="1600" height="1480" fill="#FFFFFF"/>
-<circle id="start" cx="800" cy="70" r="20" fill="#263238"/>
-<g id="issued"><rect x="670.0" y="194.0" width="260" height="92" rx="18" fill="#F4F7F9" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="252" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已开具</text></g>
-<g id="partial"><rect x="220.0" y="524.0" width="260" height="92" rx="18" fill="#FFF8E8" stroke="#455A64" stroke-width="2.6"/>
-<text x="350" y="582" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">部分收款</text></g>
-<g id="settled"><rect x="670.0" y="884.0" width="260" height="92" rx="18" fill="#EDF7F1" stroke="#455A64" stroke-width="2.6"/>
-<text x="800" y="942" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已结清</text></g>
-<g id="voided"><rect x="1120.0" y="524.0" width="260" height="92" rx="18" fill="#F7F7F7" stroke="#455A64" stroke-width="2.6"/>
-<text x="1250" y="582" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="32" font-weight="600" fill="#263238">已作废</text></g>
-<circle id="final_settled" cx="800" cy="1190" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
-<circle cx="800" cy="1190" r="15" fill="#263238"/>
-<circle id="final_voided" cx="1250" cy="820" r="25" fill="#FFFFFF" stroke="#263238" stroke-width="3"/>
-<circle cx="1250" cy="820" r="15" fill="#263238"/>
-<rect x="340.0" y="1303.5" width="920" height="93" rx="16" fill="#FBF8E9" stroke="#9A8F63" stroke-width="2"/>
-<text x="374.0" y="1351.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="26" font-weight="600" fill="#263238">规则说明</text>
-<text x="374.0" y="1390.5" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="24" fill="#263238">作废前净收款必须为 0；收款与退款流水均采用追加式保存。</text>
-<polyline id="t1" points="800,90 800,194" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="255.0" y="93.0" width="490" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="500" y="131" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">生成结算单</text>
-<text x="500" y="169" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[就诊已完成且未重复开单]</text>
-<polyline id="t2" points="670,240 540,240 540,570 480,570" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="165.0" y="333.0" width="390" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="360" y="371" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">登记收款</text>
-<text x="360" y="409" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[0 &lt; 净收款 &lt; 应收]</text>
-<polyline id="t3" points="800,286 800,884" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="835.0" y="553.0" width="350" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1010" y="591" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">登记收款</text>
-<text x="1010" y="629" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[净收款 = 应收]</text>
-<polyline id="t4" points="350,616 350,930 670,930" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="155.0" y="733.0" width="350" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="330" y="771" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">结清尾款</text>
-<text x="330" y="809" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[净收款 = 应收]</text>
-<polyline id="t5" points="930,240 1060,240 1060,570 1120,570" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<rect x="1075.0" y="333.0" width="330" height="94" rx="10" fill="#FFFFFF" fill-opacity="0.97"/>
-<text x="1240" y="371" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="27" font-weight="600" fill="#263238">授权作废</text>
-<text x="1240" y="409" text-anchor="middle" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#263238">[净收款 = 0]</text>
-<polyline id="t6" points="800,976 800,1164" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
-<polyline id="t7" points="1250,616 1250,794" fill="none" stroke="#455A64" stroke-width="3" stroke-linejoin="miter" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="550" viewBox="0 0 1040 550">
+<defs><linearGradient id="peach"><stop stop-color="#fcead9"/><stop offset="1" stop-color="#fffdfb"/></linearGradient><linearGradient id="blue"><stop stop-color="#cde8fa"/><stop offset="1" stop-color="#eaf5ff"/></linearGradient></defs>
+<rect width="1040" height="550" fill="white"/>
+<ellipse cx="35" cy="195" rx="10" ry="10" fill="#20313B" stroke="none" stroke-width="1.8"/>
+<rect x="125.0" y="151.0" width="210" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="125.0" y="154.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="187.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已开具</text>
+<text x="230" y="226.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">尚无有效净收款</text>
+<rect x="455.0" y="151.0" width="210" height="88" rx="12" fill="#F3F8F8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="455.0" y="154.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="560" y="190.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">部分收款</text>
+<text x="560" y="225.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">0 &lt; 净收款 &lt; 应收</text>
+<rect x="785.0" y="151.0" width="210" height="88" rx="12" fill="#EDF7F1" stroke="#53656F" stroke-width="1.8"/>
+<rect x="785.0" y="154.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="890" y="190.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已结清</text>
+<text x="890" y="225.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">净收款 = 应收</text>
+<rect x="125.0" y="411.0" width="210" height="88" rx="12" fill="#FFF7E8" stroke="#53656F" stroke-width="1.8"/>
+<rect x="125.0" y="414.0" width="5" height="82" rx="2" fill="#2D6E73" stroke="none" stroke-width="1.8"/>
+<text x="230" y="449.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="28" font-weight="normal" fill="#20313B">已作废</text>
+<text x="230" y="485.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">净收款 = 0 且已授权</text>
+<polyline points="45,195 125,195" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="114.2,189.6 125,195 114.2,200.4 114.2,189.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="68" y="151.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T1</text>
+<text x="68" y="175.5" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">生成结算单</text>
+<polyline points="335,195 455,195" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="444.2,189.6 455,195 444.2,200.4 444.2,189.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="395" y="177.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T2 部分收款</text>
+<polyline points="230,151 230,80 890,80 890,151" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="895.4,140.2 890,151 884.6,140.2 895.4,140.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="560" y="58.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T3 一次全额收款</text>
+<polyline points="665,195 785,195" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="774.2,189.6 785,195 774.2,200.4 774.2,189.6" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="725" y="177.0" text-anchor="middle" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T4 结清尾款</text>
+<polyline points="230,239 230,411" fill="none" stroke="#53656F" stroke-width="1.8"/>
+<polygon points="235.4,400.2 230,411 224.6,400.2 235.4,400.2" fill="#53656F" stroke="#53656F" stroke-width="1.8"/>
+<text x="252" y="330.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="18" font-weight="normal" fill="#20313B">T5 授权作废</text>
+<text x="515" y="447.0" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">净收款按有效收款扣减退款计算。</text>
+<text x="515" y="468.25" text-anchor="start" font-family="Microsoft YaHei,Noto Sans CJK SC,serif" font-size="17" font-weight="normal" fill="#64747C">退款后的状态转换见下一图。</text>
 </svg>
