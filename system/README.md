@@ -11,6 +11,7 @@
 | 教师试用路径与边界 | [Review guide](docs/REVIEW_GUIDE.md) |
 | 实施差异与报告同步清单 | [Change control](docs/CHANGE_CONTROL.md) |
 | 接口合同 | [API](docs/API.md) |
+| 分轮迭代与发布门槛 | [Release readiness](docs/RELEASE_READINESS.md) |
 | SQLite / PostgreSQL 自动验收证据 | [qa](qa/) |
 
 ## 本地运行
@@ -46,6 +47,7 @@ java -jar target/adc-nexus.jar
 
 ```powershell
 python tools/verify.py
+node tools/verify_web.mjs
 ```
 
 测试在新建、隔离的合成数据库中运行，不向托管数据写入。PostgreSQL 测试只接受 `ADC_ACCEPTANCE_PG_URL` 指向回环地址且库名以 `adc_acceptance_` 开头；详见脚本和 QA 结果。Maven `package` 负责打包，业务集成验收必须另行运行，不能用“打包成功”替代。

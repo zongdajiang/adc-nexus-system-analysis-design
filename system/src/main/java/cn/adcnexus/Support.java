@@ -1,6 +1,8 @@
 package cn.adcnexus;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
@@ -12,7 +14,10 @@ import javax.crypto.spec.PBEKeySpec;
 
 public final class Support {
   public static final String VERSION = "1.0.0-rc1";
-  public static final ObjectMapper JSON = new ObjectMapper();
+  public static final ObjectMapper JSON =
+      new ObjectMapper()
+          .enable(JsonParser.Feature.STRICT_DUPLICATE_DETECTION)
+          .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
   public static final ZoneId ZONE = ZoneId.of("Asia/Shanghai");
   public static final DateTimeFormatter DT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -88,7 +93,9 @@ public final class Support {
 
   public static Map<String, Object> parse(String s) {
     try {
-      return JSON.readValue(s, new TypeReference<>() {});
+      Map<String, Object> value = JSON.readValue(s, new TypeReference<>() {});
+      check(value != null, 422, "INVALID_JSON", "提交内容必须为 JSON 对象");
+      return value;
     } catch (Exception e) {
       throw error(422, "INVALID_JSON", "数据格式无效");
     }

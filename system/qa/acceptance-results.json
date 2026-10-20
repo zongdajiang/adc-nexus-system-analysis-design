@@ -1,300 +1,414 @@
 {
   "passed": true,
   "completed": true,
-  "tests": 104,
+  "tests": 131,
   "database": "SQLite JDBC",
   "external_services_verified": false,
-  "run_id": "b56cce0cc60a",
+  "run_id": "de5bb3b02bba",
+  "artifact": {
+    "kind": "shaded JAR",
+    "sha256": "4c45dba1620a556c6729a92644067b495625e6053090776a53c778592fe7ec9d"
+  },
   "results": [
     {
       "name": "AUTH-01 protected route requires login",
       "passed": true,
-      "ms": 14.2
+      "ms": 31.2
+    },
+    {
+      "name": "HTTP JSON rejects null",
+      "passed": true,
+      "ms": 29.7
+    },
+    {
+      "name": "HTTP JSON rejects array",
+      "passed": true,
+      "ms": 1.6
+    },
+    {
+      "name": "HTTP JSON rejects trailing object",
+      "passed": true,
+      "ms": 1.1
+    },
+    {
+      "name": "HTTP JSON rejects duplicate field",
+      "passed": true,
+      "ms": 1.4
+    },
+    {
+      "name": "HTTP JSON rejects malformed JSON",
+      "passed": true,
+      "ms": 0.9
+    },
+    {
+      "name": "HTTP form content type rejected without processing login",
+      "passed": true,
+      "ms": 0.9
+    },
+    {
+      "name": "HTTP oversized JSON rejected before processing",
+      "passed": true,
+      "ms": 1.4
+    },
+    {
+      "name": "HTTP health is GET only with accurate Allow header",
+      "passed": true,
+      "ms": 26.2
+    },
+    {
+      "name": "HTTP login config cannot be submitted as a mutation",
+      "passed": true,
+      "ms": 15.3
     },
     {
       "name": "SEED-01 demonstration bookings and state history agree",
       "passed": true,
-      "ms": 51.1
+      "ms": 40.2
     },
     {
       "name": "AUTH-23 patient identity is not marked as network staff access",
       "passed": true,
-      "ms": 28.3
+      "ms": 5.6
     },
     {
       "name": "READ /bootstrap",
       "passed": true,
-      "ms": 43.2
+      "ms": 36.6
     },
     {
       "name": "READ /dashboard",
       "passed": true,
-      "ms": 24.3
+      "ms": 30.3
     },
     {
       "name": "READ /patients",
       "passed": true,
-      "ms": 36.7
+      "ms": 11.3
     },
     {
       "name": "READ /appointments",
       "passed": true,
-      "ms": 22.6
+      "ms": 34.3
     },
     {
       "name": "READ /visits",
       "passed": true,
-      "ms": 30.9
+      "ms": 13.0
     },
     {
       "name": "READ /finance/invoices",
       "passed": true,
-      "ms": 31.1
+      "ms": 33.7
     },
     {
       "name": "READ /finance/periods",
       "passed": true,
-      "ms": 33.6
+      "ms": 32.2
     },
     {
       "name": "READ /resources",
       "passed": true,
-      "ms": 16.7
+      "ms": 18.4
     },
     {
       "name": "READ /analytics",
       "passed": true,
-      "ms": 24.6
+      "ms": 44.3
     },
     {
       "name": "READ /expansion",
       "passed": true,
-      "ms": 32.4
+      "ms": 11.7
     },
     {
       "name": "READ /audit",
       "passed": true,
-      "ms": 33.1
+      "ms": 31.7
     },
     {
       "name": "AUTH-02 front desk cannot read finance",
       "passed": true,
-      "ms": 29.7
+      "ms": 41.7
     },
     {
       "name": "AUTH-03 front desk cannot write clinical data",
       "passed": true,
-      "ms": 22.1
+      "ms": 38.4
     },
     {
       "name": "AUTH-04 patient cannot read patient register",
       "passed": true,
-      "ms": 31.8
+      "ms": 19.1
     },
     {
       "name": "AUTH-05 patient cannot query arbitrary record",
       "passed": true,
-      "ms": 19.1
+      "ms": 34.9
     },
     {
       "name": "AUTH-06 patient portal only returns bound records",
       "passed": true,
-      "ms": 38.2
+      "ms": 9.7
     },
     {
       "name": "AUTH-07 dentist cannot manage patients",
       "passed": true,
-      "ms": 40.6
+      "ms": 39.7
     },
     {
       "name": "AUTH-08 cashier cannot sign clinical notes",
       "passed": true,
-      "ms": 46.0
+      "ms": 22.2
     },
     {
       "name": "AUTH-09 manager cannot record payments",
       "passed": true,
-      "ms": 22.8
+      "ms": 40.5
     },
     {
       "name": "AUTH-10 HQ operations cannot read finance",
       "passed": true,
-      "ms": 19.4
+      "ms": 42.3
     },
     {
       "name": "AUTH-11 missing SMS provider fails honestly",
       "passed": true,
-      "ms": 13.4
+      "ms": 13.2
     },
     {
       "name": "AUTH-12 mutation requires CSRF",
       "passed": true,
-      "ms": 38.0
+      "ms": 34.0
     },
     {
       "name": "AUTH-13 cross-site mutation rejected",
       "passed": true,
-      "ms": 1.3
+      "ms": 11.2
+    },
+    {
+      "name": "HTTP refuses opaque origin",
+      "passed": true,
+      "ms": 15.8
+    },
+    {
+      "name": "HTTP refuses non-web scheme",
+      "passed": true,
+      "ms": 15.7
+    },
+    {
+      "name": "HTTP refuses origin containing a path",
+      "passed": true,
+      "ms": 16.6
     },
     {
       "name": "AUTH-14 explicit foreign clinic filter denied",
       "passed": true,
-      "ms": 18.4
+      "ms": 39.0
     },
     {
       "name": "AUTH-15 owner password login",
       "passed": true,
-      "ms": 164.1
+      "ms": 164.4
     },
     {
       "name": "AUTH-16 selecting dentist does not grant that role",
       "passed": true,
-      "ms": 114.8
+      "ms": 135.1
     },
     {
       "name": "AUTH-17 admin is not a clinical/finance role /patients",
       "passed": true,
-      "ms": 44.7
+      "ms": 38.0
     },
     {
       "name": "AUTH-17 admin is not a clinical/finance role /visits",
       "passed": true,
-      "ms": 29.7
+      "ms": 18.9
     },
     {
       "name": "AUTH-17 admin is not a clinical/finance role /finance/invoices",
       "passed": true,
-      "ms": 31.6
+      "ms": 28.9
     },
     {
       "name": "AUTH-18 admin can access account governance",
       "passed": true,
-      "ms": 10.5
+      "ms": 21.3
     },
     {
       "name": "UC01 patient registration",
       "passed": true,
-      "ms": 21.1
+      "ms": 44.3
+    },
+    {
+      "name": "HTTP repeated successful request returns the original patient only once",
+      "passed": true,
+      "ms": 39.7
+    },
+    {
+      "name": "HTTP receipt key cannot be reused for different content",
+      "passed": true,
+      "ms": 20.9
     },
     {
       "name": "UC01 duplicate candidate is blocked",
       "passed": true,
-      "ms": 50.1
+      "ms": 35.0
     },
     {
       "name": "UC01 append history version",
       "passed": true,
-      "ms": 51.3
+      "ms": 44.7
     },
     {
       "name": "UC01 record an explicit synthetic allergy before care",
       "passed": true,
-      "ms": 53.0
+      "ms": 29.8
     },
     {
       "name": "AUTH-22 cashier identity access does not disclose medical history",
       "passed": true,
-      "ms": 27.9
+      "ms": 21.1
     },
     {
       "name": "UC02 resource qualification and hours validation",
       "passed": true,
-      "ms": 34.6
+      "ms": 36.6
     },
     {
       "name": "UC02 create appointment in JDBC transaction",
       "passed": true,
-      "ms": 34.5
+      "ms": 32.0
     },
     {
       "name": "UC02 overlapping resources are rejected",
       "passed": true,
-      "ms": 22.9
+      "ms": 23.3
     },
     {
       "name": "UC03 stale appointment version rejected",
       "passed": true,
-      "ms": 40.2
+      "ms": 23.5
     },
     {
       "name": "UC18 chair maintenance cannot invalidate booking",
       "passed": true,
-      "ms": 49.5
+      "ms": 21.9
+    },
+    {
+      "name": "UC18 existing bookings survive a change to weekday",
+      "passed": true,
+      "ms": 42.0
+    },
+    {
+      "name": "UC18 existing bookings survive a change to start date",
+      "passed": true,
+      "ms": 49.8
+    },
+    {
+      "name": "UC18 existing bookings survive a change to end date",
+      "passed": true,
+      "ms": 44.6
+    },
+    {
+      "name": "UC18 existing bookings survive a change to time coverage",
+      "passed": true,
+      "ms": 47.3
+    },
+    {
+      "name": "UC18 invalid schedule end date rejected",
+      "passed": true,
+      "ms": 34.6
+    },
+    {
+      "name": "UC18 reversed schedule validity rejected",
+      "passed": true,
+      "ms": 40.1
+    },
+    {
+      "name": "UC18 failed schedule changes roll back their original fingerprint",
+      "passed": true,
+      "ms": 14.7
+    },
+    {
+      "name": "UC18 covered unchanged schedule can still be saved",
+      "passed": true,
+      "ms": 18.1
     },
     {
       "name": "UC04 identity must be confirmed",
       "passed": true,
-      "ms": 43.7
+      "ms": 46.9
     },
     {
       "name": "UC04 arrival creates one linked clinical visit",
       "passed": true,
-      "ms": 47.4
+      "ms": 43.6
     },
     {
       "name": "UC03 cannot cancel a checked-in appointment",
       "passed": true,
-      "ms": 33.5
+      "ms": 43.5
     },
     {
       "name": "UC06 safety review records evidence",
       "passed": true,
-      "ms": 45.0
+      "ms": 43.5
     },
     {
       "name": "UC06 every recorded allergy has visit-specific acknowledgement",
       "passed": true,
-      "ms": 22.1
+      "ms": 23.3
     },
     {
       "name": "UC06 start care",
       "passed": true,
-      "ms": 39.8
+      "ms": 70.3
     },
     {
       "name": "UC06 FDI tooth observation",
       "passed": true,
-      "ms": 47.1
+      "ms": 64.0
     },
     {
       "name": "UC07 propose treatment independently from billing",
       "passed": true,
-      "ms": 62.0
+      "ms": 63.2
     },
     {
       "name": "UC07 capture item-specific consent",
       "passed": true,
-      "ms": 47.4
+      "ms": 75.7
     },
     {
       "name": "UC06 record actual treatment with price snapshot",
       "passed": true,
-      "ms": 30.6
+      "ms": 43.7
     },
     {
       "name": "UC08 completion blocks unsigned notes",
       "passed": true,
-      "ms": 45.1
+      "ms": 22.4
     },
     {
       "name": "UC06 clinical note signature",
       "passed": true,
-      "ms": 41.4
+      "ms": 122.1
     },
     {
       "name": "UC01 new history version after signing",
       "passed": true,
-      "ms": 120.7
+      "ms": 37.7
     },
     {
       "name": "UC08 changed history blocks completion despite a signature",
       "passed": true,
-      "ms": 43.8
+      "ms": 43.4
     },
     {
       "name": "UC06 repeated safety review preserves in-progress state",
       "passed": true,
-      "ms": 41.2
+      "ms": 77.4
     },
     {
       "name": "UC06 prior version retains signature after current note is invalidated",
@@ -304,77 +418,77 @@
     {
       "name": "UC06 an earlier signature still requires an amendment reason",
       "passed": true,
-      "ms": 40.8
+      "ms": 46.6
     },
     {
       "name": "UC06 append and sign a reasoned amendment",
       "passed": true,
-      "ms": 77.6
+      "ms": 75.4
     },
     {
       "name": "UC08 atomic visit and appointment completion",
       "passed": true,
-      "ms": 72.1
+      "ms": 75.8
     },
     {
       "name": "UC09 issue itemized invoice from actual treatment",
       "passed": true,
-      "ms": 44.2
+      "ms": 46.4
     },
     {
       "name": "UC09 duplicate issue returns same invoice",
       "passed": true,
-      "ms": 49.9
+      "ms": 39.8
     },
     {
       "name": "UC10 overpayment changes no ledger",
       "passed": true,
-      "ms": 77.8
+      "ms": 73.4
     },
     {
       "name": "UC10 first split payment",
       "passed": true,
-      "ms": 75.8
+      "ms": 67.5
     },
     {
       "name": "UC10 settlement after second split payment",
       "passed": true,
-      "ms": 76.9
+      "ms": 62.4
     },
     {
       "name": "UC10 over-refund rejected",
       "passed": true,
-      "ms": 61.6
+      "ms": 65.5
     },
     {
       "name": "UC10 independent refund reclassifies invoice",
       "passed": true,
-      "ms": 62.1
+      "ms": 79.1
     },
     {
       "name": "UC15 patient cannot see another patient bill",
       "passed": true,
-      "ms": 43.3
+      "ms": 42.9
     },
     {
       "name": "UC02 concurrent same resource allows one commit",
       "passed": true,
-      "ms": 60.1
+      "ms": 67.1
     },
     {
       "name": "UC05 register waitlist preferences",
       "passed": true,
-      "ms": 32.9
+      "ms": 29.6
     },
     {
       "name": "UC05 offer a compatible released slot",
       "passed": true,
-      "ms": 30.2
+      "ms": 30.8
     },
     {
       "name": "UC05 acceptance requires explicit patient confirmation",
       "passed": true,
-      "ms": 35.4
+      "ms": 34.3
     },
     {
       "name": "UC05 offer acceptance creates confirmed booking",
@@ -384,72 +498,72 @@
     {
       "name": "UC05 same offer cannot be consumed twice",
       "passed": true,
-      "ms": 46.9
+      "ms": 23.6
     },
     {
       "name": "UC13 scope-specific metrics calculate from persisted facts",
       "passed": true,
-      "ms": 14.1
+      "ms": 30.9
     },
     {
       "name": "UC12 financial close preflight finds missing evidence",
       "passed": true,
-      "ms": 31.3
+      "ms": 35.8
     },
     {
       "name": "UC12 unverified costs block quarter close",
       "passed": true,
-      "ms": 54.5
+      "ms": 42.4
     },
     {
       "name": "UC12 preserve verified actual cost and evidence",
       "passed": true,
-      "ms": 39.6
+      "ms": 30.4
     },
     {
       "name": "UC12 record approved operational expense",
       "passed": true,
-      "ms": 51.0
+      "ms": 30.4
     },
     {
       "name": "UC12 prohibit over-allocation of the same expense",
       "passed": true,
-      "ms": 47.3
+      "ms": 33.2
     },
     {
       "name": "UC12 allocate expense with approved basis",
       "passed": true,
-      "ms": 33.8
+      "ms": 19.8
     },
     {
       "name": "UC12 input digest mismatch prevents close",
       "passed": true,
-      "ms": 41.0
+      "ms": 45.7
     },
     {
       "name": "UC12 atomic period close and 10 percent pool",
       "passed": true,
-      "ms": 26.2
+      "ms": 44.7
     },
     {
       "name": "UC12 locked period prohibits ordinary payment write",
       "passed": true,
-      "ms": 41.5
+      "ms": 44.5
     },
     {
       "name": "UC12 authorized reopen preserves historical snapshots",
       "passed": true,
-      "ms": 18.5
+      "ms": 38.4
     },
     {
       "name": "UC12 closing again creates another approved snapshot",
       "passed": true,
-      "ms": 30.1
+      "ms": 46.5
     },
     {
       "name": "DB-01 all foreign keys remain valid",
       "passed": true,
-      "ms": 2.9
+      "ms": 3.2
     },
     {
       "name": "DB-02 approved baseline has 61 tables and 730 fields",
@@ -469,62 +583,87 @@
     {
       "name": "DB-05 backup restores valid business chains",
       "passed": true,
-      "ms": 25.4
+      "ms": 25.6
     },
     {
       "name": "UC14 create a password account",
       "passed": true,
-      "ms": 137.4
+      "ms": 120.8
     },
     {
       "name": "UC14 assign bounded physician role",
       "passed": true,
-      "ms": 49.2
+      "ms": 51.5
     },
     {
       "name": "UC16 real physician password login",
       "passed": true,
-      "ms": 134.2
+      "ms": 111.9
     },
     {
       "name": "UC16 physician role does not grant patient entrance",
       "passed": true,
-      "ms": 122.1
+      "ms": 154.0
     },
     {
       "name": "UC17 change own password and revoke sessions",
       "passed": true,
-      "ms": 218.6
+      "ms": 219.2
     },
     {
       "name": "UC17 old session is unusable",
       "passed": true,
-      "ms": 24.7
+      "ms": 34.7
+    },
+    {
+      "name": "UC14 administrator role cannot be misconfigured as a clinic role",
+      "passed": true,
+      "ms": 43.6
     },
     {
       "name": "AUTH-19 multi-role global admin does not widen local appointment access",
       "passed": true,
-      "ms": 25.1
+      "ms": 52.1
     },
     {
       "name": "AUTH-20 multi-role admin cannot create patients outside local operational scope",
       "passed": true,
-      "ms": 25.5
+      "ms": 44.8
+    },
+    {
+      "name": "AUTH-24 an old receipt cannot bypass the actor new clinic authorization",
+      "passed": true,
+      "ms": 33.6
     },
     {
       "name": "AUTH-21 invalid service dates produce validation response",
       "passed": true,
-      "ms": 38.3
+      "ms": 52.3
     },
     {
       "name": "UC11 persist verified physician credential",
       "passed": true,
-      "ms": 22.9
+      "ms": 11.1
+    },
+    {
+      "name": "UC11 impossible credential expiration is rejected",
+      "passed": true,
+      "ms": 22.3
+    },
+    {
+      "name": "UC11 negative weekly hours are rejected",
+      "passed": true,
+      "ms": 27.8
+    },
+    {
+      "name": "UC11 impossible assignment expiration is rejected",
+      "passed": true,
+      "ms": 42.0
     },
     {
       "name": "UC11 persist an effective-dated clinic assignment",
       "passed": true,
-      "ms": 49.5
+      "ms": 36.8
     }
   ]
 }

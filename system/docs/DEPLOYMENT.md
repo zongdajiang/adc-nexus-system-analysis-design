@@ -6,7 +6,7 @@
 
 1. 登录 [Neon Console](https://console.neon.tech)，建立 Free 项目 `adc-nexus-course`。不要开启付费计划。
 2. 区域优先选择与 Render 新加坡相近的可用区域；以控制台 Free 的实际选项为准。
-3. 使用专用分支和空数据库，例如 `adc_nexus`；不要把已有个人或其他业务数据库交给程序初始化。
+3. 使用这个专用新项目的默认分支和空数据库即可，默认名称 `neondb` 可保留；不需要为了部署改名。不要把已有个人或其他业务数据库交给程序初始化。
 4. 在 Connect 选择 PostgreSQL 连接串，启用连接池选项。复制完整的 `postgresql://...` 地址，并保留 `sslmode=require`（以及页面生成的其他安全参数）。
 5. 连接串含密码，只能粘贴进 Render 的 Environment / Secret 字段。不要发到聊天、放入 README、提交 Git 或展示在截图里。不要在 Neon SQL Editor 手工执行 SQLite 的原始 DDL。
 

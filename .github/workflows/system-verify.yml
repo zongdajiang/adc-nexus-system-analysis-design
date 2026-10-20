@@ -39,6 +39,7 @@ jobs:
       - name: Compile and package
         run: |
           node --check src/main/resources/web/app.js
+          node tools/verify_web.mjs
           mvn -B -ntp package
       - name: Business acceptance in an isolated database
         env:

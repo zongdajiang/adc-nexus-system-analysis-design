@@ -16,7 +16,8 @@ Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使�
 - [软件设计规格 SDS 与用例映射](system/docs/SDS.md)
 - [Render Free + Neon Free 网页发布手册](system/docs/DEPLOYMENT.md)，不依赖 Codex 插件连接
 - [教师试用主路径](system/docs/REVIEW_GUIDE.md) · [实施差异与保留边界](system/docs/CHANGE_CONTROL.md)
-- [集成测试证据](system/qa/)：本机 Java 21 打包 JAR 的 SQLite 104 项、PostgreSQL 102 项检查；隔离 PostgreSQL 备份恢复核对 10 条数据链与 130 条外键。云端和真实外部服务另行验收。
+- [集成测试证据](system/qa/)：本机 Java 21 打包 JAR 的 SQLite 131 项、PostgreSQL 129 项业务及边界检查，另有 6 项请求辅助单元检查；隔离 PostgreSQL 备份恢复核对 10 条数据链与 130 条外键。云端和真实外部服务另行验收。
+- [分轮迭代与发布门槛](system/docs/RELEASE_READINESS.md)：排班变更保护、授权变化后的重试、异常输入、长表单及手机端复查；测试结果绑定被测 JAR 校验值。
 
 原报告数据基线仍为 61 表；实现增补 4 张业务证据表及 2 张技术表，共 67 表。两组统计分开保留，最终实施报告与 ERD 需在云端验收后同步。短信/微信、临床文件新增上传及支付划转等未启用能力在实施文档中明确列出，不声称真实医疗生产上线。
 

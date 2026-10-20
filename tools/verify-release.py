@@ -33,7 +33,7 @@ def published_files():
 def canonicalize_text():
     """Match .gitattributes before hashing; Git stores these text files as LF."""
     endings = {".md",".tex",".json",".sql",".svg",".drawio",".puml",
-               ".py",".ps1",".txt",".yml",".yaml",".java",".js",".css",".html",".xml"}
+               ".py",".ps1",".txt",".yml",".yaml",".java",".js",".mjs",".css",".html",".xml"}
     for name in published_files():
         path = ROOT/name
         if path.suffix in endings or path.name in (".gitignore",".gitattributes","Dockerfile",".dockerignore"):
@@ -120,7 +120,7 @@ def verify():
         if path.suffix in (".json",".svg",".drawio"):
             if path.suffix == ".json": json.loads(path.read_text(encoding="utf-8-sig"))
             else: ET.parse(path)
-        if path.suffix in (".md",".py",".json",".tex",".sql",".ps1",".txt",".java",".js",".yml",".yaml",".xml"):
+        if path.suffix in (".md",".py",".json",".tex",".sql",".ps1",".txt",".java",".js",".mjs",".yml",".yaml",".xml"):
             content = path.read_text(encoding="utf-8-sig")
             for pattern in (r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
                             r"gh[pousr]_[A-Za-z0-9]{30,}",r"sk-(?:proj-)?[A-Za-z0-9_-]{35,}"):

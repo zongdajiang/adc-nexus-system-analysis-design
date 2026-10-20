@@ -71,7 +71,9 @@ public final class Main {
         return;
       }
       x.getResponseHeaders().set("Cache-Control", "no-store");
+      check(method.equals("GET") || method.equals("POST"), 405, "METHOD", "此接口不支持该方法");
       if (path.equals("/api/health")) {
+        check(method.equals("GET"), 405, "METHOD", "健康检查只支持 GET");
         Object result =
             db.read(
                 c ->
@@ -94,6 +96,7 @@ public final class Main {
         return;
       }
       if (path.equals("/api/auth/config")) {
+        check(method.equals("GET"), 405, "METHOD", "登录配置只支持 GET");
         respond(
             x,
             200,
@@ -113,7 +116,6 @@ public final class Main {
                 "课程合成数据环境。短信与微信需机构凭据启用；密码登录可用。"));
         return;
       }
-      check(method.equals("GET") || method.equals("POST"), 405, "METHOD", "此接口不支持该方法");
       boolean mutation = method.equals("POST");
       if (mutation) sameOrigin(x);
       Map<String, Object> b = mutation ? body(x) : map();
@@ -188,7 +190,12 @@ public final class Main {
         Object result =
             db.tx(
                 c -> {
-                  authorizeRoute(p, path);
+                  // Recheck the session and effective operation scope under the write lock.
+                  // A previous successful receipt never bypasses a later authorization change.
+                  Auth.Principal current = auth.principal(c, x);
+                  authorizeRoute(current, path);
+                  Auth.Principal scoped =
+                      Auth.forPermission(c, current, scopePermission(path, true, b));
                   String
                       operation =
                           method
@@ -199,11 +206,15 @@ public final class Main {
                                   json(
                                       map(
                                           "permissions",
-                                          p.permissions(),
+                                          new TreeSet<>(scoped.permissions()),
                                           "clinics",
-                                          p.clinics(),
+                                          new TreeSet<>(scoped.clinics()),
                                           "network",
-                                          p.network()))),
+                                          scoped.network(),
+                                          "patient_id",
+                                          scoped.patientId(),
+                                          "dentist_id",
+                                          scoped.dentistId()))),
                       signature = hash(json(b));
                   if (idem != null) {
                     var receipt =
@@ -223,7 +234,7 @@ public final class Main {
                       return JSON.readValue(s(receipt, "response_json"), Object.class);
                     }
                   }
-                  Object r = route(c, p, x, path, method, q, b);
+                  Object r = route(c, scoped, x, path, method, q, b);
                   if (idem != null)
                     insert(
                         c,
@@ -256,6 +267,13 @@ public final class Main {
                 }));
       }
     } catch (Problem e) {
+      if (e.status == 405)
+        x.getResponseHeaders()
+            .set(
+                "Allow",
+                path.equals("/api/health") || path.equals("/api/auth/config")
+                    ? "GET"
+                    : path.startsWith("/api/") ? "GET, POST" : "GET, HEAD");
       if (who[0] != null && e.status >= 400 && path.startsWith("/api/"))
         denied(who[0], requestId, path, e);
       respond(
@@ -490,7 +508,13 @@ public final class Main {
       URI uri = URI.create(origin);
       String host = x.getRequestHeaders().getFirst("Host");
       check(
-          uri.getAuthority() != null && uri.getAuthority().equalsIgnoreCase(host),
+          ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+              && uri.getAuthority() != null
+              && uri.getAuthority().equalsIgnoreCase(host)
+              && uri.getRawUserInfo() == null
+              && (uri.getRawPath() == null || uri.getRawPath().isEmpty())
+              && uri.getRawQuery() == null
+              && uri.getRawFragment() == null,
           403,
           "ORIGIN",
           "拒绝跨站提交");
@@ -500,6 +524,13 @@ public final class Main {
   }
 
   private Map<String, Object> body(HttpExchange x) throws IOException {
+    String contentType = x.getRequestHeaders().getFirst("Content-Type");
+    check(
+        contentType != null
+            && contentType.split(";", 2)[0].trim().equalsIgnoreCase("application/json"),
+        415,
+        "CONTENT_TYPE",
+        "提交内容须使用 application/json");
     byte[] bytes = x.getRequestBody().readNBytes(262145);
     check(bytes.length <= 262144, 413, "BODY_LIMIT", "提交内容过大");
     return bytes.length == 0 ? map() : parse(new String(bytes, StandardCharsets.UTF_8));

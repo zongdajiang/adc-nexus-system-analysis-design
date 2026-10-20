@@ -1217,6 +1217,9 @@ th.align-right {
   padding: 25px;
   backdrop-filter: blur(3px);
 }
+body.dialog-open {
+  overflow: hidden;
+}
 .modal {
   width: 650px;
   max-width: 100%;
@@ -1227,7 +1230,14 @@ th.align-right {
   border-radius: 13px;
   box-shadow: 0 25px 100px #0e2b2540;
 }
+.modal > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
 .modal-head {
+  flex-shrink: 0;
   padding: 24px 27px 18px;
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -1244,6 +1254,8 @@ th.align-right {
   color: var(--muted);
 }
 .modal-body {
+  min-height: 0;
+  flex: 1;
   padding: 23px 27px;
   overflow-y: auto;
 }
@@ -1253,6 +1265,7 @@ th.align-right {
   gap: 0 18px;
 }
 .modal-footer {
+  flex-shrink: 0;
   padding: 18px 27px;
   border-top: 1px solid var(--line);
   display: flex;

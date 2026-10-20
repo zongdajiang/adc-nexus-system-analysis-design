@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "tests": 6,
+  "method": "Node VM unit tests against the shipped api helper",
+  "source_sha256": "d490001ad64e0d0ebe768f8bb47b9bd7c3a6b8f413d3b3847e8d7f3528148c9c",
+  "browser_interaction_verified": false,
+  "results": [
+    {
+      "name": "Lost business response retries once with unchanged receipt, body and CSRF",
+      "passed": true
+    },
+    {
+      "name": "Repeated connection loss stops after one retry and warns of uncertain result",
+      "passed": true
+    },
+    {
+      "name": "Password login is never automatically replayed",
+      "passed": true
+    },
+    {
+      "name": "HTTP conflict is not retried and preserves diagnostic request ID",
+      "passed": true
+    },
+    {
+      "name": "Cold-start non-JSON response gives a readable message",
+      "passed": true
+    },
+    {
+      "name": "Read-only disconnection retries without creating a mutation",
+      "passed": true
+    }
+  ]
+}

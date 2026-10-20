@@ -5,7 +5,7 @@
   "checks": [
     {
       "table": "patients",
-      "rows": 514,
+      "rows": 515,
       "passed": true
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "table": "audit_events",
-      "rows": 79,
+      "rows": 92,
       "passed": true
     }
   ],

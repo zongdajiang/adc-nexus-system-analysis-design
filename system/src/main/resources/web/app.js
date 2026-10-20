@@ -167,13 +167,41 @@ async function api(path, body, options = {}) {
     headers["X-CSRF-Token"] = state.csrf;
     headers["Idempotency-Key"] = options.idempotency || crypto.randomUUID();
   }
-  const response = await fetch("/api" + path, {
+  const request = {
     method: body === undefined ? "GET" : "POST",
     headers,
     credentials: "same-origin",
     cache: "no-store",
     body: body === undefined ? undefined : JSON.stringify(body),
-  });
+  };
+  let response;
+  try {
+    response = await fetch("/api" + path, request);
+  } catch {
+    // Retry a business request once with the SAME receipt key. Never blindly
+    // repeat password login or demo-session creation after a lost response.
+    if (body !== undefined && path.startsWith("/auth/"))
+      throw new Error(
+        T("登录连接中断，请重新登录。", "Sign-in was interrupted. Please sign in again."),
+      );
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    try {
+      response = await fetch("/api" + path, request);
+    } catch {
+      const e = new Error(
+        T(
+          body === undefined
+            ? "暂时无法连接服务，请检查网络后重新读取。"
+            : "暂时无法确认保存结果。请先重新读取记录核对，避免重复登记。",
+          body === undefined
+            ? "Cannot connect. Check your network and reload the records."
+            : "The save result is uncertain. Reload the records before submitting again.",
+        ),
+      );
+      e.code = "CONNECTION_INTERRUPTED";
+      throw e;
+    }
+  }
   let data;
   try {
     data = await response.json();
@@ -192,12 +220,13 @@ async function api(path, body, options = {}) {
     e.code = data.error?.code;
     e.details = data.error?.details || [];
     e.status = response.status;
+    e.requestId = data.error?.request_id || response.headers.get("X-Request-ID");
     throw e;
   }
   return data;
 }
 function errorBox(e) {
-  return `<div class="callout error"><strong>${esc(e.message)}</strong>${e.details?.length ? `<ul>${e.details.map((d) => `<li>${esc(typeof d === "object" ? JSON.stringify(d) : d)}</li>`).join("")}</ul>` : ""}${e.code ? `<div class="mono" style="margin-top:7px">${esc(e.code)}</div>` : ""}</div>`;
+  return `<div class="callout error"><strong>${esc(e.message)}</strong>${e.details?.length ? `<ul>${e.details.map((d) => `<li>${esc(typeof d === "object" ? JSON.stringify(d) : d)}</li>`).join("")}</ul>` : ""}${e.code ? `<div class="mono" style="margin-top:7px">${esc(e.code)}</div>` : ""}${e.requestId ? `<div class="field-help">${T("请求编号", "Request ID")} <span class="mono">${esc(e.requestId)}</span></div>` : ""}</div>`;
 }
 function modal({
   name,
@@ -225,14 +254,21 @@ function modal({
     })
     .join("");
   const previousFocus = document.activeElement;
+  let pending = false;
+  document.body.classList.add("dialog-open");
   modalRoot.innerHTML = `<div class="modal-overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" ${wide ? 'style="width:850px"' : ""}><div class="modal-head"><div><h2 id="modal-title">${esc(name)}</h2><p>${esc(description)}</p></div><button class="modal-close" type="button" aria-label="Close">${icon("x")}</button></div><form id="dialog-form"><div class="modal-body">${body}<div class="modal-fields">${fieldHtml}</div><div id="modal-error" class="modal-error" role="alert"></div></div><div class="modal-footer"><button type="button" class="btn" id="modal-cancel">${T("取消", "Cancel")}</button><button type="submit" class="btn primary" id="modal-submit">${esc(submit)}</button></div></form></section></div>`;
   const close = () => {
+    if (pending) return;
     modalRoot.innerHTML = "";
+    document.body.classList.remove("dialog-open");
     previousFocus?.focus();
     document.removeEventListener("keydown", trap);
   };
   const trap = (e) => {
-    if (e.key === "Escape") close();
+    if (e.key === "Escape") {
+      e.preventDefault();
+      close();
+    }
     if (e.key === "Tab") {
       const all = [
         ...modalRoot.querySelectorAll("button,input,select,textarea,a"),
@@ -251,6 +287,7 @@ function modal({
   $("#modal-cancel").onclick = close;
   $("#dialog-form").onsubmit = async (e) => {
     e.preventDefault();
+    if (pending) return;
     const form = e.currentTarget;
     if (!form.reportValidity()) return;
     const values = {};
@@ -274,17 +311,29 @@ function modal({
       values[f.name] = value;
     }
     const save = $("#modal-submit");
-    save.disabled = true;
+    const controls = [...form.elements, $(".modal-close")].map((node) => [node, node.disabled]);
+    const saveLabel = save.innerHTML;
+    pending = true;
+    controls.forEach(([node]) => (node.disabled = true));
+    save.textContent = T("正在保存…", "Saving…");
+    form.setAttribute("aria-busy", "true");
     $("#modal-error").innerHTML = "";
     try {
       await onSubmit(values);
+      pending = false;
       close();
       toast(T("已保存，记录已更新", "Saved. Records updated."));
       await refresh();
     } catch (err) {
       $("#modal-error").innerHTML = errorBox(err);
-      save.disabled = false;
       $("#modal-error").scrollIntoView({ block: "nearest" });
+    } finally {
+      pending = false;
+      if (form.isConnected) {
+        controls.forEach(([node, disabled]) => (node.disabled = disabled));
+        save.innerHTML = saveLabel;
+        form.removeAttribute("aria-busy");
+      }
     }
   };
   onReady?.();
@@ -575,6 +624,7 @@ async function refresh() {
   }
 }
 async function loginPage() {
+  document.title = T("登录 · ADC Nexus", "Sign in · ADC Nexus");
   state.config = state.config || (await api("/auth/config"));
   const tab = state.loginTab;
   const role =
@@ -672,6 +722,7 @@ window.addEventListener("beforeunload", (e) => {
   }
 });
 async function start() {
+  document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
   try {
     await enter(true);
   } catch (e) {
@@ -3090,8 +3141,9 @@ handlers["assignment-add"] = () =>
         label: T("周工时", "Weekly hours"),
         type: "number",
         value: 20,
-        min: 0,
-        max: 60,
+        min: 1,
+        max: 168,
+        help: T("记录实际约定工时；范围校验不代表劳动制度或合规审批。", "Record agreed hours. Validation is not labor-policy approval."),
       },
     ],
     onSubmit: (b) => api("/resources", { ...b, action: "assignment" }),

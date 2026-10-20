@@ -14,9 +14,9 @@
   "erd_atlas_pages": 10,
   "independent_erd_pdfs": 10,
   "uml_audits": 45,
-  "local_links_checked": 41,
-  "publication_files_before_qa": 616,
-  "file_bytes_before_qa": 50800143,
+  "local_links_checked": 44,
+  "publication_files_before_qa": 622,
+  "file_bytes_before_qa": 50910170,
   "report_sha256": "91dd39b6ab96843f0023fe97f50245c3e991eff4ccca427f5861ac91eb4c4a60",
   "scope": "文件完整性、当前报告结构、DDL、图册及链接；不替代目视或业务验收。"
 }

@@ -2,6 +2,7 @@
 import concurrent.futures
 import datetime as dt
 import http.cookiejar
+import hashlib
 import json
 import os
 import pathlib
@@ -42,6 +43,15 @@ class Client:
     def demo(self,role):
         self.csrf=self.request('/auth/demo',{'role':role})['csrf']
         return self
+    def raw(self,path,body=b'',expect=422,method='POST',headers=None):
+        h={'Content-Type':'application/json','X-CSRF-Token':self.csrf,**(headers or {})}
+        req=urllib.request.Request(self.base+'/api'+path,body if method=='POST' else None,h,method=method)
+        try:
+            with self.http.open(req,timeout=30) as r:code=r.status;data=json.load(r);response_headers=r.headers
+        except urllib.error.HTTPError as e:
+            code=e.code;data=json.load(e);response_headers=e.headers
+        assert code==expect,f'{path}: expected {expect}, got {code}: {data}'
+        return data,response_headers
 
 def check(name,fn):
     start=time.perf_counter()
@@ -83,6 +93,12 @@ def main():
                 anonymous.request('/health');break
             except Exception:time.sleep(.2)
         check('AUTH-01 protected route requires login',lambda:anonymous.request('/patients',expect=401))
+        for label,payload in [('null',b'null'),('array',b'[]'),('trailing object',b'{} {}'),('duplicate field',b'{"username":"a","username":"b"}'),('malformed JSON',b'{broken')]:
+            check('HTTP JSON rejects '+label,lambda payload=payload:anonymous.raw('/auth/login',payload))
+        check('HTTP form content type rejected without processing login',lambda:anonymous.raw('/auth/login',b'username=owner',expect=415,headers={'Content-Type':'application/x-www-form-urlencoded'}))
+        check('HTTP oversized JSON rejected before processing',lambda:anonymous.raw('/auth/login',b' '*262145,expect=413))
+        check('HTTP health is GET only with accurate Allow header',lambda:ensure(anonymous.raw('/health',expect=405,method='DELETE')[1]['Allow']=='GET'))
+        check('HTTP login config cannot be submitted as a mutation',lambda:anonymous.raw('/auth/config',b'{}',expect=405))
         people={role:Client(base).demo(role) for role in ['REVIEWER','FRONT_DESK','DENTIST','CASHIER','CLINIC_MANAGER','HQ_OPERATIONS','HQ_FINANCE','PATIENT']}
         operator=people['REVIEWER'];boot=operator.request('/bootstrap');today=dt.date.fromisoformat(boot['today'])
         check('SEED-01 demonstration bookings and state history agree',lambda:ensure(all(a['status']=='CONFIRMED' for a in operator.request('/appointments') if a['appointment_code'].startswith('ADC-TODAY-'))))
@@ -101,6 +117,8 @@ def main():
         check('AUTH-11 missing SMS provider fails honestly',lambda:anonymous.request('/auth/sms',{},expect=503))
         check('AUTH-12 mutation requires CSRF',lambda:operator.request('/patients',{},expect=403,headers={'X-CSRF-Token':'wrong'}))
         check('AUTH-13 cross-site mutation rejected',lambda:operator.request('/patients',{},expect=403,headers={'Origin':'https://example.invalid'}))
+        for label,origin in [('opaque origin','null'),('non-web scheme',base.replace('http:','ftp:')),('origin containing a path',base+'/untrusted')]:
+            check('HTTP refuses '+label,lambda origin=origin:operator.request('/patients',{},expect=403,headers={'Origin':origin}))
         foreign=next(c['id'] for c in boot['clinics'] if c['id']!='cln-tianhe')
         check('AUTH-14 explicit foreign clinic filter denied',lambda:people['FRONT_DESK'].request('/appointments?clinic_id='+foreign,expect=403))
         owner=Client(base);owner.csrf=check('AUTH-15 owner password login',lambda:owner.request('/auth/login',{'username':'owner','password':admin_password,'role':'STAFF'}))['csrf']
@@ -109,7 +127,10 @@ def main():
             check('AUTH-17 admin is not a clinical/finance role '+path,lambda path=path:owner.request(path,expect=403))
         check('AUTH-18 admin can access account governance',lambda:owner.request('/admin/access'))
         patient_body={'name_zh':'林知远 · 验收合成','date_of_birth':'1996-04-08','gender':'MALE','phone':'139'+str(int(run,16))[-8:].zfill(8),'primary_clinic_id':'cln-tianhe','history_text':'无近期变化；课程自动验收合成资料'}
-        patient=check('UC01 patient registration',lambda:people['FRONT_DESK'].request('/patients',patient_body))
+        patient_key=secrets.token_hex(16)
+        patient=check('UC01 patient registration',lambda:people['FRONT_DESK'].request('/patients',patient_body,key=patient_key))
+        check('HTTP repeated successful request returns the original patient only once',lambda:ensure(people['FRONT_DESK'].request('/patients',patient_body,key=patient_key)['id']==patient['id']))
+        check('HTTP receipt key cannot be reused for different content',lambda:people['FRONT_DESK'].request('/patients',{**patient_body,'name_zh':'Different synthetic name'},key=patient_key,expect=409))
         check('UC01 duplicate candidate is blocked',lambda:people['FRONT_DESK'].request('/patients',patient_body,expect=409))
         check('UC01 append history version',lambda:people['FRONT_DESK'].request('/patients/'+patient['id'],{'action':'history','history_status':'DECLARED_NONE','history_text':'已询问，声明无相关病史','reason':'本次到诊核实'}))
         check('UC01 record an explicit synthetic allergy before care',lambda:people['FRONT_DESK'].request('/patients/'+patient['id'],{'action':'allergy','substance':'合成测试物质','reaction':'合成风险记录，用于验证复核留痕','severity':'HIGH'}))
@@ -131,6 +152,13 @@ def main():
         check('UC02 overlapping resources are rejected',lambda:people['FRONT_DESK'].request('/appointments',{**proposed,'patient_id':p2['id']},expect=409))
         check('UC03 stale appointment version rejected',lambda:people['FRONT_DESK'].request('/appointments/'+appointment['id'],{'action':'cancel','version':999,'reason':'stale'},expect=409))
         check('UC18 chair maintenance cannot invalidate booking',lambda:people['CLINIC_MANAGER'].request('/resources',{'action':'chair','chair_id':chair['id'],'status':'MAINTENANCE','updated_at':chair['updated_at']},expect=409))
+        schedule={'action':'availability','rule_id':rule['id'],'fingerprint':rule['fingerprint'],'clinic_id':cid,'dentist_id':dentist,'day_of_week':rule['day_of_week'],'starts_at':rule['starts_at'],'ends_at':rule['ends_at'],'effective_from':rule['effective_from'],'effective_to':rule.get('effective_to') or ''}
+        for label,changes in [('weekday',{'day_of_week':(rule['day_of_week']+1)%7}),('start date',{'effective_from':str(today+dt.timedelta(days=1))}),('end date',{'effective_to':str(today-dt.timedelta(days=1))}),('time coverage',{'starts_at':'11:00'})]:
+            check('UC18 existing bookings survive a change to '+label,lambda changes=changes:people['CLINIC_MANAGER'].request('/resources',{**schedule,**changes},expect=409))
+        check('UC18 invalid schedule end date rejected',lambda:people['CLINIC_MANAGER'].request('/resources',{**schedule,'effective_to':'2026-99-99'},expect=422))
+        check('UC18 reversed schedule validity rejected',lambda:people['CLINIC_MANAGER'].request('/resources',{**schedule,'effective_to':'2000-01-01'},expect=422))
+        check('UC18 failed schedule changes roll back their original fingerprint',lambda:ensure(next(r for r in operator.request('/resources')['availability'] if r['id']==rule['id'])['fingerprint']==rule['fingerprint']))
+        check('UC18 covered unchanged schedule can still be saved',lambda:people['CLINIC_MANAGER'].request('/resources',schedule))
         check('UC04 identity must be confirmed',lambda:people['FRONT_DESK'].request('/appointments/'+appointment['id'],{'action':'check_in','version':appointment['appointment_version'],'identity_confirmed':False},expect=422))
         appointment=check('UC04 arrival creates one linked clinical visit',lambda:people['FRONT_DESK'].request('/appointments/'+appointment['id'],{'action':'check_in','version':appointment['appointment_version'],'identity_confirmed':True,'declaration':'已核对；患者无资料变化'}))
         visit=next(v for v in operator.request('/visits') if v['appointment_id']==appointment['id'])
@@ -260,13 +288,25 @@ def main():
         # A global administrative role must not widen a local operational role.
         dual_name='dual_'+run;dual_password='Dual-'+secrets.token_urlsafe(18)
         dual=owner.request('/admin/access',{'action':'create_user','username':dual_name,'password':dual_password,'email':dual_name+'@example.invalid','display_name':'多角色范围验收合成'})
+        check('UC14 administrator role cannot be misconfigured as a clinic role',lambda:owner.request('/admin/access',{'action':'grant','user_id':dual['user_id'],'role_id':'jdbc-role-ADMIN','clinic_id':cid,'effective_from':str(today)},expect=422))
         owner.request('/admin/access',{'action':'grant','user_id':dual['user_id'],'role_id':'jdbc-role-ADMIN','effective_from':str(today)})
         owner.request('/admin/access',{'action':'grant','user_id':dual['user_id'],'role_id':'jdbc-role-FRONT_DESK','clinic_id':cid,'effective_from':str(today)})
         mixed=Client(base);mixed.csrf=mixed.request('/auth/login',{'username':dual_name,'password':dual_password,'role':'STAFF'})['csrf']
         check('AUTH-19 multi-role global admin does not widen local appointment access',lambda:mixed.request('/appointments?clinic_id='+foreign,expect=403))
         check('AUTH-20 multi-role admin cannot create patients outside local operational scope',lambda:mixed.request('/patients',{**patient_body,'primary_clinic_id':foreign,'phone':'13712345678'},expect=403))
+        replay_body={**patient_body,'name_zh':'授权重验 · 合成','phone':'136'+str(int(run,16))[-8:].zfill(8)}
+        replay_key=secrets.token_hex(16)
+        mixed.request('/patients',replay_body,key=replay_key)
+        local_grant=next(a for a in owner.request('/admin/access')['assignments'] if a['user_id']==dual['user_id'] and a['role_id']=='jdbc-role-FRONT_DESK' and a['clinic_id']==cid and a['status']=='ACTIVE')
+        owner.request('/admin/access',{'action':'grant','user_id':dual['user_id'],'role_id':'jdbc-role-FRONT_DESK','clinic_id':foreign,'effective_from':str(today)})
+        owner.request('/admin/access',{'action':'revoke','assignment_id':local_grant['id']})
+        mixed.csrf=mixed.request('/auth/login',{'username':dual_name,'password':dual_password,'role':'STAFF'})['csrf']
+        check('AUTH-24 an old receipt cannot bypass the actor new clinic authorization',lambda:mixed.request('/patients',replay_body,key=replay_key,expect=403))
         check('AUTH-21 invalid service dates produce validation response',lambda:operator.request('/analytics?from=invalid&to='+str(today),expect=422))
         check('UC11 persist verified physician credential',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'credential','dentist_id':dentist,'qualification_type_id':'qlf-general','issued_on':str(today),'expires_on':str(today.replace(year=today.year+1)),'issuing_body':'课程合成核验机构','reference_number':'QA-'+run,'verified':True}))
+        check('UC11 impossible credential expiration is rejected',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'credential','dentist_id':dentist,'qualification_type_id':'qlf-general','issued_on':str(today),'expires_on':'2027-02-30','issuing_body':'课程合成核验机构','reference_number':'INVALID-'+run,'verified':True},expect=422))
+        check('UC11 negative weekly hours are rejected',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'weekly_hours':-1},expect=422))
+        check('UC11 impossible assignment expiration is rejected',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'effective_to':'2027-13-01','weekly_hours':8},expect=422))
         check('UC11 persist an effective-dated clinic assignment',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'weekly_hours':8}))
         completed=True
     except Exception as problem:
@@ -284,7 +324,8 @@ def main():
         logfile.close()
         out=ROOT/'qa';out.mkdir(exist_ok=True)
         passed=completed and bool(RESULTS) and all(r['passed'] for r in RESULTS)
-        (out/('acceptance-postgres.json' if pg_url else 'acceptance-results.json')).write_text(json.dumps({'passed':passed,'completed':completed,'tests':len(RESULTS),'database':'PostgreSQL JDBC' if pg_url else 'SQLite JDBC','external_services_verified':False,'run_id':run,'results':RESULTS},ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
+        artifact={'kind':'shaded JAR','sha256':hashlib.sha256((ROOT/'target/adc-nexus.jar').read_bytes()).hexdigest()} if os.environ.get('ADC_ACCEPTANCE_JAR')=='true' else {'kind':'development classpath'}
+        (out/('acceptance-postgres.json' if pg_url else 'acceptance-results.json')).write_text(json.dumps({'passed':passed,'completed':completed,'tests':len(RESULTS),'database':'PostgreSQL JDBC' if pg_url else 'SQLite JDBC','external_services_verified':False,'run_id':run,'artifact':artifact,'results':RESULTS},ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
         print('RESULT',len(RESULTS),'passed' if passed else 'failed or incomplete',flush=True)
 
 if __name__=='__main__':main()

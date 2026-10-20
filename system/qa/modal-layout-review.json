@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "method": "Local browser UI actions, read-only DOM geometry and captured screenshots",
+  "environment": "Java 21 shaded JAR / SQLite JDBC / synthetic course data",
+  "desktop": {
+    "viewport": [1280, 720],
+    "dialog_top": 28.796875,
+    "dialog_bottom": 691.1875,
+    "footer_top": 614.046875,
+    "footer_bottom": 691.1875,
+    "body_scrollable": true
+  },
+  "mobile": {
+    "viewport": [390, 844],
+    "document_width": 390,
+    "dialog_left": 12,
+    "dialog_right": 378,
+    "dialog_bottom": 810.234375,
+    "footer_top": 737.09375,
+    "footer_bottom": 810.234375,
+    "body_scrollable": true
+  },
+  "checks": [
+    "Duplicate patient attempt rejected without a new patient",
+    "Business message, error code and request ID visible",
+    "Entered fields retained after rejection",
+    "Save and cancel enabled after rejection",
+    "Mobile error area reachable through internal scrolling",
+    "Escape closes dialog and returns focus to the initiating button",
+    "Background scroll unlocked after close",
+    "Temporary viewport override reset"
+  ],
+  "slow_network_pending_state_browser_tested": false,
+  "hosted_deployment_verified": false
+}

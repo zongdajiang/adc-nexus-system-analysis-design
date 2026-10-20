@@ -186,6 +186,9 @@ final class Workforce {
       java.time.LocalTime.parse(start);
       java.time.LocalTime.parse(end);
       java.time.LocalDate.parse(from);
+      String to = s(b, "effective_to");
+      if (!to.isBlank()) java.time.LocalDate.parse(to);
+      check(to.isBlank() || to.compareTo(from) >= 0, 422, "VALIDITY", "排班有效期无效");
       check(
           count(
                   c,
@@ -215,24 +218,6 @@ final class Workforce {
             409,
             "VERSION_CONFLICT",
             "排班已变化，请刷新");
-        for (var a :
-            rows(
-                c,
-                "SELECT appointment_code,scheduled_start_at,scheduled_end_at FROM appointments"
-                    + " WHERE dentist_id=? AND clinic_id=? AND status IN"
-                    + " ('CONFIRMED','CHECKED_IN','IN_PROGRESS') AND scheduled_start_at>=?",
-                dentist,
-                clinic,
-                from + " 00:00:00")) {
-          var dt = dateTime(s(a, "scheduled_start_at"));
-          if (dt.getDayOfWeek().getValue() % 7 == day)
-            check(
-                s(a, "scheduled_start_at").substring(11, 16).compareTo(start) >= 0
-                    && s(a, "scheduled_end_at").substring(11, 16).compareTo(end) <= 0,
-                409,
-                "AFFECTED_APPOINTMENTS",
-                "新班次影响预约 " + a.get("appointment_code"));
-        }
         update(
             c,
             "dentist_availability_rules",
@@ -247,7 +232,11 @@ final class Workforce {
                 "effective_from",
                 from,
                 "effective_to",
-                s(b, "effective_to").isBlank() ? null : s(b, "effective_to")));
+                to.isBlank() ? null : to));
+        // Check the resulting rule set, not just the proposed weekday. Other
+        // valid overlapping rules may still cover a booking; an uncovered one
+        // rejects this transaction and restores the original rule atomically.
+        checkAvailabilityImpact(c, dentist, clinic);
       } else
         insert(
             c,
@@ -268,7 +257,7 @@ final class Workforce {
                 "effective_from",
                 from,
                 "effective_to",
-                s(b, "effective_to").isBlank() ? null : s(b, "effective_to"),
+                to.isBlank() ? null : to,
                 "recurrence_rule",
                 "WEEKLY",
                 "status",
@@ -277,6 +266,7 @@ final class Workforce {
       p.need("workforce.manage");
       String issued = req(b, "issued_on"), expires = s(b, "expires_on");
       java.time.LocalDate.parse(issued);
+      if (!expires.isBlank()) java.time.LocalDate.parse(expires);
       check(expires.isBlank() || expires.compareTo(issued) >= 0, 422, "VALIDITY", "资质到期日不能早于颁发日");
       insert(
           c,
@@ -305,7 +295,10 @@ final class Workforce {
       p.clinic(req(b, "clinic_id"));
       String from = req(b, "effective_from"), to = s(b, "effective_to");
       java.time.LocalDate.parse(from);
+      if (!to.isBlank()) java.time.LocalDate.parse(to);
       check(to.isBlank() || to.compareTo(from) >= 0, 422, "VALIDITY", "任职有效期无效");
+      check(n(b, "weekly_hours") > 0 && n(b, "weekly_hours") <= 168,
+          422, "WEEKLY_HOURS", "周工时需为 1 至 168 的整数");
       insert(
           c,
           "dentist_clinic_assignments",
@@ -337,8 +330,33 @@ final class Workforce {
     return map("ok", true);
   }
 
+  private static void checkAvailabilityImpact(Connection c, String dentist, String clinic)
+      throws Exception {
+    List<String> affected = new ArrayList<>();
+    for (var a : rows(c,
+        "SELECT appointment_code,scheduled_start_at,scheduled_end_at FROM appointments"
+            + " WHERE dentist_id=? AND clinic_id=? AND status IN"
+            + " ('CONFIRMED','CHECKED_IN','IN_PROGRESS') AND"
+            + " (scheduled_end_at>? OR status IN ('CHECKED_IN','IN_PROGRESS'))",
+        dentist, clinic, now())) {
+      var start = dateTime(s(a, "scheduled_start_at"));
+      String date = start.toLocalDate().toString();
+      if (count(c,
+          "SELECT COUNT(*) FROM dentist_availability_rules WHERE dentist_id=? AND clinic_id=?"
+              + " AND status='ACTIVE' AND day_of_week=? AND effective_from<=?"
+              + " AND (effective_to IS NULL OR effective_to>=?) AND starts_at<=? AND ends_at>=?",
+          dentist, clinic, start.getDayOfWeek().getValue() % 7, date, date,
+          s(a, "scheduled_start_at").substring(11, 16),
+          s(a, "scheduled_end_at").substring(11, 16)) == 0)
+        affected.add(s(a, "appointment_code") + " " + s(a, "scheduled_start_at"));
+    }
+    if (!affected.isEmpty())
+      throw new Problem(409, "AFFECTED_APPOINTMENTS", "新班次将使既有预约失去覆盖，请先协调", affected);
+  }
+
   static Object access(Connection c, Auth.Principal p) throws Exception {
     p.need("access.manage");
+    check(p.network(), 403, "NETWORK_REQUIRED", "账户与授权治理需要总部级管理员权限");
     return map(
         "users",
         rows(
@@ -366,6 +384,7 @@ final class Workforce {
   static Object accessCommand(Connection c, Auth.Principal p, Map<String, Object> b)
       throws Exception {
     p.need("access.manage");
+    check(p.network(), 403, "NETWORK_REQUIRED", "账户与授权治理需要总部级管理员权限");
     String action = req(b, "action"), uid = s(b, "user_id");
     if (action.equals("create_user")) {
       String password = req(b, "password"), username = req(b, "username");
@@ -414,7 +433,13 @@ final class Workforce {
           "角色不存在或不可授予");
       java.time.LocalDate.parse(from);
       String to = s(b, "effective_to");
+      if (!to.isBlank()) java.time.LocalDate.parse(to);
       check(to.isBlank() || to.compareTo(from) >= 0, 422, "DATE_RANGE", "授权有效期无效");
+      check(
+          !role.equals("jdbc-role-ADMIN") || clinic.isBlank(),
+          422,
+          "ADMIN_SCOPE",
+          "权限管理员负责总部级账户治理，请勿指定单店范围；单店管理请使用诊所经理岗位");
       if (!clinic.isBlank()) p.clinic(clinic);
       if (Set.of(
               "jdbc-role-FRONT_DESK",
