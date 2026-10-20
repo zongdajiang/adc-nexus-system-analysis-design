@@ -68,9 +68,25 @@ await run('Read-only disconnection retries without creating a mutation', async (
   assert.equal(calls[1].options.headers['Idempotency-Key'], undefined);
 });
 
+const csvStart = source.indexOf('function csvCell(');
+const csvEnd = source.indexOf('\nfunction downloadCSV(', csvStart);
+assert(csvStart >= 0 && csvEnd > csvStart);
+const csvContext = vm.createContext({});
+vm.runInContext(source.slice(csvStart, csvEnd), csvContext);
+const csv = csvContext.csvCell;
+assert.equal(csv('A,"B"\nC'), '"A,""B""\nC"');
+results.push({ name: 'CSV quotes and embedded separators remain inside one cell', passed: true });
+for (const input of ['=1+1', '+SUM(A1)', '-1+2', '@SUM(A1)', ' \t=1+1', '\r\n=1+1', '\u0000=1+1', '＝1+1', '＋SUM(A1)', '－1+2', '＠SUM(A1)'])
+  assert.equal(csv(input), '"\t' + input.replace(/"/g, '""') + '"');
+results.push({ name: 'CSV text formula prefixes, controls and full-width variants are neutralized', passed: true });
+assert.equal(csv(-125.5), '"-125.5"');
+assert.equal(csv(0), '"0"');
+assert.equal(csv('天河旗舰诊所'), '"天河旗舰诊所"');
+results.push({ name: 'CSV numeric amounts and ordinary names remain unchanged', passed: true });
+
 fs.writeFileSync(path.join(root, 'qa/web-request-tests.json'), JSON.stringify({
-  passed: true, tests: results.length, method: 'Node VM unit tests against the shipped api helper',
+  passed: true, tests: results.length, method: 'Node VM unit tests against the shipped request and CSV helpers',
   source_sha256: createHash('sha256').update(source).digest('hex'),
   browser_interaction_verified: false, results,
 }, null, 2) + '\n');
-console.log('PASS', results.length, 'web-request unit checks; browser interactions remain separately verified.');
+console.log('PASS', results.length, 'request/export helper unit checks; browser interactions remain separately verified.');

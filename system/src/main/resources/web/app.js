@@ -2397,16 +2397,19 @@ handlers["invoice-void"] = () => {
   });
 };
 handlers["print-invoice"] = () => window.print();
+function csvCell(value) {
+  let text = String(value ?? "");
+  const leading = text.replace(/^[\s\u0000-\u001f\u007f]*/u, "").normalize("NFKC");
+  // Human-viewing CSV: neutralize formula prefixes, including full-width and
+  // control/whitespace-prefixed input. Numeric values keep their numeric form.
+  // This is not a lossless machine-import format or a guarantee across editors.
+  if (typeof value !== "number" && /^[=+\-@]/.test(leading)) text = "\t" + text;
+  return '"' + text.replace(/"/g, '""') + '"';
+}
 function downloadCSV(filename, headers, rows) {
-  const cell = (v) =>
-    '"' +
-    String(v ?? "")
-      .replace(/^[=+\-@]/, " $&")
-      .replace(/"/g, '""') +
-    '"';
   const csv =
     "\ufeff" +
-    [headers, ...rows].map((r) => r.map(cell).join(",")).join("\r\n");
+    [headers, ...rows].map((r) => r.map(csvCell).join(",")).join("\r\n");
   const url = URL.createObjectURL(
     new Blob([csv], { type: "text/csv;charset=utf-8" }),
   );

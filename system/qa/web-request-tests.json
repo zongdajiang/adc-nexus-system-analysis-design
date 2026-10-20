@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "tests": 6,
-  "method": "Node VM unit tests against the shipped api helper",
-  "source_sha256": "d490001ad64e0d0ebe768f8bb47b9bd7c3a6b8f413d3b3847e8d7f3528148c9c",
+  "tests": 9,
+  "method": "Node VM unit tests against the shipped request and CSV helpers",
+  "source_sha256": "07969f5981d342b9789c85084b1fa96b4af7a09e2d77d4bd5d0c7a750944a929",
   "browser_interaction_verified": false,
   "results": [
     {
@@ -27,6 +27,18 @@
     },
     {
       "name": "Read-only disconnection retries without creating a mutation",
+      "passed": true
+    },
+    {
+      "name": "CSV quotes and embedded separators remain inside one cell",
+      "passed": true
+    },
+    {
+      "name": "CSV text formula prefixes, controls and full-width variants are neutralized",
+      "passed": true
+    },
+    {
+      "name": "CSV numeric amounts and ordinary names remain unchanged",
       "passed": true
     }
   ]
