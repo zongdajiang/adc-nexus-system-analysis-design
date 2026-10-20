@@ -29,8 +29,8 @@ jobs:
       run:
         working-directory: system
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-java@v6.1.0
         with:
           distribution: temurin
           java-version: "21"
@@ -49,7 +49,7 @@ jobs:
             export ADC_TEST_PSQL="$(command -v psql)"
           fi
           python tools/verify.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: jdbc-acceptance-${{ matrix.database }}

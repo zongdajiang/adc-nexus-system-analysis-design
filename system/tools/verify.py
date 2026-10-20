@@ -14,6 +14,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import sys
+import re
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -267,6 +268,14 @@ def main():
         check('UC11 persist verified physician credential',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'credential','dentist_id':dentist,'qualification_type_id':'qlf-general','issued_on':str(today),'expires_on':str(today.replace(year=today.year+1)),'issuing_body':'课程合成核验机构','reference_number':'QA-'+run,'verified':True}))
         check('UC11 persist an effective-dated clinic assignment',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'weekly_hours':8}))
         completed=True
+    except Exception as problem:
+        if os.environ.get('GITHUB_ACTIONS')=='true':
+            logfile.flush()
+            detail=type(problem).__name__+': '+str(problem)
+            if process.poll() is not None:detail+=' | '+(datadir/'server.log').read_text(encoding='utf-8',errors='replace')[-2500:]
+            detail=re.sub(r'(postgres(?:ql)?://)[^@\s]+@',r'\1[redacted]@',detail).replace(admin_password,'[redacted]')
+            print('::error title=Isolated JDBC acceptance::'+detail.replace('%','%25').replace('\r','%0D').replace('\n','%0A')[:3500],flush=True)
+        raise
     finally:
         process.terminate()
         try:process.wait(timeout=10)
