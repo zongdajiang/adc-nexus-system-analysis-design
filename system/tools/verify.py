@@ -229,7 +229,8 @@ def main():
         if pg_url:
             psql=os.environ['ADC_TEST_PSQL']
             def scalar(sql):
-                result=subprocess.run([psql,'-h','127.0.0.1','-p',str(pg.port),'-U',urllib.parse.unquote(pg.username),'-d',pg.path[1:],'-At','-c',sql],capture_output=True,text=True,encoding='utf-8',check=True)
+                pg_env={**os.environ,'PGPASSWORD':urllib.parse.unquote(pg.password or '')}
+                result=subprocess.run([psql,'-h','127.0.0.1','-p',str(pg.port),'-U',urllib.parse.unquote(pg.username),'-d',pg.path[1:],'-At','-c',sql],env=pg_env,capture_output=True,text=True,encoding='utf-8',check=True)
                 return result.stdout.strip()
             check('PG-01 complete schema contains 67 application and technical tables',lambda:ensure(scalar("SELECT count(*) FROM information_schema.tables WHERE table_schema='public'")=='67'))
             check('PG-02 denied requests retain audit evidence',lambda:ensure(int(scalar("SELECT count(*) FROM audit_events WHERE outcome='DENIED'"))>0))

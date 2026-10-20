@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   acceptance:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -49,6 +49,9 @@ jobs:
             export ADC_TEST_PSQL="$(command -v psql)"
           fi
           python tools/verify.py
+          if [ "${{ matrix.database }}" = "postgres" ]; then
+            python tools/verify_pg_backup.py
+          fi
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
