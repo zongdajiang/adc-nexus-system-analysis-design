@@ -1,0 +1,7 @@
+/target/
+/.deps/
+/data/
+/qa/browser/
+/.env
+*.log
+*.class

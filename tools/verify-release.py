@@ -8,9 +8,12 @@ import re
 import sqlite3
 import subprocess
 import zipfile
+import sys
 import xml.etree.ElementTree as ET
 from pypdf import PdfReader
 from figure_registry import figures
+
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "SHA256SUMS.txt"
@@ -30,10 +33,10 @@ def published_files():
 def canonicalize_text():
     """Match .gitattributes before hashing; Git stores these text files as LF."""
     endings = {".md",".tex",".json",".sql",".svg",".drawio",".puml",
-               ".py",".ps1",".txt",".yml",".yaml"}
+               ".py",".ps1",".txt",".yml",".yaml",".java",".js",".css",".html",".xml"}
     for name in published_files():
         path = ROOT/name
-        if path.suffix in endings or path.name in (".gitignore",".gitattributes"):
+        if path.suffix in endings or path.name in (".gitignore",".gitattributes","Dockerfile",".dockerignore"):
             data = path.read_bytes()
             if b"\r\n" in data:
                 path.write_bytes(data.replace(b"\r\n",b"\n"))
@@ -98,7 +101,7 @@ def verify():
     assert len(audits) == 45
     assert all(not json.loads(p.read_text(encoding="utf-8")).get("issues") for p in audits)
     links = 0
-    for path in [ROOT/"README.md",ROOT/"NOTICE.md",*sorted((ROOT/"docs").glob("*.md"))]:
+    for path in [ROOT/"README.md",ROOT/"NOTICE.md",*sorted((ROOT/"docs").glob("*.md")),ROOT/"system/README.md",*sorted((ROOT/"system/docs").rglob("*.md"))]:
         for target in re.findall(r"!?\[[^\]]*\]\(([^)]+)\)",path.read_text(encoding="utf-8")):
             if re.match(r"^[a-zA-Z]+:",target) or target.startswith("#"): continue
             local = target.split("#",1)[0]
@@ -117,12 +120,12 @@ def verify():
         if path.suffix in (".json",".svg",".drawio"):
             if path.suffix == ".json": json.loads(path.read_text(encoding="utf-8-sig"))
             else: ET.parse(path)
-        if path.suffix in (".md",".py",".json",".tex",".sql",".ps1",".txt"):
+        if path.suffix in (".md",".py",".json",".tex",".sql",".ps1",".txt",".java",".js",".yml",".yaml",".xml"):
             content = path.read_text(encoding="utf-8-sig")
             for pattern in (r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
                             r"gh[pousr]_[A-Za-z0-9]{30,}",r"sk-(?:proj-)?[A-Za-z0-9_-]{35,}"):
                 assert not re.search(pattern,content), f"Secret-like literal; review file: {name}"
-    return dict(passed=True,version="2026-10-20",report_pages=83,numbered_figures=55,
+    return dict(passed=True,version="2026-10-21-jdbc-rc1",report_version="2026-10-20",report_pages=83,numbered_figures=55,
                 usecases=18,database_tables=61,database_columns=730,foreign_keys=119,
                 existing_named_indexes=124,class_atlas_pages=9,analysis_atlas_pages=6,
                 erd_atlas_pages=10,independent_erd_pdfs=10,uml_audits=45,

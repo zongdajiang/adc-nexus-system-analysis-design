@@ -1,0 +1,57 @@
+name: Java JDBC verification
+on:
+  push:
+    paths: ["system/**", ".github/workflows/system-verify.yml"]
+  pull_request:
+    paths: ["system/**", ".github/workflows/system-verify.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        database: [sqlite, postgres]
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: adc_test
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: adc_acceptance_ci
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U adc_test -d adc_acceptance_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    defaults:
+      run:
+        working-directory: system
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          cache-dependency-path: system/pom.xml
+      - name: Compile and package
+        run: |
+          node --check src/main/resources/web/app.js
+          mvn -B -ntp package
+      - name: Business acceptance in an isolated database
+        env:
+          ADC_ACCEPTANCE_JAR: "true"
+        run: |
+          if [ "${{ matrix.database }}" = "postgres" ]; then
+            export ADC_ACCEPTANCE_PG_URL='postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/adc_acceptance_ci?sslmode=disable'
+            export ADC_TEST_PSQL="$(command -v psql)"
+          fi
+          python tools/verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jdbc-acceptance-${{ matrix.database }}
+          path: system/qa/*.json
+          retention-days: 14

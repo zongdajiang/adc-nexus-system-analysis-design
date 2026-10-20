@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "method": "pg_dump custom archive + pg_restore into a separate isolated database",
+  "validated_foreign_keys": 130,
+  "checks": [
+    {
+      "table": "patients",
+      "rows": 514,
+      "passed": true
+    },
+    {
+      "table": "appointments",
+      "rows": 93,
+      "passed": true
+    },
+    {
+      "table": "clinical_visits",
+      "rows": 6,
+      "passed": true
+    },
+    {
+      "table": "clinical_note_signatures",
+      "rows": 2,
+      "passed": true
+    },
+    {
+      "table": "invoices",
+      "rows": 4,
+      "passed": true
+    },
+    {
+      "table": "payments",
+      "rows": 5,
+      "passed": true
+    },
+    {
+      "table": "payment_refunds",
+      "rows": 2,
+      "passed": true
+    },
+    {
+      "table": "financial_period_results",
+      "rows": 50,
+      "passed": true
+    },
+    {
+      "table": "incentive_pools",
+      "rows": 3,
+      "passed": true
+    },
+    {
+      "table": "audit_events",
+      "rows": 79,
+      "passed": true
+    }
+  ],
+  "hosted_database_verified": false
+}

@@ -1,5 +1,9 @@
 # 重建与核验
 
+## Java JDBC 系统
+
+新增运行系统位于 `system/`，Java/Maven 构建、集成验收和免费云端部署分别见其 [README](../system/README.md)、[测试证据](../system/qa/) 与 [部署手册](../system/docs/DEPLOYMENT.md)。根目录本脚本仍核对已审阅的 83 页报告及 61 表设计基线，不替代应用业务验收。原报告的实施同步稿在云端验收后更新。
+
 ## 直接阅读
 
 `分析设计文档/`已提供审核后的PDF和ZIP。下载后即可阅读，无须先安装Python、LaTeX或绘图软件。

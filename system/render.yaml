@@ -1,0 +1,28 @@
+# This blueprint lives at system/render.yaml in the public report repository.
+# Do not add Render Postgres: this project uses a separate Neon Free database.
+services:
+  - type: web
+    name: adc-nexus-jdbc
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: system
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: DEMO_MODE
+        value: "true"
+      - key: SEED_DATA
+        value: "true"
+      - key: APP_ENV
+        value: PRODUCTION
+      - key: TZ
+        value: Asia/Shanghai
+      - key: PORT
+        value: "10000"

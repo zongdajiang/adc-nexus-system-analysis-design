@@ -1,0 +1,9 @@
+.git
+.deps
+target
+data
+qa
+output
+.env*
+*.log
+**/setup-credentials.txt
