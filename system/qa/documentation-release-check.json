@@ -2,8 +2,8 @@
   "version": "1.5.0-rc1",
   "passed": true,
   "automated_checks": 607,
-  "documents": 30,
-  "local_links": 79,
+  "documents": 31,
+  "local_links": 81,
   "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
   "missing_links": [],
   "original_asset_dimensions": [

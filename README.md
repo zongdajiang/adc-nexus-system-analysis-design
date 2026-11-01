@@ -10,6 +10,10 @@
 
 ## 系统运行与发布
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fzongdajiang%2Fadc-nexus-system-analysis-design)
+
+首次上线见 [两步发布卡](system/docs/DEPLOY_QUICKSTART.md)：先建 Neon Free 数据库，再由按钮预填 Render Free 服务；数据库连接串仅在 Render 秘密变量中输入。按钮是部署入口，当前尚无已验收的公网系统链接。
+
 Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使用 JPA/Hibernate。所有人员使用统一登录表单，按服务端实际授权进入不同首页、导航和数据范围；员工注册须匹配机构名册及激活码，不由公开选择职位授予权限。
 
 - [运行说明与源代码](system/README.md)

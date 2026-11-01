@@ -1,13 +1,50 @@
 name: Java JDBC verification
 on:
   push:
-    paths: ["system/**", ".github/workflows/system-verify.yml"]
+    paths: ["system/**", "render.yaml", ".github/workflows/system-verify.yml"]
   pull_request:
-    paths: ["system/**", ".github/workflows/system-verify.yml"]
+    paths: ["system/**", "render.yaml", ".github/workflows/system-verify.yml"]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
+  container:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: adc_test
+          POSTGRES_PASSWORD: local-ci-fixture-only
+          POSTGRES_DB: adc_container_release
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U adc_test -d adc_container_release"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Validate both free-plan Blueprints
+        working-directory: system
+        run: |
+          python -m pip install --target .deps/qa-python PyYAML==6.0.2 jsonschema==4.25.1
+          python tools/validate_deployment.py
+      - name: Build the exact release Dockerfile
+        run: docker build --tag adc-nexus:release-check --file system/Dockerfile system
+      - name: Production container, memory limit and external database persistence
+        working-directory: system
+        env:
+          ADC_CONTAINER_CHECK: "true"
+          DATABASE_URL: "postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/adc_container_release?sslmode=disable"
+        run: python tools/verify_container.py
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: jdbc-release-container
+          path: |
+            system/qa/container-release-check.json
+            system/qa/deployment-definition.json
+          retention-days: 14
   acceptance:
     runs-on: ubuntu-24.04
     strategy:

@@ -23,7 +23,13 @@
       "path": "docs/DEPLOYMENT.md",
       "change": "modified",
       "before_sha256": "20a04237b04d6e46ecf04dd7118a876993f5e3d29de375f86ab260ddd37b3db9",
-      "after_sha256": "b55096074b0ff7a69bbff704794af04a8884e11e35564ccd38eadae88ffff6b4"
+      "after_sha256": "d64e2f4c532caf1256c36d8dd2aa2c8636431b467db6201438fe3997357e8593"
+    },
+    {
+      "path": "docs/DEPLOY_QUICKSTART.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "25406545a18f594e61298051a8e5c2653dad6de296ca4f96b5ff0027b243fac1"
     },
     {
       "path": "docs/LOCAL_DELIVERY_V1_5.md",
@@ -41,7 +47,7 @@
       "path": "docs/RELEASE_READINESS.md",
       "change": "modified",
       "before_sha256": "00479db96e8f1ef60b5069bb5d0adac40d9fcca2449977b8fb2d806bbfad0e95",
-      "after_sha256": "cc7ab331dfc8586aae13873cf6ed7aadcc85fdc3acecb31fd3a41cc7e55e24e6"
+      "after_sha256": "c8a116350c57ec9afe295e22eb4b95dee984bd3b0cfc53eeb7039275027861df"
     },
     {
       "path": "docs/REVIEW_GUIDE.md",
@@ -224,10 +230,22 @@
       "after_sha256": "524a1bc30de97a14b0f21177bc707b53ad0ef3c391900f97cb4e0c1fb4748112"
     },
     {
+      "path": "tools/validate_deployment.py",
+      "change": "modified",
+      "before_sha256": "63e76da9ebcf318313a4a0e7e41fdce1fe6792bf51c616762cda81c5f7807245",
+      "after_sha256": "3de25b3a647aa51846fd2bada59740beb600224ee57ad85663975fa0050989f5"
+    },
+    {
       "path": "tools/verify.py",
       "change": "modified",
       "before_sha256": "1e139383d8c99608f213931573928fcf10d3a51b63498bdf5ec40a8fbf5dd10b",
       "after_sha256": "e6ede3d22f83409aa40813ca61ae4938b524cae4f93577e6c4566b704f21d92b"
+    },
+    {
+      "path": "tools/verify_container.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "a60a0a753c29e4497de0a1c46944eef9faba02dac18ddf2a86d3fb356e7ea08c"
     },
     {
       "path": "tools/verify_docs.mjs",

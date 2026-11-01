@@ -112,7 +112,10 @@ def verify():
     total = 0
     for name in files:
         path = ROOT/name
-        total += path.stat().st_size
+        # The generated QA record must not include its own previous length.
+        # Otherwise a second manifest run changes the manifest's input metadata.
+        if name != "qa/仓库发布校验.json":
+            total += path.stat().st_size
         assert path.stat().st_size < 100*1024*1024, f"Oversized file: {name}"
         assert not any(part in (".git","__pycache__","source-images","history","node_modules")
                        for part in path.relative_to(ROOT).parts), f"Non-public file: {name}"

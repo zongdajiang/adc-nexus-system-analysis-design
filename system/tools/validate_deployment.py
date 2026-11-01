@@ -23,6 +23,14 @@ assert not config.get('databases') and not service.get('disk')
 secrets={v['key']:v for v in service['envVars']}
 assert secrets['DATABASE_URL'].get('sync') is False and 'value' not in secrets['DATABASE_URL']
 assert secrets['ADMIN_PASSWORD'].get('generateValue') is True
-result={'passed':True,'method':'Render official JSON Schema plus free-plan and no-secret assertions','schema_source':url,'docker_images_checked':['maven:3.9.11-eclipse-temurin-21','eclipse-temurin:21-jre-jammy'],'container_runtime_executed':False,'hosted_deployment_verified':False}
+entry=root.parent/'render.yaml'
+root_entry_checked=False
+if root.name=='system' and (root.parent/'.git').exists():
+    assert entry.is_file(),'The repository needs its root-level quick-deploy entry'
+    root_config=yaml.safe_load(entry.read_text(encoding='utf-8'))
+    jsonschema.validate(root_config,schema)
+    assert root_config==config,'Root and system Blueprints differ'
+    root_entry_checked=True
+result={'passed':True,'method':'Render official JSON Schema plus free-plan and no-secret assertions','schema_source':url,'root_entry_checked':root_entry_checked,'docker_images_checked':['maven:3.9.11-eclipse-temurin-21','eclipse-temurin:21-jre-jammy'],'container_runtime_executed':False,'hosted_deployment_verified':False}
 (root/'qa/deployment-definition.json').write_text(json.dumps(result,indent=2),encoding='utf-8',newline='\n')
 print('PASS official Render schema; Free plan; no paid database/disk; no credential values. Docker execution remains a hosted check.')

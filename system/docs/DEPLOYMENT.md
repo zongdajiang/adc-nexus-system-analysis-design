@@ -2,6 +2,8 @@
 
 状态：发布候选包，尚未填写正式链接。账号可用 Gmail 注册，不要求 Gmail、GitHub 与两平台采用某种特殊绑定。Codex 插件授权是另一条连接链路；插件故障不影响在两平台网页手动部署。
 
+第一次操作可先看 [分步发布卡](DEPLOY_QUICKSTART.md)。公开仓库已提供根目录 `render.yaml`，可直接使用 [Deploy to Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fzongdajiang%2Fadc-nexus-system-analysis-design) 预填服务配置；按钮进入审核流程，不表示系统已经上线。
+
 ## 1. Neon：建立独立的课程数据库
 
 1. 登录 [Neon Console](https://console.neon.tech)，建立 Free 项目 `adc-nexus-course`。不要开启付费计划。
@@ -45,7 +47,7 @@
 | `TZ` | `Asia/Shanghai` |
 | `PORT` | `10000` |
 
-不添加磁盘，不建立 Render Postgres，不添加付费 Worker/Cron。`system/render.yaml` 提供同一配置的 Blueprint；采用 Blueprint 时将 Blueprint Path 指向该文件，仍需私下填入 `DATABASE_URL`。开始前确认账单估算为 $0。首次镜像构建和迁移可能需要几分钟。
+不添加磁盘，不建立 Render Postgres，不添加付费 Worker/Cron。推荐使用仓库根目录 `render.yaml`；`system/render.yaml` 保留等价配置，检查脚本核对两者一致。使用部署按钮时仍需私下填入 `DATABASE_URL`。开始前确认账单估算为 $0。首次镜像构建和迁移可能需要几分钟。
 
 如果 Render 要求新增付款承诺或信用卡验证，停下来核对，不擅自开通付费资源。
 

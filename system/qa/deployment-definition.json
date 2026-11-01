@@ -2,6 +2,7 @@
   "passed": true,
   "method": "Render official JSON Schema plus free-plan and no-secret assertions",
   "schema_source": "https://render.com/schema/render.yaml.json",
+  "root_entry_checked": true,
   "docker_images_checked": [
     "maven:3.9.11-eclipse-temurin-21",
     "eclipse-temurin:21-jre-jammy"

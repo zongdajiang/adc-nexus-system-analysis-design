@@ -7,3 +7,8 @@ output
 .env*
 *.log
 **/setup-credentials.txt
+docs
+tools
+upgrade-workbench
+.impeccable
+__pycache__
