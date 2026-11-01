@@ -1,0 +1,219 @@
+{
+  "version": "1.4.0-rc1",
+  "passed": true,
+  "jar_sha256": "0e31a7e72ff3a56f34343941a97f3580a0bc692034b7ba8bf1e1b8c350bc8527",
+  "roles": [
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "documentWidth": 1440,
+      "heading": "诊疗结算",
+      "menus": [
+        "工作台",
+        "门诊工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "账号安全"
+      ],
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "documentWidth": 1425,
+      "heading": "工作台",
+      "menus": [
+        "工作台",
+        "门诊工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "width": 1425,
+      "passed": true
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "documentWidth": 1425,
+      "heading": "工作台",
+      "menus": [
+        "工作台",
+        "门诊工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "width": 1425,
+      "passed": true
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "documentWidth": 1425,
+      "heading": "期间核算",
+      "menus": [
+        "工作台",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "width": 1425,
+      "passed": true
+    },
+    {
+      "role": "PATIENT",
+      "route": "#/portal",
+      "documentWidth": 1440,
+      "heading": "您好，陈米娅",
+      "menus": [
+        "我的诊疗",
+        "账号安全"
+      ],
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "documentWidth": 1440,
+      "heading": "门诊工作台",
+      "menus": [
+        "工作台",
+        "门诊工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "documentWidth": 1440,
+      "heading": "临床接诊",
+      "menus": [
+        "工作台",
+        "门诊工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "width": 1440,
+      "passed": true
+    }
+  ],
+  "role_review_build_sha256": "2b84b21606057ee01ab5364302e564860933f0c4bbaf34feed888bda9398015b",
+  "final_targeted_recheck": "Final rebuild changed only the legacy-signature display; notes, keyboard tabs, completion guard, mobile clinical layout and public home were rechecked. Role routing/authorization and billing preview implementation did not change.",
+  "interactions": [
+    {
+      "name": "Isolated final-JAR fixture: itemized preview, required review confirmation and issued-bill navigation",
+      "passed": true
+    },
+    {
+      "name": "Authorized patient search returns one matching record without a saved-record toast",
+      "passed": true
+    },
+    {
+      "name": "Reception date selection shows eight persisted records on their actual service day; no page overflow",
+      "passed": true
+    },
+    {
+      "name": "Appointment read-only detail closes without save toast",
+      "passed": true
+    },
+    {
+      "name": "Front-desk check-in opens identity and declaration form without submitting",
+      "passed": true
+    },
+    {
+      "name": "Clinical tabs display one panel and support arrow/Home navigation",
+      "passed": true
+    },
+    {
+      "name": "32 FDI permanent tooth entries and examination records remain visible",
+      "passed": true
+    },
+    {
+      "name": "Server completion blockers keep completion disabled",
+      "passed": true
+    },
+    {
+      "name": "Missing legacy signature evidence is displayed as unverified, not signed or ordinary draft",
+      "passed": true
+    },
+    {
+      "name": "Clinical and patient mobile pages have no whole-page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Mobile workspace navigation opens and permits sign-out",
+      "passed": true
+    },
+    {
+      "name": "Cashier empty unbilled queue exposes no issue button",
+      "passed": true
+    },
+    {
+      "name": "Unified registration discloses missing channels and disables final signup",
+      "passed": true
+    },
+    {
+      "name": "Home autoplay visibly advances from scene 1 to scene 3 with all three distinct images loaded",
+      "passed": true
+    },
+    {
+      "name": "Pause and next control retain paused state; reload restores default autoplay",
+      "passed": true
+    },
+    {
+      "name": "Feature tabs display actual local synthetic application screenshots",
+      "passed": true
+    },
+    {
+      "name": "Desktop and mobile home have no whole-page overflow",
+      "passed": true
+    },
+    {
+      "name": "Mobile home navigation expands/collapses and section links scroll",
+      "passed": true
+    }
+  ],
+  "viewport_checks": [
+    {
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "passed": true
+    }
+  ],
+  "public_live_services_verified": false,
+  "production_medical_use": false
+}

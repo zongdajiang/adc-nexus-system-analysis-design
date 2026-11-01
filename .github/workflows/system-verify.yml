@@ -39,8 +39,32 @@ jobs:
       - name: Compile and package
         run: |
           node --check src/main/resources/web/app.js
+          node --check src/main/resources/web/auth-ui.js
+          node --check src/main/resources/web/homepage.js
+          node --check src/main/resources/web/carousel.js
+          node --check src/main/resources/web/clinic-calendar.js
+          node --check src/main/resources/web/practice-workflow.js
+          node --check src/main/resources/web/worklists.js
+          node --check src/main/resources/web/practice-setup.js
+          node --check src/main/resources/web/followups.js
           node tools/verify_web.mjs
           mvn -B -ntp package
+          node tools/verify_clinic_ui.mjs
+          node tools/verify_practice_ui.mjs
+          node tools/verify_ui_refinement.mjs
+          node tools/verify_setup_ui.mjs
+      - name: Public surface contract in a separate local instance
+        run: |
+          export DATA_DIR="$(mktemp -d)"
+          export PORT=8089 BIND_ADDRESS=127.0.0.1 DEMO_MODE=false APP_ENV=TEST
+          java -jar target/adc-nexus.jar > /tmp/adc-homepage-check.log 2>&1 &
+          public_pid=$!
+          trap 'kill "$public_pid" 2>/dev/null || true; wait "$public_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:8089/api/health > /dev/null; then break; fi
+            sleep 1
+          done
+          ADC_PUBLIC_TEST_ORIGIN=http://127.0.0.1:8089 node tools/verify_homepage.mjs
       - name: Business acceptance in an isolated database
         env:
           ADC_ACCEPTANCE_JAR: "true"
@@ -53,6 +77,15 @@ jobs:
           if [ "${{ matrix.database }}" = "postgres" ]; then
             python tools/verify_pg_backup.py
           fi
+      - name: Unified enrollment in a separate isolated database
+        run: |
+          if [ "${{ matrix.database }}" = "postgres" ]; then
+            export PGPASSWORD='local-ci-fixture-only'
+            createdb -h 127.0.0.1 -p 5432 -U adc_test adc_acceptance_auth_ci
+            export ADC_PSQL="$(command -v psql)"
+            export ADC_ACCEPTANCE_PG_URL='postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/adc_acceptance_auth_ci?sslmode=disable'
+          fi
+          python tools/verify_auth.py
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:

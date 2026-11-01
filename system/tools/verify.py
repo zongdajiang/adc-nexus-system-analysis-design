@@ -185,12 +185,23 @@ def main():
         check('UC06 prior version retains signature after current note is invalidated',lambda:ensure(any(n.get('signed_at') for n in reviewed['notes'])))
         check('UC06 an earlier signature still requires an amendment reason',lambda:operator.request('/visits/'+visit['id'],{'action':'note','version':reviewed['visit']['visit_version'],'content':'追加未注明理由的内容','sign':True},expect=422))
         check('UC06 append and sign a reasoned amendment',lambda:clinical('note',content='复核新增声明后更新病历，实施及风险措施均已核实。合成补记。',reason='补充本次新增询问与风险复核结果',sign=True))
+        check('BILL-PREVIEW incomplete care cannot be previewed for billing',lambda:people['CASHIER'].request('/finance/unbilled/'+visit['id'],expect=409))
         check('UC08 atomic visit and appointment completion',lambda:clinical('complete'))
         ensure(operator.request('/appointments/'+appointment['id'])['appointment']['status']=='COMPLETED')
+        preview=check('BILL-PREVIEW cashier sees itemized completed treatment',lambda:people['CASHIER'].request('/finance/unbilled/'+visit['id']))
+        ensure(preview['total_fen']==sum(line['units']*line['effective_unit_price_fen'] for line in preview['lines']))
+        ensure(set(preview['visit'])=={'id','visit_code','clinic_id','status','completed_at','patient_name','patient_code','clinic_name','dentist_name'})
+        ensure(all(set(line)=={'id','tooth_code','units','effective_unit_price_fen','line_amount_fen','performed_at','code','treatment_name'} for line in preview['lines']))
+        check('BILL-PREVIEW is read-only and visit remains unbilled',lambda:ensure(any(v['id']==visit['id'] for v in people['CASHIER'].request('/finance/unbilled'))))
+        check('BILL-PREVIEW front desk denied',lambda:people['FRONT_DESK'].request('/finance/unbilled/'+visit['id'],expect=403))
+        check('BILL-PREVIEW patient denied',lambda:people['PATIENT'].request('/finance/unbilled/'+visit['id'],expect=403))
+        check('BILL-PREVIEW refuses POST',lambda:people['CASHIER'].request('/finance/unbilled/'+visit['id'],{},expect=405))
+        check('BILL-PREVIEW unknown visit is not a fabricated preview',lambda:people['CASHIER'].request('/finance/unbilled/unknown-preview',expect=404))
         bill=check('UC09 issue itemized invoice from actual treatment',lambda:people['CASHIER'].request('/finance/invoices',{'visit_id':visit['id']}))
         repeated=check('UC09 duplicate issue returns same invoice',lambda:people['CASHIER'].request('/finance/invoices',{'visit_id':visit['id']}))
         ensure(bill['invoice']['id']==repeated['invoice']['id'])
         iid=bill['invoice']['id'];total=bill['invoice']['total_fen']
+        ensure(total==preview['total_fen'])
         def invoice(action,expect=200,**data):
             inv=operator.request('/finance/invoices/'+iid)['invoice']
             return people['CASHIER'].request('/finance/invoices/'+iid,{'action':action,'version':inv['invoice_version'],**data},expect=expect)
@@ -260,7 +271,7 @@ def main():
                 pg_env={**os.environ,'PGPASSWORD':urllib.parse.unquote(pg.password or '')}
                 result=subprocess.run([psql,'-h','127.0.0.1','-p',str(pg.port),'-U',urllib.parse.unquote(pg.username),'-d',pg.path[1:],'-At','-c',sql],env=pg_env,capture_output=True,text=True,encoding='utf-8',check=True)
                 return result.stdout.strip()
-            check('PG-01 complete schema contains 67 application and technical tables',lambda:ensure(scalar("SELECT count(*) FROM information_schema.tables WHERE table_schema='public'")=='67'))
+            check('PG-01 complete schema contains 71 application and technical tables',lambda:ensure(scalar("SELECT count(*) FROM information_schema.tables WHERE table_schema='public'")=='71'))
             check('PG-02 denied requests retain audit evidence',lambda:ensure(int(scalar("SELECT count(*) FROM audit_events WHERE outcome='DENIED'"))>0))
             check('PG-03 signature evidence survives all workflows',lambda:ensure(int(scalar('SELECT count(*) FROM clinical_note_signatures'))>0))
         else:
@@ -308,6 +319,8 @@ def main():
         check('UC11 negative weekly hours are rejected',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'weekly_hours':-1},expect=422))
         check('UC11 impossible assignment expiration is rejected',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'effective_to':'2027-13-01','weekly_hours':8},expect=422))
         check('UC11 persist an effective-dated clinic assignment',lambda:people['HQ_OPERATIONS'].request('/resources',{'action':'assignment','dentist_id':dentist,'clinic_id':cid,'effective_from':str(today),'weekly_hours':8}))
+        from verify_practice_upgrade import run_upgrade
+        run_upgrade(check,ensure,Client,base,people,owner,operator,patient,p2,visit,run)
         completed=True
     except Exception as problem:
         if os.environ.get('GITHUB_ACTIONS')=='true':

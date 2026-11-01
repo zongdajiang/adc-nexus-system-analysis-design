@@ -6,20 +6,27 @@
 
 当前版本：**2026-10-20 · 状态图与文辞精修版**。
 
-系统实现：**2026-10-21 · JDBC 1.0.0-rc1**，见 [`system/`](system/)。本地双数据库与界面主流程已验证，正式云端链接及报告实施同步稿待云端验收后发布；不将原报告的目标设计直接标作已上线能力。
+系统实现：**JDBC 1.5.0-rc1 · 2026-11-02 发布准备**，见 [`system/`](system/)。保留统一账号与岗位工作区、日程、临床和结算主路径，新增诊所／医师／牙椅及营业时间维护、治疗目录版本、预约联系确认与复诊跟进。已完成本地隔离验收；真实消息送达、正式云端链接及最终报告同步仍待完成。
 
 ## 系统运行与发布
 
-Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使用 JPA/Hibernate。提供员工、医师和患者登录，以及按岗位区分的首页、导航、数据范围和后端权限。
+Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使用 JPA/Hibernate。所有人员使用统一登录表单，按服务端实际授权进入不同首页、导航和数据范围；员工注册须匹配机构名册及激活码，不由公开选择职位授予权限。
 
 - [运行说明与源代码](system/README.md)
+- [1.5 机构设置、目录版本与复诊跟进规格](system/docs/PRACTICE_UPGRADE_V1_5.md)
+- [升级台账](system/upgrade-workbench/2026-10-30/CHANGE_LEDGER.md) · [发布后报告同步索引](system/upgrade-workbench/2026-10-30/REPORT_SYNC_INDEX.md)
+- [1.4 日常诊疗工作流与一手产品调研](system/docs/PRACTICE_WORKFLOW_V1_4.md)
+- [1.3 日程工作区修订](system/docs/CLINIC_WORKFLOW_V1_3.md)
+- [首页与岗位工作区精修、桌面启动说明](system/docs/HOMEPAGE_AND_WORKSPACE_V1_2.md)
 - [软件设计规格 SDS 与用例映射](system/docs/SDS.md)
 - [Render Free + Neon Free 网页发布手册](system/docs/DEPLOYMENT.md)，不依赖 Codex 插件连接
 - [教师试用主路径](system/docs/REVIEW_GUIDE.md) · [实施差异与保留边界](system/docs/CHANGE_CONTROL.md)
-- [集成测试证据](system/qa/)：本机 Java 21 打包 JAR 的 SQLite 131 项、PostgreSQL 129 项业务及边界检查，另有 9 项请求与导出辅助单元检查；隔离 PostgreSQL 备份恢复核对 10 条数据链与 130 条外键。云端和真实外部服务另行验收。
+- [集成测试证据](system/qa/)：业务检查 SQLite 178 / PostgreSQL 176，统一身份检查 51 / 49，前端请求及导出辅助 10、首页 HTTP/源码合同 36、轮播及日程逻辑 20、临床与结算投影 33、界面细节 33、设置及复诊投影 21；共 **607 项自动化检查通过**。另有八种角色浏览器核验，PG 恢复核对 10 条业务链及 146 条有效外键。云端与真实外部服务分别验收。
 - [分轮迭代与发布门槛](system/docs/RELEASE_READINESS.md)：排班变更保护、授权变化后的重试、异常输入、长表单及手机端复查；测试结果绑定被测 JAR 校验值。
 
-原报告数据基线仍为 61 表；实现增补 4 张业务证据表及 2 张技术表，共 67 表。两组统计分开保留，最终实施报告与 ERD 需在云端验收后同步。短信/微信、临床文件新增上传及支付划转等未启用能力在实施文档中明确列出，不声称真实医疗生产上线。
+原报告数据基线仍为 61 表；当前实现为 **71 表、820 个字段、146 条外键**。两组统计分开保留，完整结构元数据见 [实施模型](system/upgrade-workbench/2026-10-30/IMPLEMENTED_SCHEMA.json)。统一身份与界面合同见 [1.1 增量规格](system/docs/AUTH_AND_UI_V1_1.md)，发送服务见 [开通手册](system/docs/CHANNEL_SETUP.md)。按约定，最终报告与 ERD 保持冻结，待公网发布及验收后整体同步。
+
+![复诊跟进工作区](system/docs/images/v1-5/recall-desktop.png)
 
 ## 阅读入口
 

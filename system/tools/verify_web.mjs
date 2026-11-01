@@ -50,6 +50,11 @@ await run('Password login is never automatically replayed', async (api, calls, s
   await assert.rejects(api('/auth/login', { username: 'synthetic', password: 'not-a-real-password' }));
   assert.equal(calls.length, 1);
 });
+await run('Activation-secret mutations are never automatically replayed', async (api, calls, set) => {
+  set(() => { throw new TypeError('synthetic disconnection'); });
+  await assert.rejects(api('/admin/staff', { action: 'reissue', id: 'synthetic' }), e => e.message.includes('重新签发'));
+  assert.equal(calls.length, 1);
+});
 await run('HTTP conflict is not retried and preserves diagnostic request ID', async (api, calls, set) => {
   set(() => reply(false, 409, { error: { code: 'VERSION_CONFLICT', message: '记录已变化', request_id: 'synthetic-request-id' } }));
   await assert.rejects(api('/appointments/example', { action: 'cancel' }), (e) => e.status === 409 && e.requestId === 'synthetic-request-id');

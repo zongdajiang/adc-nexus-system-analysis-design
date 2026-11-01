@@ -1,0 +1,206 @@
+{
+  "version": "1.5.0-rc1",
+  "database": "PostgreSQL",
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "checks": 49,
+  "passed": 49,
+  "results": [
+    {
+      "name": "Unified config exposes actual configured channels",
+      "passed": true
+    },
+    {
+      "name": "No unverified contact alias for legacy account",
+      "passed": true
+    },
+    {
+      "name": "Staff roster requires authentication",
+      "passed": true
+    },
+    {
+      "name": "Patient cannot maintain employee identities",
+      "passed": true
+    },
+    {
+      "name": "Registration requires explicit terms acknowledgement",
+      "passed": true
+    },
+    {
+      "name": "Client role field cannot fabricate employee authority",
+      "passed": true
+    },
+    {
+      "name": "Patient username is automatically allocated",
+      "passed": true
+    },
+    {
+      "name": "Password login resolves verified identifier account",
+      "passed": true
+    },
+    {
+      "name": "Password login resolves verified identifier contact",
+      "passed": true
+    },
+    {
+      "name": "Password login resolves verified identifier contact",
+      "passed": true
+    },
+    {
+      "name": "Password login resolves verified identifier contact",
+      "passed": true
+    },
+    {
+      "name": "Self-registration grants only bound patient role",
+      "passed": true
+    },
+    {
+      "name": "Self-registered patient can open personal portal",
+      "passed": true
+    },
+    {
+      "name": "Self-registered patient cannot enumerate patients",
+      "passed": true
+    },
+    {
+      "name": "Consumed signup OTPs cannot register again",
+      "passed": true
+    },
+    {
+      "name": "Phone OTP session has intended patient identity",
+      "passed": true
+    },
+    {
+      "name": "OTP cannot be replayed",
+      "passed": true
+    },
+    {
+      "name": "Challenge cannot be used for a different purpose",
+      "passed": true
+    },
+    {
+      "name": "Wrong-code attempt counters survive failed requests",
+      "passed": true
+    },
+    {
+      "name": "Correct OTP is rejected after five failures",
+      "passed": true
+    },
+    {
+      "name": "Expired OTP is rejected",
+      "passed": true
+    },
+    {
+      "name": "Recovery revokes pre-existing password session",
+      "passed": true
+    },
+    {
+      "name": "Recovery revokes pre-existing OTP session",
+      "passed": true
+    },
+    {
+      "name": "Old password no longer works",
+      "passed": true
+    },
+    {
+      "name": "New password works after recovery",
+      "passed": true
+    },
+    {
+      "name": "Unknown contact request has no account existence flag",
+      "passed": true
+    },
+    {
+      "name": "Control of unknown mailbox does not create login authority",
+      "passed": true
+    },
+    {
+      "name": "Invalid employee ID is refused by registry",
+      "passed": true
+    },
+    {
+      "name": "Registry maps FD to authoritative job",
+      "passed": true
+    },
+    {
+      "name": "Activation plaintext is not stored in request receipts",
+      "passed": true
+    },
+    {
+      "name": "OTP ownership alone cannot claim staff identity FD",
+      "passed": true
+    },
+    {
+      "name": "Employee account equals internal staff ID FD",
+      "passed": true
+    },
+    {
+      "name": "Employee routes only to assigned role FD",
+      "passed": true
+    },
+    {
+      "name": "Employee cannot inherit injected admin role FD",
+      "passed": true
+    },
+    {
+      "name": "Activated staff cannot receive another signup invitation FD",
+      "passed": true
+    },
+    {
+      "name": "Registry maps DR to authoritative job",
+      "passed": true
+    },
+    {
+      "name": "Activation plaintext is not stored in request receipts",
+      "passed": true
+    },
+    {
+      "name": "OTP ownership alone cannot claim staff identity DR",
+      "passed": true
+    },
+    {
+      "name": "Employee account equals internal staff ID DR",
+      "passed": true
+    },
+    {
+      "name": "Employee routes only to assigned role DR",
+      "passed": true
+    },
+    {
+      "name": "Dentist registration binds explicit clinician record",
+      "passed": true
+    },
+    {
+      "name": "Employee cannot inherit injected admin role DR",
+      "passed": true
+    },
+    {
+      "name": "Activated staff cannot receive another signup invitation DR",
+      "passed": true
+    },
+    {
+      "name": "Employee deactivation revokes active session",
+      "passed": true
+    },
+    {
+      "name": "Employee deactivation blocks password login",
+      "passed": true
+    },
+    {
+      "name": "OTP cooldown is server-enforced",
+      "passed": true
+    },
+    {
+      "name": "Delivery failure is honest and does not return a usable challenge",
+      "passed": true
+    },
+    {
+      "name": "Failed delivery is recorded without message body",
+      "passed": true
+    },
+    {
+      "name": "Global daily budget stops additional delivery attempts",
+      "passed": true
+    }
+  ],
+  "live_delivery_tested": false
+}

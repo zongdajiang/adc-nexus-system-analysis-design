@@ -1,7 +1,7 @@
 {
   "passed": true,
   "method": "pg_dump custom archive + pg_restore into a separate isolated database",
-  "validated_foreign_keys": 130,
+  "validated_foreign_keys": 146,
   "checks": [
     {
       "table": "patients",
@@ -10,17 +10,17 @@
     },
     {
       "table": "appointments",
-      "rows": 93,
+      "rows": 94,
       "passed": true
     },
     {
       "table": "clinical_visits",
-      "rows": 6,
+      "rows": 7,
       "passed": true
     },
     {
       "table": "clinical_note_signatures",
-      "rows": 2,
+      "rows": 3,
       "passed": true
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "table": "audit_events",
-      "rows": 92,
+      "rows": 140,
       "passed": true
     }
   ],

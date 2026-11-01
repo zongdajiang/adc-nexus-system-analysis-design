@@ -1,0 +1,19 @@
+/* Management and recall extensions inherit the existing workbench. */
+.setup-hours{background:#fff;border:1px solid var(--line);border-radius:5px;margin-top:16px;overflow:hidden}
+.setup-hours summary{cursor:pointer;padding:16px 20px;font-weight:600;color:#274b5d}
+.setup-hours[open] summary{border-bottom:1px solid var(--line)}
+.setup-row-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.setup-qualifications{border:1px solid var(--line);border-radius:5px;padding:14px 16px;margin:0 0 22px}
+.setup-qualifications legend{padding:0 6px;font-size:13px;font-weight:600;color:#365466}
+.setup-qualifications label{display:inline-flex;align-items:center;gap:7px;margin:7px 18px 7px 0;font-size:13px;color:#405d6b}
+.setup-qualifications input{accent-color:var(--teal)}
+.setup-toolbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:18px;border-bottom:1px solid var(--line)}
+.setup-toolbar label{display:grid;gap:7px;font-size:12px;color:#4e6877;min-width:155px}
+.setup-toolbar label:first-child{flex:1;min-width:240px}
+.setup-facts{display:grid;grid-template-columns:1fr 1fr;gap:17px 24px;margin:0 0 22px}
+.setup-facts>div:first-child{grid-column:1/-1}
+.setup-facts dt{font-size:12px;color:#536e7c;margin:0 0 6px}
+.setup-facts dd{font-size:14px;line-height:1.8;overflow-wrap:anywhere;margin:0;color:#294756}
+.setup-wrap{display:block;max-width:42ch;white-space:normal;overflow-wrap:anywhere;line-height:1.8;margin:0}
+.setup-care-actions{display:flex;justify-content:flex-end;margin-bottom:12px}
+@media(max-width:680px){.setup-toolbar{padding:14px;gap:12px}.setup-toolbar label,.setup-toolbar label:first-child{min-width:0;width:100%;flex:auto}.setup-toolbar>button{width:100%}.setup-facts{grid-template-columns:1fr}.setup-facts>div:first-child{grid-column:auto}.setup-hours summary{padding:14px}.setup-row-actions{flex-direction:column;align-items:flex-start}}

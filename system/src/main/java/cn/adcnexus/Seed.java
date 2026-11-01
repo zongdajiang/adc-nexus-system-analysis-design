@@ -101,6 +101,19 @@ final class Seed {
             "audit.read"));
   }
 
+  static void practicePermissions(Connection c) throws Exception {
+    var definitions=Map.of("catalog.manage",List.of("HQ_OPERATIONS","REVIEWER"),
+        "followup.read",List.of("FRONT_DESK","DENTIST","CLINIC_MANAGER","HQ_OPERATIONS","REVIEWER"),
+        "followup.manage",List.of("FRONT_DESK","REVIEWER"),
+        "followup.recommend",List.of("DENTIST","REVIEWER"));
+    for(var entry:definitions.entrySet()){
+      String id="jdbc-perm-"+entry.getKey();
+      insert(c,"permissions",map("id",id,"code",entry.getKey(),"domain",entry.getKey().split("\\.")[0],
+          "description_zh",entry.getKey(),"description_en",entry.getKey()));
+      for(String role:entry.getValue()) insert(c,"role_permissions",map("role_id","jdbc-role-"+role,"permission_id",id));
+    }
+  }
+
   static void complete(Connection c, Db db) throws Exception {
     execute(c, "UPDATE appointments SET status='CHECKED_IN' WHERE status='ARRIVED'");
     execute(c, "UPDATE appointments SET status='IN_PROGRESS' WHERE status='IN_TREATMENT'");

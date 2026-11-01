@@ -1,0 +1,263 @@
+{
+  "baseline_backup": "before-upgrade-20261030-9513e2cb705548f89e78d77b1aec450c",
+  "changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "before_sha256": "13c669dfa148a578a172879f416dcd0c4c4ccf2df1be9ce5cf39766cc20996e6",
+      "after_sha256": "b13dbfd975190fa1dfeaf071dd743ff55ca095115dfabe39e9b0506b2ac97d8a"
+    },
+    {
+      "path": "docs/API.md",
+      "change": "modified",
+      "before_sha256": "367a99beb889d97748294ca80805ae08aef0be65afdf4146a6e332e0a58dcb1b",
+      "after_sha256": "71037f61a9c14aff46d2221b2d3398359284972feda397d40047d4831498c509"
+    },
+    {
+      "path": "docs/CHANGE_CONTROL.md",
+      "change": "modified",
+      "before_sha256": "891002c3bc147f6e85f4624c5fa167ff45520846c09538631544cdb03b0336ab",
+      "after_sha256": "f5edcd5a5b4ebf1f5e2a75d7e7b70f187d3b01a54b75a29cf8018a121dd14725"
+    },
+    {
+      "path": "docs/DEPLOYMENT.md",
+      "change": "modified",
+      "before_sha256": "20a04237b04d6e46ecf04dd7118a876993f5e3d29de375f86ab260ddd37b3db9",
+      "after_sha256": "b55096074b0ff7a69bbff704794af04a8884e11e35564ccd38eadae88ffff6b4"
+    },
+    {
+      "path": "docs/LOCAL_DELIVERY_V1_5.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "2a61c3d727929216af368dff60c7e2718f20db8bf7e0e36cd727a8b88cecfb68"
+    },
+    {
+      "path": "docs/PRACTICE_UPGRADE_V1_5.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3a38d1be1a5bc1d08dd688406ab41553ce2e1543bf3c8c3fa497bccb762fed8d"
+    },
+    {
+      "path": "docs/RELEASE_READINESS.md",
+      "change": "modified",
+      "before_sha256": "00479db96e8f1ef60b5069bb5d0adac40d9fcca2449977b8fb2d806bbfad0e95",
+      "after_sha256": "cc7ab331dfc8586aae13873cf6ed7aadcc85fdc3acecb31fd3a41cc7e55e24e6"
+    },
+    {
+      "path": "docs/REVIEW_GUIDE.md",
+      "change": "modified",
+      "before_sha256": "40746c50cce0cbad346da29e158966238e7bd323f24a58005a4ff048daf166fe",
+      "after_sha256": "84f09092130a92658ab1ff89bbd0b059d7531a9c2c3972a332bcc886844745da"
+    },
+    {
+      "path": "docs/SDS.md",
+      "change": "modified",
+      "before_sha256": "d6497dde9f0cc6828500446d05a145074c1ae82538a864da3db031309c5c5dce",
+      "after_sha256": "091e4caa7bd6d036b867903ba67c3f7bd9e646f56ee6e3d2f9fce8c0a6a96f0d"
+    },
+    {
+      "path": "docs/UI_EXTENSION_EVIDENCE_V1_5.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3088fa4309a156b6656005cb9ff83210151f1748cab84669095081b4a5a9651f"
+    },
+    {
+      "path": "docs/images/v1-5/PROVENANCE.md",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "366c39b42377f15b27388bb4d099d997b28b9d2dc317919c8de44823dd9014d8"
+    },
+    {
+      "path": "docs/images/v1-5/catalog-desktop.png",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "3463207d4dee82430f5a1fc8d2973c208f46ca9a740c671496d8f76b83ad46c8"
+    },
+    {
+      "path": "docs/images/v1-5/confirmation-dialog.png",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "912caadd3e13de94654b96e06a30953cd27cb2a20e398446369f07fd18695439"
+    },
+    {
+      "path": "docs/images/v1-5/recall-desktop.png",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "c381a417b7a4d9bad777a8d75ca5868e972dbf8d4ab7a1ef61797145c019bae9"
+    },
+    {
+      "path": "docs/images/v1-5/recall-mobile.png",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "5c2de6236efa0843bc4d593b277259cd4bca8b8ba53f7d85ffae81f5cda7ad03"
+    },
+    {
+      "path": "pom.xml",
+      "change": "modified",
+      "before_sha256": "301d49396008ec48eda465b299fd9d6b793989e2f9b7c44619897064551ba7fc",
+      "after_sha256": "15b99f3d383ac668652d994be65d5d6b2b119617cd6bfb7806a56be0ac34ef35"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Clinical.java",
+      "change": "modified",
+      "before_sha256": "b5c8277db25c3123dd009e0c25d6a9e45a8be03a602dfba1b32d146496ae0846",
+      "after_sha256": "67ad2444be3ebcb656cbcddce06a92052e3cc0d43c0b47040c20e40c7eea24d1"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Db.java",
+      "change": "modified",
+      "before_sha256": "0ecd00e3fca50d7a989fca913baa71417cc2c78a8cc5cdcfb01e4dfc7fd428e3",
+      "after_sha256": "3af0c2e401abca495719fee252c2ed4de9c72ea2cbd55d1b953afb037f577811"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Followups.java",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "7f8324307fa6b1f0e20754a4c940bbde82e86810b4476ad52e13b80f870f83be"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Main.java",
+      "change": "modified",
+      "before_sha256": "31f1d186960b6ab7f58a51c5671be87867b7fb2004530a26525b32f8c21f354f",
+      "after_sha256": "7cd43a265c936b48b9bd65c190167c0d7aa938836ede614f1a438052581d9acd"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/PracticeSetup.java",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "ffa470b633eff3f19dae07668df7ab461e64fdba8520e06be69fbc83a6d243f4"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Scheduling.java",
+      "change": "modified",
+      "before_sha256": "bb3317bdf6eb72392460b1443f87ae988923928190b4d983f9800a48844ee0e1",
+      "after_sha256": "889792e2c6338912e0651261b280a4a4e799dd0658afb9fcebd12caf11e8439f"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Seed.java",
+      "change": "modified",
+      "before_sha256": "5782694787ddad926ce6b44fd1dcf332f8959a9b66b9de07710becba281dded1",
+      "after_sha256": "12e3810fa6fb0b4d99101e11aaaf45b21e0f68f97b361193d276186365ae95ee"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Support.java",
+      "change": "modified",
+      "before_sha256": "de3bc2630ba61951253f45dd6f43002ffe9778c2168e813368d58fd336c5c58e",
+      "after_sha256": "b724d91ce9076e28a54014553122a9743f4dea8e8894b6885defe9a4acf169c3"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Workforce.java",
+      "change": "modified",
+      "before_sha256": "5e78dbf64fffd6e0c0fdb515ede99617cd50814d8f1dccdc88270676d68b523e",
+      "after_sha256": "a57fe6b9c476db5e2f5984e704eb813122a680ab0ae34826aadbd331e2819457"
+    },
+    {
+      "path": "src/main/resources/db/practice-upgrade.sql",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "071335893bbaf2e86b026fb4f5ef56909788283222752e7f9efef25676913918"
+    },
+    {
+      "path": "src/main/resources/web/app.js",
+      "change": "modified",
+      "before_sha256": "629a6f02763f24d2a973a852e5b585c00946d6e4a50aad5deaef07c096fb9b2d",
+      "after_sha256": "dd5f9fc2abd8228ebb786dbb8f49cd01782da6030c3b56a4e3e0a94e89b2a020"
+    },
+    {
+      "path": "src/main/resources/web/followups.js",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "2289a3f81301efde9876ad672c7b87c7c47a08448198f80edc101a4ebc9b6b95"
+    },
+    {
+      "path": "src/main/resources/web/index.html",
+      "change": "modified",
+      "before_sha256": "3e4e9fbedeee2448e9ef4fb39b90d45f3b0f027dd5ff97cbf016173f186a27ff",
+      "after_sha256": "a4ae0fe93fd32135576c3c1f9746eef04d4e7a7095b1e5143b96c5e684e3ec50"
+    },
+    {
+      "path": "src/main/resources/web/practice-setup.js",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "0d4e3170fd789f94edc1971adb69d5cdea53414452771904b19c285cbd636470"
+    },
+    {
+      "path": "src/main/resources/web/practice-workflow.js",
+      "change": "modified",
+      "before_sha256": "b4907eba73f31b1eb99bcb0bc07572becc0c4485943304ce3a822325af110271",
+      "after_sha256": "d9ae2d1faa4ea44e7e5d7ca355cc6fccd64696142e8af252f3977b3f9e9c3a58"
+    },
+    {
+      "path": "src/main/resources/web/setup.css",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "f58fb8693f77841cf98e3467dd1c9c02ec7059eaaa86a89281e6293a2fd536e5"
+    },
+    {
+      "path": "tools/package-local-release.ps1",
+      "change": "modified",
+      "before_sha256": "673b50dfbd7d205411a7249b9885d4775b30bb380ad0f5f2497c2a5d84d690b9",
+      "after_sha256": "018f0da307869eb83ce78eae9bcb9c7878dcd988e4244cc7751d9f94e4271d31"
+    },
+    {
+      "path": "tools/serve_browser_fixture.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "28c8d1d6a7ef81d10e2c9605f306eb58bb6fd41522454b8e84d69d69ce6fd758"
+    },
+    {
+      "path": "tools/smoke_remote.py",
+      "change": "modified",
+      "before_sha256": "dbd1e0091d773f0de6c0a31f2b46ff968c4f356b87ba8e19ebb9b4deb8e3a536",
+      "after_sha256": "e33d3f9f1cdbddcd0e23cccf53d31fd575c5e90e887515817f4ae43f710c63dd"
+    },
+    {
+      "path": "tools/snapshot_upgrade.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "c1457c3c9ce17cbfd61a3a4309c894cc43dc0d663ad2845c3b9166cfd2ab6302"
+    },
+    {
+      "path": "tools/sync-github-source.ps1",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "524a1bc30de97a14b0f21177bc707b53ad0ef3c391900f97cb4e0c1fb4748112"
+    },
+    {
+      "path": "tools/verify.py",
+      "change": "modified",
+      "before_sha256": "1e139383d8c99608f213931573928fcf10d3a51b63498bdf5ec40a8fbf5dd10b",
+      "after_sha256": "e6ede3d22f83409aa40813ca61ae4938b524cae4f93577e6c4566b704f21d92b"
+    },
+    {
+      "path": "tools/verify_docs.mjs",
+      "change": "modified",
+      "before_sha256": "3b78e02f49a20a4d49d207b838ef65e5607c8af3bcbaacbc6d502f6902e1a692",
+      "after_sha256": "5a3a3244789c9c54aa5bd93a0c90e3dce7c35aa7909cd8e5e17167c23e7a4e5d"
+    },
+    {
+      "path": "tools/verify_homepage.mjs",
+      "change": "modified",
+      "before_sha256": "9863435ddd73be5e2ea20d019340a533cdc67d7e2e23cb5710ca9a071b653cd5",
+      "after_sha256": "2dea0c124baac057c6b2259b5fa3aa3a741bfeef53542c4148d24684692f88bf"
+    },
+    {
+      "path": "tools/verify_practice_upgrade.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "dea30c47a2e21f55e5a189a9e184812f392aec41c3e187652384a68f1249f608"
+    },
+    {
+      "path": "tools/verify_setup_ui.mjs",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "499e31b9871b204589a154e0d87961c2cbc27acef4200f85c0859c12a1fb1057"
+    },
+    {
+      "path": "tools/verify_upgrade_preservation.py",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "32347a2d6d379dda858c55d3f442088844a69234da0a2949bb244dc40ce7222f"
+    }
+  ]
+}

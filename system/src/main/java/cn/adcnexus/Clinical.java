@@ -320,6 +320,9 @@ final class Clinical {
         if (s(v, "status").equals("IN_PROGRESS")) invalidateSignatures(c, id);
       }
       case "start" -> {
+        check(count(c,"SELECT COUNT(*) FROM dentists WHERE id=? AND employment_status='ACTIVE'",dentist)==1
+            && count(c,"SELECT COUNT(*) FROM clinics WHERE id=? AND status='ACTIVE'",v.get("clinic_id"))==1,
+            409,"SERVICE_INACTIVE","医师或诊所已停用，请先由机构协调本次接诊");
         check(
             s(v, "safety_gate_status").equals("PASSED") && s(v, "status").equals("WAITING"),
             409,

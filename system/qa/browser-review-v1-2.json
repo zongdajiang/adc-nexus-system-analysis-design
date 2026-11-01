@@ -1,0 +1,177 @@
+{
+  "version": "1.2.0-rc1",
+  "date": "2026-10-21",
+  "jar_sha256": "8ece3d6b53b01cbb28f77b74942b3b20d5c9908fd6c48bfd5ef95f43206ea227",
+  "method": "Cua browser interaction; desktop and responsive viewport checks",
+  "roles": [
+    {
+      "role": "FRONT_DESK",
+      "route": "appointments",
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "documentWidth": 1440,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "DENTIST",
+      "route": "clinical",
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "documentWidth": 1440,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "CASHIER",
+      "route": "billing",
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "账号安全"
+      ],
+      "documentWidth": 1440,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "dashboard",
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "documentWidth": 1425,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "dashboard",
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "documentWidth": 1425,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "periods",
+      "menus": [
+        "工作台",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "documentWidth": 1425,
+      "viewport": 1440,
+      "passed": true
+    },
+    {
+      "role": "PATIENT",
+      "route": "portal",
+      "menus": [
+        "我的诊疗",
+        "账号安全"
+      ],
+      "documentWidth": 1425,
+      "viewport": 1440,
+      "passed": true
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Carousel next and specific scene selection",
+      "passed": true
+    },
+    {
+      "name": "Feature keyboard selection and 32 FDI teeth preview",
+      "passed": true
+    },
+    {
+      "name": "Quarterly review separated from single visit",
+      "passed": true
+    },
+    {
+      "name": "Patient role preview discloses personal-only boundary",
+      "passed": true
+    },
+    {
+      "name": "Missing delivery provider is honestly disclosed",
+      "passed": true
+    },
+    {
+      "name": "Mobile homepage menu opens and closes after navigation",
+      "passed": true
+    },
+    {
+      "name": "Mobile homepage panels fit 390 viewport",
+      "passed": true
+    },
+    {
+      "name": "Tablet homepage fits 900 viewport",
+      "passed": true
+    },
+    {
+      "name": "Workspace drawer Escape, inert and focus restoration",
+      "passed": true
+    },
+    {
+      "name": "390x844 appointment modal scrolls internally with visible footer",
+      "passed": true
+    },
+    {
+      "name": "Authorized function lookup navigates to appointments",
+      "passed": true
+    },
+    {
+      "name": "English and Chinese workspace rendering",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "No live SMS/email delivery",
+    "No hosted or production load acceptance",
+    "Reduced-motion branch checked in source; OS setting not emulated in browser",
+    "Responsive viewport emulation is not physical iOS/Android testing"
+  ],
+  "passed": true
+}

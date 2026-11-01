@@ -5,3 +5,4 @@
 /.env
 *.log
 *.class
+/upgrade-workbench/**/research/raw/

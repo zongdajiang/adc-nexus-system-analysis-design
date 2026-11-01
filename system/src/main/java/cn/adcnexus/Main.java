@@ -14,10 +14,12 @@ import java.util.concurrent.*;
 public final class Main {
   private final Db db;
   private final Auth auth;
+  private final Enrollment enrollment;
 
   private Main(Db db) {
     this.db = db;
     auth = new Auth(db);
+    enrollment = new Enrollment(db, auth);
   }
 
   public static void main(String[] args) throws Exception {
@@ -31,7 +33,7 @@ public final class Main {
     Db db = new Db();
     db.migrate();
     int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
-    HttpServer server = HttpServer.create(new InetSocketAddress("0.0.0.0", port), 128);
+    HttpServer server = HttpServer.create(new InetSocketAddress(System.getenv().getOrDefault("BIND_ADDRESS", "0.0.0.0"), port), 128);
     Main app = new Main(db);
     server.createContext("/", app::handle);
     server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -100,25 +102,24 @@ public final class Main {
         respond(
             x,
             200,
-            map(
-                "demo",
-                auth.demo,
-                "sms",
-                false,
-                "wechat",
-                false,
-                "roles",
-                Seed.GRANTS.keySet().stream()
-                    .filter(r -> !r.equals("ADMIN"))
-                    .map(r -> map("code", r, "name", Seed.roleName(r)))
-                    .toList(),
-                "service_notice",
-                "课程合成数据环境。短信与微信需机构凭据启用；密码登录可用。"));
+            enrollment.config());
         return;
       }
       boolean mutation = method.equals("POST");
       if (mutation) sameOrigin(x);
       Map<String, Object> b = mutation ? body(x) : map();
+      if (Set.of("/api/auth/challenge", "/api/auth/register", "/api/auth/code-login", "/api/auth/recover").contains(path)) {
+        check(mutation, 405, "METHOD", "此身份接口只支持 POST");
+        Object result = switch (path) {
+          case "/api/auth/challenge" -> enrollment.challenge(x, b);
+          case "/api/auth/register" -> enrollment.register(b);
+          default -> enrollment.codeLogin(x, b, path.equals("/api/auth/recover"));
+        };
+        if (result instanceof Map<?,?> m && m.containsKey("verification_failed"))
+          throw error(422, "VERIFICATION_FAILED", "验证码无效、过期、已使用，或账号不可用。请核对后重试");
+        respond(x, 200, result);
+        return;
+      }
       if (path.equals("/api/auth/login") && method.equals("POST")) {
         var result = (Map<String, Object>) auth.login(x, b);
         if (result.containsKey("denied")) throw error(401, "LOGIN_FAILED", "账号或密码不正确");
@@ -133,8 +134,7 @@ public final class Main {
         return;
       }
       if (path.startsWith("/api/auth/sms")
-          || path.startsWith("/api/auth/wechat")
-          || path.equals("/api/auth/recover"))
+          || path.startsWith("/api/auth/wechat"))
         throw error(503, "PROVIDER_NOT_CONFIGURED", "机构尚未配置此身份通道，请使用账号密码或联系管理员");
       Auth.Principal p = db.read(c -> auth.principal(c, x));
       who[0] = p;
@@ -166,6 +166,13 @@ public final class Main {
         return;
       }
       if (mutation) auth.csrf(x);
+      if (path.equals("/api/admin/staff")) {
+        Object result = db.tx(c -> Enrollment.roster(c,
+            Auth.forPermission(c, auth.principal(c, x), "access.manage"), b, mutation));
+        // Activation secrets are returned once and never saved in idempotency receipts or logs.
+        respond(x, 200, result);
+        return;
+      }
       if (path.equals("/api/auth/logout") && method.equals("POST")) {
         db.tx(
             c -> {
@@ -343,6 +350,7 @@ public final class Main {
   }
 
   private void authorizeRoute(Auth.Principal p, String path) {
+    if (path.startsWith("/api/followups")) p.need("followup.read");
     if (path.startsWith("/api/patients")) p.need("patient.read");
     else if (path.startsWith("/api/appointments")
         || path.startsWith("/api/waitlist")
@@ -399,6 +407,12 @@ public final class Main {
     }
     if (path.equals("/api/waitlist"))
       return post ? Scheduling.waitlistCommand(c, p, b) : Scheduling.waitlist(c, p);
+    if (path.equals("/api/followups"))
+      return post ? Followups.command(c,p,b) : Followups.data(c,p,"");
+    if (path.startsWith("/api/followups/") && parts.length == 4) {
+      check(!post,405,"METHOD_NOT_ALLOWED","复诊明细仅支持读取，请向列表接口提交操作");
+      return Followups.data(c,p,parts[3]);
+    }
     if (path.equals("/api/visits")) return Clinical.list(c, p);
     if (path.startsWith("/api/visits/") && parts.length == 4)
       return post ? Clinical.command(c, p, parts[3], b) : Clinical.detail(c, p, parts[3]);
@@ -415,6 +429,10 @@ public final class Main {
               + p.scope("v.clinic_id")
               + " ORDER BY v.completed_at DESC LIMIT 300",
           p.scopeArgs());
+    }
+    if (path.startsWith("/api/finance/unbilled/") && parts.length == 5) {
+      check(!post, 405, "METHOD_NOT_ALLOWED", "结算预览仅支持读取");
+      return Finance.preview(c, p, parts[4]);
     }
     if (path.startsWith("/api/finance/invoices/") && parts.length == 5)
       return post ? Finance.command(c, p, parts[4], b) : Finance.detail(c, p, parts[4]);
@@ -438,6 +456,7 @@ public final class Main {
   }
 
   private String scopePermission(String path, boolean post, Map<String, Object> b) {
+    if (path.startsWith("/api/followups")) return Followups.permission(post,b);
     if (path.startsWith("/api/patients")) return post ? "patient.manage" : "patient.read";
     if (path.startsWith("/api/appointments")
         || path.startsWith("/api/scheduling")
@@ -452,7 +471,7 @@ public final class Main {
     if (path.startsWith("/api/finance")) return post ? "finance.manage" : "finance.read";
     if (path.startsWith("/api/resources"))
       return post
-          ? (Set.of("credential", "assignment").contains(s(b, "action"))
+          ? (PracticeSetup.handles(s(b,"action")) ? PracticeSetup.permission(s(b,"action")) : Set.of("credential", "assignment").contains(s(b, "action"))
               ? "workforce.manage"
               : "resource.manage")
           : "clinic.read";
@@ -576,7 +595,12 @@ public final class Main {
             ? "index.html"
             : path.substring(1);
     check(
-        Set.of("index.html", "app.js", "app.css", "mark.svg").contains(file),
+        Set.of("index.html", "app.js", "app.css", "mark.svg", "auth-ui.js", "product.css",
+            "homepage.js", "homepage.css", "studio.css", "carousel.js", "clinic-calendar.js",
+            "practice-workflow.js", "worklists.js", "practice.css", "practice-setup.js", "followups.js", "setup.css", "images/home-care-v1.png",
+            "images/home-clinic-v1.png", "images/home-reception-v1.png",
+            "images/workspace-reception-v14.jpg", "images/workspace-clinical-v14.jpg",
+            "images/workspace-billing-v14.jpg").contains(file),
         404,
         "NOT_FOUND",
         "文件不存在");
@@ -590,10 +614,10 @@ public final class Main {
             ? "text/javascript"
             : file.endsWith(".css")
                 ? "text/css"
-                : file.endsWith(".svg") ? "image/svg+xml" : "text/html";
-    x.getResponseHeaders().set("Content-Type", type + "; charset=utf-8");
+                : file.endsWith(".svg") ? "image/svg+xml" : file.endsWith(".png") ? "image/png" : file.endsWith(".jpg") ? "image/jpeg" : "text/html";
+    x.getResponseHeaders().set("Content-Type", type + (file.endsWith(".png") || file.endsWith(".jpg") ? "" : "; charset=utf-8"));
     x.getResponseHeaders()
-        .set("Cache-Control", file.equals("mark.svg") ? "public, max-age=600" : "no-cache");
+        .set("Cache-Control", file.equals("mark.svg") || file.endsWith(".png") || file.endsWith(".jpg") ? "public, max-age=600" : "no-cache");
     if (x.getRequestMethod().equals("HEAD")) {
       x.sendResponseHeaders(200, -1);
       return;

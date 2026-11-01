@@ -1,0 +1,402 @@
+{
+  "version": "1.5.0-rc1",
+  "passed": true,
+  "read_only": true,
+  "business_rows_checked": [
+    {
+      "table": "account_invitations",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "actual_treatment_items",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "app_users",
+      "original_rows": 18,
+      "current_rows": 18,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "appointment_status_history",
+      "original_rows": 127,
+      "current_rows": 127,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "appointments",
+      "original_rows": 91,
+      "current_rows": 91,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "auth_identities",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "auth_oauth_states",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "auth_otp_challenges",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinic_chairs",
+      "original_rows": 116,
+      "current_rows": 116,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinic_closures",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinic_operating_hours",
+      "original_rows": 105,
+      "current_rows": 105,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinical_attachments",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinical_note_versions",
+      "original_rows": 7,
+      "current_rows": 7,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinical_notes",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinical_visits",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinics",
+      "original_rows": 15,
+      "current_rows": 15,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentist_availability_rules",
+      "original_rows": 78,
+      "current_rows": 78,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentist_clinic_assignments",
+      "original_rows": 22,
+      "current_rows": 22,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentist_qualifications",
+      "original_rows": 26,
+      "current_rows": 26,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentist_schedule_exceptions",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentists",
+      "original_rows": 14,
+      "current_rows": 14,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "emergency_contacts",
+      "original_rows": 7,
+      "current_rows": 7,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "expansion_assumptions",
+      "original_rows": 12,
+      "current_rows": 12,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "expansion_candidate_clinics",
+      "original_rows": 7,
+      "current_rows": 7,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "expansion_scenario_results",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "expansion_scenarios",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "financial_close_exceptions",
+      "original_rows": 5,
+      "current_rows": 5,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "financial_period_results",
+      "original_rows": 18,
+      "current_rows": 18,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "financial_reporting_periods",
+      "original_rows": 4,
+      "current_rows": 4,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "incentive_pools",
+      "original_rows": 2,
+      "current_rows": 2,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "invoice_adjustments",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "invoice_lines",
+      "original_rows": 5,
+      "current_rows": 5,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "invoices",
+      "original_rows": 4,
+      "current_rows": 4,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "notification_events",
+      "original_rows": 5,
+      "current_rows": 5,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "odontogram_observations",
+      "original_rows": 13,
+      "current_rows": 13,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "operating_expenses",
+      "original_rows": 48,
+      "current_rows": 48,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "organizations",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_account_links",
+      "original_rows": 2,
+      "current_rows": 2,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_allergies",
+      "original_rows": 5,
+      "current_rows": 5,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_consents",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_duplicate_reviews",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_timeline_events",
+      "original_rows": 18,
+      "current_rows": 18,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patients",
+      "original_rows": 512,
+      "current_rows": 512,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "payment_refunds",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "payments",
+      "original_rows": 4,
+      "current_rows": 4,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "permissions",
+      "original_rows": 21,
+      "current_rows": 25,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "qualification_types",
+      "original_rows": 7,
+      "current_rows": 7,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "requested_treatment_items",
+      "original_rows": 8,
+      "current_rows": 8,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "role_permissions",
+      "original_rows": 109,
+      "current_rows": 120,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "roles",
+      "original_rows": 17,
+      "current_rows": 17,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "system_settings",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "treatment_catalog",
+      "original_rows": 12,
+      "current_rows": 12,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "treatment_cost_entries",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "treatment_plans",
+      "original_rows": 6,
+      "current_rows": 6,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "treatment_qualification_requirements",
+      "original_rows": 7,
+      "current_rows": 7,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "user_role_assignments",
+      "original_rows": 18,
+      "current_rows": 18,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "visit_allergy_acknowledgements",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "waitlist_entries",
+      "original_rows": 8,
+      "current_rows": 8,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "waitlist_offers",
+      "original_rows": 3,
+      "current_rows": 3,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "treatment_item_consents",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "dentist_expense_allocations",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "patient_history_versions",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "clinical_note_signatures",
+      "original_rows": 1,
+      "current_rows": 1,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "staff_directory",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    },
+    {
+      "table": "verification_challenges",
+      "original_rows": 0,
+      "current_rows": 0,
+      "original_contents_preserved": true
+    }
+  ],
+  "existing_credentials_unchanged": true,
+  "tables": 71,
+  "foreign_keys": 146,
+  "integrity": "ok",
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a"
+}

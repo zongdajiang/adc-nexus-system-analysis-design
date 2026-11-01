@@ -1,6 +1,14 @@
+import { renderAuthPage } from './auth-ui.js?v=1.4.0-rc1';
+import { renderHomepage } from './homepage.js?v=1.4.0-rc1';
+import { filterAppointments, buildCalendarModel, renderCalendar, shiftDay } from './clinic-calendar.js?v=1.4.0-rc1';
+import {renderCareWorkspace,bindCareTabs,appointmentHistoryEvent} from './practice-workflow.js?v=1.4.0-rc1';
+import {receptionContent,billingContent,orderedAgenda} from './worklists.js?v=1.4.0-rc1';
+import {renderSetupTab,installSetupHandlers} from './practice-setup.js?v=1.5.0-rc1';
+import {followupTabs,renderFollowups,installFollowupHandlers} from './followups.js?v=1.5.0-rc1';
 const $ = (s) => document.querySelector(s);
 const app = $("#app"),
   modalRoot = $("#modal-root");
+let activeDialogClose = null;
 const state = {
   lang: localStorage.getItem("adc-language") || "zh",
   principal: null,
@@ -11,9 +19,13 @@ const state = {
   from: "2026-07-01",
   to: "2026-10-20",
   selectedTooth: "",
-  view: "board",
+  view: "calendar",
+  calendarGroup: "dentist",
+  scheduleDentist: "",
+  scheduleStatus: "",
+  scheduleSearch: "",
   resourcesTab: "clinics",
-  loginTab: "STAFF",
+  deskView:"", deskDoctor:"", deskSearch:"", billView:"", billSearch:"", careTab:"", careVisit:"",
 };
 const T = (zh, en) => (state.lang === "en" ? en || zh : zh);
 const esc = (v) =>
@@ -130,21 +142,30 @@ function badge(status) {
 }
 const can = (permission) => state.principal?.permissions.includes(permission);
 const button = (label, action, id = "", style = "", ico = "") =>
-  `<button class="btn ${style}" data-act="${esc(action)}" data-id="${esc(id)}">${ico ? icon(ico) : ""}${esc(label)}</button>`;
+  `<button type="button" class="btn ${style}" data-act="${esc(action)}" data-id="${esc(id)}">${ico ? icon(ico) : ""}${esc(label)}</button>`;
 const link = (label, path) =>
   `<a class="text-link" href="#/${esc(path)}">${esc(label)}</a>`;
 const empty = (message) =>
-  `<div class="empty">${icon("leaf")}<p>${esc(message || T("此范围内暂无记录", "No records in this scope"))}</p><small>${T("试着调整筛选，或开始一项新任务。", "Adjust filters or start a new task.")}</small></div>`;
+  `<div class="empty"><p>${esc(message || T("此范围内暂无记录", "No records in this scope"))}</p></div>`;
 const panel = (title, body, action = "", subtitle = "") =>
   `<section class="card"><div class="card-head"><div><h2>${esc(title)}</h2>${subtitle ? `<p class="subline">${esc(subtitle)}</p>` : ""}</div>${action}</div>${body}</section>`;
 const table = (headers, rows) =>
   rows.length
-    ? `<div class="table-wrap"><table><thead><tr>${headers.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map((cells) => `<tr>${cells.map((cell) => `<td>${cell ?? "—"}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`
+    ? `<div class="table-scroll-note">${T("左右滑动查看完整表格", "Swipe horizontally for all columns")}</div><div class="table-wrap" tabindex="0" role="region" aria-label="${T("业务表格，可横向滚动", "Scrollable business table")}"><table><thead><tr>${headers.map((h) => `<th scope="col">${esc(h||T("操作","Actions"))}</th>`).join("")}</tr></thead><tbody>${rows.map((cells) => `<tr>${cells.map((cell) => `<td>${cell ?? "—"}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`
     : empty();
 const metric = (label, value, note = "", ico = "chart", featured = false) =>
   `<article class="metric ${featured ? "featured" : ""}"><span class="metric-icon">${icon(ico)}</span><div class="label">${esc(label)}</div><div class="value num">${esc(value)}</div><div class="note">${esc(note)}</div></article>`;
+const pageNames = {
+  "NETWORK COMMAND CENTER": ["工作台", "Workspace"], "PATIENT 360": ["患者管理", "Patients"],
+  "SMART SCHEDULING": ["预约管理", "Appointments"], "CLINICAL STUDIO": ["临床工作台", "Clinical workspace"],
+  "CAPACITY RECOVERY": ["候补管理", "Waitlist"], "REVENUE CONTROL": ["诊疗结算", "Billing"],
+  "FINANCIAL GOVERNANCE": ["期间核算", "Financial periods"], "NETWORK & CAPABILITY": ["组织与资源", "Resources"],
+  "PERFORMANCE INTELLIGENCE": ["经营统计", "Performance"], "NETWORK PLANNING": ["扩张测算", "Expansion planning"],
+  "ACCESS ADMINISTRATION": ["账号与权限", "Accounts and access"], "ACCOUNTABILITY": ["操作审计", "Audit history"],
+  "ACCOUNT SECURITY": ["账号安全", "Account security"],
+};
 const title = (kicker, name, description, actions = "") =>
-  `<div class="title-row row between"><div><div class="eyebrow">${esc(kicker)}</div><h1>${esc(name)}</h1><p>${esc(description)}</p></div><div class="row wrap push">${actions}</div></div>`;
+  `<div class="title-row row between"><div><h1>${esc(pageNames[kicker] ? T(...pageNames[kicker]) : name)}</h1><p>${esc(description)}</p></div><div class="row wrap push">${actions}</div></div>`;
 const opts = (list, label = "name_zh", value = "id") =>
   list.map((r) => ({
     value: r[value],
@@ -178,6 +199,8 @@ async function api(path, body, options = {}) {
   try {
     response = await fetch("/api" + path, request);
   } catch {
+    if (body !== undefined && path === "/admin/staff")
+      throw new Error("员工名册请求响应中断，请先重新读取名册核对。激活码可由管理员重新签发。");
     // Retry a business request once with the SAME receipt key. Never blindly
     // repeat password login or demo-session creation after a lost response.
     if (body !== undefined && path.startsWith("/auth/"))
@@ -237,7 +260,11 @@ function modal({
   body = "",
   wide = false,
   onReady,
+  onSuccess,
+  successMessage = T("已保存，记录已更新", "Saved. Records updated."),
+  informational = false,
 }) {
+  if(activeDialogClose && activeDialogClose() === false)return activeDialogClose;
   const fieldHtml = fields
     .map((f) => {
       let control;
@@ -254,15 +281,20 @@ function modal({
     })
     .join("");
   const previousFocus = document.activeElement;
+  const wasInert = app.inert;
+  app.inert = true;
   let pending = false;
   document.body.classList.add("dialog-open");
-  modalRoot.innerHTML = `<div class="modal-overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" ${wide ? 'style="width:850px"' : ""}><div class="modal-head"><div><h2 id="modal-title">${esc(name)}</h2><p>${esc(description)}</p></div><button class="modal-close" type="button" aria-label="Close">${icon("x")}</button></div><form id="dialog-form"><div class="modal-body">${body}<div class="modal-fields">${fieldHtml}</div><div id="modal-error" class="modal-error" role="alert"></div></div><div class="modal-footer"><button type="button" class="btn" id="modal-cancel">${T("取消", "Cancel")}</button><button type="submit" class="btn primary" id="modal-submit">${esc(submit)}</button></div></form></section></div>`;
+  modalRoot.innerHTML = `<div class="modal-overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" ${description?'aria-describedby="modal-description"':''} ${wide ? 'style="width:850px"' : ""}><div class="modal-head"><div><h2 id="modal-title" tabindex="-1">${esc(name)}</h2>${description?`<p id="modal-description">${esc(description)}</p>`:''}</div><button class="modal-close" type="button" aria-label="${T("关闭弹窗","Close dialog")}">${icon("x")}</button></div><form id="dialog-form"><div class="modal-body">${body}<div class="modal-fields">${fieldHtml}</div><div id="modal-error" class="modal-error" role="alert"></div></div><div class="modal-footer"><button type="button" class="btn" id="modal-cancel" ${informational?'hidden':''}>${T("取消", "Cancel")}</button><button type="submit" class="btn primary" id="modal-submit">${esc(submit)}</button></div></form></section></div>`;
   const close = () => {
-    if (pending) return;
+    if (pending) return false;
     modalRoot.innerHTML = "";
     document.body.classList.remove("dialog-open");
-    previousFocus?.focus();
+    app.inert = wasInert;
+    if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true});
     document.removeEventListener("keydown", trap);
+    if(activeDialogClose===close)activeDialogClose=null;
+    return true;
   };
   const trap = (e) => {
     if (e.key === "Escape") {
@@ -272,7 +304,7 @@ function modal({
     if (e.key === "Tab") {
       const all = [
         ...modalRoot.querySelectorAll("button,input,select,textarea,a"),
-      ].filter((n) => !n.disabled);
+      ].filter((n) => !n.disabled && n.getClientRects().length && n.tabIndex >= 0);
       if (e.shiftKey && document.activeElement === all[0]) {
         e.preventDefault();
         all.at(-1)?.focus();
@@ -283,6 +315,7 @@ function modal({
     }
   };
   document.addEventListener("keydown", trap);
+  activeDialogClose = close;
   $(".modal-close").onclick = close;
   $("#modal-cancel").onclick = close;
   $("#dialog-form").onsubmit = async (e) => {
@@ -290,6 +323,7 @@ function modal({
     if (pending) return;
     const form = e.currentTarget;
     if (!form.reportValidity()) return;
+    if (informational) { close(); return; }
     const values = {};
     for (const f of fields) {
       const node = form.elements.namedItem(f.name);
@@ -319,14 +353,14 @@ function modal({
     form.setAttribute("aria-busy", "true");
     $("#modal-error").innerHTML = "";
     try {
-      await onSubmit(values);
+      const result = await onSubmit(values);
       pending = false;
       close();
-      toast(T("已保存，记录已更新", "Saved. Records updated."));
-      await refresh();
+      if(successMessage) toast(successMessage);
+      if(onSuccess) await onSuccess(result); else await refresh();
     } catch (err) {
-      $("#modal-error").innerHTML = errorBox(err);
-      $("#modal-error").scrollIntoView({ block: "nearest" });
+      if(form.isConnected){$("#modal-error").innerHTML = errorBox(err);$("#modal-error").scrollIntoView({ block: "nearest" });}
+      else toast(err.message);
     } finally {
       pending = false;
       if (form.isConnected) {
@@ -336,10 +370,12 @@ function modal({
       }
     }
   };
-  onReady?.();
-  requestAnimationFrame(() =>
-    modalRoot.querySelector("input,select,textarea,button")?.focus(),
-  );
+  onReady?.(close);
+  requestAnimationFrame(() => {
+    if(activeDialogClose!==close)return;
+    const first=[...modalRoot.querySelectorAll('.modal-body input,.modal-body select,.modal-body textarea,.modal-body button')].find(n=>!n.disabled&&n.getClientRects().length&&n.type!=='hidden');
+    (first||$("#modal-title"))?.focus({preventScroll:true});
+  });
   return close;
 }
 const clinicField = () => ({
@@ -368,7 +404,7 @@ const treatmentField = () => ({
   name: "treatment_id",
   label: T("治疗项目", "Treatment"),
   type: "select",
-  options: opts(state.boot.treatments.filter((t) => t.status === "ACTIVE")),
+  options: state.boot.treatments.filter((t) => t.status === "ACTIVE").map(t=>({value:t.id,label:`${t.name_zh} · ${t.code} · v${t.version} · ${t.effective_from} – ${t.effective_to||T('长期','open-ended')}`})),
 });
 const dentistField = () => ({
   name: "dentist_id",
@@ -401,7 +437,7 @@ const reasonField = () => ({
 const roleHomes = {
   JDBC_DENTIST: "clinical",
   JDBC_PATIENT: "portal",
-  JDBC_FRONT_DESK: "appointments",
+  JDBC_FRONT_DESK: "reception",
   JDBC_CASHIER: "billing",
   JDBC_CLINIC_MANAGER: "dashboard",
   JDBC_HQ_OPERATIONS: "dashboard",
@@ -422,36 +458,37 @@ const navItems = [
   [
     "dashboard",
     "dashboard",
-    () => T("运营总览", "Overview"),
+    () => T("工作台", "Overview"),
     "dashboard.read",
     "WORKSPACE",
   ],
+  ["reception","users",()=>T("门诊工作台","Daily clinic desk"),"appointment.read","CARE OPERATIONS"],
   [
     "appointments",
     "calendar",
     () => T("预约与到诊", "Scheduling"),
     "appointment.read",
-    "CARE OPERATIONS",
+    "",
   ],
-  ["patients", "users", () => T("患者 360", "Patient 360"), "patient.read", ""],
+  ["patients", "users", () => T("患者管理", "Patients"), "patient.read", ""],
   [
     "clinical",
     "tooth",
-    () => T("临床工作室", "Clinical studio"),
+    () => T("临床工作台", "Clinical workspace"),
     "clinical.read",
     "",
   ],
   [
     "waitlist",
     "clock",
-    () => T("候补中心", "Waitlist"),
+    () => T("候补与复诊", "Waitlist & recalls"),
     "appointment.read",
     "",
   ],
   [
     "resources",
     "building",
-    () => T("诊所与人员", "Network resources"),
+    () => T("组织与资源", "Network resources"),
     "clinic.read",
     "NETWORK",
   ],
@@ -465,21 +502,21 @@ const navItems = [
   [
     "periods",
     "wallet",
-    () => T("季度核定", "Financial close"),
+    () => T("期间核算", "Financial close"),
     "finance.read",
     "",
   ],
   [
     "analytics",
     "chart",
-    () => T("经营洞察", "Intelligence"),
+    () => T("经营统计", "Business analytics"),
     "analytics.read",
     "",
   ],
   [
     "expansion",
     "location",
-    () => T("扩张研究", "Network planning"),
+    () => T("扩张测算", "Network planning"),
     "analytics.read",
     "",
   ],
@@ -487,13 +524,27 @@ const navItems = [
   [
     "access",
     "shield",
-    () => T("权限管理", "Access administration"),
+    () => T("账号与权限", "Access administration"),
     "access.manage",
     "GOVERNANCE",
   ],
   ["audit", "file", () => T("操作审计", "Audit history"), "audit.read", ""],
   ["security", "lock", () => T("账号安全", "Account security"), null, ""],
 ];
+const smallWorkspace = matchMedia("(max-width:760px)");
+function setSidebar(open = false, focus = false) {
+  const side = $(".sidebar"), toggle = $(".mobile-nav");
+  if (!side || !toggle) return;
+  open = smallWorkspace.matches && open;
+  side.classList.toggle("open", open);
+  side.inert = smallWorkspace.matches && !open;
+  $(".sidebar-backdrop").hidden = !open;
+  toggle.setAttribute("aria-expanded", String(open));
+  toggle.setAttribute("aria-label",open?T("收起导航","Close navigation"):T("展开导航","Open navigation"));
+  document.body.classList.toggle("drawer-open", open);
+  if(focus) (open ? side.querySelector('.nav-item') : toggle)?.focus();
+}
+smallWorkspace.addEventListener("change", () => setSidebar(false));
 function shell(content = "", active = "") {
   const p = state.principal;
   let lastGroup = "";
@@ -502,19 +553,23 @@ function shell(content = "", active = "") {
     .map((n) => {
       const group =
         n[4] && n[4] !== lastGroup
-          ? `<div class="nav-label">${n[4]}</div>`
+          ? `<div class="nav-label">${state.lang === "en" ? n[4] : ({WORKSPACE:"工作空间", "CARE OPERATIONS":"诊疗服务",NETWORK:"组织管理","FINANCE & INSIGHT":"经营管理",PATIENT:"患者服务",GOVERNANCE:"系统管理"})[n[4]] || n[4]}</div>`
           : "";
       if (n[4]) lastGroup = n[4];
       return (
         group +
-        `<a class="nav-item ${active === n[0] ? "active" : ""}" href="#/${n[0]}">${icon(n[1])}<span>${n[2]()}</span></a>`
+        `<a class="nav-item ${active === n[0] ? "active" : ""}" ${active === n[0] ? 'aria-current="page"' : ''} href="#/${n[0]}">${icon(n[1])}<span>${n[2]()}</span></a>`
       );
     })
     .join("");
   const role = p.roles[0];
   const name =
     navItems.find((n) => n[0] === active)?.[2]() || T("工作区", "Workspace");
-  app.innerHTML = `<div class="app-shell"><aside class="sidebar"><a class="brand" href="#/${home()}"><img src="/mark.svg" width="36" height="36" alt=""><div><h2>ADC Nexus</h2><div class="sub">CARE · PEOPLE · NETWORK</div></div></a><nav class="nav-list">${nav}</nav><div class="sidebar-foot"><div class="scope-card"><div class="eyebrow">${T("当前授权范围", "AUTHORIZED SCOPE")}</div><strong>${p.network ? T("全网授权", "Network access") : esc(state.boot.clinics.map((c) => c.name_zh).join(" · "))}</strong><p>${T("访问与操作均按账号授权校验", "Access is checked for every operation")}</p></div><div class="user-card"><span class="avatar">${esc(p.name.slice(0, 1))}</span><div><strong>${esc(p.name)}</strong><small>${esc(state.lang === "en" ? role?.name_en : role?.name_zh) || T("机构成员", "Member")}</small></div><button class="btn ghost push" data-act="logout" aria-label="${T("退出登录", "Sign out")}" style="color:#a7bca7;padding:5px">${icon("logout")}</button></div></div></aside><div class="workspace"><header class="topbar"><div class="breadcrumb"><button class="btn ghost mobile-nav" data-act="mobile-menu" aria-label="Menu">${icon("menu")}</button><span>ADC Nexus</span>${icon("chevron")}<strong>${name}</strong></div><div class="topbar-meta"><span class="date-meta">${esc(state.boot.today)} · Asia/Shanghai</span><span class="badge green"><i class="dot"></i>JDBC</span><button class="btn ghost small" data-act="language">${icon("globe")}${state.lang === "en" ? "中文" : "EN"}</button></div></header><main class="workspace-main animate-in" id="page-content">${content}</main></div></div>`;
+  const scope = p.network ? T("全网授权", "Network scope") : state.boot.clinics.map(c=>c.name_zh).join(" · ");
+  app.innerHTML = `<div class="app-shell"><a class="workspace-skip" href="#page-content">${T("跳至工作内容", "Skip to content")}</a><button type="button" class="sidebar-backdrop" data-act="mobile-menu" aria-label="${T("关闭导航", "Close navigation")}" hidden></button><aside class="sidebar" aria-label="${T("工作区导航", "Workspace navigation")}"><a class="brand" href="#/${home()}"><img src="/mark.svg" width="35" height="35" alt=""><div><h2>ADC Nexus</h2><div class="sub">诊疗与运营管理</div></div></a><nav class="nav-list">${nav}</nav><div class="sidebar-foot"><div class="scope-card"><div class="eyebrow">${T("当前授权范围", "AUTHORIZED SCOPE")}</div><strong>${esc(scope || T("按本人绑定授权", "Personal scope"))}</strong><p>${T("每次操作均经服务端校验", "Every request is authorized")}</p></div><div class="user-card"><span class="avatar">${esc(p.name.slice(0, 1))}</span><div><strong>${esc(p.name)}</strong><small>${esc(state.lang === "en" ? role?.name_en : role?.name_zh) || T("机构成员", "Member")}</small></div><button class="btn ghost push" data-act="logout" aria-label="${T("退出登录", "Sign out")}">${icon("logout")}</button></div></div></aside><div class="workspace"><header class="topbar"><div class="breadcrumb"><button class="btn ghost mobile-nav" data-act="mobile-menu" aria-label="${T("展开导航", "Open navigation")}" aria-expanded="false">${icon("menu")}</button><span>${T("工作空间", "Workspace")}</span>${icon("chevron")}<strong>${name}</strong></div><div class="topbar-meta">${can("patient.read")?`<button type="button" class="patient-search" data-act="patient-search">${icon("users")}<span>${T("查找患者","Find patient")}</span></button>`:""}<button type="button" class="workspace-search" data-act="workspace-search" aria-label="${T("查找功能", "Find a page")}">${icon("search")}<span>${T("查找功能", "Find a page")}</span><kbd>Ctrl K</kbd></button><a class="workspace-home" href="#/home" aria-label="${T("返回网站首页", "Website home")}">${icon("globe")}<span>${T("网站首页", "Website")}</span></a><button class="btn ghost small" data-act="language" aria-label="${T("切换到英语", "Switch to Chinese")}">${state.lang === "en" ? "中文" : "EN"}</button></div></header><main class="workspace-main animate-in" id="page-content" tabindex="-1">${content}</main></div></div>`;
+  $(".workspace-skip").onclick = e => { e.preventDefault(); $("#page-content").focus(); };
+  $(".patient-search")?.setAttribute("aria-label",T("查找患者","Find patient"));
+  setSidebar(false);
   if (p.patient_id && p.roles.every((r) => r.code === "JDBC_PATIENT"))
     $(".scope-card strong").textContent = T(
       "仅限绑定本人",
@@ -525,6 +580,7 @@ function foot() {
   return `<footer class="page-foot"><span>ADC Nexus · ${T("安德鲁牙科连锁运营管理系统", "Dental chain operations")}</span><span>${T("课程合成数据 · 不执行支付划转", "Synthetic course data · No payment processing")}</span></footer>`;
 }
 function filters({ range = false, search = false } = {}) {
+  if (!range && !search && state.boot.clinics.length <= 1) return "";
   return `<form class="toolbar" id="filter-form">${state.boot.clinics.length > 1 ? `<select class="field-input" name="clinic_id" aria-label="${T("诊所筛选", "Clinic filter")}"><option value="">${T("所有授权诊所", "All authorized clinics")}</option>${state.boot.clinics.map((c) => `<option value="${esc(c.id)}" ${state.clinic === c.id ? "selected" : ""}>${esc(c.name_zh)}</option>`).join("")}</select>` : ""}${range ? `<input class="field-input" type="date" name="from" value="${esc(state.from)}" aria-label="From"><span class="muted">—</span><input class="field-input" type="date" name="to" value="${esc(state.to)}" aria-label="To">` : ""}${search ? `<div class="search-box">${icon("search")}<input name="q" class="field-input" value="${esc(state.search || "")}" placeholder="${T("姓名、患者编号或电话", "Name, patient code or phone")}"></div>` : ""}<button class="btn" type="submit">${T("应用筛选", "Apply")}</button></form>`;
 }
 function bindFilters() {
@@ -542,12 +598,19 @@ function bindFilters() {
   };
 }
 let renderId = 0;
+let cleanupPublic = () => {};
+let workspaceRoute = "";
 async function refresh() {
   if (!state.principal) return;
+  if (location.hash.startsWith("#/home")) return publicPage();
+  cleanupPublic();
+  cleanupPublic = () => {};
   const rid = ++renderId;
   const parts = location.hash.replace(/^#\/?/, "").split("/");
   let page = parts[0] || home(),
     id = parts[1];
+  const routeKey = page + "/" + (id || "");
+  if (workspaceRoute !== routeKey) { scrollTo({top:0, behavior:"instant"}); workspaceRoute = routeKey; }
   const nav = navItems.find((n) => n[0] === page);
   if (!nav || (nav[3] && !can(nav[3]))) {
     page = home();
@@ -566,6 +629,9 @@ async function refresh() {
         break;
       case "patients":
         content = id ? await patientPage(id) : await patientsPage();
+        break;
+      case "reception":
+        content = await receptionPage();
         break;
       case "appointments":
         content = await appointmentsPage();
@@ -624,45 +690,38 @@ async function refresh() {
   }
 }
 async function loginPage() {
-  document.title = T("登录 · ADC Nexus", "Sign in · ADC Nexus");
+  const rid = ++renderId;
+  document.body.classList.remove("drawer-open");
+  cleanupPublic();
+  cleanupPublic = () => {};
   state.config = state.config || (await api("/auth/config"));
-  const tab = state.loginTab;
-  const role =
-    tab === "DENTIST" ? "DENTIST" : tab === "PATIENT" ? "PATIENT" : "STAFF";
-  app.innerHTML = `<div class="login"><section class="login-story"><div class="login-brand"><img src="/mark.svg" width="38" height="38" alt="">ADC Nexus</div><div class="login-orbit"></div><div class="story-copy"><div class="eyebrow" style="color:#93b7a2">ANDREW'S DENTAL CHAIN</div><h1>${T("让每一次诊疗，<br>连接更好的照护。", "Every visit.<br>Better connected care.")}</h1><p>${T("从患者的第一通电话，到诊室里的专业判断，再到整个网络的稳健运营。把信息放在需要它的人手中。", "From the first appointment to chairside care and network performance. The right information, in the right hands.")}</p></div><div class="story-stats"><div><strong>15</strong><span>${T("现有诊所", "CLINICS")}</span></div><div><strong>18</strong><span>${T("业务用例", "USE CASES")}</span></div><div><strong>JDBC</strong><span>JAVA DATA SERVICES</span></div></div></section><section class="login-panel"><button class="btn ghost small language-button" data-act="language">${icon("globe")}${state.lang === "en" ? "中文" : "EN"}</button><div class="login-form"><div class="eyebrow">YOUR WORKSPACE, YOUR ROLE</div><h2>${T(tab === "PATIENT" ? "欢迎来到本人诊疗空间" : tab === "DENTIST" ? "开始今天的接诊" : "欢迎回到工作台", tab === "PATIENT" ? "Your care, in one place" : tab === "DENTIST" ? "A focused day of care" : "Welcome to your workspace")}</h2><p class="muted">${T("使用机构分配的账号，进入对应的工作空间。", "Sign in with your assigned account and authorized role.")}</p><div class="role-tabs">${[
-    ["STAFF", T("员工登录", "Staff")],
-    ["DENTIST", T("医师登录", "Dentist")],
-    ["PATIENT", T("患者登录", "Patient")],
-  ]
-    .map(
-      ([k, v]) =>
-        `<button data-act="login-tab" data-id="${k}" class="${tab === k ? "active" : ""}">${v}</button>`,
-    )
-    .join(
-      "",
-    )}</div><form id="login-form"><input type="hidden" name="role" value="${role}"><div class="field-wrap"><label class="field-label" for="login-user">${T("账号", "Username")}</label><input class="field-input" id="login-user" name="username" required autocomplete="username" placeholder="${T("输入机构账号", "Your assigned username")}"></div><div class="field-wrap"><label class="field-label" for="login-password">${T("密码", "Password")}</label><input class="field-input" id="login-password" name="password" type="password" required autocomplete="current-password" placeholder="${T("输入密码", "Your password")}"></div><div id="login-error" role="alert"></div><button class="btn primary" type="submit" style="width:100%;margin-top:7px">${T("登录工作区", "Sign in")}${icon("arrow")}</button></form>${state.config.demo ? `<div class="login-divider">${T("课程合成数据 · 无需注册即可试用", "SYNTHETIC WORKSPACE · TRY A ROLE")}</div><div class="demo-grid">${(tab === "PATIENT" ? ["PATIENT"] : tab === "DENTIST" ? ["DENTIST"] : ["FRONT_DESK", "CASHIER", "CLINIC_MANAGER", "HQ_OPERATIONS", "HQ_FINANCE", "REVIEWER"]).map((r) => `<button class="demo-option" data-act="demo-login" data-id="${r}">${icon(r === "DENTIST" ? "tooth" : r === "PATIENT" ? "heart" : r === "CASHIER" || r === "HQ_FINANCE" ? "wallet" : r === "HQ_OPERATIONS" ? "chart" : "users")}<span>${esc(state.config.roles.find((x) => x.code === r)?.name || r)}</span></button>`).join("")}</div>` : ""}<p class="privacy-note">${T("岗位入口不会授予权限，系统将核验账号授权。患者只能访问机构核实绑定的本人资料。短信与微信通道需机构配置后启用。", "Your role is verified against assigned permissions. Patient access is restricted to a verified personal record. SMS and WeChat require organization configuration.")}</p></div></section></div>`;
-  $("#login-form").onsubmit = async (e) => {
-    e.preventDefault();
-    const submit = e.currentTarget.querySelector("button");
-    submit.disabled = true;
-    try {
-      const d = await api(
-        "/auth/login",
-        Object.fromEntries(new FormData(e.currentTarget)),
-      );
-      state.csrf = d.csrf;
-      await enter();
-    } catch (e) {
-      $("#login-error").innerHTML = errorBox(e);
-      submit.disabled = false;
-    }
-  };
+  if (rid !== renderId) return;
+  cleanupPublic = renderAuthPage({ app, config: state.config, api, enter, esc, errorBox, modal });
+  scrollTo({top:0, behavior:"instant"});
+}
+async function publicPage() {
+  const rid = ++renderId;
+  document.body.classList.remove("drawer-open");
+  state.config = state.config || (await api("/auth/config"));
+  if (rid !== renderId) return;
+  cleanupPublic();
+  cleanupPublic = renderHomepage({app, esc, icon, config:state.config,
+    workspaceHref:state.principal ? "#/" + home() : null,
+    onDemo:async () => { await api("/auth/demo", {role:"REVIEWER"}); await enter(); }
+  });
+}
+async function route() {
+  const page = location.hash.replace(/^#\/?/, "").split("/")[0];
+  if (!page || page === "home") return publicPage();
+  if (state.principal) return refresh();
+  return loginPage();
 }
 async function enter(preserveRoute = false) {
   const session = await api("/auth/session");
   state.principal = session.principal;
   state.csrf = session.csrf;
   state.boot = await api("/bootstrap");
+  if(!preserveRoute){state.scheduleDentist='';state.scheduleStatus='';state.scheduleSearch='';state.serviceDate='';state.view='calendar';state.calendarGroup='dentist';state.deskView='';state.deskDoctor='';state.deskSearch='';state.billView='';state.billSearch='';state.careTab='';state.careVisit='';state.careQueue='ACTIVE';state.careSearch='';}
   state.to = state.boot.today;
   state.from = new Date(
     new Date(state.to + "T12:00:00Z").getTime() - 90 * 86400000,
@@ -674,21 +733,17 @@ async function enter(preserveRoute = false) {
     sessionStorage.removeItem("adc-clinic");
   }
   if (!preserveRoute || !location.hash || location.hash === "#")
-    location.hash = "#/" + home();
+    history.replaceState(null, "", "#/" + home());
   await refresh();
 }
 const handlers = {
   refresh: () => refresh(),
-  "mobile-menu": () => $(".sidebar").classList.toggle("open"),
+  "mobile-menu": () => setSidebar(!$(".sidebar").classList.contains("open"), true),
   language: () => {
     state.lang = state.lang === "zh" ? "en" : "zh";
     localStorage.setItem("adc-language", state.lang);
     document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
     state.principal ? refresh() : loginPage();
-  },
-  "login-tab": (id) => {
-    state.loginTab = id;
-    loginPage();
   },
   "demo-login": async (id) => {
     const d = await api("/auth/demo", { role: id });
@@ -699,7 +754,10 @@ const handlers = {
     await api("/auth/logout", {});
     state.principal = null;
     state.boot = null;
-    location.hash = "";
+    state.staffInvitation = null;
+    state.staff = null;
+    state.access = null;
+    history.replaceState(null, "", "#/login");
     await loginPage();
   },
 };
@@ -714,7 +772,7 @@ document.addEventListener("click", async (e) => {
     toast(error.message);
   }
 });
-window.addEventListener("hashchange", () => state.principal && refresh());
+window.addEventListener("hashchange", () => route().catch(e => { app.innerHTML = `<div class="initial-load">${errorBox(e)}${button("重新连接", "reload")}</div>`; }));
 window.addEventListener("beforeunload", (e) => {
   if ($("#dialog-form")) {
     e.preventDefault();
@@ -723,16 +781,45 @@ window.addEventListener("beforeunload", (e) => {
 });
 async function start() {
   document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
+  if (!location.hash || location.hash === "#") history.replaceState(null, "", "#/home");
   try {
     await enter(true);
   } catch (e) {
-    if (e.status === 401) await loginPage();
+    if (e.status === 401) await route();
     else {
       app.innerHTML = `<div class="initial-load"><h1>ADC Nexus</h1>${errorBox(e)}${button(T("重试连接", "Retry connection"), "reload")}</div>`;
     }
   }
 }
 handlers.reload = () => location.reload();
+handlers["workspace-search"] = () => {
+  if (!state.principal || $("#dialog-form")) return;
+  const available = navItems.filter(n => !n[3] || can(n[3]));
+  modal({name:T("查找工作区功能", "Find a workspace page"), description:T("仅查找您有权访问的功能，不搜索患者资料。", "Only your authorized pages are listed; no patient data is searched."), informational:true, submit:T("关闭", "Close"),
+    body:`<label class="field-label" for="workspace-query">${T("功能名称", "Page name")}</label><input id="workspace-query" class="field-input" type="search" autocomplete="off" placeholder="${T("例如：预约、病历、结算", "Scheduling, care, billing…")}"><div class="command-results"></div>`,
+    onReady:close => {
+      const input = $("#workspace-query"), results = $(".command-results");
+      const paint = () => {
+        const needle = input.value.trim().toLowerCase();
+        const found = available.filter(n => (n[2]() + " " + n[0]).toLowerCase().includes(needle));
+        results.innerHTML = found.length ? found.map(n=>`<a href="#/${n[0]}" class="command-result">${icon(n[1])}<span>${esc(n[2]())}</span>${icon("chevron")}</a>`).join("") : `<p class="muted">${T("没有匹配的已授权功能", "No matching authorized page")}</p>`;
+        results.querySelectorAll('a').forEach(a=>a.onclick=close);
+      };
+      input.oninput = paint;
+      input.onkeydown = e => { if(e.key === "Enter"){e.preventDefault(); results.querySelector('a')?.click();} if(e.key === "ArrowDown"){e.preventDefault();results.querySelector('a')?.focus();} };
+      paint(); input.focus();
+    }
+  });
+};
+document.addEventListener("keydown", e => {
+  if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k" && state.principal && $(".app-shell")){ e.preventDefault(); if(!activeDialogClose) handlers["workspace-search"](); }
+  if(e.key === "Escape" && $(".sidebar.open")) handlers["mobile-menu"]();
+  if(e.key === "Tab" && $(".sidebar.open")) {
+    const focusable = [...$(".sidebar").querySelectorAll('a,button')].filter(n=>!n.disabled);
+    if(e.shiftKey && document.activeElement===focusable[0]){e.preventDefault();focusable.at(-1)?.focus();}
+    if(!e.shiftKey && document.activeElement===focusable.at(-1)){e.preventDefault();focusable[0]?.focus();}
+  }
+});
 
 async function overviewPage() {
   const d = await api("/dashboard" + query({ from: state.from, to: state.to }));
@@ -747,8 +834,7 @@ async function overviewPage() {
   const chart = charts.length
     ? `<div class="card-pad"><div class="chart">${charts.map((r, i) => `<div class="chart-column" title="${esc(r.day)}: ${r.total}"><span class="num">${num(r.total)}</span><div class="chart-bar ${i === charts.length - 1 ? "strong" : ""}" style="height:${Math.max(3, (Number(r.total) / max) * 140)}px"></div><small>${esc(r.day.slice(5))}</small></div>`).join("")}</div><div class="legend"><span><i class="key"></i>${T("计划服务日预约数", "Appointments by scheduled date")}</span><span>${T("最近 22 个有业务记录的日期", "Last 22 dates with records")}</span></div></div>`
     : empty();
-  const agenda = d.today_agenda
-    .slice(0, 6)
+  const agenda = orderedAgenda(d.today_agenda)
     .map(
       (a) =>
         `<div class="list-row"><div class="time-box num">${esc(a.scheduled_start_at.slice(11, 16))}</div><div class="list-main"><strong>${esc(a.patient_name)}</strong><small>${esc(a.treatment_name)} · ${esc(a.dentist_name)}</small></div>${badge(a.status)}</div>`,
@@ -757,15 +843,15 @@ async function overviewPage() {
   return (
     title(
       "NETWORK COMMAND CENTER",
-      T("把今天的照护，安排妥当。", "Care, thoughtfully coordinated."),
+      T("运营工作台", "Operations overview"),
       T(
-        "从日常预约到网络经营，同一份事实支持每个岗位的下一步。",
-        "One operational record, supporting every next step.",
+        "按授权诊所和服务日期查看预约、到诊及经营统计。",
+        "Review appointments, arrivals and operating figures by authorized clinic and service date.",
       ),
     ) +
     `<div class="hero-strip"><div><h2>${T("你好，", "Hello, ")}${esc(state.principal.name)}</h2><p>${esc(role)} · ${T("数据范围", "Data range")} ${esc(state.from)} — ${esc(state.to)} · ${T("更新于", "Updated")} ${date(d.generated_at)}</p></div><div class="hero-emblem">${icon("leaf")}</div></div>` +
     filters({ range: true }) +
-    `<div class="metric-grid gap">${metric(T("授权患者", "Patients in scope"), num(d.patient_count), T("稳定的全网患者身份", "Network patient identity"), "users", true)}${metric(T("期间预约", "Appointments"), num(total), T("按计划服务日统计", "By scheduled service date"), "calendar")}${metric(T("完成预约", "Completed visits"), num(completed), T("与临床完成事实一致", "Linked to clinical completion"), "check")}${d.finance ? metric(T("期间净收款", "Net cash received"), money(d.finance.net_cash_fen), T("收款 − 退款；非核定利润", "Receipts less refunds, not approved profit"), "wallet") : metric(T("授权诊所", "Authorized clinics"), num(d.clinics.length), T("范围由机构授权确定", "Access is assigned by the organization"), "building")}</div><div class="wide-main gap"><div class="stack">${panel(T("服务节奏", "Care activity"), chart, "", T("授权范围内的预约业务量", "Appointment activity within your authorized scope"))}${panel(
+    `<div class="metric-grid gap">${metric(T("授权患者", "Patients in scope"), num(d.patient_count), T("当前可查看的患者档案", "Patient records within your scope"), "users", true)}${metric(T("期间预约", "Appointments"), num(total), T("按计划服务日统计", "By scheduled service date"), "calendar")}${metric(T("完成预约", "Completed visits"), num(completed), T("所选期间已完成的预约", "Completed in the selected period"), "check")}${d.finance ? metric(T("期间净收款", "Net cash received"), money(d.finance.net_cash_fen), T("收款 − 退款；非核定利润", "Receipts less refunds, not approved profit"), "wallet") : metric(T("授权诊所", "Authorized clinics"), num(d.clinics.length), T("范围由机构授权确定", "Access is assigned by the organization"), "building")}</div><div class="wide-main gap"><div class="stack">${panel(T("预约量趋势", "Appointment volume"), chart, "", T("授权范围内的预约业务量", "Appointment activity within your authorized scope"))}${panel(
       T("诊所运营概览", "Clinic operations"),
       table(
         [
@@ -783,7 +869,7 @@ async function overviewPage() {
           num(c.chair_capacity),
         ]),
       ),
-    )}</div><div class="stack">${panel(T("今日服务", "Today’s agenda"), `<div class="card-pad">${agenda || empty(T("今日暂无安排", "No appointments today"))}</div>`, can("appointment.read") ? `<a class="btn ghost small" href="#/appointments">${icon("arrow")}</a>` : "")}${panel(T("业务状态", "Operational status"), `<div class="card-pad">${d.appointment_states.map((r) => `<div class="list-row">${badge(r.status)}<strong class="push num">${num(r.value)}</strong></div>`).join("") || empty()}</div>`)}<div class="callout">${T("这里的每一个数字来自持久化业务记录。需要核定的利润与激励基金，请进入季度核定工作区。", "Every figure comes from persisted records. Approved profit and incentive pools are available in Financial Close.")}</div></div></div>`
+    )}</div><div class="stack">${panel(T("今日日程", "Today’s agenda"), `<div class="card-pad">${agenda || empty(T("今日暂无安排", "No appointments today"))}</div>`, can("appointment.read") ? `<a class="btn ghost small" href="#/appointments" aria-label="${T("查看预约日程","Open appointment schedule")}">${icon("arrow")}</a>` : "")}${panel(T("预约状态分布", "Appointment status"), `<div class="card-pad">${d.appointment_states.map((r) => `<div class="list-row">${badge(r.status)}<strong class="push num">${num(r.value)}</strong></div>`).join("") || empty()}</div>`)}<div class="callout">${T("预约按计划服务日统计，净收款按收退款发生日统计。核定利润与基金以期间核算结果为准。", "Appointments follow service dates; net cash follows receipt and refund dates. Approved profit and funds follow the financial close.")}</div></div></div>`
   );
 }
 async function patientsPage() {
@@ -792,9 +878,9 @@ async function patientsPage() {
   return (
     title(
       "PATIENT 360",
-      T("每个人，都有连续的照护。", "A continuous story of care."),
+      T("患者管理", "Patient management"),
       T(
-        "查找全网稳定身份，核实联系方式、风险与既往就诊。",
+        "检索授权范围内的患者档案，核实联系方式、风险与既往就诊。",
         "Find a stable patient identity and review care, contact and risk information.",
       ),
       can("patient.manage")
@@ -902,6 +988,12 @@ async function patientPage(id) {
     )}<div class="grid2" style="margin-top:22px">${panel(T("照护时间线", "Care timeline"), `<div class="card-pad timeline">${d.timeline.map((e) => `<div class="timeline-item"><strong>${esc(e.title_zh)}</strong><p>${date(e.occurred_at)} · ${esc(e.description_zh)}</p></div>`).join("") || empty()}</div>`)}${panel(T("资料共享同意", "Data sharing consent"), `<div class="card-pad">${d.consents.map((c) => `<div class="list-row"><div class="list-main"><strong>${esc(c.consent_type)}</strong><small>${date(c.captured_at)} · ${esc(c.policy_version)}</small></div>${badge(c.status)}</div>`).join("") || empty()}<p class="subline">${T("通用资料同意不替代具体治疗的知情同意。", "Data-sharing consent does not replace treatment-specific consent.")}</p></div>`, can("patient.manage") ? button(T("追加决定", "Record decision"), "privacy-consent", id, "small") : "")}</div>`
   );
 }
+async function receptionPage(){
+  const day=state.serviceDate||state.boot.today;
+  const rows=await api("/appointments"+query({from:day,to:day}));
+  const recent=rows.length?null:(await api("/appointments"+query()))[0];
+  return receptionContent({rows,day,clinic:state.clinic,clinics:state.boot.clinics,selection:state.deskView,canManage:can("appointment.manage"),search:state.deskSearch,doctor:state.deskDoctor,recentDate:recent?.scheduled_start_at?.slice(0,10)},{esc,T,button,badge,table,link});
+}
 async function appointmentsPage() {
   const day = state.serviceDate || state.boot.today;
   const to =
@@ -910,8 +1002,14 @@ async function appointmentsPage() {
           .toISOString()
           .slice(0, 10)
       : day;
-  const list = await api("/appointments" + query({ from: day, to }));
+  const all = await api("/appointments" + query({ from: day, to }));
+  const list = filterAppointments(all,{dentist:state.scheduleDentist,status:state.scheduleStatus,search:state.scheduleSearch});
   state.appointments = list;
+  const resources=await api('/resources');
+  const calendar=state.view==='calendar'?(state.scheduleStatus&&['CANCELLED','NO_SHOW'].includes(state.scheduleStatus)?`<div class="calendar-footnote">${T('取消与未到诊不占用日程时段，完整记录如下。','Cancelled/no-show records do not occupy the timeline and are listed below.')}</div>`+appointmentTable(list):renderCalendar(buildCalendarModel(list,{day,group:state.calendarGroup,resources,clinic:state.clinic,dentist:state.scheduleDentist}),{esc,T,badge})):'';
+  const doctorOptions=(state.boot.dentists||[]).filter(d=>all.some(a=>a.dentist_id===d.id)||resources.assignments.some(a=>a.dentist_id===d.id&&a.status==='ACTIVE'&&(!state.clinic||a.clinic_id===state.clinic)&&a.effective_from<=to&&(!a.effective_to||a.effective_to>=day)));
+  const appointmentStatuses=['CONFIRMED','CHECKED_IN','IN_PROGRESS','COMPLETED','CANCELLED','NO_SHOW'];
+  const controls=`<div class="schedule-date-nav">${button(T('前一天','Previous day'),'schedule-day','-1','small')}${button(T('今天','Today'),'schedule-day','today','small')}${button(T('后一天','Next day'),'schedule-day','1','small')}<strong>${esc(day)}</strong><span>${T('诊所本地时间','Clinic local time')}</span></div><form class="toolbar schedule-controls" id="schedule-filter">${state.boot.clinics.length>1?`<select name="clinic_id" class="field-input" aria-label="${T('诊所','Clinic')}"><option value="">${T('所有授权诊所','All authorized clinics')}</option>${state.boot.clinics.map(c=>`<option value="${esc(c.id)}" ${c.id===state.clinic?'selected':''}>${esc(c.name_zh)}</option>`).join('')}</select>`:''}<input class="field-input" type="date" name="service_date" value="${esc(day)}" aria-label="Service date"><select name="dentist_id" class="field-input" aria-label="${T('医师筛选','Dentist filter')}"><option value="">${T('全部医师','All dentists')}</option>${doctorOptions.map(d=>`<option value="${esc(d.id)}" ${d.id===state.scheduleDentist?'selected':''}>${esc(d.name_zh)}</option>`).join('')}</select><select name="status" class="field-input" aria-label="${T('预约状态','Appointment status')}"><option value="">${T('全部状态','All statuses')}</option>${appointmentStatuses.map(s=>`<option value="${s}" ${s===state.scheduleStatus?'selected':''}>${state.lang==='en'?statusMap[s][1]:statusMap[s][0]}</option>`).join('')}</select><input class="field-input schedule-keyword" name="search" value="${esc(state.scheduleSearch)}" placeholder="${T('患者姓名 / 预约编号 / 项目','Patient / appointment / treatment')}" aria-label="${T('预约检索','Appointment search')}"><button type="submit" class="btn">${T('查询','Apply')}</button>${button(T('重置','Reset'),'schedule-reset','','small')}</form><div class="schedule-viewbar"><div class="row">${[['calendar',T('时间表','Timeline')],['board',T('状态看板','Status board')],['list',T('日列表','Day list')],['week',T('周列表','Week list')]].map(([id,name])=>button(name,'schedule-view',id,'small '+(state.view===id?'on':''))).join('')}</div>${state.view==='calendar'?`<div class="row"><span>${T('按','Group by')}</span>${button(T('医师','Dentist'),'schedule-group','dentist','small '+(state.calendarGroup==='dentist'?'on':''))}${button(T('牙椅','Chair'),'schedule-group','chair','small '+(state.calendarGroup==='chair'?'on':''))}</div>`:''}<span class="subline">${T('当前筛选','Filtered')}: ${list.length} / ${all.length}${all.length===600?T(' · 已达查询上限，请缩小范围',' · Query limit reached; narrow the scope'):''}</span></div>`;
   const cols = [
     ["CONFIRMED", T("已确认 · 待到诊", "Confirmed")],
     ["CHECKED_IN", T("已到诊 · 待接诊", "Checked in")],
@@ -940,10 +1038,10 @@ async function appointmentsPage() {
   return (
     title(
       "SMART SCHEDULING",
-      T("从一个可执行的安排开始。", "Begin with an executable plan."),
+      T("预约日程", "Appointment schedule"),
       T(
-        "候选时段用于协商，提交时重新校验资质、任职、排班和资源冲突。",
-        "Resource availability and qualifications are checked again at commit.",
+        "查看患者到诊、医师接诊与牙椅安排。选中预约查看详情；新建或改期时核验资源。",
+        "Review arrivals, clinicians and chair assignments. Select an appointment for details; scheduling validates resources.",
       ),
       can("appointment.manage")
         ? button(
@@ -955,7 +1053,7 @@ async function appointmentsPage() {
           )
         : "",
     ) +
-    `<form class="toolbar" id="schedule-filter">${state.boot.clinics.length > 1 ? `<select name="clinic_id" class="field-input"><option value="">${T("所有授权诊所", "All authorized clinics")}</option>${state.boot.clinics.map((c) => `<option value="${esc(c.id)}" ${c.id === state.clinic ? "selected" : ""}>${esc(c.name_zh)}</option>`).join("")}</select>` : ""}<input class="field-input" type="date" name="service_date" value="${esc(day)}" aria-label="Service date"><button type="submit" class="btn">${T("查看日程", "View")}</button><div class="row push">${button(T("日看板", "Day board"), "schedule-view", "board", "small " + (state.view === "board" ? "on" : ""))}${button(T("日列表", "Day list"), "schedule-view", "list", "small " + (state.view === "list" ? "on" : ""))}${button(T("周列表", "Week list"), "schedule-view", "week", "small " + (state.view === "week" ? "on" : ""))}</div></form><div class="metric-grid gap">${metric(T("已安排", "Scheduled"), list.length, T("当前日期与范围", "Selected service dates"), "calendar", true)}${metric(T("已到诊", "Checked in"), list.filter((a) => ["CHECKED_IN", "IN_PROGRESS", "COMPLETED"].includes(a.status)).length, T("包括进行中与已完成", "Including in-progress and complete"), "users")}${metric(T("已完成", "Completed"), list.filter((a) => a.status === "COMPLETED").length, T("临床完成后同步", "Updated after clinical completion"), "check")}${metric(T("取消 / 未到诊", "Cancelled / no-show"), list.filter((a) => ["CANCELLED", "NO_SHOW"].includes(a.status)).length, T("原因与发起方分别保留", "Separate reasons and initiators"), "clock")}</div>${state.view === "board" ? board : panel(T("服务日程", "Service agenda"), appointmentTable(list))}`
+    controls + `<div class="schedule-summary">${[['CONFIRMED',T('待到诊','Expected')],['CHECKED_IN',T('待接诊','Waiting')],['IN_PROGRESS',T('诊疗中','In progress')],['COMPLETED',T('已完成','Completed')]].map(([s,label])=>`<button type="button" data-act="schedule-status" data-id="${s}"><span>${label}</span><strong>${list.filter(a=>a.status===s).length}</strong></button>`).join('')}<div><span>${T('未分配牙椅','Chair unassigned')}</span><strong>${list.filter(a=>!a.chair_id&&!['CANCELLED','NO_SHOW','COMPLETED'].includes(a.status)).length}</strong></div><div><span>${T('取消 / 未到诊','Cancelled / no-show')}</span><strong>${list.filter(a=>['CANCELLED','NO_SHOW'].includes(a.status)).length}</strong></div></div>${!all.length&&state.view!=='board'?board.split('<div class="schedule-board">')[0]:''}${state.view==='calendar'?panel(T('预约时间表','Appointment timeline'),calendar):state.view === 'board' ? board : panel(T('服务日程','Service agenda'),appointmentTable([...list].sort((a,b)=>a.scheduled_start_at.localeCompare(b.scheduled_start_at))))}`
   );
 }
 function appointmentTable(list) {
@@ -981,205 +1079,72 @@ function appointmentTable(list) {
   );
 }
 async function clinicalPage() {
-  let list = await api("/visits" + query());
-  if (state.principal.dentist_id)
-    list = list.filter((v) => v.dentist_id === state.principal.dentist_id);
-  state.visits = list;
-  return (
-    title(
-      "CLINICAL STUDIO",
-      T("专业判断，有据可循。", "Thoughtful care, carefully recorded."),
-      T(
-        "风险复核、牙位观察、方案与实施分别留痕，签署后才进入完成核验。",
-        "Risk review, observations, plans and actual treatment remain distinct.",
-      ),
-    ) +
-    filters() +
-    `<div class="metric-grid gap">${metric(T("待安全复核", "Safety review"), list.filter((v) => v.status === "SAFETY_REVIEW").length, T("先核实风险，再开始诊疗", "Review risk before care"), "shield", true)}${metric(T("待接诊", "Waiting"), list.filter((v) => v.status === "WAITING").length, T("已完成风险复核", "Safety review completed"), "clock")}${metric(T("诊疗中", "In progress"), list.filter((v) => v.status === "IN_PROGRESS").length, T("检查、实施与记录", "Examination, treatment and notes"), "tooth")}${metric(T("已完成", "Completed"), list.filter((v) => v.status === "COMPLETED").length, T("签署与完成条件已核对", "Signed and completion checked"), "check")}</div>${panel(
-      T("接诊队列", "Care queue"),
-      table(
-        [
-          T("患者", "Patient"),
-          T("就诊", "Visit"),
-          T("牙医", "Dentist"),
-          T("诊所", "Clinic"),
-          T("安全门槛", "Safety"),
-          T("状态", "Status"),
-          "",
-        ],
-        list.map((v) => [
-          `<div class="name">${esc(v.patient_name)}</div><div class="second mono">${esc(v.patient_code)}</div>`,
-          `<div class="mono">${esc(v.visit_code)}</div><div class="second">${date(v.started_at)}</div>`,
-          esc(v.dentist_name),
-          esc(v.clinic_name),
-          badge(v.safety_gate_status),
-          badge(v.status),
-          `<a class="btn small" href="#/clinical/${esc(v.id)}">${T("打开工作室", "Open studio")}${icon("arrow")}</a>`,
-        ]),
-      ),
-    )} `
-  );
+  let all=await api("/visits"+query());
+  if(state.clinic)all=all.filter(v=>v.clinic_id===state.clinic);
+  if(state.principal.dentist_id)all=all.filter(v=>v.dentist_id===state.principal.dentist_id);
+  state.visits=all;
+  const selected=state.careQueue||"ACTIVE",q=(state.careSearch||"").trim().toLocaleLowerCase();
+  const active=v=>!["COMPLETED","CANCELLED"].includes(v.status);
+  const list=all.filter(v=>(selected==="ALL"||(selected==="ACTIVE"?active(v):v.status===selected))&&(!q||[v.patient_name,v.patient_code,v.visit_code].some(s=>String(s||"").toLocaleLowerCase().includes(q)))).sort((a,b)=>String(a.scheduled_start_at).localeCompare(String(b.scheduled_start_at)));
+  return title("CLINICAL CARE",T("临床接诊","Clinical care"),T("按预约服务时间查看接诊记录。旧记录保留原日期，不计作今日就诊；进入本次就诊后核实风险并补齐记录。","Review care by scheduled service time. Historical records keep their actual date. Open a visit to review safety and record treatment."))+filters()+
+    '<section class="desk-register"><div class="worklist-tabs">'+[["ACTIVE",T("未完成","Active")],["SAFETY_REVIEW",T("待安全复核","Safety review")],["WAITING",T("待接诊","Waiting")],["IN_PROGRESS",T("诊疗中","In care")],["COMPLETED",T("已完成","Completed")],["ALL",T("全部记录","All records")]].map(([id,label])=>`<button type="button" data-act="care-queue" data-id="${id}" class="${selected===id?"selected":""}" aria-pressed="${selected===id}">${label}<span>${all.filter(v=>id==="ALL"||(id==="ACTIVE"?active(v):v.status===id)).length}</span></button>`).join("")+
+    `</div><form id="care-search" class="worklist-search"><label for="care-keyword">${T("检索就诊","Find visit")}</label><input class="field-input" id="care-keyword" name="q" value="${esc(state.careSearch||"")}" placeholder="${T("患者姓名 / 患者或就诊编号","Patient name / code / visit")}"><button class="btn" type="submit">${T("检索","Search")}</button><span>${list.length} ${T("条记录","records")}</span></form>`+
+    table([T("服务时间","Service time"),T("患者","Patient"),T("负责医师 / 诊所","Clinician / clinic"),T("风险复核","Safety review"),T("就诊状态","Visit status"),""],list.map(v=>[date(v.scheduled_start_at),`<strong>${esc(v.patient_name)}</strong><div class="second">${esc(v.patient_code)} · ${esc(v.visit_code)}</div>`,esc(v.dentist_name)+`<div class="second">${esc(v.clinic_name)}</div>`,badge(v.safety_gate_status),badge(v.status),`<a class="btn small" href="#/clinical/${esc(v.id)}">${T("打开就诊","Open visit")}</a>`]))+
+    `<div class="worklist-footer">${T("记录状态不代替本次复核结果。完成条件在就诊内逐项列示，并在提交时由服务端重新核验。","Record status does not replace the current review. Completion checks are listed inside the visit and revalidated on submission.")}${all.length===300?T(" 已达查询上限，请缩小范围。"," Query limit reached; narrow scope."):""}</div></section>`;
 }
 async function visitPage(id) {
-  const d = await api("/visits/" + encodeURIComponent(id));
-  state.visitDetail = d;
-  const v = d.visit;
-  const writable =
-      can("clinical.write") &&
-      (!state.principal.dentist_id ||
-        state.principal.dentist_id === v.dentist_id),
-    active = !["COMPLETED", "CANCELLED"].includes(v.status);
-  const teeth = [
-    18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28, 48, 47, 46,
-    45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38,
-  ];
-  const controls =
-    writable && active
-      ? button(
-          T("风险复核", "Review safety"),
-          "clinical-safety",
-          id,
-          "",
-          "shield",
-        ) +
-        (v.status === "WAITING"
-          ? button(
-              T("开始诊疗", "Start care"),
-              "clinical-start",
-              id,
-              "primary",
-              "tooth",
-            )
-          : "") +
-        (v.status === "IN_PROGRESS"
-          ? button(
-              T("补全项目关联", "Reconcile treatment"),
-              "clinical-reconcile",
-              id,
-              "",
-              "file",
-            ) +
-            button(
-              T("完成就诊", "Complete visit"),
-              "clinical-complete",
-              id,
-              "primary",
-              "check",
-            )
-          : "")
-      : "";
-  const notes = d.notes
-    .map(
-      (n) =>
-        `<div class="gap"><div class="row between" style="margin-bottom:10px"><span class="mono">v${n.version_number} · ${date(n.created_at)}</span>${Number(n.version_number) === Number(n.current_version) ? badge(n.status === "SIGNED" && !n.signed_at ? "LEGACY_UNVERIFIED" : n.status) : `<span class="badge">${T("历史版本", "Historical version")}</span>`}</div><div class="note-version">${esc(n.content_zh)}</div>${n.amendment_reason ? `<p class="subline">${T("补记原因：", "Amendment: ")}${esc(n.amendment_reason)}</p>` : ""}<p class="subline">${n.signed_at ? `${T("本版本签署：", "Version signed: ")}${esc(n.signer_dentist)} · ${date(n.signed_at)}` : T("本版本尚无签署证据", "No signature evidence on this version")}</p><p class="subline mono">${/^[a-f0-9]{64}$/.test(n.content_checksum) ? "SHA256 " + esc(n.content_checksum.slice(0, 20)) + "…" : T("来源校验标识待核验", "Legacy checksum identifier unverified")}</p></div>`,
-    )
-    .join("");
-  return (
-    title(
-      "CLINICAL RECORD",
-      v.patient_name,
-      `${v.visit_code} · ${v.dentist_name} · ${v.clinic_name}`,
-      controls,
-    ) +
-    `<div class="row wrap gap">${badge(v.status)}${badge(v.safety_gate_status)}<span class="mono muted">${T("记录版本", "Record version")} ${v.visit_version}</span><span class="push">${link(T("患者档案", "Patient profile"), "patients/" + v.patient_id)}</span></div>${active && d.blockers.length ? `<div class="callout warn gap"><strong>${T("完成前待核对", "Before completion")}</strong><ul>${d.blockers.map((b) => `<li>${esc(b)}</li>`).join("")}</ul></div>` : ""}<div class="wide-main gap"><div class="stack">${panel(
-      T("牙位观察", "Odontogram & observations"),
-      `<div class="card-pad"><div class="odontogram">${teeth.map((tooth, i) => `${i === 16 ? `<div class="tooth-label">${T("下颌 · FDI 恒牙编码", "LOWER ARCH · FDI")}</div>` : ""}<button class="tooth ${d.observations.some((o) => o.tooth_code === String(tooth)) ? "marked" : ""} ${state.selectedTooth === String(tooth) ? "selected" : ""}" data-act="tooth-select" data-id="${tooth}" aria-label="${T("牙位", "Tooth")} ${tooth}"><svg viewBox="0 0 30 36" aria-hidden="true"><path d="M7 2C2 2 1 6 3 12l4 19c1 5 4 4 4 0l2-11c.3-2 3-2 3 0l2 11c1 4 3 5 4 0l5-19c2-6 0-10-5-10-3 0-5 2-7 2S10 2 7 2Z"/></svg><span>${tooth}</span></button>`).join("")}</div><p class="subline">${T("点选牙位后记录观察；颜色提示不能替代文本。", "Select a tooth before recording an observation. Color is a cue, not a diagnosis.")}</p></div>${table(
-        [
-          T("牙位", "Tooth"),
-          T("观察类型", "Type"),
-          T("检查所见", "Finding"),
-          T("时间", "Time"),
-        ],
-        d.observations.map((o) => [
-          esc(o.tooth_code),
-          esc(o.observation_type),
-          esc(o.finding_zh),
-          date(o.observed_at),
-        ]),
-      )}`,
-      writable && active
-        ? button(
-            T("记录观察", "Add observation"),
-            "clinical-observation",
-            id,
-            "small",
-            "plus",
-          )
-        : "",
-    )}${panel(
-      T("治疗计划与患者决定", "Treatment plan & decisions"),
-      `<div class="card-pad">${
-        d.requested
-          .map((r) => {
-            const consent = d.consents.find(
-              (c) => c.requested_treatment_item_id === r.id,
-            );
-            return `<div class="plan-card"><div class="row between"><strong>${esc(r.treatment_name)} · ${r.units} ${T("单位", "unit(s)")}</strong>${badge(r.status)}</div><p>${esc(r.rationale_zh)} ${r.tooth_code ? " · FDI " + esc(r.tooth_code) : ""}</p><div class="row wrap" style="margin-top:12px">${consent ? `<small>${T("同意依据：", "Evidence: ")}${esc(consent.evidence)}</small>` : writable && active ? button(T("记录患者决定", "Record decision"), "clinical-consent", r.id, "small") : ""}${writable && active && v.status === "IN_PROGRESS" ? button(T("记录本次实施", "Record actual treatment"), "clinical-actual", r.id, "small") : ""}</div></div>`;
-          })
-          .join("") ||
-        empty(
-          T(
-            "尚无治疗计划；计划不直接产生收费。",
-            "No plan yet. Plans do not generate charges.",
-          ),
-        )
-      }</div>`,
-      writable && active
-        ? button(
-            T("新增方案项目", "Propose treatment"),
-            "clinical-plan",
-            id,
-            "small",
-            "plus",
-          )
-        : "",
-    )}${panel(
-      T("本次实际治疗", "Actual treatment"),
-      table(
-        [
-          T("项目", "Treatment"),
-          T("牙位", "Tooth"),
-          T("数量", "Units"),
-          T("单价快照", "Unit-price snapshot"),
-          T("行金额", "Amount"),
-          T("时间", "Performed"),
-        ],
-        d.actual.map((a) => [
-          esc(a.treatment_name),
-          esc(a.tooth_code || "—"),
-          a.units,
-          money(a.effective_unit_price_fen),
-          money(a.line_amount_fen),
-          date(a.performed_at),
-        ]),
-      ),
-      writable && active && v.status === "IN_PROGRESS"
-        ? button(
-            T("追加实施", "Add actual"),
-            "clinical-actual",
-            "",
-            "small",
-            "plus",
-          )
-        : "",
-    )}</div><div class="stack">${panel(T("本次风险复核", "Safety review"), `<div class="card-pad">${d.allergies.map((a) => `<div class="list-row"><div class="list-main"><strong>${esc(a.substance_zh || a.substance_en)}</strong><small>${esc(a.reaction_zh || a.reaction_en)}</small></div>${badge(a.severity)}</div>`).join("") || `<p class="subline">${T("未登记过敏，仍须询问并核实。", "No recorded allergies. Ask and verify.")}</p>`}<div class="divider"></div>${badge(v.safety_gate_status)}<p class="subline">${T("主诉 / 到诊声明：", "Chief complaint / arrival declaration: ")}${esc(v.chief_complaint_zh || "—")}</p>${d.acknowledgements.map((a) => `<p class="subline">${date(a.acknowledged_at)}<br>${esc(a.precaution_zh)}</p>`).join("")}</div>`)}${panel(T("病历与签署版本", "Clinical notes & signatures"), `<div class="card-pad">${notes || empty(T("尚未保存病历", "No clinical notes yet"))}</div>`, writable ? button(T(v.status === "COMPLETED" ? "附理由补记" : "记录 / 签署", v.status === "COMPLETED" ? "Amend" : "Write / sign"), "clinical-note", id, "small", "file") : "")}<div class="callout">${T("签署标记记录系统账号、牙医、时间与内容校验值。已完成后的补记追加版本，不覆盖原记录。", "Signatures preserve the account, dentist, time and checksum. Amendments append a version and retain the original.")}</div></div></div>`
-  );
+  const d=await api("/visits/"+encodeURIComponent(id));
+  state.visitDetail=d;
+  if(state.careVisit!==id){state.careVisit=id;state.careTab="";state.selectedTooth="";}
+  const writable=can("clinical.write")&&(!state.principal.dentist_id||state.principal.dentist_id===d.visit.dentist_id);
+  return (can('followup.recommend')&&writable&&d.visit.status!=='CANCELLED'?`<div class="setup-care-actions">${button(T('提出复诊建议','Recommend recall'),'followup-recommend',id,'small')}</div>`:'')+renderCareWorkspace(d,{esc,T,badge,button,link,table,money,date,selectedTooth:state.selectedTooth,selectedTab:state.careTab,writable});
 }
 function bindLocal(page) {
+  const followup=document.querySelector('#followup-filter');
+  if(followup)followup.onsubmit=e=>{e.preventDefault();const f=new FormData(followup);state.followupSearch=String(f.get('search')||'');state.followupStatus=String(f.get('status'));state.followupDue=String(f.get('due'));refresh();};
+  const care=$("#care-search");
+  if(care)care.onsubmit=e=>{e.preventDefault();state.careSearch=String(new FormData(care).get("q")||"").trim();refresh();};
+  if(page==="clinical") bindCareTabs($("#page-content"),tab=>{state.careTab=tab;});
+  const desk=$("#desk-filter");
+  if(desk)desk.onsubmit=e=>{e.preventDefault();const f=new FormData(desk);state.serviceDate=String(f.get("day"));state.clinic=String(f.get("clinic_id")??state.clinic);state.deskDoctor=String(f.get("doctor")||"");state.deskSearch=String(f.get("search")||"").trim();sessionStorage.setItem("adc-clinic",state.clinic);refresh();};
+  const bill=$("#billing-search");
+  if(bill)bill.onsubmit=e=>{e.preventDefault();state.billSearch=String(new FormData(bill).get("search")||"").trim();refresh();};
   if (page === "appointments")
     $("#schedule-filter").onsubmit = (e) => {
       e.preventDefault();
       const f = new FormData(e.currentTarget);
       state.serviceDate = f.get("service_date");
       state.clinic = String(f.get("clinic_id") ?? state.clinic);
+      state.scheduleDentist=String(f.get('dentist_id')||'');
+      state.scheduleStatus=String(f.get('status')||'');
+      state.scheduleSearch=String(f.get('search')||'').trim();
       sessionStorage.setItem("adc-clinic", state.clinic);
       refresh();
     };
 }
+handlers["care-queue"]=v=>{state.careQueue=v;refresh();};
+handlers["desk-day"]=v=>{state.serviceDate=v==="today"?state.boot.today:shiftDay(state.serviceDate||state.boot.today,Number(v));state.deskDoctor="";refresh();};
+handlers["desk-reference"]=v=>{state.serviceDate=v;state.deskDoctor="";refresh();};
+handlers["desk-view"]=v=>{state.deskView=v;refresh();};
+handlers["desk-reset"]=()=>{state.deskView="";state.deskDoctor="";state.deskSearch="";refresh();};
+handlers["desk-checkin"]=async id=>{state.appointmentDetail=await api("/appointments/"+encodeURIComponent(id));handlers["appointment-checkin"](id);};
+handlers["billing-view"]=v=>{state.billView=v;refresh();};
+handlers["billing-reset"]=()=>{state.billSearch="";state.billView="";refresh();};
+handlers["patient-search"]=()=>modal({
+  name:T("查找患者","Find a patient"),description:T("按姓名、患者编号或电话检索当前授权范围。","Search the authorized scope by name, patient code or phone."),
+  fields:[{name:"q",label:T("患者姓名 / 编号 / 电话","Name / code / phone"),value:state.search||""}],
+  submit:T("查看匹配档案","View matches"), successMessage:"",
+  onSubmit:async b=>{state.search=b.q.trim();},
+  onSuccess:async()=>{history.replaceState(null,"","#/patients");await refresh();}
+});
 handlers["schedule-view"] = (v) => {
   state.view = v;
   refresh();
 };
+handlers['schedule-day'] = v=>{state.serviceDate=v==='today'?state.boot.today:shiftDay(state.serviceDate||state.boot.today,Number(v));refresh();};
+handlers['schedule-group'] = v=>{state.calendarGroup=v;refresh();};
+handlers['schedule-status'] = v=>{state.scheduleStatus=state.scheduleStatus===v?'':v;refresh();};
+handlers['schedule-reset'] = ()=>{state.scheduleDentist='';state.scheduleStatus='';state.scheduleSearch='';refresh();};
 handlers["schedule-reference"] = (v) => {
   state.serviceDate = v;
   refresh();
@@ -1439,6 +1404,7 @@ function wireBookingForm(resources) {
         )
         .map((a) => a.dentist_id),
     );
+    updateOptions('treatment_id',state.boot.treatments.filter(t=>t.status==='ACTIVE'&&t.effective_from<=day&&(!t.effective_to||t.effective_to>=day)).map(t=>({value:t.id,label:`${t.name_zh} · ${t.code} · v${t.version}`})));
     updateOptions(
       "dentist_id",
       opts(
@@ -1515,6 +1481,10 @@ function wireBookingForm(resources) {
     }
   };
 }
+function renderAppointmentHistoryEntry(h){
+  const event=appointmentHistoryEvent(h,T);
+  return `<div class="timeline-item"><strong>${esc(event.title)}</strong><p>${esc(event.detail)}</p><p>${date(h.occurred_at)} · ${esc(h.actor_name||'—')}</p>${event.evidence?`<p>${esc(event.evidence)}</p>`:''}</div>`;
+}
 handlers["appointment-detail"] = async (id) => {
   const d = await api("/appointments/" + id);
   state.appointmentDetail = d;
@@ -1522,6 +1492,7 @@ handlers["appointment-detail"] = async (id) => {
   modal({
     name: a.patient_name + " · " + T("预约详情", "Appointment"),
     description: a.appointment_code,
+    informational: true,
     fields: [],
     submit: T("关闭", "Close"),
     body: `<div class="kv-grid gap">${[
@@ -1534,6 +1505,7 @@ handlers["appointment-detail"] = async (id) => {
       [T("牙椅", "Chair"), a.chair_name || T("未指定", "Unassigned")],
       [T("项目", "Treatment"), a.treatment_name],
       [T("版本", "Version"), a.appointment_version],
+      [T("患者联系确认", "Patient confirmation"), a.confirmation_state==='CONFIRMED'?T('患者已确认','Patient confirmed'):a.confirmation_state==='UNREACHABLE'?T('暂未联系上','Unreachable'):T('待联系确认','Pending contact')],
     ]
       .map(
         ([k, v]) =>
@@ -1541,9 +1513,19 @@ handlers["appointment-detail"] = async (id) => {
       )
       .join(
         "",
-      )}</div><div class="row wrap gap">${badge(a.status)}${can("appointment.manage") && a.status === "CONFIRMED" ? button(T("办理到诊", "Check in"), "appointment-checkin", id, "small primary") + button(T("改期", "Reschedule"), "appointment-reschedule", id, "small") + button(T("取消", "Cancel"), "appointment-cancel", id, "small danger") + button(T("未到诊", "No-show"), "appointment-no-show", id, "small") : ""}${can("appointment.manage") && a.status === "CHECKED_IN" ? button(T("撤销到诊", "Revoke arrival"), "appointment-revoke", id, "small danger") : ""}</div><div class="timeline">${d.history.map((h) => `<div class="timeline-item"><strong>${esc(statusMap[h.to_status]?.[0] || h.to_status)}</strong><p>${date(h.occurred_at)} · ${esc(h.actor_name || "—")}</p><p>${esc(h.reason_text || "")}</p></div>`).join("")}</div>`,
+      )}</div><div class="row wrap gap">${badge(a.status)}${can("appointment.manage") && a.status === "CONFIRMED" ? button(T("办理到诊", "Check in"), "appointment-checkin", id, "small primary") + button(T("改期", "Reschedule"), "appointment-reschedule", id, "small") + button(T("取消", "Cancel"), "appointment-cancel", id, "small danger") + button(T("未到诊", "No-show"), "appointment-no-show", id, "small") : ""}${can("appointment.manage") && a.status === "CHECKED_IN" ? button(T("撤销到诊", "Revoke arrival"), "appointment-revoke", id, "small danger") : ""}</div><div class="timeline">${d.history.map(renderAppointmentHistoryEntry).join("")}</div>`,
     onSubmit: async () => {},
+    onReady:()=>{
+      if(can('appointment.manage')&&a.status==='CONFIRMED')modalRoot.querySelector('.row.wrap.gap')?.insertAdjacentHTML('beforeend',button(T('登记联系确认','Record confirmation'),'appointment-confirmation',id,'small'));
+    },
   });
+};
+handlers['appointment-confirmation']=id=>{
+  const a=state.appointmentDetail.appointment;
+  modal({name:T('登记预约联系确认','Record patient confirmation'),description:T('占位预约与患者确认分开。请登记已发生的实际联系；系统不会发送消息。改期后须重新确认。','Reservation and patient confirmation are separate. Record an actual contact; no message is sent. Rescheduling resets confirmation.'),fields:[
+    {name:'confirmation_state',label:T('患者确认结果','Confirmation result'),type:'select',value:a.confirmation_state,options:[['PENDING',T('待确认','Pending')],['CONFIRMED',T('患者已确认','Patient confirmed')],['UNREACHABLE',T('未联系上','Unreachable')]].map(([value,label])=>({value,label}))},
+    {name:'channel',label:T('实际联系途径','Contact channel'),type:'select',options:[['PHONE',T('电话','Phone')],['EMAIL',T('邮箱','Email')],['SMS',T('短信','SMS')],['IN_PERSON',T('当面','In person')]].map(([value,label])=>({value,label}))},reasonField()
+  ],onSubmit:b=>api('/appointments/'+id,{...b,action:'confirmation',version:a.appointment_version})});
 };
 handlers["appointment-checkin"] = (id) => {
   const a = state.appointmentDetail.appointment;
@@ -1969,6 +1951,12 @@ handlers["clinical-complete"] = () => {
 };
 
 async function waitlistPage() {
+  const active=state.waitlistTab||'waitlist';
+  const followupNavigation=followupTabs(active,{button,T,can});
+  if(active==='followups'&&can('followup.read')){
+    const f=await api('/followups'+query());
+    return title('',T('复诊跟进','Recall follow-up'),T('按医师建议安排复诊，保留每次联系结果和正式预约。','Follow clinician advice, retain contacts, and link a booked appointment.'))+filters()+followupNavigation+renderFollowups(f,state,{T,esc,table,button});
+  }
   const d = await api("/waitlist" + query());
   state.waitlist = d;
   return (
@@ -1989,7 +1977,7 @@ async function waitlistPage() {
           )
         : "",
     ) +
-    filters() +
+    filters() + followupNavigation +
     `<div class="metric-grid gap">${metric(T("等待安排", "Waiting"), d.entries.filter((w) => w.status === "WAITING").length, T("已登记的患者意愿", "Patient preferences recorded"), "users", true)}${metric(T("有效邀请", "Active offers"), d.offers.filter((o) => o.status === "OFFERED" && o.expires_at > state.boot.today + " 00:00:00").length, T("提交确认时检查有效期", "Expiry checked at confirmation"), "clock")}${metric(T("已确认补位", "Fulfilled"), d.entries.filter((w) => w.status === "FULFILLED").length, T("对应真实预约", "Backed by a real appointment"), "check")}${metric(T("邀请历史", "Offer history"), d.offers.length, T("拒绝与过期均保留", "Declines and expiry retained"), "file")}</div>${panel(
       T("患者候补意愿", "Patient waitlist"),
       table(
@@ -2136,68 +2124,9 @@ handlers["offer-decline"] = (id) =>
       api("/waitlist", { ...b, action: "decline", offer_id: id }),
   });
 async function billingPage() {
-  const invoices = await api("/finance/invoices" + query());
-  state.invoices = invoices;
-  const completed = await api("/finance/unbilled" + query());
-  state.unbilled = completed;
-  const total = invoices.reduce((n, i) => n + Number(i.total_fen), 0),
-    balance = invoices
-      .filter((i) => i.status !== "VOID")
-      .reduce((n, i) => n + Number(i.balance_fen), 0),
-    paid = invoices.reduce(
-      (n, i) => n + Number(i.paid_fen) - Number(i.refunded_fen),
-      0,
-    );
-  return (
-    title(
-      "REVENUE CONTROL",
-      T("每一笔费用，都有诊疗依据。", "Every charge has a care record."),
-      T(
-        "从实际治疗生成逐项结算。收退款独立留痕，资金与临床事实始终可追查。",
-        "Itemized bills come from actual treatment. Payments and refunds retain independent evidence.",
-      ),
-      button(
-        T("导出 CSV", "Export CSV"),
-        "billing-export",
-        "",
-        "",
-        "download",
-      ) +
-        (can("finance.manage")
-          ? button(
-              T("生成结算单", "Issue a bill"),
-              "invoice-issue",
-              "",
-              "primary",
-              "plus",
-            )
-          : ""),
-    ) +
-    filters() +
-    `<div class="metric-grid gap">${metric(T("已开应收", "Issued amount"), money(total), T("当前授权范围全部结算单", "All invoices in the selected scope"), "receipt", true)}${metric(T("有效净收款", "Net received"), money(paid), T("原收款 − 独立退款", "Payments less independent refunds"), "wallet")}${metric(T("待收余额", "Outstanding"), money(balance), T("不包含已作废单据", "Excluding void invoices"), "clock")}${metric(T("待开单就诊", "Unbilled visits"), completed.length, T("已完成且未建立结算单", "Completed visits without a bill"), "tooth")}</div>${panel(
-      T("诊疗结算台账", "Billing ledger"),
-      table(
-        [
-          T("单据 / 患者", "Bill / patient"),
-          T("诊所", "Clinic"),
-          T("应收", "Total"),
-          T("净收", "Net paid"),
-          T("余额", "Balance"),
-          T("状态", "Status"),
-          "",
-        ],
-        invoices.map((i) => [
-          `<div class="name">${link(i.invoice_code, "billing/" + i.id)}</div><div class="second">${esc(i.patient_name)} · ${esc(i.visit_code)}</div>`,
-          esc(i.clinic_name),
-          money(i.total_fen),
-          money(Number(i.paid_fen) - Number(i.refunded_fen)),
-          money(i.balance_fen),
-          badge(i.status),
-          `<a class="btn ghost small" href="#/billing/${esc(i.id)}">${icon("arrow")}</a>`,
-        ]),
-      ),
-    )}<div class="callout" style="margin-top:20px">${T("此处为业务诊疗结算单，不是法定税务发票。收款与退款记录经人工核实的资金凭据，系统不执行银行或第三方支付划转。", "These are operational dental bills, not statutory tax invoices. Payment entries record manually verified evidence; no funds are transferred by this application.")}</div>`
-  );
+  const invoices=await api("/finance/invoices"+query()),unbilled=await api("/finance/unbilled"+query());
+  state.invoices=invoices;state.unbilled=unbilled;
+  return billingContent({invoices,unbilled,view:state.billView,search:state.billSearch,canManage:can("finance.manage")},{esc,T,title,button,link,badge,table,money,date,filters});
 }
 async function invoicePage(id) {
   const d = await api("/finance/invoices/" + encodeURIComponent(id));
@@ -2265,26 +2194,31 @@ async function invoicePage(id) {
     ),
   )}</div>`;
 }
-handlers["invoice-issue"] = () =>
-  modal({
-    name: T("由完成就诊生成结算单", "Issue a bill from a completed visit"),
-    description: T(
-      "同一就诊只保留一张结算单，重复请求返回原单。",
-      "A visit has one bill; repeated requests return the existing one.",
-    ),
-    fields: [
-      {
-        name: "visit_id",
-        label: T("已完成且尚未开单的就诊", "Completed, unbilled visit"),
-        type: "select",
-        options: state.unbilled.map((v) => ({
-          value: v.id,
-          label: v.visit_code + " · " + v.patient_name + " · " + v.dentist_name,
-        })),
-      },
-    ],
-    onSubmit: (b) => api("/finance/invoices", b),
+async function reviewBill(visitId){
+  const d=await api("/finance/unbilled/"+encodeURIComponent(visitId));
+  const v=d.visit,locked=d.period_status!=="OPEN";
+  return modal({
+    name:T("核对本次结算项目","Review bill items"),
+    description:v.patient_name+" · "+v.patient_code+" · "+v.visit_code,
+    wide:true, informational:locked,
+    submit:locked?T("关闭预览","Close preview"):T("确认并生成结算单","Confirm & issue"),
+    body:`<p class="subline">${esc(v.clinic_name)} · ${esc(v.dentist_name)} · ${T("完成时间","Completed")} ${date(v.completed_at)}</p>`+
+      table([T("项目","Treatment"),T("牙位","Tooth"),T("数量","Units"),T("单价快照","Price snapshot"),T("金额","Amount")],d.lines.map(l=>[esc(l.treatment_name),esc(l.tooth_code||"—"),esc(l.units),money(l.effective_unit_price_fen),money(l.line_amount_fen)]))+
+      `<div class="row between gap" style="margin-top:20px"><strong>${T("本次应收合计","Total due")}</strong><strong class="num">${money(d.total_fen)}</strong></div><p class="field-help">${T("预览不建立单据，也不更改临床记录；确认提交时重新检查期间、项目和重复开单。","Preview creates no bill and changes no clinical record. Confirmation rechecks the period, actual items and duplicate bills.")}</p>`+
+      (locked?`<div class="callout warn">${T("服务期间已锁定。请按授权流程核实，不在此绕过锁定。","The service period is locked. Review through the authorized process; this screen cannot bypass the lock.")}</div>`:""),
+    fields:locked?[]:[{name:"confirmed",type:"checkbox",label:T("已核对患者、实际项目、数量与金额","I checked patient identity, actual items, quantities and amounts")}],
+    onSubmit:()=>api("/finance/invoices",{visit_id:visitId}),
+    onSuccess:async result=>{history.replaceState(null,"","#/billing/"+encodeURIComponent(result.invoice.id));await refresh();}
   });
+}
+handlers["invoice-issue"]=id=>{
+  if(id&&state.unbilled.some(v=>v.id===id))return reviewBill(id);
+  return modal({name:T("选择待开单就诊","Select unbilled visit"),
+    description:T("下一步只预览实际项目，不会立即开单。","The next step previews actual items; it does not issue a bill."),
+    fields:[{name:"visit_id",label:T("已完成且未开单的就诊","Completed unbilled visit"),type:"select",options:state.unbilled.map(v=>({value:v.id,label:v.visit_code+" · "+v.patient_name+" · "+v.dentist_name}))}],
+    submit:T("查看项目与合计","Review items and total"),successMessage:"",
+    onSubmit:async b=>b.visit_id,onSuccess:reviewBill});
+};
 handlers["invoice-pay"] = () => {
   const i = state.invoiceDetail.invoice;
   modal({
@@ -2458,7 +2392,7 @@ async function periodsPage() {
   return (
     title(
       "FINANCIAL GOVERNANCE",
-      T("让季度结果，经得起追问。", "Quarterly results, with evidence."),
+      T("期间核算", "Financial close"),
       T(
         "核实成本与费用归属，保存输入摘要和核定快照。个人贡献不等于个人奖金。",
         "Verify costs and allocation, preserve the input digest and approved snapshot. Contribution is not a personal bonus.",
@@ -2759,6 +2693,8 @@ async function resourcesPage() {
   ];
   let content = "";
   const name = (id, list) => esc(list.find((r) => r.id === id)?.name_zh || id);
+  const setup=renderSetupTab(d,state.resourcesTab,{T,esc,badge,button,table,panel,money,can,qualifications:state.boot.qualifications,network:state.principal.network});
+  if(setup!==null)return title('',T('组织与资源','Organization & resources'),T('维护诊所、医师、牙椅与服务目录；变更前核对现有预约和生效日期。','Maintain clinics, clinicians, chairs and services; check current bookings and effective dates.'))+filters()+`<div class="tabline">${tabs.map(([value,label])=>button(label,'resources-tab',value,'small '+(state.resourcesTab===value?'on':''))).join('')}</div>`+setup;
   if (state.resourcesTab === "clinics")
     content = `<div class="grid3">${d.clinics.map((c) => `<article class="card card-pad"><div class="row between"><span class="eyebrow">${esc(c.code)}</span>${badge(c.status)}</div><h2 style="margin:15px 0 5px">${esc(c.name_zh)}</h2><p class="subline">${esc(c.name_en)}</p><div class="divider"></div><div class="row between"><span class="subline">${esc(c.city_zh)} · ${esc(c.address_zh)}</span><span class="badge">${c.chair_capacity} ${T("牙椅", "chairs")}</span></div><p class="subline">${esc(c.phone || "")}</p></article>`).join("")}</div>`;
   else if (state.resourcesTab === "workforce")
@@ -2951,7 +2887,7 @@ async function resourcesPage() {
   return (
     title(
       "NETWORK & CAPABILITY",
-      T("把合适的人，安排在合适的位置。", "People, capability and capacity."),
+      T("组织与资源", "Organization & resources"),
       T(
         "任职、有效证书、排班与牙椅共同决定可执行的服务能力。",
         "Assignments, valid credentials, schedules and chairs define executable care capacity.",
@@ -3157,7 +3093,7 @@ async function analyticsPage() {
   return (
     title(
       "PERFORMANCE INTELLIGENCE",
-      T("理解差异，再作决定。", "Understand the difference before deciding."),
+      T("经营统计", "Business analytics"),
       T(
         "让分子、分母、日期依据和资源条件一起呈现。",
         "Read every measure alongside its denominator, service dates and capacity assumptions.",
@@ -3244,7 +3180,7 @@ async function expansionPage() {
   return (
     title(
       "NETWORK PLANNING",
-      T("面向增长，也看见约束。", "Growth, grounded in constraints."),
+      T("扩张测算", "Expansion planning"),
       T(
         "情景假设、候选地点与计算结果相互对应，不改变实际业务。",
         "Scenario inputs, candidate locations and calculations stay traceable without changing live operations.",
@@ -3371,23 +3307,25 @@ handlers["scenario-add"] = () =>
     onSubmit: (b) => api("/expansion", b),
   });
 async function accessPage() {
-  const d = await api("/admin/access");
+  const [d, staff] = await Promise.all([api("/admin/access"), api("/admin/staff")]);
   state.access = d;
+  state.staff = staff;
   return (
     title(
       "ACCESS ADMINISTRATION",
-      T("职责清楚，访问有界。", "Clear responsibility. Defined access."),
+      T("账号与权限", "Accounts & access"),
       T(
         "账户、岗位、诊所和生效期共同确定访问；授权变化撤销旧会话。",
         "Accounts, roles, clinics and validity define access. Authorization changes revoke existing sessions.",
       ),
       button(
-        T("创建账号", "Create account"),
+        T("创建维护账号", "Create maintenance account"),
         "user-add",
         "",
         "primary",
         "plus",
       ) +
+        button("登记内部员工", "staff-add", "", "primary", "plus") +
         button(T("授予岗位", "Assign role"), "role-grant", "", "", "shield") +
         button(
           T("核实患者绑定", "Verify patient link"),
@@ -3397,6 +3335,7 @@ async function accessPage() {
           "users",
         ),
     ) +
+    staffRosterPanel() +
     `<div class="callout gap">${T("管理员身份不自动授予临床签署或收退款权限。医师账号还必须绑定牙医档案，患者账号必须核实绑定本人资料。", "Administrators do not automatically receive clinical or payment permissions. Dentist accounts need a clinician link; patient accounts need a verified personal link.")}</div>${panel(
       T("账户", "Accounts"),
       table(
@@ -3469,6 +3408,28 @@ async function accessPage() {
     )}</div>`
   );
 }
+function staffRosterPanel() {
+  const invite = state.staffInvitation;
+  return `${invite ? `<div class="callout gap"><strong>${esc(invite.employee_id)} · 一次性激活码</strong><p class="mono" style="overflow-wrap:anywhere;margin:10px 0">${esc(invite.activation_code)}</p><p>请当面或经机构认可渠道交给本人。有效期至 ${esc(invite.expires_at)}；本页不永久保存明文激活码。</p>${button("已记录，隐藏激活码", "staff-hide-code", "", "small")}</div>` : ""}<div class="gap">${panel("内部员工身份名册", table(["员工编号 / 姓名", "岗位与诊所", "预登记联系方式", "账号状态", "操作"], state.staff.map(s => [
+    `<div class="name mono">${esc(s.employee_code)}</div><div class="second">${esc(s.display_name)}</div>`,
+    `${esc(s.role_name)}<div class="second">${esc(s.clinic_name || "总部 / 全网")}</div>`,
+    `${esc(s.phone_e164)}<div class="second">${esc(s.email)}</div>`,
+    badge(s.status) + `<div class="second">${s.claimed_user_id ? "已激活" : "待本人注册激活"}</div>`,
+    s.status === "ACTIVE" ? (!s.claimed_user_id ? button("重签激活码", "staff-reissue", s.id, "small") : "") + button("停用", "staff-deactivate", s.id, "small danger") : "—",
+  ])), button("登记内部员工", "staff-add", "", "", "plus"), "岗位代码：FD 前台 · DR 医师 · CS 收费 · MG 店长 · OP 总部运营 · FN 总部财务 · AD 管理员")}</div>`;
+}
+handlers["staff-hide-code"] = () => { state.staffInvitation = null; refresh(); };
+handlers["staff-add"] = () => modal({
+  name: "登记内部员工", description: "只登记已核实的在职人员。岗位从编号识别，权限以机构名册授权为准。",
+  fields: [
+    {name:"employee_id",label:"员工编号",help:"ADC-岗位代码-六位数字，例如 ADC-DR-000001"},
+    {name:"name",label:"姓名"}, {name:"phone",label:"预登记手机号",type:"tel",help:"建议填写 +86 国家区号"},
+    {name:"email",label:"预登记邮箱",type:"email"}, {...clinicField(),required:false,help:"诊所岗位必选；总部岗位留空"},
+    {name:"dentist_id",label:"医师档案（仅 DR 岗位）",type:"select",required:false,options:opts(state.boot.dentists)},
+  ], onSubmit: async b => { state.staffInvitation = await api("/admin/staff", {...b,action:"create"}); }
+});
+handlers["staff-reissue"] = async id => { state.staffInvitation = await api("/admin/staff",{action:"reissue",id}); await refresh(); };
+handlers["staff-deactivate"] = id => modal({name:"停用员工身份",description:"将撤销未使用的激活码；如已激活，将停用账号并撤销其全部会话。",fields:[{name:"confirmed",label:"确认已完成机构离职/停用核实",type:"checkbox"}],onSubmit:async b => { if(!b.confirmed) throw new Error("请先确认机构核实结果"); await api("/admin/staff",{action:"deactivate",id}); }});
 const userField = () => ({
   name: "user_id",
   label: T("目标账号", "Account"),
@@ -3592,7 +3553,7 @@ async function auditPage() {
   return (
     title(
       "ACCOUNTABILITY",
-      T("每一步，都留下责任依据。", "A record of responsibility."),
+      T("操作审计", "Audit history"),
       T(
         "成功操作与拒绝路径分别留痕。日志不复制明文密码、验证码或完整病历。",
         "Successful and denied actions are recorded without passwords, OTPs or full clinical text.",
@@ -3689,13 +3650,13 @@ function securityPage() {
   return (
     title(
       "ACCOUNT SECURITY",
-      T("妥善保护您的工作身份。", "Protect your working identity."),
+      T("账号安全", "Account security"),
       T(
         "岗位与访问范围由机构授权，密码更新后旧会话将失效。",
         "Roles are assigned by the organization. Changing a password revokes existing sessions.",
       ),
     ) +
-    `<div class="grid2">${panel(T("当前身份", "Current identity"), `<div class="card-pad"><div class="person-heading"><span class="avatar">${esc(state.principal.name.slice(0, 1))}</span><div><h2 style="margin:0">${esc(state.principal.name)}</h2><p>${esc(state.principal.roles.map((r) => r.name_zh).join(" · "))}</p></div></div><div class="divider"></div><p class="subline">${T("授权诊所：", "Authorized clinics: ")}${esc(state.boot.clinics.map((c) => c.name_zh).join(" · "))}</p><div class="rights-list">${state.principal.permissions.map((p) => `<span class="badge mono">${esc(p)}</span>`).join("")}</div></div>`)}${panel(T("密码与登录", "Password and sign-in"), `<div class="card-pad"><p class="muted">${T("密码至少 12 个字符，仅保存单向摘要。合成演示身份不设置公开密码；真实账号可由管理员创建并分配岗位。", "Passwords use a one-way hash and at least 12 characters. Synthetic demo identities have no public password; administrators create real accounts and assign roles.")}</p>${button(T("更改本人密码", "Change my password"), "change-password", "", "primary", "lock")}<div class="divider"></div><p class="subline">${T("手机找回、短信与微信需机构通道配置。未配置时不会返回模拟成功结果。", "Mobile recovery, SMS and WeChat require organization configuration. Unconfigured providers never report simulated success.")}</p></div>`)}</div>`
+    `<div class="grid2">${panel(T("当前身份", "Current identity"), `<div class="card-pad"><div class="person-heading"><span class="avatar">${esc(state.principal.name.slice(0, 1))}</span><div><h2 style="margin:0">${esc(state.principal.name)}</h2><p>${esc(state.principal.roles.map((r) => r.name_zh).join(" · "))}</p></div></div><div class="divider"></div><p class="subline">${T("授权诊所：", "Authorized clinics: ")}${esc(state.boot.clinics.map((c) => c.name_zh).join(" · "))}</p><div class="rights-list">${state.principal.permissions.map((p) => `<span class="badge mono">${esc(p)}</span>`).join("")}</div></div>`)}${panel(T("密码与登录", "Password and sign-in"), `<div class="card-pad"><p class="muted">${T("密码至少 12 个字符，仅保存单向摘要。合成演示身份不设置公开密码；真实账号可由管理员创建并分配岗位。", "Passwords use a one-way hash and at least 12 characters. Synthetic demo identities have no public password; administrators create real accounts and assign roles.")}</p>${button(T("更改本人密码", "Change my password"), "change-password", "", "primary", "lock")}<div class="divider"></div><p class="subline">${T("支持账号、已验证手机号或邮箱登录。验证码与找回密码使用机构配置的真实发送服务；未验证的联系方式不会作为登录凭据。", "Mobile recovery, SMS and WeChat require organization configuration. Unconfigured providers never report simulated success.")}</p></div>`)}</div>`
   );
 }
 handlers["change-password"] = () =>
@@ -3724,4 +3685,6 @@ handlers["change-password"] = () =>
       await loginPage();
     },
   });
+installSetupHandlers({handlers,state,T,esc,api,modal,can,clinicField});
+installFollowupHandlers({handlers,state,T,esc,api,modal,button,table,date,can,refresh});
 start();

@@ -1,0 +1,89 @@
+{
+  "version": "1.4.0-rc1",
+  "passed": true,
+  "tests": 20,
+  "checks": [
+    {
+      "name": "Default playback starts without pointer or focus prerequisites",
+      "passed": true
+    },
+    {
+      "name": "All three scenes and wraparound advance automatically",
+      "passed": true
+    },
+    {
+      "name": "Explicit pause survives navigation controls",
+      "passed": true
+    },
+    {
+      "name": "Explicit play restarts the clock",
+      "passed": true
+    },
+    {
+      "name": "Hidden documents stop timers without discarding manual state",
+      "passed": true
+    },
+    {
+      "name": "Reduced-motion preference prevents automatic playback",
+      "passed": true
+    },
+    {
+      "name": "Repeated start replaces rather than duplicates timers",
+      "passed": true
+    },
+    {
+      "name": "Disposal clears timers and prevents further controls",
+      "passed": true
+    },
+    {
+      "name": "Adjacent appointments share a lane; overlapping ones do not",
+      "passed": true
+    },
+    {
+      "name": "Chained overlaps retain enough independent lanes",
+      "passed": true
+    },
+    {
+      "name": "Cancelled and no-show appointments do not occupy the time grid",
+      "passed": true
+    },
+    {
+      "name": "Unassigned chairs are visible rather than silently dropped",
+      "passed": true
+    },
+    {
+      "name": "Timeline expands beyond normal hours without clipping appointments",
+      "passed": true
+    },
+    {
+      "name": "Cross-midnight intervals clip at the selected local day",
+      "passed": true
+    },
+    {
+      "name": "Keyword, dentist and status filters combine",
+      "passed": true
+    },
+    {
+      "name": "Date navigation is stable at month/year/leap boundaries",
+      "passed": true
+    },
+    {
+      "name": "Only active date-effective assignments create empty doctor columns",
+      "passed": true
+    },
+    {
+      "name": "Retired resources with actual appointments remain traceable",
+      "passed": true
+    },
+    {
+      "name": "Input records are not mutated by layout or filtering",
+      "passed": true
+    },
+    {
+      "name": "Timeline text and attributes are escaped",
+      "passed": true
+    }
+  ],
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "browser_verified": false
+}

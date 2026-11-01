@@ -1,0 +1,195 @@
+{
+  "version": "1.3.0-rc1",
+  "roles": [
+    {
+      "documentWidth": 1425,
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1440,
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1440,
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1425,
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "临床工作台",
+        "候补中心",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 1440,
+      "scope": "天河旗舰诊所（已在界面核对）"
+    },
+    {
+      "documentWidth": 1425,
+      "menus": [
+        "工作台",
+        "预约与到诊",
+        "患者管理",
+        "候补中心",
+        "组织与资源",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1425,
+      "menus": [
+        "工作台",
+        "组织与资源",
+        "诊疗结算",
+        "期间核算",
+        "经营统计",
+        "扩张测算",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 1440
+    },
+    {
+      "documentWidth": 1425,
+      "menus": [
+        "我的诊疗",
+        "账号安全"
+      ],
+      "passed": true,
+      "role": "PATIENT",
+      "route": "#/portal",
+      "width": 1440
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Next day shows actual empty date, not recycled historical data",
+      "passed": true
+    },
+    {
+      "name": "Empty-day status board has one notice and no duplicate panels",
+      "passed": true
+    },
+    {
+      "name": "Keyword filtering removes unmatched events without changing the source total",
+      "passed": true
+    },
+    {
+      "name": "Chair grouping retains unassigned persisted appointments",
+      "passed": true
+    },
+    {
+      "name": "Timeline event opens persisted appointment details",
+      "passed": true
+    },
+    {
+      "documentWidth": 375,
+      "name": "Patient portal at 390 px has no page-wide overflow",
+      "passed": true,
+      "width": 390
+    },
+    {
+      "name": "390 px appointment timeline scrolls inside its own panel",
+      "passed": true
+    },
+    {
+      "name": "390 px public page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Real browser automatically advances while the controls retain pointer/focus",
+      "before": {
+        "hidden": false,
+        "slide": "01 / 03",
+        "time": 1792573143474
+      },
+      "after": {
+        "hidden": false,
+        "playback": "自动播放 · 5.5 秒",
+        "slide": "03 / 03",
+        "time": 1792573171544
+      },
+      "passed": true
+    },
+    {
+      "name": "Manual pause persists beyond the autoplay interval",
+      "passed": true
+    },
+    {
+      "name": "Play resumes after manual pause",
+      "passed": true
+    },
+    {
+      "name": "Clinical feature tab displays 32 FDI teeth and the clinical workflow",
+      "passed": true
+    },
+    {
+      "name": "Keyboard End selects the final product tab",
+      "passed": true
+    }
+  ],
+  "method": "Cua browser interaction; desktop and responsive layout checks",
+  "date": "2026-10-21",
+  "jar_sha256": "3191b4c6ac4d451217c58b6f4cfcbc0c8c2dd1d5d8f9cfe1b4dadb494ecce3fc",
+  "passed": true,
+  "limitations": [
+    "Read-only business UI review; writes exercised in isolated HTTP acceptance databases.",
+    "Reduced-motion and document-visibility behavior have deterministic logic tests; operating-system preferences were not changed.",
+    "One rapid automated credential entry returned LOGIN_FAILED; stable re-entry succeeded. Original credentials were checked read-only and were not reset.",
+    "Cloud deployment, live message delivery and production medical compliance are not validated."
+  ]
+}

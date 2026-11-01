@@ -223,7 +223,7 @@ public final class Db {
   }
 
   private static void identifier(String s) {
-    if (!s.matches("[a-z_]+")) throw new IllegalArgumentException("Invalid SQL identifier");
+    if (!s.matches("[a-z_][a-z0-9_]*")) throw new IllegalArgumentException("Invalid SQL identifier");
   }
 
   public static String resource(String path) throws Exception {
@@ -330,6 +330,15 @@ public final class Db {
                 c,
                 "INSERT INTO schema_migrations(version,applied_at) VALUES ('004',?)",
                 Support.now());
+          }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='005'") == 0) {
+            script(c, "/db/unified-auth.sql");
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('005',?)", Support.now());
+          }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='006'") == 0) {
+            script(c, "/db/practice-upgrade.sql");
+            Seed.practicePermissions(c);
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('006',?)", Support.now());
           }
           return null;
         });

@@ -1,0 +1,142 @@
+{
+  "version": "1.4.0-rc1",
+  "patch": "polish2",
+  "passed": true,
+  "tests": 33,
+  "checks": [
+    {
+      "name": "Password login stays available without message providers",
+      "passed": true
+    },
+    {
+      "name": "Unavailable SMS cannot enable code submission",
+      "passed": true
+    },
+    {
+      "name": "Unavailable email cannot enable code submission",
+      "passed": true
+    },
+    {
+      "name": "Recovery follows the selected channel, not the other provider",
+      "passed": true
+    },
+    {
+      "name": "Registration requires an explicit ready flag",
+      "passed": true
+    },
+    {
+      "name": "String flags are not treated as provider readiness",
+      "passed": true
+    },
+    {
+      "name": "Unknown sign-in modes remain unavailable",
+      "passed": true
+    },
+    {
+      "name": "Unknown recovery channels remain unavailable",
+      "passed": true
+    },
+    {
+      "name": "Three sign-in methods remain one identity entry",
+      "passed": true
+    },
+    {
+      "name": "Agenda is chronological across ISO separators",
+      "passed": true
+    },
+    {
+      "name": "Agenda sorting leaves source order intact",
+      "passed": true
+    },
+    {
+      "name": "Agenda limits apply after chronological sorting",
+      "passed": true
+    },
+    {
+      "name": "Agenda missing times appear last with stable tie breaking",
+      "passed": true
+    },
+    {
+      "name": "Login tabs expose a panel relationship and roving focus",
+      "passed": true
+    },
+    {
+      "name": "Auth submission is guarded while pending or unavailable",
+      "passed": true
+    },
+    {
+      "name": "Auth error feedback receives keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "Password confirmation exposes an invalid state",
+      "passed": true
+    },
+    {
+      "name": "Password toggles include a matching target and pressed state",
+      "passed": true
+    },
+    {
+      "name": "Only one privacy click handler is registered",
+      "passed": true
+    },
+    {
+      "name": "Auth timers are disposed when leaving the page",
+      "passed": true
+    },
+    {
+      "name": "Dialogs disable background interaction and restore prior state",
+      "passed": true
+    },
+    {
+      "name": "A second dialog cannot replace a pending submission",
+      "passed": true
+    },
+    {
+      "name": "Dialogs focus a visible body control, not the close icon",
+      "passed": true
+    },
+    {
+      "name": "Dialog focus trap excludes hidden and disabled controls",
+      "passed": true
+    },
+    {
+      "name": "Action columns are explicitly labelled",
+      "passed": true
+    },
+    {
+      "name": "Home task links select the corresponding feature",
+      "passed": true
+    },
+    {
+      "name": "Mobile home navigation resets its label and supports Escape",
+      "passed": true
+    },
+    {
+      "name": "Manual carousel navigation provides a live announcement",
+      "passed": true
+    },
+    {
+      "name": "Large screenshot previews open safely and disclose a new window",
+      "passed": true
+    },
+    {
+      "name": "Shared dialog close action is localized",
+      "passed": true
+    },
+    {
+      "name": "Patient search remains labelled when mobile text is hidden",
+      "passed": true
+    },
+    {
+      "name": "Mobile workspace menu label follows its expanded state",
+      "passed": true
+    },
+    {
+      "name": "Background command shortcut does not replace an open dialog",
+      "passed": true
+    }
+  ],
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "browser_verified": false
+}

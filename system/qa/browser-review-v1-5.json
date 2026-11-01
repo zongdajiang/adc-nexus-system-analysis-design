@@ -1,0 +1,115 @@
+{
+  "version": "1.5.0-rc1",
+  "date": "2026-10-30",
+  "passed": true,
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "roles": [
+    {
+      "role": "FRONT_DESK",
+      "passed": true
+    },
+    {
+      "role": "DENTIST",
+      "passed": true
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "passed": true
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "passed": true
+    },
+    {
+      "role": "HQ_FINANCE",
+      "passed": true
+    },
+    {
+      "role": "ADMIN",
+      "passed": true
+    },
+    {
+      "role": "PATIENT",
+      "passed": true
+    },
+    {
+      "role": "CASHIER",
+      "passed": true
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Missing callback date blocks submission and preserves input",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Contact is persisted with actor, outcome, next date and original advice",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "390px recall page scroll is contained within the table",
+      "passed": true,
+      "metrics": {
+        "height": 844,
+        "scroll": 375,
+        "tableClient": 343,
+        "tableScroll": 640,
+        "width": 375
+      },
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Mobile follow-up dialog fits the viewport and isolates background",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Empty recall search has an explicit zero-result state",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Catalog UI stores explicit qualifications and exact CNY 123.45 fee",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Appending a catalog version keeps old fee and immutable code",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "2560px resource page keeps primary actions and table inside the viewport",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "Appointment confirmation is persisted separately with contact evidence",
+      "passed": true,
+      "tested_artifact_sha256": "5df2a087eea0e260a676a98ba238d54fe8bf055ed68f4f976d4195c6b3647f1c"
+    },
+    {
+      "name": "After reviewer fix: booking creation and structured contact confirmation are distinct, localized and preserve evidence",
+      "passed": true,
+      "tested_artifact_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a"
+    },
+    {
+      "name": "Cashier cannot access recall tab or waitlist mutation controls",
+      "passed": true,
+      "tested_artifact_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a"
+    }
+  ],
+  "review": "Initial visual review and one scoped fix verdict: qa/finish-review-v1-5.md",
+  "method": "Real UI login, navigation and submissions in an isolated synthetic browser fixture; initial interaction round plus affected-feature recheck after repair. No hosted writes.",
+  "viewport_widths": [
+    390,
+    768,
+    1280,
+    1440,
+    2560
+  ],
+  "public_deployment_verified": false,
+  "live_delivery_verified": false
+}

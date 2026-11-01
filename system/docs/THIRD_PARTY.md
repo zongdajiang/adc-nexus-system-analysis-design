@@ -9,6 +9,8 @@
 | HikariCP 7.1.0 | Bounded PostgreSQL JDBC pool | https://github.com/brettwooldridge/HikariCP |
 | Jackson Databind/Core 2.20.2; Annotations 2.20 | JSON serialization | https://github.com/FasterXML/jackson |
 | SLF4J 2.0.17 | Logging facade and simple backend | https://www.slf4j.org/ |
+| Eclipse Angus Jakarta Mail 2.0.5 | TLS SMTP transport; Jakarta Mail API bundled | https://eclipse-ee4j.github.io/angus-mail/ |
+| Jakarta Activation 2.1.4 / Angus Activation 2.0.3 | Mail MIME/data activation | https://eclipse-ee4j.github.io/angus-activation/ |
 | Eclipse Temurin 21 | Container Java runtime | https://adoptium.net/ |
 | Apache Maven 3.9.11 | Container build tooling | https://maven.apache.org/ |
 

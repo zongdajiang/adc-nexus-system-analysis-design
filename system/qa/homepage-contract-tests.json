@@ -1,0 +1,153 @@
+{
+  "version": "1.5.0-rc1",
+  "passed": true,
+  "tests": 36,
+  "checks": [
+    {
+      "name": "Three distinct original scenes, including reception",
+      "passed": true
+    },
+    {
+      "name": "Seven illustrative business roles; preview cannot grant an identity",
+      "passed": true
+    },
+    {
+      "name": "Motion controls, keyboard tabs and cleanup are supplied",
+      "passed": true
+    },
+    {
+      "name": "Only known sections are used for deep-link scrolling",
+      "passed": true
+    },
+    {
+      "name": "Public home and protected workspace are separate routes",
+      "passed": true
+    },
+    {
+      "name": "Page search is restricted to authorized navigation",
+      "passed": true
+    },
+    {
+      "name": "Expected Java JDBC release is serving",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /homepage.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /homepage.css",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /studio.css",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /practice.css",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /practice-workflow.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /worklists.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/workspace-reception-v14.jpg",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/workspace-clinical-v14.jpg",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/workspace-billing-v14.jpg",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /auth-ui.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /carousel.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /clinic-calendar.js",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/home-care-v1.png",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/home-clinic-v1.png",
+      "passed": true
+    },
+    {
+      "name": "GET and HEAD /images/home-reception-v1.png",
+      "passed": true
+    },
+    {
+      "name": "Management and follow-up module is served: /practice-setup.js",
+      "passed": true
+    },
+    {
+      "name": "Management and follow-up module is served: /followups.js",
+      "passed": true
+    },
+    {
+      "name": "Management and follow-up module is served: /setup.css",
+      "passed": true
+    },
+    {
+      "name": "Unlisted static file is unavailable: /data/setup-credentials.txt",
+      "passed": true
+    },
+    {
+      "name": "Unlisted static file is unavailable: /.env",
+      "passed": true
+    },
+    {
+      "name": "Unlisted static file is unavailable: /images/unknown.png",
+      "passed": true
+    },
+    {
+      "name": "Unlisted static file is unavailable: /tools/local-server.ps1",
+      "passed": true
+    },
+    {
+      "name": "Public page does not expose /api/patients",
+      "passed": true
+    },
+    {
+      "name": "Public page does not expose /api/visits",
+      "passed": true
+    },
+    {
+      "name": "Public page does not expose /api/portal",
+      "passed": true
+    },
+    {
+      "name": "Public page does not expose /api/admin/access",
+      "passed": true
+    },
+    {
+      "name": "Public page does not expose /api/followups",
+      "passed": true
+    },
+    {
+      "name": "Static resource POST is rejected",
+      "passed": true
+    }
+  ],
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "browser_interaction_verified": false
+}

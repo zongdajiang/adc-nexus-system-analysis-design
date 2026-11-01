@@ -1,0 +1,141 @@
+{
+  "version": "1.4.0-rc1",
+  "passed": true,
+  "tests": 33,
+  "checks": [
+    {
+      "name": "Each canonical appointment status has a distinct handoff",
+      "passed": true
+    },
+    {
+      "name": "Unknown legacy states never silently permit check-in",
+      "passed": true
+    },
+    {
+      "name": "Queue totals separate care, arrival and exceptions",
+      "passed": true
+    },
+    {
+      "name": "Exception filter retains cancelled and no-show records",
+      "passed": true
+    },
+    {
+      "name": "Queue search is trimmed and case-insensitive",
+      "passed": true
+    },
+    {
+      "name": "Clinician filter does not expand the source scope",
+      "passed": true
+    },
+    {
+      "name": "Worklist is chronological without mutating source",
+      "passed": true
+    },
+    {
+      "name": "Void bills are excluded from issued total",
+      "passed": true
+    },
+    {
+      "name": "Net receipts deduct refunds",
+      "passed": true
+    },
+    {
+      "name": "Outstanding total uses current valid balances",
+      "passed": true
+    },
+    {
+      "name": "Outstanding filter excludes paid and void bills",
+      "passed": true
+    },
+    {
+      "name": "Bill search matches the source visit identifier",
+      "passed": true
+    },
+    {
+      "name": "Completion status initially opens retained notes",
+      "passed": true
+    },
+    {
+      "name": "Completed visit describes retained history rather than a new submission",
+      "passed": true
+    },
+    {
+      "name": "Risk blockers take precedence over missing examination",
+      "passed": true
+    },
+    {
+      "name": "Missing findings lead to examination section",
+      "passed": true
+    },
+    {
+      "name": "Missing proposals lead to plan, not billing",
+      "passed": true
+    },
+    {
+      "name": "Missing recorded treatment leads to actual section",
+      "passed": true
+    },
+    {
+      "name": "Recorded treatment leads to notes and signing",
+      "passed": true
+    },
+    {
+      "name": "Patient text is escaped in clinical header",
+      "passed": true
+    },
+    {
+      "name": "Five clinical panels have only one active panel",
+      "passed": true
+    },
+    {
+      "name": "All server blockers are displayed, completion button disabled",
+      "passed": true
+    },
+    {
+      "name": "Read-only care does not expose mutation buttons",
+      "passed": true
+    },
+    {
+      "name": "Completed visit retains amendment action but no ordinary treatment write",
+      "passed": true
+    },
+    {
+      "name": "Recorded allergies remain outside all tab panels",
+      "passed": true
+    },
+    {
+      "name": "Missing signature evidence is not presented as signed",
+      "passed": true
+    },
+    {
+      "name": "Direct desk check-in only appears for confirmed manageable appointments",
+      "passed": true
+    },
+    {
+      "name": "Unbilled worklist provides a specific visit action",
+      "passed": true
+    },
+    {
+      "name": "Read-only unbilled queue cannot offer bill issue",
+      "passed": true
+    },
+    {
+      "name": "Close-only appointment dialogs are informational",
+      "passed": true
+    },
+    {
+      "name": "Login transitions use one route update before a single refresh",
+      "passed": true
+    },
+    {
+      "name": "Declined plan items do not offer a direct perform action",
+      "passed": true
+    },
+    {
+      "name": "Fully recorded accepted items do not offer a duplicate direct action",
+      "passed": true
+    }
+  ],
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "browser_verified": false
+}

@@ -1,0 +1,93 @@
+{
+  "version": "1.5.0-rc1",
+  "passed": true,
+  "checks": 21,
+  "jar_sha256": "2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a",
+  "results": [
+    {
+      "name": "Open follow-ups exclude completed and declined advice",
+      "passed": true
+    },
+    {
+      "name": "Recall overdue uses a strict day boundary",
+      "passed": true
+    },
+    {
+      "name": "Contact due includes today and previous dates",
+      "passed": true
+    },
+    {
+      "name": "Explicit status searches include ended evidence",
+      "passed": true
+    },
+    {
+      "name": "Search is trimmed and case independent for patient identifiers",
+      "passed": true
+    },
+    {
+      "name": "Sorting a projection does not change persisted source order",
+      "passed": true
+    },
+    {
+      "name": "Malformed equipment does not break the resource workspace",
+      "passed": true
+    },
+    {
+      "name": "Equipment arrays retain actual labels",
+      "passed": true
+    },
+    {
+      "name": "Read-only master data does not expose catalog writes",
+      "passed": true
+    },
+    {
+      "name": "Network scope alone cannot grant a management action",
+      "passed": true
+    },
+    {
+      "name": "A bounded clinic manager is not offered network creation",
+      "passed": true
+    },
+    {
+      "name": "Recall patient and advice values are escaped",
+      "passed": true
+    },
+    {
+      "name": "Booking creation and patient confirmation have different event titles",
+      "passed": true
+    },
+    {
+      "name": "Structured confirmation localizes channel and result independently",
+      "passed": true
+    },
+    {
+      "name": "Contact event labels follow the current language",
+      "passed": true
+    },
+    {
+      "name": "Earlier reason-encoded confirmation evidence remains readable",
+      "passed": true
+    },
+    {
+      "name": "Ordinary clinical transitions keep their real state change",
+      "passed": true
+    },
+    {
+      "name": "Same-state legacy events do not invent a contact",
+      "passed": true
+    },
+    {
+      "name": "Reschedule event explains that a new confirmation is needed",
+      "passed": true
+    },
+    {
+      "name": "Malformed historical metadata cannot break the timeline",
+      "passed": true
+    },
+    {
+      "name": "Presenting history never edits the original evidence",
+      "passed": true
+    }
+  ],
+  "browser_verified": false
+}

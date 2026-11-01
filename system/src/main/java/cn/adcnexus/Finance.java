@@ -53,6 +53,33 @@ final class Finance {
         rows(c, "SELECT * FROM invoice_adjustments WHERE invoice_id=?", id));
   }
 
+  // Deliberately project only billing facts; never return clinical notes, history or allergies.
+  static Object preview(Connection c, Auth.Principal p, String visitId) throws Exception {
+    p.need("finance.read");
+    var v = one(c,
+        "SELECT v.id,v.visit_code,v.clinic_id,v.status,v.completed_at,p.name_zh patient_name,"
+            + "p.patient_code,c.name_zh clinic_name,d.name_zh dentist_name FROM clinical_visits v"
+            + " JOIN patients p ON p.id=v.patient_id JOIN clinics c ON c.id=v.clinic_id"
+            + " JOIN dentists d ON d.id=v.dentist_id WHERE v.id=?", visitId);
+    check(v != null, 404, "NOT_FOUND", "就诊不存在");
+    p.clinic(s(v, "clinic_id"));
+    check(s(v, "status").equals("COMPLETED"), 409, "CLINICAL_NOT_COMPLETE", "只有已完成就诊可预览结算");
+    var lines = rows(c,
+        "SELECT a.id,a.tooth_code,a.units,a.effective_unit_price_fen,a.line_amount_fen,"
+            + "a.performed_at,t.code,t.name_zh treatment_name FROM actual_treatment_items a"
+            + " JOIN treatment_catalog t ON t.id=a.treatment_id WHERE a.visit_id=?"
+            + " AND a.status='RECORDED' ORDER BY a.performed_at,a.id", visitId);
+    check(!lines.isEmpty(), 409, "NO_ACTUAL", "没有可核对的实施项目");
+    long total = 0;
+    for (var line : lines) {
+      check(val(line, "line_amount_fen") == Math.multiplyExact(val(line, "units"), val(line, "effective_unit_price_fen")),
+          409, "LINE_MISMATCH", "实施行金额与数量单价不一致");
+      total = Math.addExact(total, val(line, "line_amount_fen"));
+    }
+    var period = periodFor(c, s(v, "completed_at").substring(0, 10));
+    return map("visit", v, "lines", lines, "total_fen", total, "period_status", s(period, "status"));
+  }
+
   static Map<String, Object> periodFor(Connection c, String date) throws Exception {
     var r =
         one(

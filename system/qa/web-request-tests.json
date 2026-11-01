@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "tests": 9,
+  "tests": 10,
   "method": "Node VM unit tests against the shipped request and CSV helpers",
-  "source_sha256": "07969f5981d342b9789c85084b1fa96b4af7a09e2d77d4bd5d0c7a750944a929",
+  "source_sha256": "dd5f9fc2abd8228ebb786dbb8f49cd01782da6030c3b56a4e3e0a94e89b2a020",
   "browser_interaction_verified": false,
   "results": [
     {
@@ -15,6 +15,10 @@
     },
     {
       "name": "Password login is never automatically replayed",
+      "passed": true
+    },
+    {
+      "name": "Activation-secret mutations are never automatically replayed",
       "passed": true
     },
     {

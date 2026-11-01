@@ -17,9 +17,9 @@ final class Workforce {
     for (var row : availability) row.put("fingerprint", hash(json(row)));
     return map(
         "clinics",
-        rows(c, "SELECT * FROM clinics WHERE " + p.scope("id") + " ORDER BY code", p.scopeArgs()),
+        PracticeSetup.fingerprints(rows(c, "SELECT * FROM clinics WHERE " + p.scope("id") + " ORDER BY code", p.scopeArgs())),
         "dentists",
-        rows(c, "SELECT * FROM dentists ORDER BY employee_code"),
+        PracticeSetup.fingerprints(rows(c, "SELECT * FROM dentists ORDER BY employee_code")),
         "assignments",
         rows(
             c,
@@ -35,8 +35,8 @@ final class Workforce {
                 + " dentist_qualifications q JOIN dentists d ON d.id=q.dentist_id JOIN"
                 + " qualification_types t ON t.id=q.qualification_type_id ORDER BY q.expires_on"),
         "hours",
-        rows(
-            c, "SELECT * FROM clinic_operating_hours WHERE " + p.scope("clinic_id"), p.scopeArgs()),
+        PracticeSetup.fingerprints(rows(
+            c, "SELECT * FROM clinic_operating_hours WHERE " + p.scope("clinic_id"), p.scopeArgs())),
         "availability",
         availability,
         "exceptions",
@@ -47,15 +47,16 @@ final class Workforce {
         "closures",
         rows(c, "SELECT * FROM clinic_closures WHERE " + p.scope("clinic_id"), p.scopeArgs()),
         "chairs",
-        rows(c, "SELECT * FROM clinic_chairs WHERE " + p.scope("clinic_id"), p.scopeArgs()),
+        PracticeSetup.fingerprints(rows(c, "SELECT * FROM clinic_chairs WHERE " + p.scope("clinic_id"), p.scopeArgs())),
         "treatments",
-        rows(c, "SELECT * FROM treatment_catalog ORDER BY code,version"),
+        PracticeSetup.fingerprints(rows(c, "SELECT * FROM treatment_catalog ORDER BY code,version")),
         "requirements",
         rows(c, "SELECT * FROM treatment_qualification_requirements"));
   }
 
   static Object command(Connection c, Auth.Principal p, Map<String, Object> b) throws Exception {
     String action = req(b, "action"), clinic = s(b, "clinic_id");
+    if (PracticeSetup.handles(action)) return PracticeSetup.command(c, p, b);
     if (!clinic.isBlank()) p.clinic(clinic);
     if (action.equals("chair")) {
       p.need("resource.manage");

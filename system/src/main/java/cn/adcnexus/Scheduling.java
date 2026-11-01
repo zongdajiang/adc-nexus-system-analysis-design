@@ -250,6 +250,11 @@ final class Scheduling {
   static void history(
       Connection c, Auth.Principal p, String id, String old, String next, String reason)
       throws Exception {
+    history(c,p,id,old,next,reason,map());
+  }
+
+  static void history(Connection c, Auth.Principal p, String id, String old, String next,
+      String reason, Map<String,Object> metadata) throws Exception {
     insert(
         c,
         "appointment_status_history",
@@ -264,6 +269,8 @@ final class Scheduling {
             next,
             "reason_text",
             reason,
+            "metadata_json",
+            json(metadata),
             "actor_user_id",
             p.userId(),
             "occurred_at",
@@ -281,6 +288,13 @@ final class Scheduling {
         reason = s(b, "reason");
     Map<String, Object> v = map();
     switch (action) {
+      case "confirmation" -> {
+        check(old.equals("CONFIRMED"),409,"STATE","只有尚未到诊的有效预约可以登记联系确认");
+        String confirmation=PracticeSetup.selected(b,"confirmation_state",Set.of("PENDING","CONFIRMED","UNREACHABLE"));
+        String channel=PracticeSetup.selected(b,"channel",Set.of("PHONE","EMAIL","SMS","IN_PERSON"));
+        check(!reason.isBlank(),422,"REASON","请登记实际联系结果与依据；此操作不会发送消息");
+        v.put("confirmation_state",confirmation);
+      }
       case "reschedule" -> {
         check(old.equals("CONFIRMED"), 409, "STATE", "只有已确认且未到诊预约可以改期");
         Map<String, Object> newSlot = new LinkedHashMap<>(a);
@@ -296,6 +310,7 @@ final class Scheduling {
                 "scheduled_end_at",
                 "duration_minutes")) v.put(k, newSlot.get(k));
         check(!reason.isBlank(), 422, "REASON", "请记录改期原因");
+        v.put("confirmation_state","PENDING");
       }
       case "cancel" -> {
         check(old.equals("CONFIRMED") || old.equals("HOLD"), 409, "STATE", "已到诊或存在临床事实的预约不能取消");
@@ -386,7 +401,9 @@ final class Scheduling {
     v.put("appointment_version", val(a, "appointment_version") + 1);
     v.put("updated_at", now());
     update(c, "appointments", id, v);
-    history(c, p, id, old, next, reason);
+    history(c, p, id, old, next, reason,action.equals("confirmation")
+        ? map("event_type","PATIENT_CONFIRMATION","channel",s(b,"channel"),"confirmation_state",s(b,"confirmation_state"))
+        : map("event_type",action.toUpperCase(Locale.ROOT)));
     Service.audit(
         c,
         p,

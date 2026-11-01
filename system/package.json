@@ -1,0 +1,6 @@
+{
+  "name": "adc-nexus-browser-checks",
+  "private": true,
+  "type": "module",
+  "description": "Local verification helpers only. The deployed application runs on Java/JDBC."
+}

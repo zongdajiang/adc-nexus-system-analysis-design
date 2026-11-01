@@ -1,0 +1,30 @@
+{
+  "scope": "Windows local launcher hotfix; Java application is unchanged",
+  "date": "2026-10-22",
+  "passed": true,
+  "jar_sha256": "0e31a7e72ff3a56f34343941a97f3580a0bc692034b7ba8bf1e1b8c350bc8527",
+  "shell": "Windows PowerShell 5.1.26100.9711",
+  "shortcut_directory": "Desktop/ADC",
+  "checks": [
+    "All three scripts parse successfully",
+    "Installer completes under Windows PowerShell 5.1",
+    "All three shortcuts use the built-in Windows PowerShell executable",
+    "All three shortcuts retain NoExit and ordinary window style",
+    "Existing Desktop/ADC shortcut organization is preserved",
+    "Start target command reports ONLINE and remains at interactive prompt",
+    "Exiting the Start result session leaves Java health endpoint online",
+    "Status target command reports ONLINE and remains at interactive prompt",
+    "Stop target command reports success and remains at interactive prompt",
+    "Owned server stop removes the 8087 listener",
+    "Direct Start with KeepOpen waits for Enter after successful startup",
+    "Isolated missing-project configuration displays ERROR, footer and log path and remains at prompt",
+    "Final server health reports Java JDBC 1.4.0-rc1",
+    "Existing account credentials, 65 business table counts and SQLite integrity remain valid"
+  ],
+  "desktop_mouse_click_verified": false,
+  "interactive_target_command_verified": true,
+  "execution_policy_changed": false,
+  "windows_autostart_added": false,
+  "business_data_mutations_tested": false,
+  "limitation": "Interactive tests use a tool-owned terminal and the shortcut target command with NoBrowser, not automated desktop terminal input."
+}

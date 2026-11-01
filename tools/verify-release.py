@@ -125,7 +125,8 @@ def verify():
             for pattern in (r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
                             r"gh[pousr]_[A-Za-z0-9]{30,}",r"sk-(?:proj-)?[A-Za-z0-9_-]{35,}"):
                 assert not re.search(pattern,content), f"Secret-like literal; review file: {name}"
-    return dict(passed=True,version="2026-10-21-jdbc-rc1",report_version="2026-10-20",report_pages=83,numbered_figures=55,
+    application_version = ET.parse(ROOT/"system/pom.xml").getroot().find("{http://maven.apache.org/POM/4.0.0}version").text
+    return dict(passed=True,version="2026-11-02-jdbc-release-preparation",application_version=application_version,report_version="2026-10-20",report_pages=83,numbered_figures=55,
                 usecases=18,database_tables=61,database_columns=730,foreign_keys=119,
                 existing_named_indexes=124,class_atlas_pages=9,analysis_atlas_pages=6,
                 erd_atlas_pages=10,independent_erd_pdfs=10,uml_audits=45,

@@ -146,12 +146,16 @@ final class Auth {
 
   Object login(HttpExchange x, Map<String, Object> b) throws Exception {
     String username = req(b, "username"), pass = req(b, "password");
-    check(username.length() < 150 && pass.length() < 256, 422, "INVALID_CREDENTIALS", "账号或密码格式错误");
+    check(username.length() <= 254 && pass.length() < 256, 422, "INVALID_CREDENTIALS", "账号或密码格式错误");
     // Failure counters commit even when credentials are rejected.
     return db.tx(
         c -> {
-          var user = one(c, "SELECT * FROM app_users WHERE username=?", username);
-          if (user == null) return map("denied", true);
+          var user = Enrollment.lookup(c, username);
+          if (user == null) {
+            // Comparable password work for unknown identifiers, without storing the identifier.
+            password(pass, "AAAAAAAAAAAAAAAAAAAAAA==", 600000);
+            return map("denied", true);
+          }
           if (!text(user.get("locked_until")).isBlank()
               && text(user.get("locked_until")).compareTo(now()) > 0) return map("locked", true);
           boolean valid =
