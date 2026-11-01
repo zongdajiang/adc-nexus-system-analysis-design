@@ -35,7 +35,7 @@
       "path": "docs/LOCAL_DELIVERY_V1_5.md",
       "change": "added",
       "before_sha256": null,
-      "after_sha256": "2a61c3d727929216af368dff60c7e2718f20db8bf7e0e36cd727a8b88cecfb68"
+      "after_sha256": "5de41af1eabb80821538808d443d3b7845843055c5a00d91a5be591d4ce6a97c"
     },
     {
       "path": "docs/PRACTICE_UPGRADE_V1_5.md",
@@ -47,7 +47,7 @@
       "path": "docs/RELEASE_READINESS.md",
       "change": "modified",
       "before_sha256": "00479db96e8f1ef60b5069bb5d0adac40d9fcca2449977b8fb2d806bbfad0e95",
-      "after_sha256": "c8a116350c57ec9afe295e22eb4b95dee984bd3b0cfc53eeb7039275027861df"
+      "after_sha256": "203f4c4d191bd2ab1406e6409e074e2db0db77cba4bbf9a5464fafa4644edc0b"
     },
     {
       "path": "docs/REVIEW_GUIDE.md",
@@ -203,7 +203,7 @@
       "path": "tools/package-local-release.ps1",
       "change": "modified",
       "before_sha256": "673b50dfbd7d205411a7249b9885d4775b30bb380ad0f5f2497c2a5d84d690b9",
-      "after_sha256": "018f0da307869eb83ce78eae9bcb9c7878dcd988e4244cc7751d9f94e4271d31"
+      "after_sha256": "2cb627b7e3a82832ad5a06fb05521d27495e7f947c393ed984607e95b0850f97"
     },
     {
       "path": "tools/serve_browser_fixture.py",

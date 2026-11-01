@@ -10,6 +10,12 @@ JAR SHA256：`2b257a54540f95353048f64b20e3a25aad36d72bcdb40c9b1f6e4e2006ca6e3a`�
 
 当前为本地验收候选：云端 HTTPS、托管重启持久化、真实短信/邮件送达和最终报告同步尚未验证。原报告仍冻结。下方 1.4 及更早数据均为历史轮次，不能替代当前版本证明。
 
+## 2026-11-02 容器与发布入口
+
+GitHub 运行 [41337746997](https://github.com/zongdajiang/adc-nexus-system-analysis-design/actions/runs/41337746997) 的 SQLite、PostgreSQL、容器三组任务均通过。容器另有 **15 项检查**：生产模式数据库必填、JDBC 版本、UID 10001、512 MiB 内存上限、公开静态模块、未登录接口隔离，以及重启和替换容器后六张业务表内容保持。证据见 `qa/container-release-check.json`；不并入上述 607 项，也不等同于 Render / Neon 托管验收。
+
+`qa/container-build-inputs.json` 逐文件核对本地 Dockerfile、pom.xml 和全部 src 与该次 CI 提交一致，仅规范 Git 文本换行。发布打包会拒绝构建输入变化或证据不匹配。部署按钮使用根目录 Blueprint，保留 Free 单服务配置；详见 [首次发布卡](DEPLOY_QUICKSTART.md)。
+
 ## 分轮闭环
 
 首页比例补丁（2026-10-22）：本地当前 JAR 为 `d533a9d46548540545c1840c937cc5b840558975103203db3945d94fb9428be8`，仅首页 CSS 及其 HTML 缓存版本发生变化；本轮重跑 94 项相关检查并完成十种视口和三张轮播的实际浏览器复核。下方 468 项为原 1.4 基线产物的完整验收，不转移其 JAR 归属。范围、备份与专项证据见 [首页比例修订](HOME_LAYOUT_FIX_20261022.md)；完整发布门槛不变。

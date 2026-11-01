@@ -12,6 +12,20 @@ foreach($taskName in @('acceptance-results.json','acceptance-postgres.json','aut
   $taskExpected=if($taskProof.artifact){$taskProof.artifact.sha256}else{$taskProof.jar_sha256}
   if($taskExpected -ne $taskJarHash -or !$taskProof.passed){throw ('QA evidence does not match this JAR: '+$taskName)}
 }
+$taskContainer=Get-Content -LiteralPath (Join-Path $taskRoot 'qa/container-release-check.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$taskInputs=Get-Content -LiteralPath (Join-Path $taskRoot 'qa/container-build-inputs.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+if(!$taskContainer.passed -or !$taskInputs.passed -or $taskContainer.commit_sha -ne $taskInputs.commit_sha){throw 'Successful container evidence is required.'}
+if((Get-FileHash -LiteralPath (Join-Path $taskRoot 'qa/container-release-check.json')).Hash.ToLowerInvariant() -ne $taskInputs.container_proof_sha256){throw 'Container evidence changed; verify build input provenance again.'}
+$taskBuildFiles=@('Dockerfile','pom.xml')+@(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'src') -File -Recurse | ForEach-Object {[IO.Path]::GetRelativePath($taskRoot,$_.FullName).Replace('\','/')})
+if(@(Compare-Object ($taskBuildFiles | Sort-Object) ($taskInputs.inputs.path | Sort-Object)).Count){throw 'The Docker build input file list changed.'}
+foreach($taskInput in $taskInputs.inputs){
+  $taskBytes=[IO.File]::ReadAllBytes((Join-Path $taskRoot $taskInput.path))
+  if([IO.Path]::GetExtension($taskInput.path) -in @('.java','.sql','.html','.js','.css','.svg','.json','.xml') -or $taskInput.path -eq 'Dockerfile'){
+    $taskBytes=[Text.Encoding]::UTF8.GetBytes([Text.Encoding]::UTF8.GetString($taskBytes).Replace("`r`n","`n"))
+  }
+  $taskHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($taskBytes)).ToLowerInvariant()
+  if($taskHash -ne $taskInput.sha256){throw ('The container-verified build input changed: '+$taskInput.path)}
+}
 $taskStage=Join-Path $taskOutput 'source'
 New-Item -ItemType Directory -Path $taskStage | Out-Null
 foreach($taskFolder in @('src','docs')){Copy-Item -LiteralPath (Join-Path $taskRoot $taskFolder) -Destination $taskStage -Recurse}
@@ -38,14 +52,14 @@ try {
 } finally {$taskZip.Dispose()}
 Copy-Item -LiteralPath $taskJar -Destination (Join-Path $taskOutput 'ADC_Nexus_JDBC_1.5.0-rc1.jar')
 $taskReadme=Get-Content -LiteralPath (Join-Path $taskRoot 'docs\LOCAL_DELIVERY_V1_5.md') -Raw -Encoding UTF8
-foreach($taskLink in @('PRACTICE_UPGRADE_V1_5.md','REVIEW_GUIDE.md','DEPLOYMENT.md')){
+foreach($taskLink in @('PRACTICE_UPGRADE_V1_5.md','REVIEW_GUIDE.md','DEPLOYMENT.md','DEPLOY_QUICKSTART.md')){
   $taskReadme=$taskReadme.Replace(']('+$taskLink+')','](source/docs/'+$taskLink+')')
   if(!(Test-Path -LiteralPath (Join-Path $taskStage ('docs\'+$taskLink)))){throw ('Missing packaged document: '+$taskLink)}
 }
 $taskReadme=$taskReadme.Replace('](../upgrade-workbench/','](source/upgrade-workbench/')
 [IO.File]::WriteAllText((Join-Path $taskOutput 'README_交付说明.md'),$taskReadme,[Text.UTF8Encoding]::new($false))
 $taskDocProof=Get-Content -LiteralPath (Join-Path $taskRoot 'qa/documentation-release-check.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-$taskManifest=@{version='1.5.0-rc1';date='2026-11-02';implementation_baseline_date='2026-10-30';packaged_at_utc=[DateTimeOffset]::UtcNow.ToString('o');automated_checks=$taskDocProof.automated_checks;local_only=$true;live_delivery_verified=$false;runtime_data_included=$false;files=@()}
+$taskManifest=@{version='1.5.0-rc1';date='2026-11-02';implementation_baseline_date='2026-10-30';packaged_at_utc=[DateTimeOffset]::UtcNow.ToString('o');automated_checks=$taskDocProof.automated_checks;container_checks=$taskContainer.checks.Count;container_workflow_run=$taskInputs.workflow_run_id;local_only=$true;live_delivery_verified=$false;runtime_data_included=$false;files=@()}
 foreach($taskFile in Get-ChildItem -LiteralPath $taskOutput -File){$taskManifest.files+=@{name=$taskFile.Name;bytes=$taskFile.Length;sha256=(Get-FileHash -LiteralPath $taskFile.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}}
 $taskManifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $taskOutput 'release-manifest.json') -Encoding UTF8
 Write-Host ('PACKAGED '+$taskOutput)

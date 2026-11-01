@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "version": "1.5.0-rc1",
+  "commit_sha": "22c2a7459d88458f318080333e2d9ab0a41f450e",
+  "image_id": "sha256:025d238ac0e989bf4346106f70768819e329e6fb60ce6c5f1327c26f7a7be0c9",
+  "dockerfile_sha256": "6cae19cd5dc04bdc9e7f2d6b95c67512faec62d378a72acef77050366fce87a6",
+  "checks": [
+    {
+      "name": "Production refuses an absent external database",
+      "passed": true
+    },
+    {
+      "name": "Production image boots with PostgreSQL and the expected JDBC version",
+      "passed": true
+    },
+    {
+      "name": "Container runs as unprivileged UID 10001",
+      "passed": true
+    },
+    {
+      "name": "The container memory limit is 512 MiB",
+      "passed": true
+    },
+    {
+      "name": "Public asset is available: /",
+      "passed": true
+    },
+    {
+      "name": "Public asset is available: /practice-setup.js",
+      "passed": true
+    },
+    {
+      "name": "Public asset is available: /followups.js",
+      "passed": true
+    },
+    {
+      "name": "Public asset is available: /setup.css",
+      "passed": true
+    },
+    {
+      "name": "Unauthenticated request is denied: /api/patients",
+      "passed": true
+    },
+    {
+      "name": "Unauthenticated request is denied: /api/followups",
+      "passed": true
+    },
+    {
+      "name": "Unauthenticated request is denied: /api/resources",
+      "passed": true
+    },
+    {
+      "name": "Unauthenticated request is denied: /api/admin/access",
+      "passed": true
+    },
+    {
+      "name": "Synthetic clinic and patient data were seeded",
+      "passed": true
+    },
+    {
+      "name": "Business row contents survive a container restart",
+      "passed": true
+    },
+    {
+      "name": "Business row contents survive replacement of the ephemeral container",
+      "passed": true
+    }
+  ],
+  "memory_bytes": 536870912,
+  "persisted_table_counts": {
+    "organizations": 1,
+    "clinics": 15,
+    "dentists": 14,
+    "patients": 512,
+    "appointments": 90,
+    "clinical_visits": 5
+  },
+  "production_mode": true,
+  "database": "isolated loopback PostgreSQL",
+  "hosted_deployment_verified": false,
+  "render_neon_credentials_used": false
+}

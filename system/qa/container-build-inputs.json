@@ -1,0 +1,203 @@
+{
+  "passed": true,
+  "method": "Compare every local Docker build input with the exact Git commit used by the successful CI image build; normalize Git text line endings only",
+  "commit_sha": "22c2a7459d88458f318080333e2d9ab0a41f450e",
+  "workflow_run_id": 41337746997,
+  "artifact_id": 13096236352,
+  "container_proof_sha256": "fd59abc0414141c6e4004464120d21f220d55c2eedad54610d54b26c3d63b334",
+  "inputs": [
+    {
+      "path": "Dockerfile",
+      "sha256": "6cae19cd5dc04bdc9e7f2d6b95c67512faec62d378a72acef77050366fce87a6"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "15b99f3d383ac668652d994be65d5d6b2b119617cd6bfb7806a56be0ac34ef35"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Analytics.java",
+      "sha256": "d604c1f2ee53e791293882171cb49c0714aae2ee974f50f4f2e44e6081f37cd9"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Auth.java",
+      "sha256": "101d065ece49f016ef96232b7fd76b19089db70c555011c1b0abe3bdaa2167d2"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Clinical.java",
+      "sha256": "67ad2444be3ebcb656cbcddce06a92052e3cc0d43c0b47040c20e40c7eea24d1"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Db.java",
+      "sha256": "3af0c2e401abca495719fee252c2ed4de9c72ea2cbd55d1b953afb037f577811"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Delivery.java",
+      "sha256": "891306f5a8c8d07c0b473dcf00024fe7d7a4eb7e9eed2d9696c059f7cd992689"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Enrollment.java",
+      "sha256": "c5b3a940db6d4d915da936dcab71c7247ffd011a958943fb1f72fcfe2b992338"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Finance.java",
+      "sha256": "50aeae747ed8489ea950eff69e6d445a6d18660fe17e1abd680b880093fdae91"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Followups.java",
+      "sha256": "7f8324307fa6b1f0e20754a4c940bbde82e86810b4476ad52e13b80f870f83be"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Main.java",
+      "sha256": "7cd43a265c936b48b9bd65c190167c0d7aa938836ede614f1a438052581d9acd"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/PracticeSetup.java",
+      "sha256": "ffa470b633eff3f19dae07668df7ab461e64fdba8520e06be69fbc83a6d243f4"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Scheduling.java",
+      "sha256": "889792e2c6338912e0651261b280a4a4e799dd0658afb9fcebd12caf11e8439f"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Seed.java",
+      "sha256": "12e3810fa6fb0b4d99101e11aaaf45b21e0f68f97b361193d276186365ae95ee"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Service.java",
+      "sha256": "f97c529f667fe19ed75a4c3ea8eb82b7899b1fd0310a7ffd4f30c270c2902007"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Support.java",
+      "sha256": "b724d91ce9076e28a54014553122a9743f4dea8e8894b6885defe9a4acf169c3"
+    },
+    {
+      "path": "src/main/java/cn/adcnexus/Workforce.java",
+      "sha256": "a57fe6b9c476db5e2f5984e704eb813122a680ab0ae34826aadbd331e2819457"
+    },
+    {
+      "path": "src/main/resources/db/baseline-postgres.sql",
+      "sha256": "1cdb1b35cd84ca47471a6267c5021b68737e71767157f228fd5cfcf544057c26"
+    },
+    {
+      "path": "src/main/resources/db/baseline-sqlite.sql",
+      "sha256": "e73f3c78e41ae9602109d87f0224eec92e89130d7efba84dbf13ab38e33d7dbe"
+    },
+    {
+      "path": "src/main/resources/db/extensions.sql",
+      "sha256": "6d5861fa9353139e2247e9e6505a1c22111db323d2e3f9b5fbdf2fb2d7c012fc"
+    },
+    {
+      "path": "src/main/resources/db/practice-upgrade.sql",
+      "sha256": "071335893bbaf2e86b026fb4f5ef56909788283222752e7f9efef25676913918"
+    },
+    {
+      "path": "src/main/resources/db/schema-catalog.json",
+      "sha256": "003c9cd9f9422dadb31afbfab1f2b26f8b6a0ebbe193207961cb81538e1bb176"
+    },
+    {
+      "path": "src/main/resources/db/seed-postgres.sql",
+      "sha256": "173eb0be02dbc646035cd61ba333274fc58544f59c5e2793b423975f1c8b2baa"
+    },
+    {
+      "path": "src/main/resources/db/seed.sql",
+      "sha256": "15e9db32e64b8390f4e2e5d394aa66c8b145b7063a361d44a3af2b70984579b1"
+    },
+    {
+      "path": "src/main/resources/db/unified-auth.sql",
+      "sha256": "81bc4cc5ff57bce4c8a3456fb27175961f20227712d7667154b64f23dd79c021"
+    },
+    {
+      "path": "src/main/resources/web/app.css",
+      "sha256": "34a8b280a1b03c48312fbfd731e911382d72334a2e2c90718e7cb26002e7417a"
+    },
+    {
+      "path": "src/main/resources/web/app.js",
+      "sha256": "dd5f9fc2abd8228ebb786dbb8f49cd01782da6030c3b56a4e3e0a94e89b2a020"
+    },
+    {
+      "path": "src/main/resources/web/auth-ui.js",
+      "sha256": "f83d7fea0a0e94f063e1dd763d85464c52fe7133ee0349d5b6fa54c459ae714e"
+    },
+    {
+      "path": "src/main/resources/web/carousel.js",
+      "sha256": "d301b2124c4afdca3995f4fd6f6f181b6bfd789ce1f30751257b15a829295d4c"
+    },
+    {
+      "path": "src/main/resources/web/clinic-calendar.js",
+      "sha256": "5b24486af208ecadec08eda8d88c48e47e145ffec62fcbdad903e0cc1231f48d"
+    },
+    {
+      "path": "src/main/resources/web/followups.js",
+      "sha256": "2289a3f81301efde9876ad672c7b87c7c47a08448198f80edc101a4ebc9b6b95"
+    },
+    {
+      "path": "src/main/resources/web/homepage.css",
+      "sha256": "52560c6bf5d7d0db4f0a50e2843a86da1b7984b69dc125b3422071a7484d2f1d"
+    },
+    {
+      "path": "src/main/resources/web/homepage.js",
+      "sha256": "7b8fb607b022da9da8836049995b56fa363d639dc7655d58c46ea8c554f23a2d"
+    },
+    {
+      "path": "src/main/resources/web/images/home-care-v1.png",
+      "sha256": "412192876b7a7bdbf6e00381747bfa5e3227f7d76a5cdb0edc6d90aefbc4439b"
+    },
+    {
+      "path": "src/main/resources/web/images/home-clinic-v1.png",
+      "sha256": "c509f8903cdbc73d4dd3ba43f296ea1d07c24a7f31b4eb84031a9005d9d9da7e"
+    },
+    {
+      "path": "src/main/resources/web/images/home-reception-v1.png",
+      "sha256": "0eaa3ec5e9cbc015e3ff6c7d70ab15b8b3d34b81e8f2ce57093fbbf2f208aade"
+    },
+    {
+      "path": "src/main/resources/web/images/workspace-billing-v14.jpg",
+      "sha256": "02299462a85448b9baaa1f8752c5da17eb4eac385129f293b804ad6bc714b481"
+    },
+    {
+      "path": "src/main/resources/web/images/workspace-clinical-v14.jpg",
+      "sha256": "a9762effee726f5046fcb30d50bf716fc25efd59f2e0f79190af0438475782f8"
+    },
+    {
+      "path": "src/main/resources/web/images/workspace-reception-v14.jpg",
+      "sha256": "31c2418355af488fa53f98d80a8a32983429b0f95e794a0dd96e424942577da6"
+    },
+    {
+      "path": "src/main/resources/web/index.html",
+      "sha256": "a4ae0fe93fd32135576c3c1f9746eef04d4e7a7095b1e5143b96c5e684e3ec50"
+    },
+    {
+      "path": "src/main/resources/web/mark.svg",
+      "sha256": "ba0f2965c47fd36d6b6d25c3ff90853be91d7ab9b9a7c31af87f8254a957b773"
+    },
+    {
+      "path": "src/main/resources/web/practice-setup.js",
+      "sha256": "0d4e3170fd789f94edc1971adb69d5cdea53414452771904b19c285cbd636470"
+    },
+    {
+      "path": "src/main/resources/web/practice-workflow.js",
+      "sha256": "d9ae2d1faa4ea44e7e5d7ca355cc6fccd64696142e8af252f3977b3f9e9c3a58"
+    },
+    {
+      "path": "src/main/resources/web/practice.css",
+      "sha256": "5d7d0f73fe397db628805d7c5ea1a5b319c8a58e5fa84e7699683066c07b4780"
+    },
+    {
+      "path": "src/main/resources/web/product.css",
+      "sha256": "5f4accefdedc2946575ecf2e17f3a8a482ac04b912a233e5f64f217c2bd93d56"
+    },
+    {
+      "path": "src/main/resources/web/setup.css",
+      "sha256": "f58fb8693f77841cf98e3467dd1c9c02ec7059eaaa86a89281e6293a2fd536e5"
+    },
+    {
+      "path": "src/main/resources/web/studio.css",
+      "sha256": "ba37b28b63f087d559537c3acb02b7be2789c5fb08944f637472bf9ed95de269"
+    },
+    {
+      "path": "src/main/resources/web/worklists.js",
+      "sha256": "08278f5eb7fe6ad7610f38586f5774e0c19f70d6c77a565722f1f64ae75aaea9"
+    }
+  ],
+  "hosted_deployment_verified": false
+}

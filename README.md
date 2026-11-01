@@ -27,6 +27,7 @@ Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使�
 - [教师试用主路径](system/docs/REVIEW_GUIDE.md) · [实施差异与保留边界](system/docs/CHANGE_CONTROL.md)
 - [集成测试证据](system/qa/)：业务检查 SQLite 178 / PostgreSQL 176，统一身份检查 51 / 49，前端请求及导出辅助 10、首页 HTTP/源码合同 36、轮播及日程逻辑 20、临床与结算投影 33、界面细节 33、设置及复诊投影 21；共 **607 项自动化检查通过**。另有八种角色浏览器核验，PG 恢复核对 10 条业务链及 146 条有效外键。云端与真实外部服务分别验收。
 - [分轮迭代与发布门槛](system/docs/RELEASE_READINESS.md)：排班变更保护、授权变化后的重试、异常输入、长表单及手机端复查；测试结果绑定被测 JAR 校验值。
+- [生产容器证据](system/qa/container-release-check.json)：另有 15 项 Linux 容器检查通过，包括 512 MiB 内存限制及重启／替换容器后的外部数据库内容保持；[对应 GitHub 运行](https://github.com/zongdajiang/adc-nexus-system-analysis-design/actions/runs/41337746997)三组均通过。这是部署前验证，公网系统仍待创建和验收。
 
 原报告数据基线仍为 61 表；当前实现为 **71 表、820 个字段、146 条外键**。两组统计分开保留，完整结构元数据见 [实施模型](system/upgrade-workbench/2026-10-30/IMPLEMENTED_SCHEMA.json)。统一身份与界面合同见 [1.1 增量规格](system/docs/AUTH_AND_UI_V1_1.md)，发送服务见 [开通手册](system/docs/CHANNEL_SETUP.md)。按约定，最终报告与 ERD 保持冻结，待公网发布及验收后整体同步。
 
