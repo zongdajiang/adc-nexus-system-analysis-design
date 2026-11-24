@@ -1,0 +1,69 @@
+/* Staff operation surfaces: patient facts, contextual actions and financial work queues. */
+.app-shell{--surface:#f3f6f7;--line:#dce5e8;--muted:#546d77;background:var(--surface);color:#243e48}
+.app-shell .workspace-main{background:var(--surface);padding-top:30px}
+.app-shell .topbar{border-bottom:1px solid #dce5e8;background:#fff}
+.app-shell h1,.app-shell h2,.app-shell h3{color:#213f4a}
+.app-shell .title-row h1{font-size:25px;font-weight:650}
+.app-shell .btn{border-radius:7px;min-height:40px;font-weight:550;padding:9px 15px}
+.app-shell .btn.small{min-height:36px;padding:7px 12px}
+.app-shell .btn.primary{background:#08777a;border-color:#08777a}
+.app-shell .btn.primary:not(:disabled):hover{background:#075e63;border-color:#075e63}
+.app-shell .btn:not(:disabled):active{background:#e2eeee}
+.app-shell .btn.primary:not(:disabled):active{background:#064e54;color:#fff}
+.app-shell .title-row .btn.primary{min-height:42px}
+.app-shell .text-link{font-weight:500}
+.app-shell .table-wrap{background:#fff}
+.app-shell th{padding:14px 18px;background:#f3f7f8;color:#42606b;font-size:13px}
+.app-shell td{padding:16px 18px;border-bottom-color:#e8edef;color:#294651}
+.app-shell .table-wrap tbody tr:hover{background:#f3f8f8}
+.app-shell .worklist-tabs{background:#fff;border-bottom-color:#dfe8eb}
+.app-shell .worklist-tabs>button{min-height:50px;font-weight:550;color:#546d77}
+.app-shell .worklist-tabs>button.selected{color:#086d73;background:#f4fafa}
+.app-shell .worklist-search{padding:16px 18px;background:#fcfdfd;gap:12px}
+.app-shell .desk-register{border-color:#dbe5e8;border-radius:12px}
+.app-shell .readonly-tag,.modal .readonly-tag{display:inline-flex;align-items:center;vertical-align:middle;margin:0 9px 0 0;padding:3px 8px;border:1px solid #d0dbe0;border-radius:5px;background:#f0f4f6;color:#506773;font-size:12px;font-weight:500;line-height:1.5;white-space:nowrap}
+.record-lock{display:inline-block;font-size:12px;color:#5c6b72;background:#f2f4f4;padding:4px 8px;border-radius:5px}
+.patient-demographics{display:block;color:#536b76;font-size:13px;line-height:1.8;font-weight:400}
+.patient-register table{min-width:980px}.patient-register th:first-child,.patient-register td:first-child{min-width:180px}.patient-register td:first-child .second,.patient-register .patient-demographics{white-space:nowrap}
+.appointment-row-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.business-chart{margin:0;padding:24px 26px;min-width:0}
+.business-chart figcaption{font-size:15px;font-weight:600;color:#264954;margin:0 0 22px}
+.business-bars{display:grid;gap:18px}
+.business-bar{display:grid;grid-template-columns:112px minmax(40px,1fr) 108px;gap:14px;align-items:center;font-size:13px;color:#425e6b}
+.business-bar strong{font-size:15px;font-weight:600;text-align:right;color:#264652;white-space:nowrap}
+.business-track{height:10px;background:#edf2f3;border-radius:3px;overflow:hidden}
+.business-track i{height:100%;display:block;background:#528c91;border-radius:3px}
+.business-track i.received{background:#4f8474}.business-track i.outstanding{background:#b08b4d}
+.business-track i.cost{background:#7795a9}.business-track i.expense{background:#af9575}
+.billing-overview,.period-overview{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);background:#fff;border:1px solid #dbe5e8;border-radius:12px;overflow:hidden;margin:0 0 24px}
+.billing-shortcuts,.period-tasklist{padding:24px 26px;background:#f8faf9;min-width:0}
+.billing-shortcuts h2,.period-tasklist h3{font-size:15px;font-weight:600;line-height:1.5;margin:0 0 12px}
+.billing-shortcuts>button,.period-task{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;border:0;border-bottom:1px solid #dde6e7;background:transparent;color:#2c515a;padding:12px 0;font-size:14px;text-align:left}
+.billing-shortcuts>button:hover,.period-task:not(:disabled):hover{color:#04686d;background:#eef5f3}
+.billing-shortcuts>button:focus-visible,.period-task:focus-visible{outline:2px solid #08777a;outline-offset:3px}
+.billing-shortcuts strong,.period-task strong{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
+.billing-shortcuts p,.period-tasklist p{font-size:12px;line-height:1.8;color:#526a73;margin:14px 0 0;max-width:65ch}
+.period-task strong{margin-left:auto}.period-task .icon{width:16px;height:16px}
+.period-task:disabled{color:#62727a;opacity:1;cursor:default}
+.period-workspace{margin-top:24px;scroll-margin-top:90px}
+.period-heading{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.period-heading>div{margin-right:auto}.period-heading h2{font-size:19px;margin:0;font-weight:600}
+.period-heading p,.period-context{font-size:13px;line-height:1.8;color:#536b76;margin:6px 0 0}
+.period-context{margin:0 0 12px}.period-overview{margin:0}
+#period-expenses,#period-costs{scroll-margin-top:90px}
+.care-patient-header h1{font-size:28px;font-weight:650}
+.care-patient-header .patient-demographics{font-size:14px;margin:2px 0}
+.care-patient-header .readonly-tag{margin-left:10px}
+.encounter-progress{display:flex;gap:0;list-style:none;padding:0;margin:0 0 20px;background:#fff;border:1px solid #dce5e8;border-radius:10px;overflow:hidden}
+.encounter-progress li{flex:1;padding:16px 18px;font-size:13px;color:#586c77;line-height:1.8;border-right:1px solid #e6edef}
+.encounter-progress li:last-child{border:0}.encounter-progress li strong{display:block;color:#254b57;font-size:14px;font-weight:600}
+.encounter-progress li.done{background:#f0f7f3}.encounter-progress li.current{background:#edf7f7}
+.care-completion{border-radius:12px;background:#fff;align-self:start;position:sticky;top:88px}
+.care-completion h2{font-size:16px}.app-shell .care-completion-actions .btn{width:100%}
+.app-shell .encounter-form{gap:20px}.app-shell .encounter-field>span{font-size:14px;font-weight:500;color:#345460}
+.app-shell .encounter-form-footer{padding-top:14px;border-top:1px solid #e5ecee}
+.app-shell .invoice-print .grand{color:#164b54}
+@media(min-width:1700px){.app-shell .workspace-main{padding-left:42px;padding-right:42px}.app-shell .page-content{max-width:1880px}}
+@media(max-width:1100px){.billing-overview,.period-overview{grid-template-columns:1fr}.business-chart{padding:22px}.billing-shortcuts,.period-tasklist{padding:22px}.care-completion{position:static}}
+@media(max-width:700px){.business-bar{grid-template-columns:90px minmax(30px,1fr) 95px;gap:9px;font-size:12px}.business-bar strong{font-size:13px}.business-chart{padding:20px 16px}.billing-shortcuts,.period-tasklist{padding:20px 16px}.app-shell .workspace-main{padding:22px 16px 34px}.app-shell .btn,.app-shell .btn.small{min-height:44px}.encounter-progress{flex-wrap:wrap}.encounter-progress li{flex-basis:50%;border-bottom:1px solid #e6edef;padding:12px}.care-patient-header .patient-demographics{font-size:13px}.period-heading{flex-wrap:wrap}.period-heading>div{flex-basis:100%}}
+@media print{.billing-overview,.billing-shortcuts,.encounter-progress{display:none}.readonly-tag{border:0}}

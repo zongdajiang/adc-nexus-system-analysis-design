@@ -237,7 +237,6 @@
 .lp-hero-points { color:#335460; font-size:13px; gap:24px; }
 .lp-hero-veil { background:linear-gradient(90deg,#f4f7f5f0 0%,#f4f7f5df 28%,#f4f7f54a 53%,transparent 72%); }
 .lp-carousel-controls { position:relative; }
-.lp-carousel-controls::before { content:attr(data-playback); color:#304d58; background:#ffffffdc; padding:2px 7px; font-size:11px; border-radius:3px; }
 .lp-work-links { display:flex; flex:1; justify-content:flex-end; gap:26px; }
 .lp-work-links a { display:flex; align-items:center; gap:12px; padding:5px 0; }
 .lp-work-links a>.icon:first-child { width:24px; height:24px; color:#1388a0; }

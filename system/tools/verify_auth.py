@@ -40,7 +40,7 @@ def main():
     with socket.socket() as s: s.bind(('127.0.0.1',0)); port=s.getsockname()[1]
     base=f'http://127.0.0.1:{port}'
     password='Synthetic-'+secrets.token_urlsafe(18)
-    env={**os.environ, 'APP_ENV':'TEST','PORT':str(port),'DATA_DIR':str(data), 'DEMO_MODE':'true',
+    env={**os.environ, 'APP_ENV':'TEST','PORT':str(port),'DATA_DIR':str(data), 'DEMO_MODE':'true','ADC_TEST_LEGACY_PATIENT_WEB':'true',
          'ADMIN_PASSWORD':password,'AUTH_TEST_DELIVERY_URL':f'http://127.0.0.1:{receiver.server_port}/delivery'}
     pg_url=os.environ.get('ADC_ACCEPTANCE_PG_URL')
     if pg_url:
@@ -53,7 +53,7 @@ def main():
     proc=subprocess.Popen([os.environ.get('ADC_JAVA','java'),'-Dfile.encoding=UTF-8','-jar','target/adc-nexus.jar'],cwd=ROOT,env=env,stdout=log,stderr=log)
     def sql(statement):
         if pg_url:
-            command=[os.environ.get('ADC_PSQL','psql'),pg_url,'-X','-A','-t','-v','ON_ERROR_STOP=1','-c',statement]
+            command=[os.environ.get('ADC_PSQL',os.environ.get('ADC_TEST_PSQL','psql')),pg_url,'-X','-A','-t','-v','ON_ERROR_STOP=1','-c',statement]
             return subprocess.check_output(command,text=True).strip()
         with sqlite3.connect(data/'adc-nexus.sqlite') as cx:
             cursor=cx.execute(statement); result=cursor.fetchone()

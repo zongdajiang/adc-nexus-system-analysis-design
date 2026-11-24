@@ -45,9 +45,12 @@ final class Seed {
         List.of(
             "dashboard.read",
             "patient.read",
+            "patient.manage",
             "appointment.read",
+            "appointment.manage",
             "clinical.read",
             "finance.read",
+            "finance.manage",
             "analytics.read",
             "clinic.read",
             "clinic.manage",
@@ -104,7 +107,7 @@ final class Seed {
   static void practicePermissions(Connection c) throws Exception {
     var definitions=Map.of("catalog.manage",List.of("HQ_OPERATIONS","REVIEWER"),
         "followup.read",List.of("FRONT_DESK","DENTIST","CLINIC_MANAGER","HQ_OPERATIONS","REVIEWER"),
-        "followup.manage",List.of("FRONT_DESK","REVIEWER"),
+        "followup.manage",List.of("FRONT_DESK","CLINIC_MANAGER","REVIEWER"),
         "followup.recommend",List.of("DENTIST","REVIEWER"));
     for(var entry:definitions.entrySet()){
       String id="jdbc-perm-"+entry.getKey();
@@ -114,7 +117,44 @@ final class Seed {
     }
   }
 
+  static void clinicOperationsPermissions(Connection c) throws Exception {
+    // An assigned clinic owner can cover reception and cash-desk work. This does
+    // not confer clinician signatures, network finance or access administration.
+    for (String permission : List.of("patient.manage", "appointment.manage", "finance.manage", "followup.manage")) {
+      var definition = one(c, "SELECT id FROM permissions WHERE code=?", permission);
+      check(definition != null, 500, "PERMISSION_DEFINITION", "缺少门诊业务权限定义");
+      if (count(c,"SELECT COUNT(*) FROM role_permissions WHERE role_id=? AND permission_id=?","jdbc-role-CLINIC_MANAGER",definition.get("id"))==0)
+        insert(c, "role_permissions", map("role_id", "jdbc-role-CLINIC_MANAGER", "permission_id", definition.get("id")));
+    }
+  }
+
+  static void waitlistPermissions(Connection c) throws Exception {
+    String id="jdbc-perm-waitlist.manage";
+    if (one(c,"SELECT id FROM permissions WHERE code='waitlist.manage'")==null)
+      insert(c,"permissions",map("id",id,"code","waitlist.manage","domain","appointment",
+          "description_zh","安排候补与登记患者答复","description_en","Manage waiting list"));
+    else id=s(one(c,"SELECT id FROM permissions WHERE code='waitlist.manage'"),"id");
+    for(String role:List.of("CLINIC_MANAGER","FRONT_DESK","DENTIST","REVIEWER"))
+      if(count(c,"SELECT COUNT(*) FROM role_permissions WHERE role_id=? AND permission_id=?","jdbc-role-"+role,id)==0)
+        insert(c,"role_permissions",map("role_id","jdbc-role-"+role,"permission_id",id));
+  }
+
+  static void responsibilityPermissions(Connection c) throws Exception {
+    var grants=Map.of("period.read",List.of("CLINIC_MANAGER","HQ_FINANCE","REVIEWER"),
+        "expansion.read",List.of("HQ_OPERATIONS","HQ_FINANCE","REVIEWER"));
+    for(var entry:grants.entrySet()){
+      String id="jdbc-perm-"+entry.getKey();
+      if(one(c,"SELECT id FROM permissions WHERE code=?",entry.getKey())==null)
+        insert(c,"permissions",map("id",id,"code",entry.getKey(),"domain",entry.getKey().split("\\.")[0],
+            "description_zh",entry.getKey().equals("period.read")?"查看授权范围内的期间核算":"查看总部扩张测算","description_en",entry.getKey()));
+      else id=s(one(c,"SELECT id FROM permissions WHERE code=?",entry.getKey()),"id");
+      for(String role:entry.getValue())if(count(c,"SELECT COUNT(*) FROM role_permissions WHERE role_id=? AND permission_id=?","jdbc-role-"+role,id)==0)
+        insert(c,"role_permissions",map("role_id","jdbc-role-"+role,"permission_id",id));
+    }
+  }
+
   static void complete(Connection c, Db db) throws Exception {
+    boolean production = production();
     execute(c, "UPDATE appointments SET status='CHECKED_IN' WHERE status='ARRIVED'");
     execute(c, "UPDATE appointments SET status='IN_PROGRESS' WHERE status='IN_TREATMENT'");
     execute(c, "UPDATE clinical_visits SET status='IN_PROGRESS' WHERE status='IN_TREATMENT'");
@@ -157,6 +197,7 @@ final class Seed {
         var p = one(c, "SELECT id FROM permissions WHERE code=?", permission);
         insert(c, "role_permissions", map("role_id", role, "permission_id", p.get("id")));
       }
+      if (production) continue;
       String user = "jdbc-demo-" + e.getKey().toLowerCase(Locale.ROOT);
       insert(
           c,
@@ -211,6 +252,10 @@ final class Seed {
       }
     }
     String adminPassword = System.getenv("ADMIN_PASSWORD");
+    if (production)
+      check(adminPassword != null && adminPassword.length() >= 20 && adminPassword.length() < 256
+              && !adminPassword.equalsIgnoreCase(DemoAccounts.PASSWORD),
+          500, "ADMIN_BOOTSTRAP", "首次初始化需提供 20 至 255 位随机管理员密码");
     if (adminPassword == null || adminPassword.length() < 12) {
       adminPassword = "ADC-" + random().substring(0, 20);
       Path dir = Path.of(System.getenv().getOrDefault("DATA_DIR", "data"));
@@ -282,6 +327,7 @@ final class Seed {
               "ends_on",
               start.plusMonths(3).minusDays(1).toString()));
     }
+    if (production) return;
     // Seed clinician binding is an explicit controlled setting, not a name comparison.
     insert(
         c,
@@ -303,7 +349,8 @@ final class Seed {
             "release:jdbc",
             "value_json",
             json(map("version", VERSION, "synthetic", true))));
-    // Additional same-day appointments are real records in the demonstration database.
+    if (DemoData.enabled()) return;
+    // Compact fixtures used by isolated business regression tests.
     String patient =
         text(
             one(
@@ -364,7 +411,34 @@ final class Seed {
               now(),
               "actor_user_id",
               "jdbc-demo-front_desk"));
+      if (h == 9 && Boolean.parseBoolean(System.getenv().getOrDefault("DEMO_MODE", "false"))) {
+        var frontDesk = new Auth.Principal("jdbc-demo-front_desk", "前台接待",
+            Set.copyOf(GRANTS.get("FRONT_DESK")), Set.of("cln-tianhe"), false, null, null,
+            List.of(), false);
+        Scheduling.command(c, frontDesk, id, map("action", "check_in", "version", 1,
+            "identity_confirmed", true, "declaration", "合成演示患者已到店，待医师核对病史"));
+      }
     }
+  }
+
+  static void bootstrapProduction(Connection c, Db db) throws Exception {
+    String name = System.getenv().getOrDefault("ORGANIZATION_NAME", "").trim();
+    check(!name.isBlank() && name.length() <= 120, 500, "ORGANIZATION_REQUIRED",
+        "首次初始化需配置机构名称 ORGANIZATION_NAME");
+    insert(c, "organizations", map("id", "org-adc", "code", "ADC", "name_en", name, "name_zh", name));
+    complete(c, db);
+  }
+
+  static void checkProfile(Connection c) throws SQLException {
+    boolean synthetic = count(c, "SELECT COUNT(*) FROM system_settings WHERE organization_id='org-adc'"
+        + " AND setting_key='release:jdbc' AND value_json LIKE ?", "%\"synthetic\":true%") == 1;
+    boolean demoPrincipals = count(c, "SELECT COUNT(*) FROM app_users WHERE id LIKE 'jdbc-demo-%'") > 0;
+    if (production())
+      check(!synthetic && !demoPrincipals, 500, "PRODUCTION_ISOLATION",
+          "检测到样例数据库。请为生产环境使用独立数据库");
+    if (DemoAccounts.enabled())
+      check(synthetic && demoPrincipals, 500, "DEMO_DATABASE",
+          "演示环境须使用专用样例数据库");
   }
 
   static String roleName(String role) {

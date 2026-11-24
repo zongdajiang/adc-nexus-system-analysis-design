@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "生产环境不得开启演示账号或样例初始化",
+    "生产环境必须配置 PostgreSQL",
+    "首次初始化需提供",
+    "Fresh production migrates with one administrator and no sample patients or secrets in public config",
+    "Production verifies origin, issues secure cookies, requires CSRF, enforces least privilege and revokes logout session",
+    "Second production start preserves migrations and password without bootstrap secret",
+    "演示环境须使用专用样例数据库",
+    "An isolated demo can use sample accounts and ignores real verification provider configuration",
+    "检测到样例数据库"
+  ]
+}

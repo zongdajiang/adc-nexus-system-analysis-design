@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "Bootstrap SQL creates a dedicated database owner without superuser or role administration",
+    "Release JAR starts PostgreSQL course mode with 71 migrated tables and synthetic data",
+    "HTTPS proxy serves the app with a locally trusted test certificate",
+    "Six public demo staff accounts sign in over HTTPS with Secure and HttpOnly cookies",
+    "Yesterday, today and tomorrow each have navigable synthetic appointments",
+    "PostgreSQL backup restores synthetic patient, booking and invoice record counts",
+    "Production identity, startup and database separation regression passes on a separate PostgreSQL instance"
+  ],
+  "jar_sha256": "21018fc9ed6ab599632e81463f33fab058ea1eaee41193ba875453c204b29343",
+  "container_runtime_executed": false,
+  "public_deployment_verified": false
+}

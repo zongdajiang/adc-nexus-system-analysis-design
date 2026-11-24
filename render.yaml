@@ -1,5 +1,4 @@
-# Root entry point for the Deploy to Render button.
-# Keep the service definition in sync with system/render.yaml.
+# Optional course demo blueprint. Use a separate synthetic database.
 services:
   - type: web
     name: adc-nexus-jdbc
@@ -18,10 +17,12 @@ services:
         generateValue: true
       - key: DEMO_MODE
         value: "true"
+      - key: DEMO_SCENARIO_MODE
+        value: daily
       - key: SEED_DATA
         value: "true"
       - key: APP_ENV
-        value: PRODUCTION
+        value: DEMO
       - key: TZ
         value: Asia/Shanghai
       - key: PORT

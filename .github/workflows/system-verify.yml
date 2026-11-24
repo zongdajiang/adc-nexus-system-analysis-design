@@ -75,54 +75,32 @@ jobs:
           cache-dependency-path: system/pom.xml
       - name: Compile and package
         run: |
-          node --check src/main/resources/web/app.js
-          node --check src/main/resources/web/auth-ui.js
-          node --check src/main/resources/web/homepage.js
-          node --check src/main/resources/web/carousel.js
-          node --check src/main/resources/web/clinic-calendar.js
-          node --check src/main/resources/web/practice-workflow.js
-          node --check src/main/resources/web/worklists.js
-          node --check src/main/resources/web/practice-setup.js
-          node --check src/main/resources/web/followups.js
-          node tools/verify_web.mjs
+          find src/main/resources/web -name '*.js' -print0 | xargs -0 -n 1 node --check
           mvn -B -ntp package
-          node tools/verify_clinic_ui.mjs
-          node tools/verify_practice_ui.mjs
-          node tools/verify_ui_refinement.mjs
-          node tools/verify_setup_ui.mjs
-      - name: Public surface contract in a separate local instance
-        run: |
-          export DATA_DIR="$(mktemp -d)"
-          export PORT=8089 BIND_ADDRESS=127.0.0.1 DEMO_MODE=false APP_ENV=TEST
-          java -jar target/adc-nexus.jar > /tmp/adc-homepage-check.log 2>&1 &
-          public_pid=$!
-          trap 'kill "$public_pid" 2>/dev/null || true; wait "$public_pid" 2>/dev/null || true' EXIT
-          for attempt in $(seq 1 40); do
-            if curl -fsS http://127.0.0.1:8089/api/health > /dev/null; then break; fi
-            sleep 1
-          done
-          ADC_PUBLIC_TEST_ORIGIN=http://127.0.0.1:8089 node tools/verify_homepage.mjs
-      - name: Business acceptance in an isolated database
+      - name: Business and identity acceptance in isolated databases
         env:
           ADC_ACCEPTANCE_JAR: "true"
+          TEST_ENGINE: ${{ matrix.database }}
         run: |
-          if [ "${{ matrix.database }}" = "postgres" ]; then
-            export ADC_ACCEPTANCE_PG_URL='postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/adc_acceptance_ci?sslmode=disable'
-            export ADC_TEST_PSQL="$(command -v psql)"
-          fi
-          python tools/verify.py
-          if [ "${{ matrix.database }}" = "postgres" ]; then
-            python tools/verify_pg_backup.py
-          fi
-      - name: Unified enrollment in a separate isolated database
-        run: |
-          if [ "${{ matrix.database }}" = "postgres" ]; then
-            export PGPASSWORD='local-ci-fixture-only'
-            createdb -h 127.0.0.1 -p 5432 -U adc_test adc_acceptance_auth_ci
-            export ADC_PSQL="$(command -v psql)"
-            export ADC_ACCEPTANCE_PG_URL='postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/adc_acceptance_auth_ci?sslmode=disable'
-          fi
-          python tools/verify_auth.py
+          run_suite() {
+            if [ "$TEST_ENGINE" = sqlite ]; then
+              python "tools/$1.py"
+              return
+            fi
+            local database="adc_acceptance_$1"
+            PGPASSWORD=local-ci-fixture-only createdb -h 127.0.0.1 -p 5432 -U adc_test "$database"
+            local url="postgresql://adc_test:local-ci-fixture-only@127.0.0.1:5432/$database?sslmode=disable"
+            env "$2=$url" ADC_PSQL="$(command -v psql)" ADC_TEST_PSQL="$(command -v psql)" python "tools/$1.py"
+            if [ "$1" = verify ]; then
+              ADC_ACCEPTANCE_PG_URL="$url" ADC_TEST_PSQL="$(command -v psql)" python tools/verify_pg_backup.py
+            fi
+          }
+          run_suite verify ADC_ACCEPTANCE_PG_URL
+          run_suite verify_operating_workflow ADC_OPERATING_PG_URL
+          run_suite verify_daily_workflow ADC_DAILY_PG_URL
+          run_suite verify_demo_passwords ADC_LOGIN_PG_URL
+          run_suite verify_responsibilities ADC_REVIEW_PG_URL
+          run_suite verify_auth ADC_ACCEPTANCE_PG_URL
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:

@@ -32,11 +32,16 @@ public final class Db {
           "DATABASE_URL 必须为 PostgreSQL 连接串");
       if (source.startsWith("jdbc:")) url = source;
       else {
-        java.net.URI uri = java.net.URI.create(source);
-        String[] user = uri.getRawUserInfo().split(":", 2);
-        properties.setProperty("user", java.net.URLDecoder.decode(user[0], StandardCharsets.UTF_8));
-        properties.setProperty(
-            "password", java.net.URLDecoder.decode(user[1], StandardCharsets.UTF_8));
+        java.net.URI uri;
+        try { uri=java.net.URI.create(source); }
+        catch(IllegalArgumentException invalid){throw new IllegalArgumentException("PostgreSQL 连接配置无效，请检查主机和数据库名称");}
+        Support.check(uri.getHost()!=null && uri.getPath()!=null && uri.getPath().length()>1,
+            500,"DATABASE_CONFIG","PostgreSQL 连接配置缺少主机或数据库名称");
+        if(uri.getRawUserInfo()!=null){
+          String[] user=uri.getRawUserInfo().split(":",2);
+          properties.setProperty("user",java.net.URLDecoder.decode(user[0].replace("+","%2B"),StandardCharsets.UTF_8));
+          if(user.length>1)properties.setProperty("password",java.net.URLDecoder.decode(user[1].replace("+","%2B"),StandardCharsets.UTF_8));
+        }
         url =
             "jdbc:postgresql://"
                 + uri.getHost()
@@ -44,7 +49,7 @@ public final class Db {
                 + (uri.getPort() < 0 ? 5432 : uri.getPort())
                 + uri.getPath()
                 + "?"
-                + (uri.getRawQuery() == null ? "sslmode=require" : uri.getRawQuery());
+                + (uri.getRawQuery() == null || uri.getRawQuery().isBlank() ? "sslmode=require" : uri.getRawQuery());
       }
       properties.setProperty("connectTimeout", "15");
       properties.setProperty("socketTimeout", "30");
@@ -269,7 +274,11 @@ public final class Db {
     // Only version-controlled schema/fixtures reach this method. User values
     // always go through PreparedStatement. Batching avoids startup RTT costs.
     try (Statement batch = c.createStatement()) {
-      for (String s : splitSql(resource(resource))) if (!s.startsWith("PRAGMA")) batch.addBatch(s);
+      for (String s : splitSql(resource(resource))) {
+        if (s.startsWith("PRAGMA")) continue;
+        if (resource.startsWith("/db/seed") && DailyDemo.enabled() && !DailyDemo.masterStatement(s)) continue;
+        batch.addBatch(s);
+      }
       batch.executeBatch();
     }
   }
@@ -295,10 +304,15 @@ public final class Db {
                 "INSERT INTO schema_migrations(version,applied_at) VALUES ('001',?)",
                 Support.now());
           }
-          if (Boolean.parseBoolean(System.getenv().getOrDefault("SEED_DATA", "true"))
-              && count(c, "SELECT COUNT(*) FROM organizations") == 0) {
+          boolean empty = count(c, "SELECT COUNT(*) FROM organizations") == 0;
+          Support.check(!empty || !DemoAccounts.enabled() || Support.seedData(),500,"DEMO_DATABASE",
+              "空演示库须先初始化专用样例");
+          if (!empty) Seed.checkProfile(c);
+          if (empty && Support.seedData()) {
             script(c, "/db/seed" + (postgres ? "-postgres" : "") + ".sql");
             Seed.complete(c, this);
+          } else if (empty && Support.production()) {
+            Seed.bootstrapProduction(c, this);
           }
           if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='002'") == 0) {
             Seed.normalizeLegacyStates(c);
@@ -340,6 +354,26 @@ public final class Db {
             Seed.practicePermissions(c);
             execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('006',?)", Support.now());
           }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='007'") == 0) {
+            // PostgreSQL already enforces NOT NULL on every primary key.
+            if (!postgres) script(c, "/db/sqlite-primary-key-not-null.sql");
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('007',?)", Support.now());
+          }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='008'") == 0) {
+            Seed.clinicOperationsPermissions(c);
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('008',?)", Support.now());
+          }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='009'") == 0) {
+            Seed.waitlistPermissions(c);
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('009',?)", Support.now());
+          }
+          if (count(c, "SELECT COUNT(*) FROM schema_migrations WHERE version='010'") == 0) {
+            Seed.responsibilityPermissions(c);
+            execute(c, "INSERT INTO schema_migrations(version,applied_at) VALUES ('010',?)", Support.now());
+          }
+          if (DailyDemo.enabled()) DailyDemo.ensure(c); else DemoData.ensure(c);
+          if (DemoAccounts.enabled()) DemoData.normalizeContacts(c);
+          DemoAccounts.ensure(c);
           return null;
         });
   }

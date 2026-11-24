@@ -11,7 +11,7 @@
 | `/health` | GET | 不带秘密的就绪状态、数据库类型及版本 |
 | `/auth/config` | GET | 登录入口与外部通道配置状态 |
 | `/auth/login` | POST | `{username,password}`；标识为账号或已验证联系方式，不选择岗位；旧 role 参数仅保留兼容校验，不授予权限 |
-| `/auth/demo` | POST | `{role}`；仅显式 DEMO_MODE 环境，非正式认证通道 |
+| `/auth/demo` | POST | 显式 DEMO_MODE 下接受 CLINIC_MANAGER、DENTIST、FRONT_DESK、CASHIER、HQ_OPERATIONS、HQ_FINANCE 六个员工岗位，分别签发受原授权范围约束的具名合成会话；拒绝 PATIENT、ADMIN、REVIEWER |
 | `/auth/session` | GET | 当前身份、权限、范围及 CSRF |
 | `/auth/logout` | POST | 撤销当前会话并清除 Cookie |
 | `/auth/password` | POST | `{oldPassword,newPassword}`；撤销该用户全部会话 |
@@ -28,14 +28,14 @@
 | `/finance/unbilled` | GET | 已完成未开单就诊的收费摘要，不返回病历正文 |
 | `/finance/invoices` | GET / POST | 结算单 / 按 visit_id 唯一开单 |
 | `/finance/invoices/{id}` | GET / POST | 明细及流水 / pay、refund、void |
-| `/finance/periods` | GET / POST | 期间、成本、费用与快照 / cost、expense、allocate、close、reopen |
+| `/finance/periods` | GET / POST | 期间、成本、费用与核定记录 / cost、expense、expense_review、expense_edit、expense_cancel、allocate、close、reopen；费用更正和取消携带 expense_id、fingerprint、reason，关闭期间拒绝普通写入 |
 | `/finance/preflight` | GET | `{period_id}` 查询参数；输入摘要、阻断项及计算口径 |
 | `/resources` | GET / POST | 诊所、人员、目录和资源 / chair、closure、exception、availability、credential、assignment |
 | `/analytics` | GET | 范围内绩效、牙椅容量与服务日资质覆盖 |
 | `/expansion` | GET / POST | 情景及候选数据 / 保存参数与计算结果 |
 | `/admin/access` | GET / POST | create_user、grant、revoke、status、patient_link；需 access.manage |
 | `/audit` | GET | 范围内操作及拒绝审计 |
-| `/portal` | GET | 绑定本人摘要；不接受客户端指定患者 ID |
+| `/portal` | GET | 员工网页拒绝访问。历史查询合同保留给隔离回归，患者小程序将使用独立命名空间 |
 
 常用筛选：`clinic_id`、`from`、`to`；患者支持 `q`、`offset`，预约支持 `dentist_id`、`patient_id`、`status`。日期为 `YYYY-MM-DD`，业务时间为上海本地 `YYYY-MM-DD HH:mm:ss`，金额字段后缀 `_fen` 均为整数分。
 

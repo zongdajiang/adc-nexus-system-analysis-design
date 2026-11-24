@@ -8,17 +8,7 @@ import java.util.*;
 
 final class Service {
   static Auth.Principal filterClinic(Auth.Principal p, String clinic) {
-    if (clinic == null || clinic.isBlank()) return p;
-    p.clinic(clinic);
-    return new Auth.Principal(
-        p.userId(),
-        p.name(),
-        p.permissions(),
-        Set.of(clinic),
-        false,
-        p.patientId(),
-        p.dentistId(),
-        p.roles());
+    return clinic == null || clinic.isBlank() ? p : p.atClinic(clinic);
   }
 
   static void version(Map<String, Object> row, String col, Map<String, Object> b) {
@@ -26,7 +16,7 @@ final class Service {
         b.containsKey("version") && n(b, "version") == val(row, col),
         409,
         "VERSION_CONFLICT",
-        "记录已变化，请刷新后核对新版本");
+        "记录已由其他操作更新，请刷新后核对最新信息");
   }
 
   static void audit(
@@ -82,19 +72,44 @@ final class Service {
     return row;
   }
 
-  static Map<String, Object> safePatient(Auth.Principal p, Map<String, Object> patient) {
+  static Map<String, Object> safePatient(Connection c, Auth.Principal p, Map<String, Object> patient) throws Exception {
+    return redactPatient(patient, patientPermission(c,p,patient,"patient.manage"),
+        patientPermission(c,p,patient,"clinical.read"), patientPermission(c,p,patient,"clinical.write"));
+  }
+
+  private static Map<String,Object> redactPatient(Map<String,Object> patient, boolean manage, boolean clinical, boolean write) {
     var out = new LinkedHashMap<>(patient);
-    if (!p.permissions().contains("patient.manage") && !p.permissions().contains("clinical.read"))
-      out.remove("allergy_count");
-    if (!p.permissions().contains("patient.manage")
-        && !p.permissions().contains("clinical.write")) {
+    if (!manage && !clinical) out.remove("allergy_count");
+    if (!manage && !write) {
       String phone = s(out, "phone");
-      if (phone.length() > 6)
-        out.put("phone", phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4));
+      if (!phone.isBlank())
+        out.put("phone", phone.length() >= 8
+            ? phone.substring(0, 3) + "****" + phone.substring(phone.length() - 4)
+            : "****");
       out.remove("government_id_last4");
       out.remove("email");
     }
     return out;
+  }
+
+  private static Auth.Principal optionalScope(Connection c, Auth.Principal p, String permission) throws SQLException {
+    return p.permissions().contains(permission) ? Auth.forPermission(c,p,permission) : null;
+  }
+
+  private static boolean sameClinic(Auth.Principal scope, String id) {
+    return scope != null && (scope.network() || scope.clinics().contains(id));
+  }
+
+  private static boolean patientPermission(Connection c, Auth.Principal p, Map<String,Object> patient, String permission)
+      throws Exception {
+    if (!p.permissions().contains(permission)) return false;
+    try {
+      patientAccess(c, Auth.forPermission(c,p,permission), s(patient,"id"));
+      return true;
+    } catch (Problem denied) {
+      if (denied.status != 403) throw denied;
+      return false;
+    }
   }
 
   static Object bootstrap(Connection c, Auth.Principal p) throws Exception {
@@ -102,6 +117,9 @@ final class Service {
         map(
             "today",
             today(),
+            "business_now",now(),
+            "wall_now",wallNow(),
+            "daily_demo",p.demoSession() && DailyDemo.enabled(),
             "principal",
             map(
                 "id",
@@ -132,11 +150,8 @@ final class Service {
     if (!p.permissions().contains("portal.read")) {
       out.put(
           "dentists",
-          rows(
-              c,
-              "SELECT id,employee_code,name_zh,name_en,title_zh,employment_status FROM dentists"
-                  + " ORDER BY name_zh"));
-      out.put("treatments", rows(c, "SELECT * FROM treatment_catalog ORDER BY category,code"));
+          Workforce.visibleDentists(c,p,false));
+      out.put("treatments", Workforce.catalogData(c,p));
       out.put(
           "chairs",
           rows(
@@ -183,9 +198,17 @@ final class Service {
                 + scope
                 + " ORDER BY p.updated_at DESC,p.patient_code LIMIT ? OFFSET ?",
             args.toArray());
+    var projected = new ArrayList<Map<String,Object>>();
+    var manageScope = optionalScope(c,p,"patient.manage");
+    var readScope = optionalScope(c,p,"clinical.read");
+    var writeScope = optionalScope(c,p,"clinical.write");
+    for (var row : list) {
+      String primary = s(row,"primary_clinic_id");
+      projected.add(redactPatient(row,sameClinic(manageScope,primary),sameClinic(readScope,primary),sameClinic(writeScope,primary)));
+    }
     return map(
         "items",
-        list.stream().map(r -> safePatient(p, r)).toList(),
+        projected,
         "total",
         total,
         "offset",
@@ -208,11 +231,17 @@ final class Service {
           if (denied.status != 403) throw denied;
         }
       }
+    var visits = patientVisits(c, p, id, care);
+    var profile = safePatient(c,p,patient);
+    profile.put("last_visit_at", visits.stream().filter(v -> "COMPLETED".equals(s(v, "status")))
+        .map(v -> s(v,"completed_at")).filter(t -> !t.isBlank()).max(String::compareTo).orElse(null));
     return map(
         "clinical_details_available",
         care,
         "patient",
-        safePatient(p, patient),
+        profile,
+        "visits",
+        visits,
         "contacts",
         care
             ? rows(c, "SELECT * FROM emergency_contacts WHERE patient_id=? ORDER BY priority", id)
@@ -246,7 +275,7 @@ final class Service {
             : List.of(),
         "appointments",
         p.permissions().contains("appointment.read")
-            ? Scheduling.list(c, p, Map.of("patient_id", id))
+            ? Scheduling.list(c, Auth.forPermission(c, p, "appointment.read"), Map.of("patient_id", id))
             : List.of(),
         "duplicates",
         care && p.permissions().contains("patient.manage")
@@ -258,6 +287,31 @@ final class Service {
                 id,
                 id)
             : List.of());
+  }
+
+  private static List<Map<String,Object>> patientVisits(Connection c, Auth.Principal p, String id, boolean care)
+      throws Exception {
+    if (!care) return List.of();
+    boolean clinical = p.permissions().contains("clinical.read");
+    if (!clinical && !p.permissions().contains("appointment.read")) return List.of();
+    Auth.Principal scope = Auth.forPermission(c, p, clinical ? "clinical.read" : "appointment.read");
+    if (clinical && scope.dentistId() == null
+        && scope.roles().stream().anyMatch(role -> "JDBC_DENTIST".equals(s(role, "code")))) return List.of();
+    var args = new ArrayList<Object>();
+    args.add(id);
+    Collections.addAll(args, scope.scopeArgs());
+    boolean own = clinical && scope.dentistId() != null;
+    if (own) args.add(scope.dentistId());
+    return rows(c, "SELECT v.id,v.visit_code,v.status,v.started_at,v.completed_at,a.scheduled_start_at,"
+        + " d.name_zh dentist_name,k.name_zh clinic_name,"
+        + (clinical ? " (SELECT COUNT(*) FROM clinical_notes n WHERE n.visit_id=v.id AND n.status='SIGNED')"
+            : " 0")
+        + " signed_notes FROM clinical_visits v JOIN appointments a ON a.id=v.appointment_id"
+        + " AND a.patient_id=v.patient_id AND a.clinic_id=v.clinic_id AND a.dentist_id=v.dentist_id"
+        + " AND a.chair_id IS NOT DISTINCT FROM v.chair_id"
+        + " JOIN dentists d ON d.id=v.dentist_id JOIN clinics k ON k.id=v.clinic_id"
+        + " WHERE v.patient_id=? AND v.status<>'CANCELLED' AND " + scope.scope("v.clinic_id")
+        + (own ? " AND v.dentist_id=?" : "") + " ORDER BY v.started_at DESC LIMIT 60", args.toArray());
   }
 
   static Object[] join(Object[] first, Object[] second) {
@@ -353,10 +407,12 @@ final class Service {
             "created_at",
             now()));
     audit(c, p, "PATIENT_CREATE", "patients", id, clinic);
-    return safePatient(p, patientAccess(c, p, id));
+    return safePatient(c,p,patientAccess(c,p,id));
   }
 
   static void validateIdentity(Map<String, Object> b) {
+    check(s(b,"gender").isBlank() || Set.of("FEMALE","MALE","OTHER","UNKNOWN").contains(s(b,"gender")),
+        422,"GENDER","请选择有效的性别选项");
     try {
       java.time.LocalDate dob = java.time.LocalDate.parse(req(b, "date_of_birth"));
       check(
@@ -395,6 +451,8 @@ final class Service {
                 s(b, "name_en"),
                 "date_of_birth",
                 b.get("date_of_birth"),
+                "gender",
+                b.containsKey("gender") ? (s(b,"gender").isBlank() ? "UNKNOWN" : s(b,"gender")) : patient.get("gender"),
                 "phone",
                 b.get("phone"),
                 "email",
@@ -484,6 +542,10 @@ final class Service {
       case "privacy_consent" -> {
         String status = req(b, "status");
         check(Set.of("GRANTED", "DECLINED", "WITHDRAWN").contains(status), 422, "STATUS", "同意状态无效");
+        check(Boolean.TRUE.equals(b.get("patient_confirmed")),422,"CONSENT_EVIDENCE",
+            "请先核实患者本人或授权代理人的决定");
+        String policy = req(b,"policy_version");
+        check(policy.length() <= 80,422,"FIELD_LENGTH","政策版本最多 80 字");
         insert(
             c,
             "patient_consents",
@@ -497,11 +559,11 @@ final class Service {
                 "status",
                 status,
                 "policy_version",
-                "COURSE-2026.1",
+                policy,
                 "captured_at",
                 now(),
                 "source",
-                "PATIENT_CONFIRMED"));
+                p.demoSession() ? "SYNTHETIC_FIXTURE" : "STAFF_ATTESTED"));
       }
       case "duplicate_decision" -> {
         var review =
@@ -544,6 +606,8 @@ final class Service {
 
   static Object dashboard(Connection c, Auth.Principal p, Map<String, String> q) throws Exception {
     p.need("dashboard.read");
+    String clinicId = q.getOrDefault("clinic_id", "");
+    if (!clinicId.isBlank()) p = p.atClinic(clinicId);
     String
         from = q.getOrDefault("from", java.time.LocalDate.parse(today()).minusDays(90).toString()),
         to = q.getOrDefault("to", today());
@@ -589,7 +653,7 @@ final class Service {
                 p.scopeArgs()),
             "today_agenda",
             p.permissions().contains("appointment.read")
-                ? Scheduling.list(c, p, Map.of("from", today(), "to", today()))
+                ? Scheduling.list(c, Auth.forPermission(c, p, "appointment.read"), Map.of("from", today(), "to", today()))
                 : List.of(),
             "daily",
             rows(

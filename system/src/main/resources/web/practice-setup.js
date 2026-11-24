@@ -5,17 +5,41 @@ export function renderSetupTab(data,tab,h){
   const edit=(action,id,label=T('编辑资料','Edit details'))=>button(label,action,id,'small');
   const days=T(['周日','周一','周二','周三','周四','周五','周六'],['Sun','Mon','Tue','Wed','Thu','Fri','Sat']);
   if(tab==='clinics'){
-    const list=table([T('诊所 / 代码','Clinic / code'),T('地址与联系','Address / contact'),T('牙椅配置','Chair capacity'),T('状态','Status'),T('操作','Actions')],data.clinics.map(c=>[
-      `<strong>${esc(c.name_zh)}</strong><div class="second">${esc(c.name_en)} · ${esc(c.code)}</div>`,
-      `${esc(c.city_zh)} · ${esc(c.address_zh)}<div class="second">${esc(c.phone||'—')} · ${esc(c.email||'—')}</div>`,
-      `${data.chairs.filter(x=>x.clinic_id===c.id&&x.status!=='INACTIVE').length} / ${c.chair_capacity}`,
-      badge(c.status),can('clinic.manage')?edit('setup-clinic',c.id):''
+    const singleClinic=data.clinics.length===1;
+    const canEdit=can('clinic.manage');
+    const canSetHours=can('resource.manage');
+    const newClinic=canEdit&&h.network?button(T('新增诊所','New clinic'),'setup-clinic','','primary','plus'):'';
+    const chairs=c=>data.chairs.filter(x=>x.clinic_id===c.id&&x.status!=='INACTIVE').length;
+    const clinicName=c=>`<strong>${esc(c.name_zh)}</strong><div class="second">${[c.name_en,c.code].filter(Boolean).map(esc).join(' · ')}</div>`;
+    const address=c=>[c.city_zh,c.address_zh].filter(Boolean).map(esc).join(' · ')||'—';
+    const [clinic]=data.clinics;
+    const list=singleClinic?`<div class="clinic-profile card-pad">
+        <div class="clinic-profile-identity">${clinicName(clinic)}${badge(clinic.status)}</div>
+        <dl class="clinic-profile-facts">
+          <div><dt>${T('地址','Address')}</dt><dd>${address(clinic)}</dd></div>
+          <div><dt>${T('联系方式','Contact')}</dt><dd class="clinic-contact">${esc(clinic.phone||'—')}<span>${esc(clinic.email||'—')}</span></dd></div>
+          <div><dt>${T('牙椅配置','Chair capacity')}</dt><dd>${chairs(clinic)} / ${clinic.chair_capacity}</dd></div>
+        </dl>
+      </div>`:table([T('诊所 / 代码','Clinic / code'),T('地址与联系','Address / contact'),T('牙椅配置','Chair capacity'),T('状态','Status'),T('操作','Actions')],data.clinics.map(c=>[
+      clinicName(c),
+      `${address(c)}<div class="second">${esc(c.phone||'—')} · ${esc(c.email||'—')}</div>`,
+      `${chairs(c)} / ${c.chair_capacity}`,
+      badge(c.status),canEdit?edit('setup-clinic',c.id):''
     ]));
-    const hours=data.clinics.map(c=>`<details class="setup-hours"><summary>${esc(c.name_zh)} · ${T('营业时间','Opening hours')}</summary>${table([T('星期','Day'),T('营业时段','Hours'),T('预约粒度','Slot interval'),T('操作','Actions')],days.map((day,i)=>{
+    const hours=data.clinics.map(c=>`<details class="setup-hours" ${singleClinic?'open':''}>
+      <summary>${singleClinic?T('营业时间','Opening hours'):`${esc(c.name_zh)} · ${T('营业时间','Opening hours')}`}</summary>
+      <ul class="clinic-week" role="list">${[1,2,3,4,5,6,0].map(i=>{
       const r=data.hours.find(r=>r.clinic_id===c.id&&Number(r.day_of_week)===i);
-      return [day,r?(r.is_closed?T('休息','Closed'):`${esc(r.opens_at)} – ${esc(r.closes_at)}`):T('尚未设置','Not configured'),r?`${r.slot_minutes} min`:'—',can('resource.manage')?edit('setup-hours',`${c.id}|${i}`,T('设置时段','Set hours')):''];
-    }))}</details>`).join('');
-    return panel(T('诊所档案','Clinic directory'),list,can('clinic.manage')&&h.network?button(T('新增诊所','New clinic'),'setup-clinic','','primary','plus'):'')+hours;
+      const time=r?(r.is_closed?T('休息','Closed'):`${esc(r.opens_at)} – ${esc(r.closes_at)}`):T('尚未设置','Not configured');
+      const interval=r&&!r.is_closed?T(`${esc(r.slot_minutes)} 分钟间隔`,`${esc(r.slot_minutes)} min slots`):'';
+      return `<li><strong class="clinic-week-day">${days[i]}</strong>
+        <div class="clinic-week-hours"><span>${time}</span>${interval?`<small>${interval}</small>`:''}</div>
+        ${canSetHours?edit('setup-hours',`${c.id}|${i}`,T('设置时段','Set hours')):''}
+      </li>`;
+    }).join('')}</ul></details>`).join('');
+    const editClinic=singleClinic&&canEdit?edit('setup-clinic',clinic.id):'';
+    const actions=newClinic||editClinic?`<div class="row wrap">${editClinic}${newClinic}</div>`:'';
+    return `<div class="clinic-settings-layout">${panel(T('诊所档案','Clinic directory'),list,actions)}${hours?`<div class="clinic-hours-list">${hours}</div>`:''}</div>`;
   }
   if(tab==='workforce')return panel(T('医师档案','Clinician directory'),table([T('姓名 / 编号','Name / ID'),T('职称与联系','Title / contact'),T('任职诊所','Assignments'),T('状态','Status'),T('操作','Actions')],data.dentists.map(d=>[
     `<strong>${esc(d.name_zh)}</strong><div class="second">${esc(d.name_en)} · ${esc(d.employee_code)}</div>`,
@@ -30,13 +54,16 @@ export function renderSetupTab(data,tab,h){
     `${esc(readEquipment(c.equipment_json).join('、')||T('未登记设备','No equipment listed'))}${c.is_accessible?`<div class="second">${T('无障碍可达','Accessible')}</div>`:''}`,
     badge(c.status),can('resource.manage')?edit('setup-chair',c.id):''
   ])),can('resource.manage')?button(T('新增牙椅','New chair'),'setup-chair','','primary','plus'):'',T('牙椅数量受诊所容量约束；维护或停用前须协调有效预约。','Capacity limits apply. Coordinate active bookings before maintenance or deactivation.'));
-  if(tab==='catalog')return panel(T('治疗项目与价格版本','Treatment catalog and fees'),table([T('项目 / 版本','Treatment / version'),T('类别 / 时长','Category / duration'),T('标准价格','Standard fee'),T('估算成本','Estimated cost'),T('有效期','Effective dates'),T('必需资质','Required qualifications'),T('状态 / 操作','Status / actions')],data.treatments.map(t=>[
+  if(tab==='catalog'){
+    const showCost=can('catalog.manage')||can('period.read');
+    return panel(T('治疗项目与收费标准','Treatment catalog and fees'),table([T('项目 / 版本','Treatment / version'),T('类别 / 时长','Category / duration'),T('收费标准','Standard fee'),...(showCost?[T('估算成本','Estimated cost')]:[]),T('有效期','Effective dates'),T('必需资质','Required qualifications'),T('状态 / 操作','Status / actions')],data.treatments.map(t=>[
     `<strong>${esc(t.name_zh)}</strong><div class="second">${esc(t.name_en)} · ${esc(t.code)} · v${t.version}</div>`,
-    `${esc(t.category)}<div class="second">${t.duration_minutes} min</div>`,money(t.standard_price_fen),money(t.estimated_cost_fen),
+    `${esc(t.category)}<div class="second">${t.duration_minutes} min</div>`,money(t.standard_price_fen),...(showCost?[money(t.estimated_cost_fen)]:[]),
     `${esc(t.effective_from)}<div class="second">${T('至','to')} ${esc(t.effective_to||T('长期','Open-ended'))}</div>`,
     data.requirements.filter(r=>r.treatment_id===t.id&&r.requirement_level==='REQUIRED').map(r=>named(r.qualification_type_id,h.qualifications)).join('、')||T('无额外专项要求','No additional specialty requirement'),
-    badge(t.status)+(can('catalog.manage')&&h.network?`<div class="setup-row-actions">${Number(t.version)===Math.max(...data.treatments.filter(x=>x.code===t.code).map(x=>Number(x.version)))?edit('setup-catalog',t.id,T('追加版本','New version')):''}${t.status==='ACTIVE'?edit('setup-retire',t.id,T('停用','Retire')):''}</div>`:'')
-  ])),can('catalog.manage')&&h.network?button(T('新增治疗项目','New treatment'),'setup-catalog','','primary','plus'):'',T('改价追加版本，不覆盖旧版。截止旧版前检查已约服务；实际治疗和已开单金额保持原快照。','Fees use new versions. Existing bookings are checked before retiring validity; performed and invoiced amounts retain their snapshots.'));
+    badge(t.status)+(can('catalog.manage')&&h.network?`<div class="setup-row-actions">${Number(t.version)===Math.max(...data.treatments.filter(x=>x.code===t.code).map(x=>Number(x.version)))?edit('setup-catalog',t.id,T('追加版本','New version')):''}${t.status==='ACTIVE'?edit('setup-retire',t.id,T('停用','Retire')):''}</div>`:'<span class="readonly-tag">'+T('只读','Read only')+'</span>')
+  ])),can('catalog.manage')&&h.network?button(T('新增治疗项目','New treatment'),'setup-catalog','','primary','plus'):'',T('调整收费标准会保留原价格记录；已完成治疗和已开单金额不随新价格变动。','Fee changes preserve earlier prices. Completed treatment and existing bills retain their recorded amounts.'));
+  }
   return null;
 }
 
@@ -92,13 +119,13 @@ export function installSetupHandlers(h){
     const tomorrow=new Date(state.boot.today+'T12:00:00Z');tomorrow.setUTCDate(tomorrow.getUTCDate()+1);
     modal({name:T(t?'追加目录版本':'新增治疗项目',t?'New catalog version':'New treatment'),wide:true,description:T('历史价格不覆盖。新版本从未来日期生效；若旧版仍有受影响预约，提交会被阻止。请明确资质要求。','Historical fees remain intact. Replacement versions start on a future date; affected bookings block publication. Review qualification requirements.'),fields:[
       {...text('code',T('项目代码','Treatment code'),t?.code),readonly:!!t},text('name_zh',T('项目名称','Treatment name'),t?.name_zh),text('name_en',T('英文名称','English name'),t?.name_en,false),text('category',T('专业分类','Category'),t?.category),
-      {name:'duration_minutes',label:T('预计时长（分钟）','Duration (minutes)'),type:'number',value:t?.duration_minutes||30,min:10,max:480},
+      {name:'duration_minutes',label:T('时长（分钟）','Duration (minutes)'),type:'number',value:t?.duration_minutes||30,min:10,max:480},
       {name:'standard_price_fen',label:T('标准价格（元）','Standard fee (CNY)'),type:'money',value:t?.standard_price_fen||0},
       {name:'estimated_cost_fen',label:T('目录估算成本（元）','Estimated cost (CNY)'),type:'money',value:t?.estimated_cost_fen||0},
       {name:'effective_from',label:T('生效日期','Effective from'),type:'date',value:t?tomorrow.toISOString().slice(0,10):state.boot.today},
       {name:'effective_to',label:T('截止日期（可空）','Effective to (optional)'),type:'date',required:false},
       {...text('description_zh',T('项目说明','Description'),t?.description_zh,false),type:'textarea'},reason
-    ],body:`<fieldset class="setup-qualifications"><legend>${h.esc(T('必需资质（逐项核对）','Required qualifications'))}</legend>${state.boot.qualifications.map(q=>`<label><input type="checkbox" name="setup-qualification" value="${h.esc(q.id)}" ${required.includes(q.id)?'checked':''}>${h.esc(q.name_zh)}</label>`).join('')}</fieldset>`,
+    ],body:`<fieldset class="setup-qualifications"><legend>${h.esc(T('所需资质','Required qualifications'))}</legend>${state.boot.qualifications.map(q=>`<label><input type="checkbox" name="setup-qualification" value="${h.esc(q.id)}" ${required.includes(q.id)?'checked':''}>${h.esc(q.name_zh)}</label>`).join('')}</fieldset>`,
       onReady:()=>{const group=document.querySelector('.setup-qualifications');document.querySelector('.modal-fields')?.after(group);},
       onSubmit:b=>save('catalog_version',t,{...b,qualification_ids:[...document.querySelectorAll('[name="setup-qualification"]:checked')].map(n=>n.value)})});
   };

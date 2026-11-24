@@ -7,8 +7,28 @@ import java.sql.*;
 import java.util.*;
 
 final class Workforce {
+  static List<Map<String,Object>> visibleDentists(Connection c, Auth.Principal p, boolean full) throws Exception {
+    String columns=full?"d.*":"d.id,d.employee_code,d.name_zh,d.name_en,d.title_zh,d.employment_status";
+    return rows(c,"SELECT "+columns+" FROM dentists d WHERE "+(p.network()?"1=1":
+        "EXISTS (SELECT 1 FROM dentist_clinic_assignments a WHERE a.dentist_id=d.id AND "+p.scope("a.clinic_id")+")")
+        +" ORDER BY d.employee_code",p.scopeArgs());
+  }
+
+  static List<Map<String,Object>> catalogData(Connection c,Auth.Principal p) throws Exception {
+    var list=rows(c,"SELECT * FROM treatment_catalog ORDER BY code,version");
+    if(!p.permissions().contains("catalog.manage")&&!p.permissions().contains("period.read"))
+      for(var row:list)row.remove("estimated_cost_fen");
+    return list;
+  }
+
   static Object data(Connection c, Auth.Principal p) throws Exception {
     p.need("clinic.read");
+    Auth.Principal staff=p.permissions().contains("workforce.read")?Auth.forPermission(c,p,"workforce.read"):null;
+    var dentists=visibleDentists(c,p,false);
+    if(staff!=null){
+      var full=visibleDentists(c,staff,true);
+      for(int i=0;i<dentists.size();i++)for(var row:full)if(row.get("id").equals(dentists.get(i).get("id"))){dentists.set(i,row);break;}
+    }
     var availability =
         rows(
             c,
@@ -19,7 +39,7 @@ final class Workforce {
         "clinics",
         PracticeSetup.fingerprints(rows(c, "SELECT * FROM clinics WHERE " + p.scope("id") + " ORDER BY code", p.scopeArgs())),
         "dentists",
-        PracticeSetup.fingerprints(rows(c, "SELECT * FROM dentists ORDER BY employee_code")),
+        PracticeSetup.fingerprints(dentists),
         "assignments",
         rows(
             c,
@@ -29,27 +49,29 @@ final class Workforce {
                 + p.scope("a.clinic_id"),
             p.scopeArgs()),
         "credentials",
-        rows(
+        staff==null?List.of():rows(
             c,
             "SELECT q.*,d.name_zh dentist_name,t.name_zh qualification_name FROM"
                 + " dentist_qualifications q JOIN dentists d ON d.id=q.dentist_id JOIN"
-                + " qualification_types t ON t.id=q.qualification_type_id ORDER BY q.expires_on"),
+                + " qualification_types t ON t.id=q.qualification_type_id WHERE "+(staff.network()?"1=1":
+                    "EXISTS (SELECT 1 FROM dentist_clinic_assignments a WHERE a.dentist_id=d.id AND "+staff.scope("a.clinic_id")+")")
+                +" ORDER BY q.expires_on",staff.scopeArgs()),
         "hours",
         PracticeSetup.fingerprints(rows(
             c, "SELECT * FROM clinic_operating_hours WHERE " + p.scope("clinic_id"), p.scopeArgs())),
         "availability",
         availability,
         "exceptions",
-        rows(
+        PracticeSetup.fingerprints(rows(
             c,
             "SELECT * FROM dentist_schedule_exceptions WHERE " + p.scope("clinic_id"),
-            p.scopeArgs()),
+            p.scopeArgs())),
         "closures",
-        rows(c, "SELECT * FROM clinic_closures WHERE " + p.scope("clinic_id"), p.scopeArgs()),
+        PracticeSetup.fingerprints(rows(c, "SELECT * FROM clinic_closures WHERE " + p.scope("clinic_id"), p.scopeArgs())),
         "chairs",
         PracticeSetup.fingerprints(rows(c, "SELECT * FROM clinic_chairs WHERE " + p.scope("clinic_id"), p.scopeArgs())),
         "treatments",
-        PracticeSetup.fingerprints(rows(c, "SELECT * FROM treatment_catalog ORDER BY code,version")),
+        PracticeSetup.fingerprints(catalogData(c,p)),
         "requirements",
         rows(c, "SELECT * FROM treatment_qualification_requirements"));
   }
@@ -57,6 +79,7 @@ final class Workforce {
   static Object command(Connection c, Auth.Principal p, Map<String, Object> b) throws Exception {
     String action = req(b, "action"), clinic = s(b, "clinic_id");
     if (PracticeSetup.handles(action)) return PracticeSetup.command(c, p, b);
+    if(action.equals("withdraw_schedule"))return withdrawSchedule(c,p,b);
     if (!clinic.isBlank()) p.clinic(clinic);
     if (action.equals("chair")) {
       p.need("resource.manage");
@@ -355,6 +378,25 @@ final class Workforce {
       throw new Problem(409, "AFFECTED_APPOINTMENTS", "新班次将使既有预约失去覆盖，请先协调", affected);
   }
 
+  static Object withdrawSchedule(Connection c,Auth.Principal p,Map<String,Object> b) throws Exception {
+    p.need("resource.manage");
+    String kind=req(b,"kind"),id=req(b,"id");
+    String table=switch(kind){case "closure"->"clinic_closures";case "exception"->"dentist_schedule_exceptions";case "schedule"->"dentist_availability_rules";default->throw error(422,"ACTION","请选择有效的排班记录");};
+    var row=one(c,"SELECT * FROM "+table+" WHERE id=?",id);
+    check(row!=null,404,"NOT_FOUND","排班记录不存在");
+    String clinic=s(row,"clinic_id");
+    if(clinic.isBlank())check(p.network(),403,"CLINIC_SCOPE","全网停诊记录需由总部处理");else p.clinic(clinic);
+    PracticeSetup.current(row,b);
+    check(s(row,"status").equals("ACTIVE"),409,"STATE","该记录已停用或撤销，请刷新列表");
+    String reason=PracticeSetup.bounded(b,"reason",1500,false),status=kind.equals("schedule")?"INACTIVE":"CANCELLED";
+    update(c,table,id,map("status",status));
+    if(kind.equals("schedule"))checkAvailabilityImpact(c,s(row,"dentist_id"),clinic);
+    insert(c,"audit_events",map("request_id",uuid(),"actor_user_id",p.userId(),"actor_subject",p.userId(),
+        "action","RESOURCE_SCHEDULE_WITHDRAWN","entity_type",table,"entity_id",id,"clinic_id",clinic.isBlank()?null:clinic,
+        "outcome","SUCCESS","source","JDBC_API","reason",reason,"metadata_json",json(map("kind",kind,"before_status","ACTIVE","after_status",status)),"occurred_at",now()));
+    return map("ok",true,"id",id,"status",status);
+  }
+
   static Object access(Connection c, Auth.Principal p) throws Exception {
     p.need("access.manage");
     check(p.network(), 403, "NETWORK_REQUIRED", "账户与授权治理需要总部级管理员权限");
@@ -545,7 +587,8 @@ final class Workforce {
   }
 
   static Object expansion(Connection c, Auth.Principal p) throws Exception {
-    p.need("analytics.read");
+    p.need("expansion.read");
+    check(p.network(),403,"NETWORK_REQUIRED","扩张测算仅向总部授权岗位开放");
     return map(
         "scenarios",
         rows(c, "SELECT * FROM expansion_scenarios ORDER BY scenario_code,version DESC"),

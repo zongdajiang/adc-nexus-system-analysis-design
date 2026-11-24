@@ -16,4 +16,104 @@
 .setup-facts dd{font-size:14px;line-height:1.8;overflow-wrap:anywhere;margin:0;color:#294756}
 .setup-wrap{display:block;max-width:42ch;white-space:normal;overflow-wrap:anywhere;line-height:1.8;margin:0}
 .setup-care-actions{display:flex;justify-content:flex-end;margin-bottom:12px}
+
+.patient-search kbd{margin-left:8px;color:#536e7c;font-size:10px}
+.patient-lookup .field-input{width:100%}
+.lookup-status{min-height:1.4em;margin:8px 0;color:#536e7c;font-size:13px}
+.lookup-results{display:grid;gap:4px}
+.lookup-result{display:grid;gap:4px;text-align:left;padding:10px 12px;border:1px solid var(--line);border-radius:5px;background:#fff;color:#294756;min-height:44px;cursor:pointer}
+.lookup-result:hover,.lookup-result:focus-visible{background:#edf6f6;border-color:#87aeaf}
+.lookup-result span{font-size:12px;color:#536e7c;overflow-wrap:anywhere}
+.lookup-actions{margin-top:14px}
+.booking-identity{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#f3f8f8;border:1px solid var(--line);border-radius:5px;padding:12px 14px;margin-bottom:18px}
+.booking-identity[hidden],.booking-lookup[hidden],.field-wrap[hidden],.patient-tab-panel[hidden]{display:none}
+.booking-lookup{margin-bottom:14px}
+.list-pagination{padding:12px 16px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#536e7c;font-size:13px}
+.record-back{margin-bottom:12px;font-size:13px}
+.patient-tabs{margin-bottom:16px;border:1px solid var(--line);border-radius:5px}
+.patient-tab-panel{min-width:0}
+.queue-actions{gap:5px}
+.billing-summary{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:5px}
+.billing-summary summary,.error-reference summary{cursor:pointer}
+.billing-summary summary{padding:14px 16px;font-weight:600;color:#294756}
+.billing-summary .billing-balance-band{border:0;border-top:1px solid var(--line);margin:0;border-radius:0}
+.error-reference{font-size:12px;margin-top:10px;overflow-wrap:anywhere}
+.auth-main.auth-main-simple{grid-template-columns:minmax(0,448px);gap:14px;align-content:start;padding-top:46px}
+.auth-main-simple .auth-footnote{grid-column:1;color:#536e7c}
+
+.auth-card-heading h2{font-size:23px;margin:0 0 9px;color:#2c495a}
+.demo-switch{width:100%;margin:0 0 8px;color:#587363;background:transparent;border-color:transparent}
+.demo-switch:hover{background:#e3ece5}
+.shift-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:16px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.shift-summary>div{padding:14px 16px;min-width:0}
+.shift-summary>div+div{border-left:1px solid var(--line)}
+.shift-summary span,.shift-summary small{display:block;color:#4d6876}
+.shift-summary span{font-weight:600}
+.shift-summary small{font-size:12px}
+.shift-summary strong{display:block;font-size:26px;line-height:1.35;color:#173d49;margin:4px 0}
+.operations-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(255px,30%);align-items:start;gap:16px}
+.operations-side{display:grid;gap:16px;min-width:0}
+.operations-facts{margin:0;padding:3px 16px 12px}
+.operations-facts div{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:10px 0}
+.operations-facts div+div{border-top:1px solid var(--line)}
+.operations-facts dt{color:#4d6876}
+.operations-facts dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.operations-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:14px 16px}
+.clinician-shift{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.shift-next{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px;flex-wrap:wrap}
+.shift-next p,.shift-agenda p{margin:3px 0;color:#4d6876;font-size:13px}
+.shift-agenda{display:grid;gap:8px;padding:10px 16px 15px}
+.shift-agenda>div{display:flex;gap:12px;align-items:baseline}
+.shift-agenda time{font-variant-numeric:tabular-nums;color:#135960;font-weight:600}
+.shift-agenda small{display:block;color:#4d6876;font-size:12px}
+@media(max-width:1100px){.operations-layout{grid-template-columns:1fr}.operations-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .clinician-shift,.operations-side{grid-template-columns:1fr}
+  .shift-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .shift-summary>div:nth-child(3){border-left:0}
+  .shift-summary>div:nth-child(n+3){border-top:1px solid var(--line)}
+}
+.care-header-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.auth-card-heading p:empty,.lp-final h2 + p:empty{display:none}
+@media(max-width:980px){.patient-search kbd{display:none}}
+@media(max-width:760px){.queue-actions .btn,.worklist-tabs>button{min-height:40px}.auth-main.auth-main-simple{padding-top:24px}.booking-identity{align-items:flex-start}.topbar .breadcrumb{min-width:0}.topbar .breadcrumb strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 @media(max-width:680px){.setup-toolbar{padding:14px;gap:12px}.setup-toolbar label,.setup-toolbar label:first-child{min-width:0;width:100%;flex:auto}.setup-toolbar>button{width:100%}.setup-facts{grid-template-columns:1fr}.setup-facts>div:first-child{grid-column:auto}.setup-hours summary{padding:14px}.setup-row-actions{flex-direction:column;align-items:flex-start}}
+
+.workspace-greeting{font-size:13px;font-weight:400;color:#4b6571;white-space:nowrap;padding-left:12px;border-left:1px solid #d2dfe3}@media(max-width:760px){.workspace-greeting{display:none}}
+
+/* Unified staff sign-in: one reading path, credentials beneath the form. */
+.auth-main.auth-main-centered{grid-template-columns:minmax(0,480px);gap:0;align-items:start;align-content:start;padding:32px 24px 36px}
+.auth-main-centered .auth-card{border-radius:10px;padding:30px 36px 24px;box-shadow:none}
+.auth-main-centered .auth-card-heading{margin-bottom:20px}
+.auth-main-centered .auth-card-heading h1{font-size:24px;line-height:1.4;font-weight:600;margin:0}
+.auth-main-centered .auth-card-heading p:empty{display:none}
+.auth-main-centered .auth-methods{margin-bottom:23px}
+.auth-main-centered .auth-bottom{margin-top:19px}
+.auth-demo-accounts{padding:24px 16px 0;width:100%;min-width:0;color:#284955}
+.auth-directory-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:7px}
+.auth-directory-heading h2{font-size:16px;font-weight:600;line-height:1.5;margin:0}
+.auth-directory-heading p{font-size:12px;color:#526b78;margin:0}
+.auth-credential-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #dce5e9;min-height:65px}
+.auth-credential-row>div,.auth-demo-password>div{min-width:0}
+.auth-credential-row strong{display:block;font-size:13px;font-weight:500;line-height:1.65}
+.auth-credential-row strong span{color:#526b78;font-weight:400}
+.auth-demo-accounts code{display:block;font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:14px;line-height:1.7;letter-spacing:0;user-select:all;color:#193e4b;overflow-wrap:anywhere}
+.auth-copy{flex-shrink:0;border:1px solid #bccfd7;background:#fff;border-radius:5px;min-width:76px;min-height:34px;padding:5px 11px;color:#0b646b;font:inherit;font-size:12px;cursor:pointer}
+.auth-copy:hover{border-color:#087d83;background:#edf7f6}
+.auth-copy:focus-visible,.auth-other-accounts summary:focus-visible{outline:2px solid #087d83;outline-offset:3px}
+.auth-demo-password{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:13px;padding:11px 13px;border-radius:6px;background:#eaf1f2}
+.auth-demo-password span{font-size:11px;line-height:1.6;color:#526b78}
+.auth-demo-password code{font-size:15px}
+.auth-other-accounts{margin-top:14px}
+.auth-other-accounts summary{width:fit-content;cursor:pointer;font-size:12px;color:#526b78;line-height:1.8;padding-block:4px}
+.auth-other-accounts summary>span{margin-left:7px;color:#526b78;font-variant-numeric:tabular-nums}
+.auth-copy-status{min-height:18px;font-size:12px;line-height:1.5;margin:8px 0 0;color:#0b646b}
+@media(max-width:600px){
+  .auth-main.auth-main-centered{padding:14px 16px 24px}
+  .auth-main-centered .auth-card{padding:25px 23px 22px}
+  .auth-main-centered .auth-card-heading h1{font-size:22px}
+  .auth-demo-accounts{padding:22px 8px 0}
+  .auth-directory-heading{align-items:start;flex-direction:column;gap:3px}
+  .auth-copy{min-height:40px;min-width:80px}
+  .auth-other-accounts summary{min-height:40px;display:list-item;padding-block:8px}
+}

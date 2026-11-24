@@ -1,0 +1,37 @@
+/* Staff sign-in: a quiet dental interior with one opaque, readable paper surface. */
+.auth-layout{position:relative;isolation:isolate;min-height:100svh;background:#e9ede7}
+.auth-layout::before{content:"";position:fixed;inset:0;z-index:-1;background-image:url('/images/auth-dental-sanctuary-v1.png');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none}
+.auth-layout .auth-header{padding:21px clamp(24px,3.2vw,64px);background:#fff;border-bottom:1px solid #e2e8e5;gap:20px}
+.auth-header .auth-brand>span{color:#24434b}
+.auth-layout .auth-header-note{color:#315c62;font-size:13px;line-height:1.5;white-space:nowrap;padding:8px 0;text-underline-offset:4px}
+.auth-layout .auth-header-note:hover{color:#075e66;text-decoration:underline}
+.auth-layout .auth-footer{margin-top:auto;background:#fff;border-top:1px solid #e2e8e5;padding:14px 24px;gap:18px;font-size:12px;color:#49616d}
+.auth-layout .auth-footer .auth-link{color:#315c62;font-size:12px;text-underline-offset:4px}
+.auth-main.auth-main-centered{display:grid;grid-template-columns:minmax(0,1fr);width:min(480px,calc(100% - 48px));max-width:480px;flex:0 0 auto;min-height:0;margin:32px auto 48px;padding:0;gap:0;align-items:start;align-content:start;background:#fff;border-radius:16px;box-shadow:0 18px 56px #203b4226;overflow:hidden}
+.auth-main-centered .auth-card{width:100%;min-width:0;border:0;border-radius:0;box-shadow:none;background:#fff;padding:30px 36px 25px}
+.auth-main-centered .auth-card-heading{margin-bottom:22px}
+.auth-main-centered .auth-card-heading h1{color:#24434b;font-size:24px;line-height:1.45;font-weight:600}
+.auth-main-centered .auth-methods{margin-bottom:23px}
+.auth-main-centered .auth-field label{color:#35535e;font-size:13px}
+.auth-main-centered .auth-field input,.auth-main-centered .auth-field select{border-color:#bfd0d3;border-radius:6px;background:#fff;color:#294853;caret-color:#08767b;min-height:43px;font-size:14px}
+.auth-main-centered .auth-field input:focus,.auth-main-centered .auth-field select:focus{outline:2px solid #08767b;outline-offset:1px;border-color:#08767b}
+.auth-main-centered .auth-submit{background:#08767b;border:1px solid #08767b;border-radius:6px;box-shadow:none;min-height:44px;font-size:14px;font-weight:500}
+.auth-main-centered .auth-submit:not(:disabled):hover{background:#05636a;border-color:#05636a}
+.auth-main-centered .auth-submit:disabled{background:#e2eae9;border-color:#d5e0de;color:#526f72;cursor:not-allowed}
+.auth-main-centered .auth-demo-accounts{padding:22px 30px 18px;border-top:1px solid #dce6e3;background:#f6f9f7}
+.auth-main-centered .auth-directory-heading{gap:10px;margin-bottom:8px}
+.auth-main-centered .auth-directory-heading h2{font-size:16px;color:#254b51}
+.auth-main-centered .auth-directory-heading p{font-size:12px;color:#526e72}
+.auth-main-centered .auth-credential-row{min-height:64px;padding:11px 0;border-bottom-color:#dbe6e2}
+.auth-main-centered .auth-copy{min-height:36px;min-width:76px;font-size:12px;border-radius:6px;border-color:#b7ced0;background:#fff;color:#075f67}
+.auth-main-centered .auth-copy:hover{background:#eaf5f1;border-color:#749f9e}
+.auth-main-centered .auth-demo-password{background:#e7f0eb;border-radius:8px;margin-top:14px}
+.auth-main-centered .auth-other-accounts{margin-top:13px}
+.auth-main-centered .auth-copy-status{margin-bottom:0}
+.auth-main-centered a:focus-visible,.auth-main-centered button:focus-visible,.auth-header a:focus-visible{outline:2px solid #08767b;outline-offset:3px}
+.auth-layout:has(.registration-card) .auth-main.auth-main-centered{width:min(660px,calc(100% - 48px));max-width:660px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:1800px){.auth-main.auth-main-centered{margin-top:42px}}
+@media(min-width:761px) and (max-height:1000px){.auth-layout .auth-header{padding-top:16px;padding-bottom:16px}.auth-main.auth-main-centered{margin-top:20px;margin-bottom:28px}.auth-main-centered .auth-card{padding:25px 32px 20px}.auth-main-centered .auth-card-heading{margin-bottom:18px}.auth-main-centered .auth-methods{margin-bottom:18px}.auth-main-centered .auth-bottom{margin-top:14px}.auth-main-centered .auth-demo-accounts{padding:18px 28px 12px}.auth-main-centered .auth-credential-row{padding:8px 0;min-height:60px}.auth-main-centered .auth-demo-password{margin-top:10px;padding-top:9px;padding-bottom:9px}.auth-main-centered .auth-other-accounts{margin-top:10px}.auth-main-centered .auth-copy-status{margin-top:5px}}
+@media(max-width:760px){.auth-layout .auth-header{padding:17px 22px}.auth-layout::before{background-position:38% center}.auth-main.auth-main-centered{margin-top:24px;margin-bottom:32px}}
+@media(max-width:600px){.auth-main.auth-main-centered,.auth-layout:has(.registration-card) .auth-main.auth-main-centered{width:calc(100% - 32px);max-width:480px;margin-top:20px;margin-bottom:28px;border-radius:14px}.auth-main-centered .auth-card{padding:25px 24px 23px}.auth-main-centered .auth-demo-accounts{padding:20px 24px 17px}.auth-main-centered .auth-directory-heading{gap:3px}.auth-main-centered .auth-copy{min-height:42px;min-width:80px}.auth-main-centered .auth-card-heading h1{font-size:23px}.auth-layout .auth-header-note{font-size:12px}.auth-main-centered .auth-field input,.auth-main-centered .auth-field select{font-size:16px}.auth-main-centered .auth-demo-accounts code{font-size:14px}}
+@media(prefers-reduced-data:reduce){.auth-layout::before{background-attachment:scroll}}

@@ -7,14 +7,23 @@ import java.sql.*;
 import java.util.*;
 
 final class Clinical {
+  static void requireAppointment(Connection c, Map<String,Object> visit, String expected) throws SQLException {
+    var booking = one(c, "SELECT patient_id,clinic_id,dentist_id,chair_id,status FROM appointments WHERE id=?",
+        visit.get("appointment_id"));
+    check(booking != null && expected.equals(s(booking,"status"))
+            && List.of("patient_id","clinic_id","dentist_id","chair_id").stream()
+                .allMatch(key -> Objects.equals(booking.get(key),visit.get(key))),
+        409, "APPOINTMENT_VISIT_MISMATCH", "预约与就诊记录不一致，请核实后继续");
+  }
   static final String SELECT =
-      "SELECT v.*,p.name_zh patient_name,p.patient_code,d.name_zh dentist_name,c.name_zh"
+      "SELECT v.*,p.name_zh patient_name,p.patient_code,p.date_of_birth patient_date_of_birth,p.gender patient_gender,d.name_zh dentist_name,c.name_zh"
           + " clinic_name,a.scheduled_start_at FROM clinical_visits v JOIN patients p ON"
           + " p.id=v.patient_id JOIN dentists d ON d.id=v.dentist_id JOIN clinics c ON"
           + " c.id=v.clinic_id JOIN appointments a ON a.id=v.appointment_id ";
 
   static Object list(Connection c, Auth.Principal p) throws Exception {
     p.need("clinical.read");
+    boundClinician(p);
     return rows(
         c,
         SELECT
@@ -29,6 +38,7 @@ final class Clinical {
 
   static Map<String, Object> get(Connection c, Auth.Principal p, String id) throws Exception {
     p.need("clinical.read");
+    boundClinician(p);
     var v = one(c, SELECT + " WHERE v.id=?", id);
     check(v != null, 404, "NOT_FOUND", "就诊不存在");
     p.clinic(s(v, "clinic_id"));
@@ -40,11 +50,20 @@ final class Clinical {
     return v;
   }
 
+  private static void boundClinician(Auth.Principal p) {
+    check(p.roles().stream().noneMatch(r->s(r,"code").equals("JDBC_DENTIST"))||p.dentistId()!=null,
+        403,"CLINICIAN_NOT_LINKED","医师账号尚未关联医师档案，请联系管理员核对");
+  }
+
   static Object detail(Connection c, Auth.Principal p, String id) throws Exception {
     var v = get(c, p, id);
     return map(
         "visit",
         v,
+        "history",
+        rows(c, "SELECT history_status,history_text,created_at,reason FROM patient_history_versions WHERE patient_id=? ORDER BY version_number DESC LIMIT 3", v.get("patient_id")),
+        "eligible_treatments",
+        eligibleTreatments(c, s(v, "dentist_id")),
         "allergies",
         rows(
             c,
@@ -86,8 +105,19 @@ final class Clinical {
                 + " s.note_version_id=v.id LEFT JOIN dentists d ON d.id=s.dentist_id WHERE"
                 + " n.visit_id=? ORDER BY n.created_at,v.version_number",
             id),
+        "corrections",
+        rows(c,"SELECT e.entity_id actual_id,e.reason,e.occurred_at,u.display_name actor_name FROM audit_events e JOIN actual_treatment_items a ON a.id=e.entity_id LEFT JOIN app_users u ON u.id=e.actor_user_id WHERE a.visit_id=? AND e.action='CLINICAL_TREATMENT_VOIDED' ORDER BY e.occurred_at",id),
         "blockers",
         blockers(c, v));
+  }
+
+  static List<Map<String, Object>> eligibleTreatments(Connection c, String dentist) throws Exception {
+    List<Map<String, Object>> eligible = new ArrayList<>();
+    for (var treatment : rows(c, "SELECT id,code,name_zh,standard_price_fen,duration_minutes FROM treatment_catalog WHERE status='ACTIVE' AND effective_from<=? AND (effective_to IS NULL OR effective_to>=?) ORDER BY name_zh", today(), today())) {
+      try { qualification(c, dentist, s(treatment,"id"), today()); eligible.add(treatment); }
+      catch (Problem problem) { if (!Set.of("QUALIFICATION","CATALOG_VALIDITY").contains(problem.code)) throw problem; }
+    }
+    return eligible;
   }
 
   static void editable(Connection c, Auth.Principal p, Map<String, Object> v, boolean amendment)
@@ -143,7 +173,7 @@ final class Clinical {
   static List<String> blockers(Connection c, Map<String, Object> v) throws Exception {
     String id = s(v, "id");
     List<String> b = new ArrayList<>();
-    if (!s(v, "safety_gate_status").equals("PASSED")) b.add("尚未完成本次风险复核");
+    if (!s(v, "safety_gate_status").equals("PASSED")) b.add("请核对本次病史和过敏");
     var history =
         one(
             c,
@@ -186,7 +216,7 @@ final class Clinical {
                 id)
             == 0
         || count(c, "SELECT COUNT(*) FROM clinical_notes WHERE visit_id=? AND status<>'SIGNED'", id)
-            > 0) b.add("当前病历版本尚未全部签署");
+            > 0) b.add("本次病历尚未签署");
     for (var a :
         rows(
             c,
@@ -232,6 +262,8 @@ final class Clinical {
     String action = req(b, "action");
     editable(c, p, v, action.equals("note"));
     Service.version(v, "visit_version", b);
+    if (Set.of("review_start", "record_treatment", "sign_complete").contains(action))
+      return workflow(c, p, id, b, v);
     String patient = s(v, "patient_id"), dentist = s(v, "dentist_id");
     switch (action) {
       case "safety" -> {
@@ -342,6 +374,7 @@ final class Clinical {
             409,
             "ASSIGNMENT",
             "实施日任职无效");
+        requireAppointment(c, v, "CHECKED_IN");
         update(c, "clinical_visits", id, map("status", "IN_PROGRESS"));
         execute(
             c,
@@ -540,6 +573,16 @@ final class Clinical {
                 s(b, "notes")));
         invalidateSignatures(c, id);
       }
+      case "void_actual" -> {
+        check(s(v,"status").equals("IN_PROGRESS"),409,"STATE","仅诊疗中的误录项目可以撤销；已完成记录请走更正流程");
+        check(count(c,"SELECT COUNT(*) FROM invoices WHERE visit_id=?",id)==0,409,"BILLED","这次就诊已经开单，不能直接撤销治疗项目");
+        String reason=req(b,"reason"),actualId=req(b,"actual_id");
+        var actual=one(c,"SELECT * FROM actual_treatment_items WHERE id=? AND visit_id=? AND status='RECORDED'",actualId,id);
+        check(actual!=null,409,"ACTUAL_STATE","该治疗记录已变化，请刷新后核对");
+        update(c,"actual_treatment_items",actualId,map("status","VOIDED"));
+        insert(c,"audit_events",map("request_id",uuid(),"actor_user_id",p.userId(),"actor_subject",p.userId(),"action","CLINICAL_TREATMENT_VOIDED","entity_type","actual_treatment_items","entity_id",actualId,"clinic_id",v.get("clinic_id"),"outcome","SUCCESS","source","JDBC_API","reason",reason,"metadata_json",json(map("visit_id",id,"previous_status","RECORDED","units",actual.get("units"),"line_amount_fen",actual.get("line_amount_fen"))),"occurred_at",now()));
+        invalidateSignatures(c,id);
+      }
       case "note" -> {
         String content = req(b, "content"), reason = s(b, "reason");
         var note =
@@ -713,6 +756,7 @@ final class Clinical {
       }
       case "complete" -> {
         check(s(v, "status").equals("IN_PROGRESS"), 409, "STATE", "只有诊疗中就诊可完成");
+        requireAppointment(c, v, "IN_PROGRESS");
         var blockers = blockers(c, v);
         if (!blockers.isEmpty()) throw new Problem(409, "CLINICAL_BLOCKERS", "完成条件尚未满足", blockers);
         update(c, "clinical_visits", id, map("status", "COMPLETED", "completed_at", now()));
@@ -740,6 +784,62 @@ final class Clinical {
         id,
         s(v, "clinic_id"));
     return detail(c, p, id);
+  }
+
+  static Object step(Connection c, Auth.Principal p, String id, Map<String,Object> input) throws Exception {
+    var live = get(c,p,id);
+    input.put("version", live.get("visit_version"));
+    return command(c,p,id,input);
+  }
+
+  static Object workflow(Connection c, Auth.Principal p, String id, Map<String,Object> b, Map<String,Object> visit) throws Exception {
+    String action = s(b,"action");
+    if (action.equals("review_start")) {
+      check(Set.of("SAFETY_REVIEW","WAITING").contains(s(visit,"status")),409,"STATE","这次就诊已开始或已结束，请刷新后继续");
+      check(Boolean.TRUE.equals(b.get("confirm")),422,"CONFIRM","请确认本人与本次患者、接诊身份一致");
+      if (!s(b,"chief_complaint").isBlank()) update(c,"clinical_visits",id,map("chief_complaint_zh",s(b,"chief_complaint")));
+      step(c,p,id,map("action","safety","history_confirmed",b.get("history_confirmed"),"evidence",req(b,"evidence")));
+      step(c,p,id,map("action","start","confirm",true));
+    } else if (action.equals("record_treatment")) {
+      check(s(visit,"status").equals("IN_PROGRESS"),409,"STATE","请先核对病史并开始接诊");
+      String requested = s(b,"item_id");
+      String treatment, tooth;
+      if (requested.isBlank()) {
+        check(Boolean.TRUE.equals(b.get("patient_consented")),422,"CONSENT_REQUIRED","请先核实患者已同意本项治疗，再登记已做治疗");
+        treatment = req(b,"treatment_id"); tooth = s(b,"tooth_code");
+        Set<String> previousItems = new HashSet<>();
+        for (var existing : rows(c,"SELECT id FROM requested_treatment_items WHERE visit_id=?",id)) previousItems.add(s(existing,"id"));
+        step(c,p,id,map("action","plan","treatment_id",treatment,"tooth_code",tooth,"units",b.get("units"),"rationale",req(b,"rationale")));
+        var newItems = rows(c,"SELECT id FROM requested_treatment_items WHERE visit_id=?",id).stream().filter(item -> !previousItems.contains(s(item,"id"))).toList();
+        check(newItems.size()==1,500,"PLAN_IDENTITY","治疗方案保存失败，请重试");
+        requested = s(newItems.getFirst(),"id");
+        step(c,p,id,map("action","consent","item_id",requested,"decision","ACCEPTED","evidence",req(b,"consent_evidence")));
+      } else {
+        var item = one(c,"SELECT * FROM requested_treatment_items WHERE id=? AND visit_id=?",requested,id);
+        check(item != null,404,"NOT_FOUND","本次治疗方案不存在");
+        check(count(c,"SELECT COUNT(*) FROM treatment_item_consents WHERE requested_treatment_item_id=? AND decision='ACCEPTED'",requested)>0,409,"CONSENT_REQUIRED","此方案尚未取得患者同意，请先记录患者决定");
+        treatment=s(item,"treatment_id");tooth=s(item,"tooth_code");
+      }
+      long units=n(b,"units");
+      var confirmed = one(c,"SELECT units FROM requested_treatment_items WHERE id=?",requested);
+      long done=count(c,"SELECT COALESCE(SUM(units),0) FROM actual_treatment_items WHERE requested_treatment_item_id=? AND status='RECORDED'",requested);
+      check(units>0 && done+units<=val(confirmed,"units"),422,"PLAN_UNITS","本次数量超过方案剩余数量，请核对后重试");
+      if (!s(b,"finding").isBlank()) {
+        String severity=req(b,"finding_severity");
+        check(Set.of("NORMAL","LOW","MODERATE","HIGH").contains(severity),422,"SEVERITY","请选择检查记录的程度");
+        step(c,p,id,map("action","observation","tooth_code",tooth.isBlank()?"GENERAL":tooth,"observation_type","EXAMINATION","severity",severity,"finding",s(b,"finding")));
+      }
+      step(c,p,id,map("action","actual","treatment_id",treatment,"requested_treatment_item_id",requested,"tooth_code",tooth,"units",units,"notes",s(b,"notes")));
+    } else {
+      check(s(visit,"status").equals("IN_PROGRESS"),409,"STATE","仅诊疗中的就诊可以签署完成");
+      check(Boolean.TRUE.equals(b.get("signature_confirmed")),422,"SIGNATURE_REQUIRED","请本人核对病历、已做治疗和同意依据后签署");
+      String content=req(b,"content");
+      var signed=one(c,"SELECT n.id FROM clinical_notes n JOIN clinical_note_versions nv ON nv.clinical_note_id=n.id AND nv.version_number=n.current_version JOIN clinical_note_signatures ns ON ns.note_version_id=nv.id AND ns.content_checksum=nv.content_checksum WHERE n.visit_id=? AND n.status='SIGNED' AND nv.content_zh=?",id,content);
+      if(signed==null) step(c,p,id,map("action","note","content",content,"reason",s(b,"reason"),"sign",true));
+      step(c,p,id,map("action","complete","confirmed",true));
+    }
+    Service.audit(c,p,"CLINICAL_WORKFLOW_"+action.toUpperCase(Locale.ROOT),"clinical_visits",id,s(visit,"clinic_id"));
+    return detail(c,p,id);
   }
 
   static void invalidateSignatures(Connection c, String id) throws SQLException {

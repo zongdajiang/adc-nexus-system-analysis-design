@@ -21,6 +21,10 @@
 *.xml text eol=lf
 Dockerfile text eol=lf
 .dockerignore text eol=lf
+.env.example text eol=lf
+*.sh text eol=lf
+Dockerfile.release text eol=lf
+Caddyfile text eol=lf
 *.pdf -text
 *.png -text
 *.jpg -text

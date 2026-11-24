@@ -49,10 +49,16 @@ final class Enrollment {
   }
 
   Object config() throws Exception {
-    return map("demo", auth.demo, "sms", Delivery.configured("PHONE"), "email", Delivery.configured("EMAIL"),
+    var accounts=db.read(DemoAccounts::catalog);
+    return map("demo_accounts",accounts,"demo_password",accounts.isEmpty()?null:DemoAccounts.PASSWORD,
+        "daily_demo",DailyDemo.enabled(),"demo", auth.demo, "sms", Delivery.configured("PHONE"), "email", Delivery.configured("EMAIL"),
         "registration_ready", Delivery.configured("PHONE") && Delivery.configured("EMAIL"),
-        "wechat", false, "roles", Seed.GRANTS.keySet().stream().filter(r -> !r.equals("ADMIN"))
-            .map(r -> map("code", r, "name", Seed.roleName(r))).toList(),
+        "wechat", false, "roles", db.read(c -> rows(c,
+            "SELECT r.code,u.display_name FROM app_users u JOIN user_role_assignments a ON a.user_id=u.id"
+            + " JOIN roles r ON r.id=a.role_id WHERE u.id IN ('jdbc-demo-clinic_manager','jdbc-demo-dentist',"
+            + "'jdbc-demo-front_desk','jdbc-demo-cashier','jdbc-demo-hq_operations','jdbc-demo-hq_finance')"
+            + " AND u.status='ACTIVE' AND a.status='ACTIVE' AND r.status='ACTIVE' ORDER BY r.code").stream()
+            .map(r -> map("code", s(r,"code").replace("JDBC_", ""), "name", Seed.roleName(s(r,"code").replace("JDBC_", "")), "person_name", r.get("display_name"))).toList()),
         "service_notice", "课程合成数据环境；密码登录可用。手机及邮箱验证须由机构配置真实发送服务。不存在公开通用验证码。");
   }
 
@@ -128,6 +134,7 @@ final class Enrollment {
       consume(c, id);
       if (user == null || !s(user,"id").equals(s(row,"user_id")) || !s(user,"status").equals("ACTIVE")) return invalid();
       String uid = s(user,"id");
+      if (!auth.webAccountAllowed(c, uid)) return invalid();
       if (recover) {
         String salt = salt();
         update(c, "app_users", uid, map("password_hash", password(fresh, salt, 600000), "password_salt", salt,
@@ -141,8 +148,10 @@ final class Enrollment {
   }
 
   Object register(Map<String,Object> b) throws Exception {
-    String kind = req(b,"kind"), name = req(b,"name"), phone = contact("PHONE", req(b,"phone")), email = contact("EMAIL", req(b,"email")), pass = req(b,"password");
-    check(Set.of("EMPLOYEE","PATIENT").contains(kind), 422, "ACCOUNT_KIND", "请选择内部员工或患者");
+    String kind = req(b,"kind");
+    check(kind.equals("EMPLOYEE") || (auth.legacyPatientTest && kind.equals("PATIENT")),
+        403, "STAFF_ONLY", "网页仅支持诊所员工激活账号");
+    String name = req(b,"name"), phone = contact("PHONE", req(b,"phone")), email = contact("EMAIL", req(b,"email")), pass = req(b,"password");
     check(name.length() <= 60, 422, "NAME", "姓名过长");
     passwordPolicy(pass);
     check(Boolean.TRUE.equals(b.get("accepted_terms")), 422, "CONSENT", "请先阅读账号使用与隐私说明");

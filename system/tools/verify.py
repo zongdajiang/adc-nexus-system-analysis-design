@@ -73,7 +73,7 @@ def main():
         s.bind(('127.0.0.1',0));port=s.getsockname()[1]
     base=f'http://127.0.0.1:{port}'
     admin_password='Admin-'+secrets.token_urlsafe(20)
-    env={**os.environ,'DEMO_MODE':'true','DATA_DIR':str(datadir),'PORT':str(port),'ADMIN_PASSWORD':admin_password,'APP_ENV':'TEST','ADC_TEST_NOW':'2026-12-31T08:00:00'}
+    env={**os.environ,'DEMO_MODE':'true','DATA_DIR':str(datadir),'PORT':str(port),'ADMIN_PASSWORD':admin_password,'APP_ENV':'TEST','ADC_TEST_NOW':'2026-12-31T08:00:00','ADC_TEST_LEGACY_PATIENT_WEB':'true'}
     pg_url=os.environ.get('ADC_ACCEPTANCE_PG_URL')
     if pg_url:
         pg=urllib.parse.urlparse(pg_url)
@@ -101,7 +101,17 @@ def main():
         check('HTTP login config cannot be submitted as a mutation',lambda:anonymous.raw('/auth/config',b'{}',expect=405))
         people={role:Client(base).demo(role) for role in ['REVIEWER','FRONT_DESK','DENTIST','CASHIER','CLINIC_MANAGER','HQ_OPERATIONS','HQ_FINANCE','PATIENT']}
         operator=people['REVIEWER'];boot=operator.request('/bootstrap');today=dt.date.fromisoformat(boot['today'])
-        check('SEED-01 demonstration bookings and state history agree',lambda:ensure(all(a['status']=='CONFIRMED' for a in operator.request('/appointments') if a['appointment_code'].startswith('ADC-TODAY-'))))
+        def seeded_workday():
+            slots = {a['appointment_code']:a for a in operator.request('/appointments')
+                     if a['appointment_code'].startswith('ADC-TODAY-')}
+            ensure({code:slot['status'] for code,slot in slots.items()} ==
+                   {'ADC-TODAY-9':'CHECKED_IN','ADC-TODAY-11':'CONFIRMED',
+                    'ADC-TODAY-14':'CONFIRMED','ADC-TODAY-16':'CONFIRMED'})
+            arrived = slots['ADC-TODAY-9']
+            ensure(any(v['appointment_id']==arrived['id'] and v['status']=='SAFETY_REVIEW'
+                       for v in people['DENTIST'].request('/visits')))
+            ensure(any(h['to_status']=='CHECKED_IN' for h in operator.request('/appointments/'+arrived['id'])['history']))
+        check('SEED-01 workday shows booked appointments and one checked-in visit with history',seeded_workday)
         check('AUTH-23 patient identity is not marked as network staff access',lambda:ensure(not people['PATIENT'].request('/auth/session')['principal']['network']))
         for path in ['/bootstrap','/dashboard','/patients','/appointments','/visits','/finance/invoices','/finance/periods','/resources','/analytics','/expansion','/audit']:
             check('READ '+path,lambda path=path:operator.request(path))
@@ -112,7 +122,7 @@ def main():
         check('AUTH-06 patient portal only returns bound records',lambda:ensure('patient' in people['PATIENT'].request('/portal')))
         check('AUTH-07 dentist cannot manage patients',lambda:people['DENTIST'].request('/patients',{'name_zh':'Denied'},expect=403))
         check('AUTH-08 cashier cannot sign clinical notes',lambda:people['CASHIER'].request('/visits/not-an-id',{'action':'note'},expect=403))
-        check('AUTH-09 manager cannot record payments',lambda:people['CLINIC_MANAGER'].request('/finance/invoices',{'visit_id':'denied'},expect=403))
+        check('AUTH-09 manager cannot sign clinician records',lambda:people['CLINIC_MANAGER'].request('/visits/denied',{'action':'sign_complete','version':1},expect=403))
         check('AUTH-10 HQ operations cannot read finance',lambda:people['HQ_OPERATIONS'].request('/finance/invoices',expect=403))
         check('AUTH-11 missing SMS provider fails honestly',lambda:anonymous.request('/auth/sms',{},expect=503))
         check('AUTH-12 mutation requires CSRF',lambda:operator.request('/patients',{},expect=403,headers={'X-CSRF-Token':'wrong'}))

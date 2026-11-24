@@ -1,0 +1,295 @@
+{
+  "jar_sha256": "21018fc9ed6ab599632e81463f33fab058ea1eaee41193ba875453c204b29343",
+  "requests": [
+    {
+      "role": "PUBLIC",
+      "path": "/auth/config",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/waitlist",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/followups",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "path": "/followups/b139d721-355d-4b21-80cf-2575c756f1a3",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/waitlist",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/followups",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "DENTIST",
+      "path": "/followups/b139d721-355d-4b21-80cf-2575c756f1a3",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/waitlist",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/followups",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/followups/b139d721-355d-4b21-80cf-2575c756f1a3",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CASHIER",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "CASHIER",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CASHIER",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CASHIER",
+      "path": "/waitlist",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "CASHIER",
+      "path": "/followups",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/waitlist",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/followups",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/followups/b139d721-355d-4b21-80cf-2575c756f1a3",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/waitlist",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/followups",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/dashboard",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/resources",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/waitlist",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/followups",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/resources",
+      "status": 403,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/dashboard",
+      "status": 422,
+      "method": "GET"
+    },
+    {
+      "role": "FRONT_DESK",
+      "path": "/resources",
+      "status": 403,
+      "method": "POST"
+    },
+    {
+      "role": "HQ_FINANCE",
+      "path": "/resources",
+      "status": 403,
+      "method": "POST"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/resources",
+      "status": 403,
+      "method": "POST"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/waitlist",
+      "status": 403,
+      "method": "POST"
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "path": "/followups",
+      "status": 403,
+      "method": "POST"
+    }
+  ],
+  "report_alignment": [
+    "Clinician calendar reads authorized clinic appointments, while clinical encounters are limited to that clinician",
+    "Patient profile and billing use separate endpoints; cashier clinical data and identifiers are restricted",
+    "Scheduled service, cancellation and no-show indicators match the daily appointment list and denominators",
+    "Financial periods expose period summaries separately from approved snapshots"
+  ],
+  "passed": true,
+  "demo_delivery_channels_enabled": false
+}

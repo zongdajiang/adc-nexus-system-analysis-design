@@ -1,0 +1,77 @@
+name: adc-nexus-demo
+
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${ADC_POSTGRES_PASSWORD:?run sh prepare-env.sh first}
+      ADC_DB_PASSWORD: ${ADC_DB_PASSWORD:?run sh prepare-env.sh first}
+      TZ: Asia/Shanghai
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./init-app-db.sh:/docker-entrypoint-initdb.d/01-app-db.sh:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-d", "adc_demo", "-U", "adc_app"]
+      interval: 5s
+      timeout: 4s
+      retries: 18
+    networks: [database]
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.release
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: DEMO
+      DEMO_MODE: "true"
+      SEED_DATA: "true"
+      DEMO_SCENARIO_MODE: daily
+      DATABASE_URL: postgresql://adc_app:${ADC_DB_PASSWORD:?run sh prepare-env.sh first}@db:5432/adc_demo?sslmode=disable
+      ADMIN_PASSWORD: ${ADC_ADMIN_PASSWORD:-}
+      PORT: "10000"
+      BIND_ADDRESS: 0.0.0.0
+      DATA_DIR: /var/adc-nexus
+      TZ: Asia/Shanghai
+    volumes:
+      - app_state:/var/adc-nexus
+    healthcheck:
+      test: ["CMD", "bash", "-ec", "exec 3<>/dev/tcp/127.0.0.1/10000; printf 'GET /api/health HTTP/1.0\r\n\r\n' >&3; read -r status <&3; [[ \"$$status\" == *' 200 '* ]]"]
+      interval: 10s
+      timeout: 4s
+      retries: 12
+      start_period: 30s
+    networks: [web, database]
+
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      ADC_DOMAIN: ${ADC_DOMAIN:?run sh prepare-env.sh first}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [web]
+
+networks:
+  web:
+  database:
+    internal: true
+
+volumes:
+  postgres_data:
+  app_state:
+  caddy_data:
+  caddy_config:

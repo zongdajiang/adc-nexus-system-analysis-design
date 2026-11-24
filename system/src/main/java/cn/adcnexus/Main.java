@@ -24,16 +24,11 @@ public final class Main {
 
   public static void main(String[] args) throws Exception {
     TimeZone.setDefault(TimeZone.getTimeZone(Support.ZONE));
-    check(
-        !"PRODUCTION".equals(System.getenv("APP_ENV"))
-            || System.getenv("DATABASE_URL") != null && !System.getenv("DATABASE_URL").isBlank(),
-        500,
-        "DATABASE_REQUIRED",
-        "托管部署必须配置 PostgreSQL DATABASE_URL，不能依赖临时 SQLite 文件");
+    Support.validateEnvironment();
     Db db = new Db();
     db.migrate();
     int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
-    HttpServer server = HttpServer.create(new InetSocketAddress(System.getenv().getOrDefault("BIND_ADDRESS", "0.0.0.0"), port), 128);
+    HttpServer server = HttpServer.create(new InetSocketAddress(System.getenv().getOrDefault("BIND_ADDRESS", "127.0.0.1"), port), 128);
     Main app = new Main(db);
     server.createContext("/", app::handle);
     server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -91,7 +86,7 @@ public final class Main {
                         "time",
                         now(),
                         "synthetic",
-                        true,
+                        DemoAccounts.enabled(),
                         "demo_mode",
                         auth.demo));
         respond(x, 200, result);
@@ -130,6 +125,8 @@ public final class Main {
         return;
       }
       if (path.equals("/api/auth/demo") && method.equals("POST")) {
+        check(auth.demo, 404, "NOT_AVAILABLE", "此环境未开放演示入口");
+        ensureDemoDay();
         respond(x, 200, auth.demo(x, b));
         return;
       }
@@ -161,11 +158,13 @@ public final class Main {
                     p.patientId(),
                     "dentist_id",
                     p.dentistId()),
+                "demo_session", p.demoSession(),
                 "csrf",
                 Auth.csrfToken(x)));
         return;
       }
       if (mutation) auth.csrf(x);
+      if(p.demoSession())ensureDemoDay();
       if (path.equals("/api/admin/staff")) {
         Object result = db.tx(c -> Enrollment.roster(c,
             Auth.forPermission(c, auth.principal(c, x), "access.manage"), b, mutation));
@@ -185,7 +184,7 @@ public final class Main {
               return null;
             });
         x.getResponseHeaders()
-            .add("Set-Cookie", "adc_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0");
+            .add("Set-Cookie", Auth.sessionCookie(x, "", 0));
         respond(x, 200, map("ok", true));
         return;
       }
@@ -241,7 +240,7 @@ public final class Main {
                       return JSON.readValue(s(receipt, "response_json"), Object.class);
                     }
                   }
-                  Object r = route(c, scoped, x, path, method, q, b);
+                  Object r = business(scoped.demoSession(), () -> route(c, scoped, x, path, method, q, b));
                   if (idem != null)
                     insert(
                         c,
@@ -263,15 +262,27 @@ public final class Main {
                 });
         respond(x, 200, result);
       } else {
+        Db.Work<Object> read = c -> {
+          Auth.Principal scoped = Service.filterClinic(p, q.get("clinic_id"));
+          authorizeRoute(scoped, path);
+          return business(scoped.demoSession(), () -> route(c, scoped, x, path, method, q, b));
+        };
+        String type = sensitiveResource(path);
         respond(
             x,
             200,
-            db.read(
-                c -> {
-                  Auth.Principal scoped = Service.filterClinic(p, q.get("clinic_id"));
-                  authorizeRoute(scoped, path);
-                  return route(c, scoped, x, path, method, q, b);
-                }));
+            !production() || type.isEmpty() ? db.read(read) : db.tx(c -> {
+              // Audit successful detail reads without recording the returned medical or financial content.
+              var current = auth.principal(c, x);
+              var scoped = Service.filterClinic(current, q.get("clinic_id"));
+              authorizeRoute(scoped, path);
+              var result = route(c, scoped, x, path, method, q, b);
+              String id = path.substring(path.lastIndexOf('/') + 1);
+              var record = one(c, "SELECT " + ("patients".equals(type) ? "primary_clinic_id" : "clinic_id")
+                  + " AS clinic FROM " + type + " WHERE id=?", id);
+              if (record != null) Service.audit(c, current, "DETAIL_READ", type, id, s(record,"clinic"));
+              return result;
+            }));
       }
     } catch (Problem e) {
       if (e.status == 405)
@@ -349,6 +360,13 @@ public final class Main {
     }
   }
 
+  private static String sensitiveResource(String path) {
+    if (path.matches("/api/patients/[^/]+")) return "patients";
+    if (path.matches("/api/visits/[^/]+")) return "clinical_visits";
+    if (path.matches("/api/finance/invoices/[^/]+")) return "invoices";
+    return "";
+  }
+
   private void authorizeRoute(Auth.Principal p, String path) {
     if (path.startsWith("/api/followups")) p.need("followup.read");
     if (path.startsWith("/api/patients")) p.need("patient.read");
@@ -405,6 +423,7 @@ public final class Main {
       var issues = Scheduling.validate(c, p, b, null, true);
       return map("valid", issues.isEmpty(), "issues", issues, "proposal", b);
     }
+    if (path.equals("/api/waitlist/candidates") && !post)return Scheduling.candidates(c,p,q.getOrDefault("entry_id",""));
     if (path.equals("/api/waitlist"))
       return post ? Scheduling.waitlistCommand(c, p, b) : Scheduling.waitlist(c, p);
     if (path.equals("/api/followups"))
@@ -422,8 +441,8 @@ public final class Main {
       p.need("finance.read");
       return rows(
           c,
-          "SELECT v.id,v.visit_code,v.patient_id,p.name_zh patient_name,d.name_zh"
-              + " dentist_name,v.completed_at FROM clinical_visits v JOIN patients p ON"
+          "SELECT v.id,v.visit_code,v.appointment_id,v.patient_id,p.name_zh patient_name,d.name_zh"
+              + " dentist_name,v.completed_at,(SELECT f.status FROM financial_reporting_periods f WHERE f.starts_on<=substr(v.completed_at,1,10) AND f.ends_on>=substr(v.completed_at,1,10)) source_period_status FROM clinical_visits v JOIN patients p ON"
               + " p.id=v.patient_id JOIN dentists d ON d.id=v.dentist_id WHERE v.status='COMPLETED'"
               + " AND NOT EXISTS (SELECT 1 FROM invoices i WHERE i.visit_id=v.id) AND "
               + p.scope("v.clinic_id")
@@ -455,7 +474,12 @@ public final class Main {
     throw error(404, "NOT_FOUND", "此接口不存在");
   }
 
+  private void ensureDemoDay() throws Exception {
+    if(DailyDemo.enabled() && db.read(DailyDemo::needed))db.tx(c->{DailyDemo.ensure(c);return null;});
+  }
+
   private String scopePermission(String path, boolean post, Map<String, Object> b) {
+    if(path.startsWith("/api/waitlist"))return post?"waitlist.manage":"appointment.read";
     if (path.startsWith("/api/followups")) return Followups.permission(post,b);
     if (path.startsWith("/api/patients")) return post ? "patient.manage" : "patient.read";
     if (path.startsWith("/api/appointments")
@@ -464,8 +488,9 @@ public final class Main {
       return post ? "appointment.manage" : "appointment.read";
     if (path.startsWith("/api/visits")) return post ? "clinical.write" : "clinical.read";
     if (path.startsWith("/api/finance/preflight")) return "period.manage";
+    if (path.startsWith("/api/finance/periods") && !post) return "period.read";
     if (path.startsWith("/api/finance/periods") && post)
-      return Set.of("expense", "allocate", "cost").contains(s(b, "action"))
+      return Set.of("expense", "allocate", "cost", "expense_review", "expense_edit", "expense_cancel").contains(s(b, "action"))
           ? "expense.manage"
           : "period.manage";
     if (path.startsWith("/api/finance")) return post ? "finance.manage" : "finance.read";
@@ -479,7 +504,8 @@ public final class Main {
     if (path.startsWith("/api/audit")) return "audit.read";
     if (path.startsWith("/api/portal")) return "portal.read";
     if (path.startsWith("/api/expansion") && post) return "expansion.manage";
-    if (path.startsWith("/api/analytics") || path.startsWith("/api/expansion"))
+    if (path.startsWith("/api/expansion")) return "expansion.read";
+    if (path.startsWith("/api/analytics"))
       return "analytics.read";
     if (path.startsWith("/api/dashboard")) return "dashboard.read";
     return "";
@@ -523,6 +549,10 @@ public final class Main {
   private void sameOrigin(HttpExchange x) {
     String origin = x.getRequestHeaders().getFirst("Origin");
     if (origin == null) return;
+    if (Support.production()) {
+      check(origin.equals(System.getenv("PUBLIC_ORIGIN")), 403, "ORIGIN", "拒绝跨站提交");
+      return;
+    }
     try {
       URI uri = URI.create(origin);
       String host = x.getRequestHeaders().getFirst("Host");
@@ -597,10 +627,10 @@ public final class Main {
     check(
         Set.of("index.html", "app.js", "app.css", "mark.svg", "auth-ui.js", "product.css",
             "homepage.js", "homepage.css", "studio.css", "carousel.js", "clinic-calendar.js",
-            "practice-workflow.js", "worklists.js", "practice.css", "practice-setup.js", "followups.js", "setup.css", "images/home-care-v1.png",
+            "practice-workflow.js", "encounter-workspace.js", "workflow.css", "refinement.css", "staff-ux.css", "staff-ux.js", "auth-scene.css", "images/auth-dental-sanctuary-v1.png", "worklists.js", "practice.css", "practice-setup.js", "followups.js", "setup.css", "images/home-care-v1.png",
             "images/home-clinic-v1.png", "images/home-reception-v1.png",
-            "images/workspace-reception-v14.jpg", "images/workspace-clinical-v14.jpg",
-            "images/workspace-billing-v14.jpg").contains(file),
+            "images/workspace-reception-hd.png", "images/workspace-clinical-hd.png",
+            "images/workspace-billing-hd.png").contains(file),
         404,
         "NOT_FOUND",
         "文件不存在");

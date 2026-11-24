@@ -19,6 +19,7 @@ final class Delivery {
   }
   static boolean configured(String channel) {
     if (testSink()) return true;
+    if (DemoAccounts.enabled()) return false;
     return channel.equals("EMAIL")
         ? (env("MAIL_PROVIDER").equals("BREVO")
             ? !env("BREVO_API_KEY").isBlank() && !env("MAIL_FROM").isBlank()
@@ -28,6 +29,7 @@ final class Delivery {
             && !env("TWILIO_FROM").isBlank();
   }
   static void send(String channel, String destination, String code) throws Exception {
+    if (!configured(channel)) throw new IllegalStateException("Verification delivery is disabled");
     if (testSink()) {
       // Isolated acceptance receiver, allowed only in APP_ENV=TEST on loopback.
       var response = client().send(HttpRequest.newBuilder(URI.create(env("AUTH_TEST_DELIVERY_URL")))

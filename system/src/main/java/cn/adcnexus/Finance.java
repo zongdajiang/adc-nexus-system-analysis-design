@@ -8,17 +8,26 @@ import java.util.*;
 
 final class Finance {
   static final String SELECT =
-      "SELECT i.*,p.name_zh patient_name,c.name_zh clinic_name,v.visit_code,d.name_zh dentist_name"
+      "SELECT i.*,p.name_zh patient_name,p.date_of_birth patient_date_of_birth,p.gender patient_gender,c.name_zh clinic_name,v.visit_code,v.appointment_id,d.name_zh dentist_name,"
+          + "(SELECT f.status FROM financial_reporting_periods f WHERE f.starts_on<=substr(i.issued_at,1,10) AND f.ends_on>=substr(i.issued_at,1,10)) source_period_status"
           + " FROM invoices i JOIN patients p ON p.id=i.patient_id JOIN clinics c ON"
           + " c.id=i.clinic_id JOIN clinical_visits v ON v.id=i.visit_id JOIN dentists d ON"
           + " d.id=v.dentist_id ";
 
   static Object list(Connection c, Auth.Principal p) throws Exception {
     p.need("finance.read");
-    return rows(
+    var list = rows(
         c,
         SELECT + " WHERE " + p.scope("i.clinic_id") + " ORDER BY i.created_at DESC LIMIT 400",
         p.scopeArgs());
+    String cashPeriod = cashPeriodStatus(c);
+    for(var i:list)i.put("cash_period_status",cashPeriod);
+    return list;
+  }
+
+  static String cashPeriodStatus(Connection c) throws SQLException {
+    var period=one(c,"SELECT status FROM financial_reporting_periods WHERE starts_on<=? AND ends_on>=?",today(),today());
+    return period==null ? "MISSING" : s(period,"status");
   }
 
   static Map<String, Object> get(Connection c, Auth.Principal p, String id) throws Exception {
@@ -26,6 +35,7 @@ final class Finance {
     var i = one(c, SELECT + " WHERE i.id=?", id);
     check(i != null, 404, "NOT_FOUND", "结算单不存在");
     p.clinic(s(i, "clinic_id"));
+    i.put("cash_period_status",cashPeriodStatus(c));
     return i;
   }
 
@@ -108,6 +118,8 @@ final class Finance {
     var existing = one(c, "SELECT id FROM invoices WHERE visit_id=?", vid);
     if (existing != null) return detail(c, p, s(existing, "id"));
     check(s(v, "status").equals("COMPLETED"), 409, "CLINICAL_NOT_COMPLETE", "只有已完成的临床就诊可以生成结算单");
+    Clinical.requireAppointment(c, v, "COMPLETED");
+    check(s(v,"completed_at").length() >= 10, 409, "CLINICAL_DATE", "缺少诊疗完成时间，请先核实就诊记录");
     String date = s(v, "completed_at").substring(0, 10);
     var period = periodFor(c, date);
     check(s(period, "status").equals("OPEN"), 409, "PERIOD_LOCKED", "服务期间已锁定");
@@ -426,8 +438,14 @@ final class Finance {
         "收退款发生日；应收余额为授权范围当前未收总额");
   }
 
+  static String expenseFingerprint(Connection c,Map<String,Object> e) throws Exception {
+    return hash(json(map("id",e.get("id"),"category",e.get("category"),"vendor",e.get("vendor_name"),
+        "amount",e.get("amount_fen"),"date",e.get("incurred_on"),"status",e.get("status"),"description",e.get("description_zh"),
+        "allocated",count(c,"SELECT COALESCE(SUM(amount_fen),0) FROM dentist_expense_allocations WHERE expense_id=?",e.get("id")))));
+  }
+
   static Object periods(Connection c, Auth.Principal p) throws Exception {
-    p.need("finance.read");
+    p.need("period.read");
     Map<String, Object> out =
         map(
             "periods",
@@ -449,6 +467,8 @@ final class Finance {
                     + p.scope("x.clinic_id")
                     + " ORDER BY x.cost_date DESC LIMIT 200",
                 p.scopeArgs()));
+    for(var e:(List<Map<String,Object>>)out.get("expenses"))
+      e.put("fingerprint",expenseFingerprint(c,e));
     out.put(
         "results",
         rows(
@@ -467,6 +487,24 @@ final class Finance {
             p.scopeArgs()));
     if (p.network())
       out.put("pools", rows(c, "SELECT * FROM incentive_pools ORDER BY created_at DESC LIMIT 30"));
+    var summaries=new ArrayList<Map<String,Object>>();
+    for(var period:(List<Map<String,Object>>)out.get("periods")) {
+      String id=s(period,"id");
+      var cash=summary(c,p,s(period,"starts_on"),s(period,"ends_on"));
+      Object[] args=Service.join(new Object[]{id},p.scopeArgs());
+      var costs=one(c,"SELECT COALESCE(SUM(total_cost_fen),0) total,COUNT(*) items,"
+          +"COALESCE(SUM(CASE WHEN source IN ('VERIFIED','VERIFIED_MANUAL') THEN 0 ELSE 1 END),0) pending"
+          +" FROM treatment_cost_entries WHERE reporting_period_id=? AND "+p.scope("clinic_id"),args);
+      var expenses=one(c,"SELECT COALESCE(SUM(CASE WHEN status='APPROVED' THEN amount_fen ELSE 0 END),0) total,"
+          +"COALESCE(SUM(CASE WHEN status NOT IN ('APPROVED','CANCELLED') THEN 1 ELSE 0 END),0) pending"
+          +" FROM operating_expenses WHERE reporting_period_id=? AND "+p.scope("clinic_id"),args);
+      long unallocated=count(c,"SELECT COUNT(*) FROM operating_expenses e WHERE reporting_period_id=? AND status='APPROVED' AND "
+          +p.scope("e.clinic_id")+" AND amount_fen<>(SELECT COALESCE(SUM(a.amount_fen),0) FROM dentist_expense_allocations a WHERE a.expense_id=e.id)",args);
+      summaries.add(map("period_id",id,"net_cash_fen",cash.get("net_cash_fen"),"paid_fen",cash.get("paid_fen"),"refunded_fen",cash.get("refunded_fen"),
+          "cost_fen",costs.get("total"),"expense_fen",expenses.get("total"),"pending_costs",costs.get("pending"),
+          "pending_expenses",expenses.get("pending"),"unallocated_expenses",unallocated));
+    }
+    out.put("period_summaries",summaries);
     return out;
   }
 
@@ -482,7 +520,7 @@ final class Finance {
     if (count(
             c,
             "SELECT COUNT(*) FROM operating_expenses WHERE reporting_period_id=? AND"
-                + " status<>'APPROVED'",
+                + " status NOT IN ('APPROVED','CANCELLED')",
             periodId)
         > 0) blockers.add("存在未核实运营费用");
     if (count(
@@ -571,7 +609,7 @@ final class Finance {
                 + " v.id=x.visit_id WHERE v.dentist_id=d.id AND x.reporting_period_id=?),0)"
                 + " cost_fen,COALESCE((SELECT SUM(a.amount_fen) FROM dentist_expense_allocations a"
                 + " JOIN operating_expenses e ON e.id=a.expense_id WHERE a.dentist_id=d.id AND"
-                + " e.reporting_period_id=?),0) expense_fen FROM dentists d WHERE"
+                + " e.reporting_period_id=? AND e.status='APPROVED'),0) expense_fen FROM dentists d WHERE"
                 + " d.employment_status='ACTIVE' ORDER BY d.employee_code",
             from,
             to,
@@ -650,6 +688,34 @@ final class Finance {
   static Object periodCommand(Connection c, Auth.Principal p, Map<String, Object> b)
       throws Exception {
     String action = req(b, "action");
+    if(Set.of("expense_review","expense_edit","expense_cancel").contains(action)) {
+      p.need("expense.manage");
+      var expense=one(c,"SELECT * FROM operating_expenses WHERE id=?",req(b,"expense_id"));
+      check(expense!=null,404,"NOT_FOUND","运营费用不存在");
+      p.clinic(s(expense,"clinic_id"));openPeriod(c,s(expense,"incurred_on"));
+      check(req(b,"fingerprint").equals(expenseFingerprint(c,expense)),409,"VERSION_CONFLICT","费用或分摊记录已变化，请刷新后核对");
+      check(!s(expense,"status").equals("CANCELLED"),409,"STATE","该费用已取消，原记录保留");
+      long allocated=count(c,"SELECT COALESCE(SUM(amount_fen),0) FROM dentist_expense_allocations WHERE expense_id=?",expense.get("id"));
+      String reason=req(b,"reason"); var values=new LinkedHashMap<String,Object>();
+      if(action.equals("expense_review")) {
+        check(!s(expense,"status").equals("APPROVED"),409,"STATE","该费用已核实，无需重复提交");
+        values.put("status","APPROVED");values.put("approved_by_user_id",p.userId());
+      } else if(action.equals("expense_cancel")) {
+        check(allocated==0,409,"ALLOCATED_EXPENSE","该费用已有分摊记录，不能直接取消；请先与财务核对更正方案");
+        values.put("status","CANCELLED");
+      } else {
+        long amount=n(b,"amount_fen");
+        check(amount>0 && amount<100_000_000_000L && amount>=allocated,422,"AMOUNT","费用金额须大于零，且不能小于已分摊金额");
+        values.put("category",PracticeSetup.selected(b,"category",Set.of("RENT","SALARY","UTILITIES","SUPPLIES","MARKETING","OTHER")));
+        values.put("vendor_name",req(b,"vendor"));values.put("amount_fen",amount);values.put("description_zh",req(b,"evidence"));
+      }
+      update(c,"operating_expenses",s(expense,"id"),values);
+      insert(c,"audit_events",map("request_id",uuid(),"actor_user_id",p.userId(),"actor_subject",p.userId(),
+          "action",action.toUpperCase(Locale.ROOT),"entity_type","operating_expenses","entity_id",expense.get("id"),
+          "clinic_id",expense.get("clinic_id"),"outcome","SUCCESS","source","JDBC_API","reason",reason,
+          "before_json",json(expense),"after_json",json(one(c,"SELECT * FROM operating_expenses WHERE id=?",expense.get("id"))),"occurred_at",now()));
+      return map("ok",true);
+    }
     if (action.equals("expense")) {
       p.need("expense.manage");
       String clinic = req(b, "clinic_id");
@@ -695,6 +761,7 @@ final class Finance {
       var e = one(c, "SELECT * FROM operating_expenses WHERE id=?", req(b, "expense_id"));
       check(e != null, 404, "NOT_FOUND", "费用不存在");
       p.clinic(s(e, "clinic_id"));
+      check(s(e,"status").equals("APPROVED"),409,"EXPENSE_NOT_APPROVED","请先核实费用，已取消费用不能分摊");
       check(
           s(
                   one(

@@ -40,7 +40,7 @@ final class PracticeSetup {
 
   static String bounded(Map<String, Object> body, String field, int max, boolean optional) {
     String value = optional ? s(body, field) : req(body, field);
-    check(value.length() <= max, 422, "FIELD_LENGTH", field + " 内容过长");
+    check(value.length() <= max, 422, "FIELD_LENGTH", fieldLabel(field) + "内容过长");
     return value;
   }
 
@@ -52,7 +52,7 @@ final class PracticeSetup {
 
   static String selected(Map<String, Object> body, String key, Set<String> allowed) {
     String value = req(body, key);
-    check(allowed.contains(value), 422, "STATUS", "请选择有效的 " + key);
+    check(allowed.contains(value), 422, "STATUS", "请选择有效的" + fieldLabel(key));
     return value;
   }
 

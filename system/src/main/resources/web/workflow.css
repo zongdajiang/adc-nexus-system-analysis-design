@@ -1,0 +1,49 @@
+/* Task-oriented clinic operations and the continuous encounter sheet. */
+.operations-daybar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 16px}
+.operations-daybar label{display:flex;align-items:center;gap:10px;font-size:13px;color:#365364}
+.operations-daybar input{width:155px}.operations-daybar>span{font-size:12px;color:#4d6876}
+.shift-summary>button{padding:14px 16px;text-align:left;background:white;border:0;border-radius:0;cursor:pointer;font:inherit;min-width:0}
+.shift-summary>button+button{border-left:1px solid #d2dfe5}
+.shift-summary>button:hover{background:#f1f7f7}.shift-summary>button[aria-pressed=true]{background:#e5f2f1}
+.shift-summary>button:focus-visible{outline:2px solid #087d83;outline-offset:-3px}
+.operations-layout{grid-template-columns:minmax(0,1fr) 250px}
+.appointment-row-actions{display:flex;flex-wrap:wrap;gap:6px;min-width:200px}
+.appointment-menu{display:flex;flex-direction:column;gap:12px;padding:8px 0}
+.appointment-menu .btn{text-align:left;justify-content:flex-start;min-height:42px}
+.encounter-scope{display:flex;gap:8px;align-items:center;margin:16px 0;flex-wrap:wrap}
+.encounter-scope>span{font-size:12px;color:#4d6876;margin-left:auto}
+.encounter-scope .selected{background:#e5f2f1;color:#075e66;border-color:#8dbdbe}
+.encounter-sheet{background:#fff;border:1px solid #d3dfe5;border-radius:6px;margin-bottom:20px;overflow:hidden}
+.encounter-sheet>header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;border-bottom:1px solid #e1e8ec;flex-wrap:wrap}
+.encounter-sheet h2{font-size:16px;line-height:1.5;margin:0;color:#193f4c}
+.encounter-sheet>header p{flex-basis:100%;font-size:13px;line-height:1.7;color:#4d6876;margin:0}
+.encounter-sheet>header>span{font-size:12px;color:#4d6876}
+.encounter-pad{padding:20px}.encounter-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+.encounter-form .full{grid-column:1/-1}.encounter-field{display:flex;flex-direction:column;gap:7px;min-width:0;font-size:13px;color:#365364}
+.encounter-field>.field-input{width:100%;font-size:14px;line-height:1.7}
+.encounter-field textarea{min-height:80px;resize:vertical}
+.encounter-new-plan{display:grid;gap:16px;padding:16px;background:#f6f9fa;border:1px solid #e0e8eb;border-radius:4px}
+.encounter-new-plan[hidden]{display:none}
+.encounter-form .check-label{font-size:13px;line-height:1.8;align-items:flex-start}
+.encounter-form .check-label input{flex-shrink:0;margin-top:5px}
+.encounter-form-footer{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap;padding-top:4px}
+.encounter-form-footer>small{font-size:12px;line-height:1.8;color:#4d6876;margin-right:auto;max-width:45ch}
+.encounter-draft-status{color:#4d6876;font-size:12px;line-height:1.7;margin:0}
+.encounter-error:empty{display:none}.encounter-error .callout{margin:0}
+.encounter-history{padding:14px 18px;margin:0 0 20px;background:#f6f9fa;border:1px solid #d7e2e6;border-radius:5px}
+.encounter-history summary{font-size:13px;font-weight:600;cursor:pointer;color:#254c5a;line-height:1.8}
+.encounter-history summary .badge{margin-left:12px}.encounter-history p{font-size:13px;line-height:1.8;white-space:pre-wrap;color:#365364}
+.encounter-history-text{padding:14px 16px;background:#f6f9fa;margin-bottom:20px;font-size:13px;line-height:1.8;border:1px solid #e0e8eb;border-radius:4px}
+.encounter-history-text p{white-space:pre-wrap;margin:6px 0}.encounter-history-text small{color:#4d6876}
+.encounter-records{margin:22px 0}.encounter-records>summary{padding:16px 0;font-size:14px;font-weight:600;color:#244b5b;cursor:pointer}
+.encounter-add-treatment>summary{padding:16px 20px;color:#075f64;font-size:14px;font-weight:600;cursor:pointer;background:#f6f9fa}
+.encounter-add-treatment[open]>summary{border-bottom:1px solid #e0e8eb}
+.encounter-void-history>summary{padding:14px 20px;color:#4d6876;font-size:12px;cursor:pointer}
+.encounter-form[aria-busy=true]{cursor:progress}.encounter-form button:disabled{opacity:.55;cursor:wait}
+.encounter-sheet,.care-completion{scroll-margin-top:90px}
+.encounter-form :is(input,textarea,select,button):focus-visible{outline:2px solid #087d83;outline-offset:3px}
+@media(max-width:1200px){.operations-layout{grid-template-columns:1fr}.operations-side{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.operations-side{grid-template-columns:1fr}.shift-summary>button:nth-child(3){border-left:0}.shift-summary>button:nth-child(n+3){border-top:1px solid #d2dfe5}.encounter-form{grid-template-columns:1fr}.encounter-sheet>header{padding:14px 16px}.encounter-pad{padding:16px}.encounter-form-footer>.btn{flex:1}.encounter-form-footer>small{max-width:none;flex-basis:100%}.encounter-history summary .badge{margin-left:4px}.operations-daybar .row{gap:6px}}
+@media print{.encounter-form-footer,.encounter-sheet button,.encounter-error{display:none}}
+
+.worklist-caption{gap:16px}.row.wrap{gap:6px}

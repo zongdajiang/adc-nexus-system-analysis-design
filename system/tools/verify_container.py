@@ -26,7 +26,9 @@ image = 'adc-nexus:release-check'
 name = 'adc-release-check-' + secrets.token_hex(6)
 guard_name = name + '-guard'
 environment = {
-    **os.environ, 'APP_ENV': 'PRODUCTION', 'DEMO_MODE': 'false', 'SEED_DATA': 'true',
+    **os.environ, 'APP_ENV': 'PRODUCTION', 'DEMO_MODE': 'false', 'SEED_DATA': 'false',
+    'PUBLIC_ORIGIN': 'https://adc-container.example',
+    'ORGANIZATION_NAME': 'ADC Nexus CI',
     'PORT': '8090', 'TZ': 'Asia/Shanghai', 'ADMIN_PASSWORD': secrets.token_urlsafe(32),
     'PGPASSWORD': urllib.parse.unquote(uri.password or ''),
 }
@@ -70,7 +72,8 @@ def ready():
 def start():
     run('docker', 'run', '--detach', '--name', name, '--network', 'host',
         '--memory', '512m', *[arg for key in ('DATABASE_URL', 'APP_ENV', 'DEMO_MODE',
-        'SEED_DATA', 'PORT', 'TZ', 'ADMIN_PASSWORD') for arg in ('--env', key)], image)
+        'SEED_DATA', 'PORT', 'TZ', 'ADMIN_PASSWORD', 'PUBLIC_ORIGIN', 'ORGANIZATION_NAME')
+                         for arg in ('--env', key)], image)
     return ready()
 
 
@@ -93,11 +96,11 @@ try:
                             '--env', 'APP_ENV=PRODUCTION', image], env=guard_env,
                            capture_output=True, text=True, encoding='utf-8', timeout=30)
     record('Production refuses an absent external database',
-           guard.returncode != 0 and '托管部署必须配置 PostgreSQL' in guard.stderr)
+           guard.returncode != 0 and '生产环境必须配置 PostgreSQL DATABASE_URL' in guard.stderr)
     health = start()
     record('Production image boots with PostgreSQL and the expected JDBC version',
            health['database'] == 'PostgreSQL' and health['data_access'] == 'JAVA_JDBC'
-           and health['version'] == version and health['synthetic'] and not health['demo_mode'])
+           and health['version'] == version and not health['synthetic'] and not health['demo_mode'])
     record('Container runs as unprivileged UID 10001', run('docker', 'exec', name, 'id', '-u').stdout.strip() == '10001')
     record('The container memory limit is 512 MiB',
            int(run('docker', 'inspect', '--format', '{{.HostConfig.Memory}}', name).stdout) == 512 * 1024 * 1024)
@@ -106,7 +109,9 @@ try:
     for path in ('/api/patients', '/api/followups', '/api/resources', '/api/admin/access'):
         record('Unauthenticated request is denied: ' + path, bool(request(path, 401)))
     original = snapshot()
-    record('Synthetic clinic and patient data were seeded', original['patients']['rows'] > 0 and original['clinics']['rows'] > 0)
+    record('Production initializes the organization without synthetic clinics or patients',
+           original['organizations']['rows'] == 1
+           and original['patients']['rows'] == 0 and original['clinics']['rows'] == 0)
     run('docker', 'restart', name)
     ready()
     record('Business row contents survive a container restart', snapshot() == original)

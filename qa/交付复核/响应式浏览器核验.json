@@ -1,0 +1,4710 @@
+{
+  "rows": [
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "lp-role-tabs"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "lp-role-tabs"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/home",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "PUBLIC",
+      "route": "#/login",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/reception",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/appointments",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/patients",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/clinical",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/waitlist",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/billing",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/periods",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/analytics",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/resources",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/clinical",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/appointments",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/patients",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/waitlist",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "DENTIST",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/reception",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/appointments",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/patients",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/waitlist",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/resources",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "FRONT_DESK",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/billing",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/appointments",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/patients",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CASHIER",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs",
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/reception",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/appointments",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "calendar-scroll"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/patients",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/waitlist",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/analytics",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/expansion",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/resources",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_OPERATIONS",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "worklist-tabs"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/billing",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/periods",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/analytics",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/expansion",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/resources",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "HQ_FINANCE",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/dashboard",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/resources",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [
+        "table-wrap"
+      ],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/access",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/audit",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": -15,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 320,
+      "viewport": 320,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 768,
+      "viewport": 768,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 1024,
+      "viewport": 1024,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 1280,
+      "viewport": 1280,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 1440,
+      "viewport": 1440,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "ADMIN",
+      "route": "#/security",
+      "width": 1920,
+      "viewport": 1920,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "appointment dialog",
+      "width": 390,
+      "viewport": 390,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    },
+    {
+      "role": "CLINIC_MANAGER",
+      "route": "appointment dialog",
+      "width": 568,
+      "viewport": 568,
+      "rootOverflow": 0,
+      "controlsOutside": [],
+      "clipped": [],
+      "horizontalRegions": [],
+      "shownError": false
+    }
+  ],
+  "exceptions": [],
+  "interactions": [
+    "Touch menu opens, changes page and closes",
+    "Appointment dialog fits a short landscape viewport and closes with Escape",
+    "Portrait tablet drawer opens and closes after navigation",
+    "Appointment trend charts keep all dates horizontally accessible by keyboard"
+  ]
+}

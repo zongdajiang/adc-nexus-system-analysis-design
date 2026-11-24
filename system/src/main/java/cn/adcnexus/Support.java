@@ -13,7 +13,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 public final class Support {
-  public static final String VERSION = "1.5.0-rc1";
+  public static final String VERSION = "1.9.0-rc1";
   public static final ObjectMapper JSON =
       new ObjectMapper()
           .enable(JsonParser.Feature.STRICT_DUPLICATE_DETECTION)
@@ -21,11 +21,58 @@ public final class Support {
   public static final ZoneId ZONE = ZoneId.of("Asia/Shanghai");
   public static final DateTimeFormatter DT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-  public static String now() {
+  private static final ThreadLocal<String> BUSINESS_TIME = new ThreadLocal<>();
+
+  static boolean production() {
+    return "PRODUCTION".equals(System.getenv("APP_ENV"));
+  }
+
+  static boolean seedData() {
+    return Boolean.parseBoolean(System.getenv().getOrDefault("SEED_DATA", production() ? "false" : "true"));
+  }
+
+  static void validateEnvironment() {
+    String profile = System.getenv().getOrDefault("APP_ENV","LOCAL");
+    check(Set.of("LOCAL","DEVELOPMENT","DEMO","TEST","PRODUCTION").contains(profile),
+        500,"APP_ENV","运行环境配置无效");
+    if (!production()) {
+      if ("DEMO".equals(System.getenv("APP_ENV")))
+        check(DemoAccounts.enabled(), 500, "DEMO_CONFIG", "DEMO 环境须显式配置 DEMO_MODE=true");
+      return;
+    }
+    check(!DemoAccounts.enabled() && !seedData(), 500, "PRODUCTION_ISOLATION",
+        "生产环境不得开启演示账号或样例初始化");
+    check(!System.getenv().getOrDefault("DATABASE_URL", "").isBlank(), 500, "DATABASE_REQUIRED",
+        "生产环境必须配置 PostgreSQL DATABASE_URL");
+    String origin = System.getenv().getOrDefault("PUBLIC_ORIGIN", "");
+    check(origin.matches("https://[a-zA-Z0-9][a-zA-Z0-9.-]*(?::[0-9]{1,5})?"), 500,
+        "PUBLIC_ORIGIN", "生产环境必须配置 HTTPS PUBLIC_ORIGIN，末尾不带斜线");
+  }
+
+  public static String wallNow() {
     String fixed = System.getenv("ADC_TEST_NOW");
+    if("TEST".equals(System.getenv("APP_ENV")) && System.getenv("ADC_TEST_NOW_FILE")!=null) {
+      try { fixed=java.nio.file.Files.readString(java.nio.file.Path.of(System.getenv("ADC_TEST_NOW_FILE"))).trim(); }
+      catch(java.io.IOException e) { throw new IllegalStateException("Cannot read isolated test clock",e); }
+    }
     return "TEST".equals(System.getenv("APP_ENV")) && fixed != null
         ? LocalDateTime.parse(fixed).format(DT)
         : LocalDateTime.now(ZONE).format(DT);
+  }
+
+  public static String now() {
+    return BUSINESS_TIME.get() == null ? wallNow() : BUSINESS_TIME.get();
+  }
+
+  public static <T> T at(String time, java.util.concurrent.Callable<T> work) throws Exception {
+    String previous = BUSINESS_TIME.get();
+    BUSINESS_TIME.set(time);
+    try { return work.call(); }
+    finally { if (previous == null) BUSINESS_TIME.remove(); else BUSINESS_TIME.set(previous); }
+  }
+
+  public static <T> T business(boolean demo, java.util.concurrent.Callable<T> work) throws Exception {
+    return demo && DailyDemo.enabled() ? at(wallNow().substring(0,10)+" 15:00:00",work) : work.call();
   }
 
   public static String today() {
@@ -65,8 +112,22 @@ public final class Support {
 
   public static String req(Map<String, Object> m, String k) {
     String s = s(m, k);
-    check(!s.isBlank() && s.length() <= 8000, 422, "REQUIRED", "请填写有效的 " + k);
+    check(!s.isBlank() && s.length() <= 8000, 422, "REQUIRED", "请填写有效的" + fieldLabel(k));
     return s;
+  }
+
+  public static String fieldLabel(String key) {
+    return switch(key){
+      case "username"->"账号";case "password","newPassword","oldPassword"->"密码";case "name","name_zh","display_name"->"姓名或名称";
+      case "phone"->"手机号";case "email"->"邮箱";case "patient_id"->"患者";case "clinic_id"->"诊所";case "dentist_id"->"负责医师";
+      case "chair_id"->"牙椅";case "treatment_id","qualification_type_id"->"项目或资质类型";case "visit_id"->"就诊记录";case "payment_id"->"原收款记录";
+      case "period_id"->"核算期间";case "role_id"->"岗位";case "user_id"->"员工账号";case "employee_id","employee_code"->"员工编号";
+      case "scheduled_start_at","starts_at"->"开始时间";case "ends_at"->"结束时间";case "effective_from"->"生效日期";case "date_of_birth"->"出生日期";
+      case "issued_on"->"颁发日期";case "due_on"->"复诊日期";case "incurred_on"->"费用日期";case "reason","note","evidence"->"办理说明";
+      case "fingerprint","updated_at"->"最新记录信息，请刷新后重试";case "reference","reference_number"->"凭据编号";case "issuing_body"->"颁发机构";
+      case "status","employment_status"->"状态";case "priority"->"优先级";case "category"->"类别";case "code"->"代码";case "action"->"操作类型";
+      case "amount_fen"->"金额";default->"相关资料";
+    };
   }
 
   public static long n(Map<String, Object> m, String k) {

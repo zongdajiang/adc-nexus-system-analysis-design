@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "jar_sha256": "21018fc9ed6ab599632e81463f33fab058ea1eaee41193ba875453c204b29343",
+  "suites": [
+    {
+      "suite": "baseline",
+      "passed": true,
+      "log": "review180-sqlite-baseline.log"
+    },
+    {
+      "suite": "operating",
+      "passed": true,
+      "log": "review180-sqlite-operating.log"
+    },
+    {
+      "suite": "daily",
+      "passed": true,
+      "log": "review180-sqlite-daily.log"
+    },
+    {
+      "suite": "passwords",
+      "passed": true,
+      "log": "review180-sqlite-passwords.log"
+    },
+    {
+      "suite": "responsibilities",
+      "passed": true,
+      "log": "review180-sqlite-responsibilities.log"
+    },
+    {
+      "suite": "auth",
+      "passed": true,
+      "log": "review180-sqlite-auth.log"
+    }
+  ]
+}

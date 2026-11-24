@@ -118,6 +118,16 @@ final class Analytics {
               "rate",
               available == 0 ? null : occupied * 1.0 / available));
     }
+    String dentistScope = p.network()
+        ? ""
+        : " HAVING COUNT(a.id)>0 OR EXISTS (SELECT 1 FROM dentist_clinic_assignments scope_assignment"
+            + " WHERE scope_assignment.dentist_id=d.id AND scope_assignment.status='ACTIVE' AND "
+            + p.scope("scope_assignment.clinic_id")
+            + " AND scope_assignment.effective_from<=?"
+            + " AND (scope_assignment.effective_to IS NULL OR scope_assignment.effective_to>=?))";
+    Object[] dentistArgs = p.network()
+        ? args
+        : Service.join(Service.join(args, p.scopeArgs()), new Object[] {to, from});
     var dentistRows =
         rows(
             c,
@@ -125,8 +135,10 @@ final class Analytics {
                 + " 1 ELSE 0 END) completed,SUM(CASE WHEN a.status='CANCELLED' THEN 1 ELSE 0 END)"
                 + " cancelled FROM dentists d LEFT JOIN appointments a ON a.dentist_id=d.id AND "
                 + filter
-                + " GROUP BY d.id,d.name_zh ORDER BY appointments DESC",
-            args);
+                + " GROUP BY d.id,d.name_zh"
+                + dentistScope
+                + " ORDER BY appointments DESC",
+            dentistArgs);
     var treatmentRows =
         rows(
             c,
@@ -134,6 +146,7 @@ final class Analytics {
                 + " actual_treatment_items x JOIN treatment_catalog t ON t.id=x.treatment_id JOIN"
                 + " clinical_visits a ON a.id=x.visit_id WHERE "
                 + p.scope("a.clinic_id")
+                + " AND x.status='RECORDED'"
                 + " AND substr(x.performed_at,1,10)>=? AND substr(x.performed_at,1,10)<=? GROUP BY"
                 + " t.code,t.name_zh ORDER BY units DESC",
             args);

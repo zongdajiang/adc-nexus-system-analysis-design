@@ -17,7 +17,8 @@ final class Auth {
       boolean network,
       String patientId,
       String dentistId,
-      List<Map<String, Object>> roles) {
+      List<Map<String, Object>> roles,
+      boolean demoSession) {
     void need(String permission) {
       check(permissions.contains(permission), 403, "FORBIDDEN", "当前岗位没有此操作权限");
     }
@@ -37,10 +38,18 @@ final class Auth {
     Object[] scopeArgs() {
       return network ? new Object[0] : clinics.toArray();
     }
+
+    Principal atClinic(String id) {
+      clinic(id);
+      return new Principal(userId, name, permissions, Set.of(id), false, patientId, dentistId, roles, demoSession);
+    }
   }
 
   final Db db;
   final boolean demo = Boolean.parseBoolean(System.getenv().getOrDefault("DEMO_MODE", "false"));
+  static final Set<String> WEB_DEMO_ROLES = Set.of("CLINIC_MANAGER", "DENTIST", "FRONT_DESK", "CASHIER", "HQ_OPERATIONS", "HQ_FINANCE");
+  final boolean legacyPatientTest = "TEST".equals(System.getenv("APP_ENV"))
+      && "true".equals(System.getenv("ADC_TEST_LEGACY_PATIENT_WEB"));
 
   Auth(Db db) {
     this.db = db;
@@ -78,7 +87,8 @@ final class Auth {
         network,
         p.patientId(),
         p.dentistId(),
-        p.roles());
+        p.roles(),
+        p.demoSession());
   }
 
   Principal principal(Connection c, HttpExchange x) throws Exception {
@@ -93,13 +103,20 @@ final class Auth {
     var user =
         one(
             c,
-            "SELECT u.* FROM auth_sessions s JOIN app_users u ON u.id=s.user_id WHERE"
+            "SELECT u.*,s.auth_method session_auth_method FROM auth_sessions s JOIN app_users u ON u.id=s.user_id WHERE"
                 + " s.token_hash=? AND s.revoked_at IS NULL AND s.expires_at>? AND"
                 + " u.status='ACTIVE'",
             hash(token),
             now());
     check(user != null, 401, "SESSION_EXPIRED", "会话已失效，请重新登录");
     String uid = text(user.get("id"));
+    check(webAccountAllowed(c, uid), 401, "AUTH_REQUIRED", "请使用诊所员工账号登录");
+    if(DemoAccounts.isAccount(uid))check(demo,403,"DEMO_DISABLED","此环境未开放演示账号");
+    boolean demoSession = "SYNTHETIC_EVALUATION".equals(s(user, "session_auth_method"))
+        || (demo && DemoAccounts.isAccount(uid) && "PASSWORD".equals(s(user,"session_auth_method")));
+    if (!legacyPatientTest && demoSession)
+      check(demo && WEB_DEMO_ROLES.stream().anyMatch(role -> uid.equals(demoUser(role))),
+          401, "SESSION_EXPIRED", "请选择新的演示岗位");
     var roles =
         rows(
             c,
@@ -141,10 +158,22 @@ final class Auth {
         network,
         link == null ? null : text(link.get("patient_id")),
         did,
-        roles);
+        roles,
+        demoSession);
   }
 
+  private final java.util.concurrent.Semaphore passwordWorkers = new java.util.concurrent.Semaphore(4);
+
   Object login(HttpExchange x, Map<String, Object> b) throws Exception {
+    check(passwordWorkers.tryAcquire(), 429, "LOGIN_BUSY", "登录请求较多，请稍后重试");
+    try {
+      return checkPassword(x, b);
+    } finally {
+      passwordWorkers.release();
+    }
+  }
+
+  private Object checkPassword(HttpExchange x, Map<String, Object> b) throws Exception {
     String username = req(b, "username"), pass = req(b, "password");
     check(username.length() <= 254 && pass.length() < 256, 422, "INVALID_CREDENTIALS", "账号或密码格式错误");
     // Failure counters commit even when credentials are rejected.
@@ -168,7 +197,7 @@ final class Auth {
                               text(user.get("password_salt")),
                               ((Number) user.get("password_iterations")).intValue())
                           .getBytes(java.nio.charset.StandardCharsets.UTF_8));
-          if (!valid || !text(user.get("status")).equals("ACTIVE")) {
+          if (!valid || !text(user.get("status")).equals("ACTIVE") || (!demo && DemoAccounts.isAccount(s(user,"id")))) {
             long failures = val(user, "failed_login_count") + 1;
             update(
                 c,
@@ -209,12 +238,18 @@ final class Auth {
   Object demo(HttpExchange x, Map<String, Object> b) throws Exception {
     check(demo, 404, "NOT_AVAILABLE", "此环境未开放演示入口");
     String role = req(b, "role");
-    check(Seed.GRANTS.containsKey(role) && !role.equals("ADMIN"), 422, "INVALID_ROLE", "请选择可试用的岗位");
-    return db.tx(
-        c -> issue(c, x, "jdbc-demo-" + role.toLowerCase(Locale.ROOT), "SYNTHETIC_EVALUATION"));
+    check(WEB_DEMO_ROLES.contains(role)
+        || (legacyPatientTest && Seed.GRANTS.containsKey(role) && !role.equals("ADMIN")),
+        422, "INVALID_ROLE", "请选择登录页提供的员工演示岗位");
+    return db.tx(c -> issue(c, x, demoUser(role), "SYNTHETIC_EVALUATION"));
+  }
+
+  private static String demoUser(String role) {
+    return "jdbc-demo-" + role.toLowerCase(Locale.ROOT);
   }
 
   Object issue(Connection c, HttpExchange x, String uid, String method) throws Exception {
+    check(webAccountAllowed(c, uid), 403, "STAFF_ONLY", "网页工作台仅供诊所员工使用");
     check(
         count(c, "SELECT COUNT(*) FROM app_users WHERE id=? AND status='ACTIVE'", uid) == 1,
         403,
@@ -235,15 +270,21 @@ final class Auth {
             method,
             "expires_at",
             dateTime(now()).plusHours(8).format(DT)));
-    boolean secure = "https".equalsIgnoreCase(x.getRequestHeaders().getFirst("X-Forwarded-Proto"));
-    x.getResponseHeaders()
-        .add(
-            "Set-Cookie",
-            "adc_session="
-                + token
-                + "; Path=/; HttpOnly; SameSite=Lax; Max-Age=28800"
-                + (secure ? "; Secure" : ""));
+    x.getResponseHeaders().add("Set-Cookie", sessionCookie(x, token, 28800));
     return map("ok", true, "csrf", hash(token + ":csrf"));
+  }
+
+  static String sessionCookie(HttpExchange x, String token, int age) {
+    boolean secure = production() || "https".equalsIgnoreCase(x.getRequestHeaders().getFirst("X-Forwarded-Proto"));
+    return "adc_session=" + token + "; Path=/; HttpOnly; SameSite=Lax; Max-Age=" + age
+        + (secure ? "; Secure" : "");
+  }
+
+  boolean webAccountAllowed(Connection c, String uid) throws SQLException {
+    if (legacyPatientTest) return true;
+    return count(c, "SELECT COUNT(*) FROM patient_account_links WHERE user_id=?", uid) == 0
+        && count(c, "SELECT COUNT(*) FROM user_role_assignments a JOIN roles r ON r.id=a.role_id"
+            + " WHERE a.user_id=? AND r.code IN ('JDBC_PATIENT','PATIENT')", uid) == 0;
   }
 
   void csrf(HttpExchange x) {
@@ -272,6 +313,7 @@ final class Auth {
   }
 
   Object changePassword(Connection c, Principal p, Map<String, Object> b) throws Exception {
+    check(!(demo && DemoAccounts.isAccount(p.userId())),403,"DEMO_ACCOUNT","演示账号密码统一提供；个人员工账号可自行修改密码");
     var user = one(c, "SELECT * FROM app_users WHERE id=?", p.userId());
     String old = req(b, "oldPassword"), fresh = req(b, "newPassword");
     check(

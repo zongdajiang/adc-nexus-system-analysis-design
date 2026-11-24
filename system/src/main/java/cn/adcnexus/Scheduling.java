@@ -8,12 +8,43 @@ import java.time.*;
 import java.util.*;
 
 final class Scheduling {
+  static String offerNow() { return DailyDemo.enabled()?wallNow():now(); }
+  private static void waitlistAudit(Connection c,Auth.Principal p,String action,String id,String clinic,String reason) throws SQLException {
+    insert(c,"audit_events",map("request_id",uuid(),"actor_user_id",p.userId(),"actor_subject",p.userId(),
+        "action",action,"entity_type","waitlist_entries","entity_id",id,"clinic_id",clinic,"reason",reason,
+        "outcome","SUCCESS","source","JDBC_API","metadata_json","{}","occurred_at",now()));
+  }
+  static void ownSlot(Auth.Principal p, Map<String,Object> slot) {
+    if(p.dentistId()!=null&&!p.dentistId().isBlank()&&!p.permissions().contains("appointment.manage"))
+      check(p.dentistId().equals(slot.get("dentist_id")),403,"DENTIST_SCOPE","医师只能安排本人负责的候补时段，请交由前台协调其他医师");
+  }
   static final String SELECT =
-      "SELECT a.*,p.name_zh patient_name,p.patient_code,d.name_zh dentist_name,c.name_zh"
-          + " clinic_name,t.name_zh treatment_name,ch.name_zh chair_name FROM appointments a JOIN"
+      "SELECT a.*,p.name_zh patient_name,p.patient_code,p.date_of_birth patient_date_of_birth,p.gender patient_gender,d.name_zh dentist_name,c.name_zh"
+          + " clinic_name,t.name_zh treatment_name,ch.name_zh chair_name,v.status linked_visit_status,"
+          + " CASE WHEN v.id IS NOT NULL AND (v.patient_id<>a.patient_id OR v.clinic_id<>a.clinic_id"
+          + " OR (v.status<>'CANCELLED' AND (v.dentist_id<>a.dentist_id OR"
+          + " v.chair_id IS DISTINCT FROM a.chair_id))) THEN 1 ELSE 0 END linked_visit_mismatch"
+          + " FROM appointments a JOIN"
           + " patients p ON p.id=a.patient_id JOIN dentists d ON d.id=a.dentist_id JOIN clinics c"
           + " ON c.id=a.clinic_id JOIN treatment_catalog t ON t.id=a.treatment_id LEFT JOIN"
-          + " clinic_chairs ch ON ch.id=a.chair_id ";
+          + " clinic_chairs ch ON ch.id=a.chair_id LEFT JOIN clinical_visits v ON v.appointment_id=a.id ";
+
+  private static Map<String,Object> reviewState(Map<String,Object> row) {
+    String status=s(row,"status"), visit=s(row,"linked_visit_status");
+    boolean coherent = switch (status) {
+      case "CHECKED_IN" -> Set.of("SAFETY_REVIEW","WAITING").contains(visit);
+      case "IN_PROGRESS", "COMPLETED" -> status.equals(visit);
+      case "CONFIRMED", "CANCELLED", "NO_SHOW" -> visit.isBlank() || "CANCELLED".equals(visit);
+      default -> false;
+    };
+    boolean overdue = s(row,"scheduled_start_at").compareTo(today()) < 0
+        && Set.of("CONFIRMED","CHECKED_IN","IN_PROGRESS").contains(status);
+    boolean mismatch = !coherent || val(row,"linked_visit_mismatch") != 0;
+    row.put("review_state", mismatch ? "VISIT_MISMATCH" : overdue ? "HISTORICAL_OPEN" : null);
+    row.remove("linked_visit_status");
+    row.remove("linked_visit_mismatch");
+    return row;
+  }
 
   static List<Map<String, Object>> list(Connection c, Auth.Principal p, Map<String, String> q)
       throws Exception {
@@ -39,14 +70,14 @@ final class Scheduling {
     return rows(
         c,
         SELECT + " WHERE " + where + " ORDER BY a.scheduled_start_at DESC LIMIT 600",
-        a.toArray());
+        a.toArray()).stream().map(Scheduling::reviewState).toList();
   }
 
   static Map<String, Object> get(Connection c, Auth.Principal p, String id) throws Exception {
     var row = one(c, SELECT + " WHERE a.id=?", id);
     check(row != null, 404, "NOT_FOUND", "预约不存在");
     p.clinic(text(row.get("clinic_id")));
-    return row;
+    return reviewState(row);
   }
 
   static List<String> validate(
@@ -190,7 +221,7 @@ final class Scheduling {
             "SELECT COUNT(*) FROM waitlist_offers WHERE status='OFFERED' AND expires_at>? AND id<>?"
                 + " AND (dentist_id=? OR (chair_id IS NOT NULL AND chair_id=?)) AND"
                 + " offered_start_at<? AND offered_end_at>?",
-            now(),
+            offerNow(),
             s(b, "offer_id"),
             dentist,
             s(b, "chair_id"),
@@ -206,7 +237,12 @@ final class Scheduling {
 
   static Map<String, Object> create(Connection c, Auth.Principal p, Map<String, Object> b)
       throws Exception {
-    p.need("appointment.manage");
+    return create(c,p,b,false);
+  }
+  private static Map<String, Object> create(Connection c, Auth.Principal p, Map<String, Object> b, boolean waitlist)
+      throws Exception {
+    p.need(waitlist?"waitlist.manage":"appointment.manage");
+    if(waitlist) ownSlot(p,b);
     Service.patientAccess(c, p, req(b, "patient_id"));
     requireValid(validate(c, p, b, null, true));
     String id = uuid();
@@ -329,6 +365,7 @@ final class Scheduling {
             "TOO_EARLY",
             "须超过预约结束及 15 分钟保留时限才能标记未到诊");
         next = "NO_SHOW";
+        check(!reason.isBlank(),422,"REASON","请记录患者未到店的核实情况");
       }
       case "check_in" -> {
         if (old.equals("CHECKED_IN")) {
@@ -343,8 +380,14 @@ final class Scheduling {
             "仅办理当日预约到诊；日期变化请先改期");
         check(Boolean.TRUE.equals(b.get("identity_confirmed")), 422, "IDENTITY", "请先核对患者身份");
         next = "CHECKED_IN";
-        String visitId = uuid();
-        insert(
+        var previous=one(c,"SELECT * FROM clinical_visits WHERE appointment_id=?",id);
+        String visitId = previous==null?uuid():s(previous,"id");
+        if(previous!=null) {
+          check(s(previous,"status").equals("CANCELLED"),409,"VISIT_STATE","本次接诊已有业务记录，请先核对接诊状态");
+          update(c,"clinical_visits",visitId,map("status","SAFETY_REVIEW","safety_gate_status","PENDING",
+              "started_at",now(),"completed_at",null,"chief_complaint_zh",s(b,"declaration"),
+              "visit_version",val(previous,"visit_version")+1));
+        } else insert(
             c,
             "clinical_visits",
             map(
@@ -376,9 +419,10 @@ final class Scheduling {
       case "revoke_arrival" -> {
         check(old.equals("CHECKED_IN"), 409, "STATE", "仅能撤销尚未诊疗的到诊");
         check(!reason.isBlank(), 422, "REASON", "请输入更正原因");
-        var visit = one(c, "SELECT id FROM clinical_visits WHERE appointment_id=?", id);
+        var visit = one(c, "SELECT * FROM clinical_visits WHERE appointment_id=?", id);
         check(
             visit != null
+                && Set.of("SAFETY_REVIEW","WAITING").contains(s(visit,"status"))
                 && count(
                         c,
                         "SELECT COUNT(*) FROM actual_treatment_items WHERE visit_id=?",
@@ -386,14 +430,16 @@ final class Scheduling {
                     == 0
                 && count(
                         c,
-                        "SELECT COUNT(*) FROM clinical_notes WHERE visit_id=? AND status='SIGNED'",
+                        "SELECT COUNT(*) FROM clinical_notes WHERE visit_id=?",
                         visit.get("id"))
-                    == 0,
+                    == 0
+                && count(c,"SELECT COUNT(*) FROM odontogram_observations WHERE visit_id=?",visit.get("id")) == 0
+                && count(c,"SELECT COUNT(*) FROM treatment_plans WHERE visit_id=?",visit.get("id")) == 0,
             409,
             "CLINICAL_FACT",
-            "已有实施或签署事实，不能撤销");
+            "本次就诊已有检查、计划、病历或实施记录，不能撤销签到");
         update(c, "clinical_visits", text(visit.get("id")), map("status", "CANCELLED"));
-        next = "CANCELLED";
+        next = "CONFIRMED";
       }
       default -> throw error(422, "ACTION", "未知预约操作");
     }
@@ -417,14 +463,14 @@ final class Scheduling {
   static Object waitlist(Connection c, Auth.Principal p) {
     try {
       p.need("appointment.read");
-      return map(
+      var result=map(
           "entries",
           rows(
               c,
               "SELECT w.*,p.name_zh patient_name,t.name_zh treatment_name FROM waitlist_entries w"
                   + " JOIN patients p ON p.id=w.patient_id JOIN treatment_catalog t ON"
                   + " t.id=w.treatment_id WHERE "
-                  + p.scope("p.primary_clinic_id")
+                  + p.scope("COALESCE(w.preferred_clinic_id,p.primary_clinic_id)")
                   + " ORDER BY w.priority_score DESC,w.created_at DESC",
               p.scopeArgs()),
           "offers",
@@ -435,19 +481,48 @@ final class Scheduling {
                   + p.scope("o.clinic_id")
                   + " ORDER BY o.created_at DESC LIMIT 100",
               p.scopeArgs()));
+      for(var entry:(List<Map<String,Object>>)result.get("entries"))entry.put("fingerprint",hash(json(one(c,"SELECT * FROM waitlist_entries WHERE id=?",entry.get("id")))));
+      // Expired leases are projected accurately without requiring a write on GET.
+      for(var offer:(List<Map<String,Object>>)result.get("offers")) {
+        if(s(offer,"status").equals("OFFERED")&&s(offer,"expires_at").compareTo(offerNow())<=0)offer.put("status","EXPIRED");
+        offer.put("remaining_minutes",Math.max(0,java.time.Duration.between(dateTime(offerNow()),dateTime(s(offer,"expires_at"))).toMinutes()));
+        offer.put("can_manage",p.dentistId()==null||p.permissions().contains("appointment.manage")||p.dentistId().equals(offer.get("dentist_id")));
+      }
+      return result;
     } catch (SQLException e) {
       throw new IllegalStateException(e);
     }
   }
 
+  static Object candidates(Connection c,Auth.Principal p,String entryId) throws Exception {
+    p.need("waitlist.manage");
+    var entry=one(c,"SELECT * FROM waitlist_entries WHERE id=?",entryId);
+    check(entry!=null,404,"NOT_FOUND","候补记录不存在");
+    p.clinic(s(entry,"preferred_clinic_id"));
+    Service.patientAccess(c,p,s(entry,"patient_id"));
+    check(s(entry,"status").equals("WAITING"),409,"WAITLIST_STATE","该患者不在候补名单中");
+    List<Map<String,Object>> candidates=new ArrayList<>();
+    for(var released:list(c,p,mapString("status","CANCELLED","from",s(entry,"earliest_date"),"to",s(entry,"latest_date")))) {
+      if(!s(entry,"preferred_clinic_id").equals(s(released,"clinic_id")))continue;
+      if(p.dentistId()!=null&&!p.permissions().contains("appointment.manage")&&!p.dentistId().equals(released.get("dentist_id")))continue;
+      if(dateTime(s(released,"scheduled_start_at")).isBefore(dateTime(now()).plusHours(val(entry,"notice_hours"))))continue;
+      var proposed=new LinkedHashMap<>(released);proposed.put("patient_id",entry.get("patient_id"));proposed.put("treatment_id",entry.get("treatment_id"));
+      if(validate(c,p,proposed,null,true).isEmpty())candidates.add(released);
+    }
+    return map("slots",candidates);
+  }
+  private static Map<String,String> mapString(String... values) {
+    Map<String,String> out=new LinkedHashMap<>();for(int i=0;i<values.length;i+=2)out.put(values[i],values[i+1]);return out;
+  }
+
   static Object waitlistCommand(Connection c, Auth.Principal p, Map<String, Object> b)
       throws Exception {
-    p.need("appointment.manage");
+    p.need("waitlist.manage");
     String action = req(b, "action");
     execute(
         c,
         "UPDATE waitlist_offers SET status='EXPIRED' WHERE status='OFFERED' AND expires_at<=?",
-        now());
+        offerNow());
     if (action.equals("add")) {
       Service.patientAccess(c, p, req(b, "patient_id"));
       String clinic = req(b, "clinic_id");
@@ -464,6 +539,8 @@ final class Scheduling {
           422,
           "NOTICE",
           "提前通知时限须为 0 至 720 小时");
+      check(one(c,"SELECT id FROM treatment_catalog WHERE id=? AND status='ACTIVE'",req(b,"treatment_id"))!=null,422,"TREATMENT","请选择当前有效的治疗项目");
+      check(count(c,"SELECT COUNT(*) FROM waitlist_entries WHERE patient_id=? AND treatment_id=? AND preferred_clinic_id=? AND status='WAITING' AND latest_date>=?",b.get("patient_id"),b.get("treatment_id"),clinic,today())==0,409,"DUPLICATE_WAITLIST","该患者已有同项目的候补记录，请修改原候补意愿");
       String id = uuid();
       insert(
           c,
@@ -489,12 +566,35 @@ final class Scheduling {
               "WAITING"));
       return map("id", id);
     }
+    if(Set.of("edit","withdraw").contains(action)) {
+      var entry=one(c,"SELECT * FROM waitlist_entries WHERE id=?",req(b,"entry_id"));
+      check(entry!=null,404,"NOT_FOUND","候补记录不存在");
+      Service.patientAccess(c,p,s(entry,"patient_id"));
+      p.clinic(s(entry,"preferred_clinic_id"));
+      check(s(entry,"status").equals("WAITING"),409,"WAITLIST_STATE","候补已结束，不能再次修改");
+      check(hash(json(entry)).equals(req(b,"fingerprint")),409,"STALE_WRITE","候补信息已更新，请刷新后重试");
+      check(count(c,"SELECT COUNT(*) FROM waitlist_offers WHERE waitlist_entry_id=? AND status='OFFERED' AND expires_at>?",entry.get("id"),offerNow())==0,409,"ACTIVE_OFFER","请先处理已发出的邀请，再修改候补意愿");
+      check(!req(b,"reason").isBlank(),422,"REASON","请填写修改原因");
+      Map<String,Object> changes=map("updated_at",now());
+      if(action.equals("withdraw"))changes.put("status","WITHDRAWN");
+      else {
+        LocalDate first=LocalDate.parse(req(b,"earliest_date")),last=LocalDate.parse(req(b,"latest_date"));
+        check(!first.isAfter(last)&&!last.isBefore(LocalDate.parse(today())),422,"DATE_RANGE","请填写有效的候补日期范围");
+        check(n(b,"notice_hours")>=0&&n(b,"notice_hours")<=720,422,"NOTICE","提前通知须为0至720小时");
+        changes.putAll(map("earliest_date",first.toString(),"latest_date",last.toString(),"notice_hours",n(b,"notice_hours")));
+      }
+      update(c,"waitlist_entries",s(entry,"id"),changes);
+      waitlistAudit(c,p,"WAITLIST_"+action.toUpperCase(Locale.ROOT),s(entry,"id"),s(entry,"preferred_clinic_id"),s(b,"reason"));
+      return map("ok",true);
+    }
     if (action.equals("offer")) {
       var entry = one(c, "SELECT * FROM waitlist_entries WHERE id=?", req(b, "entry_id"));
       check(
           entry != null && s(entry, "status").equals("WAITING"), 409, "WAITLIST_STATE", "候补条目不可邀约");
       Service.patientAccess(c, p, s(entry, "patient_id"));
+      check(count(c,"SELECT COUNT(*) FROM waitlist_offers WHERE waitlist_entry_id=? AND status='OFFERED' AND expires_at>?",entry.get("id"),offerNow())==0,409,"ACTIVE_OFFER","已有待答复邀请，请先处理患者答复");
       var released = get(c, p, req(b, "released_appointment_id"));
+      ownSlot(p,released);
       check(s(released, "status").equals("CANCELLED"), 409, "RELEASE_REQUIRED", "请选择已取消并释放的预约时段");
       String date = s(released, "scheduled_start_at").substring(0, 10);
       check(
@@ -547,20 +647,23 @@ final class Scheduling {
               "status",
               "OFFERED",
               "expires_at",
-              dateTime(now()).plusMinutes(15).format(DT)));
+              dateTime(offerNow()).plusMinutes(15).format(DT)));
       return map("id", id);
     }
     var offer = one(c, "SELECT * FROM waitlist_offers WHERE id=?", req(b, "offer_id"));
     check(offer != null, 404, "NOT_FOUND", "邀请不存在");
     p.clinic(s(offer, "clinic_id"));
+    ownSlot(p,offer);
     check(
-        s(offer, "status").equals("OFFERED") && s(offer, "expires_at").compareTo(now()) > 0,
+        s(offer, "status").equals("OFFERED") && s(offer, "expires_at").compareTo(offerNow()) > 0,
         409,
         "OFFER_EXPIRED",
         "邀请已处理或过期");
     if (action.equals("decline")) {
+      check(!req(b,"reason").isBlank(),422,"REASON","请记录患者拒绝原因");
       update(
           c, "waitlist_offers", s(offer, "id"), map("status", "DECLINED", "responded_at", now()));
+      waitlistAudit(c,p,"WAITLIST_DECLINED",s(offer,"waitlist_entry_id"),s(offer,"clinic_id"),s(b,"reason"));
       return map("ok", true);
     }
     check(action.equals("accept"), 422, "ACTION", "未知候补操作");
@@ -570,6 +673,7 @@ final class Scheduling {
         "PATIENT_CONFIRMATION",
         "必须记录患者已明确接受该诊所、牙医与时间");
     var e = one(c, "SELECT * FROM waitlist_entries WHERE id=?", offer.get("waitlist_entry_id"));
+    check(s(e,"status").equals("WAITING"),409,"WAITLIST_STATE","该患者的候补已处理，请刷新列表");
     var proposed =
         map(
             "patient_id",
@@ -592,7 +696,7 @@ final class Scheduling {
             offer.get("id"),
             "notes",
             "候补确认 " + offer.get("id"));
-    var appointment = create(c, p, proposed);
+    var appointment = create(c, p, proposed,true);
     update(c, "waitlist_offers", s(offer, "id"), map("status", "ACCEPTED", "responded_at", now()));
     update(c, "waitlist_entries", s(e, "id"), map("status", "FULFILLED", "updated_at", now()));
     return appointment;

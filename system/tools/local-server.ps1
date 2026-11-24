@@ -1,18 +1,21 @@
 param(
   [ValidateSet('Start','Status','Stop')][string]$Action='Start',
   [switch]$NoBrowser,
-  [switch]$KeepOpen
+  [switch]$KeepOpen,
+  [switch]$DailyDemo,
+  [ValidateRange(1024,65535)][int]$Port=8087,
+  [string]$DataDirectory
 )
 $ErrorActionPreference='Stop'
 $taskRoot=[IO.Path]::GetFullPath((Split-Path -Parent $PSScriptRoot))
 $taskJar=Join-Path $taskRoot 'target\adc-nexus.jar'
-$taskData=Join-Path $taskRoot 'data'
-$taskState=Join-Path $taskData 'local-server-state.json'
-$taskUrl='http://localhost:8087'
+$taskData=if($DataDirectory){[IO.Path]::GetFullPath($DataDirectory)}else{Join-Path $taskRoot 'data'}
+$taskState=Join-Path $taskData $(if($Port -eq 8087){'local-server-state.json'}else{'local-server-'+$Port+'-state.json'})
+$taskUrl='http://127.0.0.1:'+ $Port + '/#/login'
 
 function Get-LocalHealth {
   try {
-    $taskHealth=Invoke-RestMethod -Uri 'http://127.0.0.1:8087/api/health' -TimeoutSec 3
+    $taskHealth=Invoke-RestMethod -Uri ('http://127.0.0.1:'+ $Port + '/api/health') -TimeoutSec 3
     if($taskHealth.ok -and $taskHealth.data_access -eq 'JAVA_JDBC'){return $taskHealth}
   } catch {}
   return $null
@@ -23,7 +26,8 @@ function Get-OwnedProcess {
     $taskRecord=Get-Content -LiteralPath $taskState -Raw -Encoding UTF8 | ConvertFrom-Json
     $taskProcess=Get-CimInstance Win32_Process -Filter ('ProcessId='+[int]$taskRecord.pid)
     $taskLive=Get-Process -Id ([int]$taskRecord.pid) -ErrorAction Stop
-    if($taskProcess -and $taskRecord.jar -eq $taskJar -and $taskProcess.CommandLine.Contains('-jar target/adc-nexus.jar') -and
+    $taskPortMatches=($taskRecord.port -eq $Port) -or (!$taskRecord.port -and $Port -eq 8087)
+    if($taskPortMatches -and $taskProcess -and $taskRecord.jar -eq $taskJar -and $taskProcess.CommandLine.Contains('-jar target/adc-nexus.jar') -and
        $taskProcess.ExecutablePath -eq $taskRecord.java -and
        $taskLive.StartTime.ToUniversalTime().Ticks -eq ([datetime]$taskRecord.started_at).ToUniversalTime().Ticks){return $taskLive}
   } catch {}
@@ -37,7 +41,7 @@ function Show-LocalStatus {
     Write-Host ('Data: '+$taskData)
     return $true
   }
-  Write-Host 'OFFLINE  No healthy ADC Nexus server on port 8087.' -ForegroundColor Yellow
+  Write-Host ('OFFLINE  No healthy ADC Nexus server on port '+$Port+'.') -ForegroundColor Yellow
   Write-Host 'Use the Start ADC Nexus desktop shortcut. Do not delete the data folder.'
   return $false
 }
@@ -46,7 +50,7 @@ $taskMutex=$null
 $taskLocked=$false
 try {
   if($Action -eq 'Status'){ [void](Show-LocalStatus); return }
-  $taskDigest=[BitConverter]::ToString([Security.Cryptography.SHA256]::Create().ComputeHash([Text.Encoding]::UTF8.GetBytes($taskRoot))).Replace('-','').Substring(0,16)
+  $taskDigest=[BitConverter]::ToString([Security.Cryptography.SHA256]::Create().ComputeHash([Text.Encoding]::UTF8.GetBytes($taskRoot+'|'+$Port))).Replace('-','').Substring(0,16)
   $taskMutex=New-Object Threading.Mutex($false,('Local\ADC_Nexus_'+$taskDigest))
   $taskLocked=$taskMutex.WaitOne(30000)
   if(!$taskLocked){throw 'Another launcher operation is still running. Check status shortly.'}
@@ -67,8 +71,8 @@ try {
     if(!$NoBrowser){Start-Process $taskUrl}
     return
   }
-  $taskListener=Get-NetTCPConnection -LocalPort 8087 -State Listen -ErrorAction SilentlyContinue
-  if($taskListener){throw 'Port 8087 is occupied by another process. No process was stopped; check the port owner first.'}
+  $taskListener=Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
+  if($taskListener){throw ('Port '+$Port+' is occupied. Check its owner before restarting.')}
   if(!(Test-Path -LiteralPath $taskJar)){throw 'Application JAR is missing. Build the project with Maven first; do not delete or recreate data.'}
   $taskCandidates=@()
   if($env:JAVA_HOME){$taskCandidates+=Join-Path $env:JAVA_HOME 'bin\java.exe'}
@@ -92,15 +96,15 @@ try {
   $taskStamp=Get-Date -Format 'yyyyMMdd-HHmmss-fff'
   $taskStdout=Join-Path $taskLogs ('local-'+$taskStamp+'.out.log')
   $taskStderr=Join-Path $taskLogs ('local-'+$taskStamp+'.err.log')
-  $taskVariables=@{APP_ENV='LOCAL';PORT='8087';BIND_ADDRESS='127.0.0.1';DATA_DIR=$taskData;DEMO_MODE='true';DATABASE_URL=$null;ADC_TEST_NOW=$null;AUTH_TEST_DELIVERY_URL=$null}
+  $taskVariables=@{APP_ENV='LOCAL';PORT=[string]$Port;BIND_ADDRESS='127.0.0.1';DATA_DIR=$taskData;DEMO_MODE='true';DEMO_SCENARIO_MODE=$(if($DailyDemo){'daily'}else{$null});DATABASE_URL=$null;ADC_TEST_NOW=$null;ADC_TEST_NOW_FILE=$null;AUTH_TEST_DELIVERY_URL=$null;ADC_TEST_LEGACY_PATIENT_WEB=$null}
   $taskPrevious=@{}
   foreach($taskKey in $taskVariables.Keys){$taskPrevious[$taskKey]=[Environment]::GetEnvironmentVariable($taskKey,'Process');[Environment]::SetEnvironmentVariable($taskKey,$taskVariables[$taskKey],'Process')}
   try {
     # Relative ASCII jar argument avoids Windows native argument-codepage damage to Chinese workspace paths.
-    $taskChild=Start-Process -FilePath $taskJava -ArgumentList '-Dfile.encoding=UTF-8 -jar target/adc-nexus.jar' -WorkingDirectory $taskRoot -WindowStyle Hidden -RedirectStandardOutput $taskStdout -RedirectStandardError $taskStderr -PassThru
+    $taskChild=Start-Process -FilePath $taskJava -ArgumentList '--enable-native-access=ALL-UNNAMED -Dfile.encoding=UTF-8 -jar target/adc-nexus.jar' -WorkingDirectory $taskRoot -WindowStyle Hidden -RedirectStandardOutput $taskStdout -RedirectStandardError $taskStderr -PassThru
   } finally {foreach($taskKey in $taskPrevious.Keys){[Environment]::SetEnvironmentVariable($taskKey,$taskPrevious[$taskKey],'Process')}}
   $taskChild.Refresh()
-  @{pid=$taskChild.Id;java=$taskJava;started_at=$taskChild.StartTime.ToUniversalTime().ToString('o');jar=$taskJar;stdout=$taskStdout;stderr=$taskStderr} | ConvertTo-Json | Set-Content -LiteralPath $taskState -Encoding UTF8
+  @{pid=$taskChild.Id;java=$taskJava;port=$Port;started_at=$taskChild.StartTime.ToUniversalTime().ToString('o');jar=$taskJar;stdout=$taskStdout;stderr=$taskStderr} | ConvertTo-Json | Set-Content -LiteralPath $taskState -Encoding UTF8
   for($taskAttempt=0;$taskAttempt -lt 40;$taskAttempt++){
     if(Get-LocalHealth){
       [void](Show-LocalStatus)

@@ -1,99 +1,25 @@
-# ADC Nexus｜安德鲁牙科连锁运营管理系统
+# ADC Nexus · 安德鲁牙科连锁运营管理系统
 
-**System Analysis & Design · Andrew's Dental Chain**
+ADC Nexus 支持患者建档、预约与资源安排、到诊接待、医师诊疗、收费退款、复诊跟进及经营核算。员工统一登录，按岗位和所属诊所进入对应工作台。服务端使用 Java 21 和 JDBC，网页随应用一起运行。本地试用使用 SQLite，服务器演示使用隔离的 PostgreSQL 和合成数据。
 
-系统分析与设计课程成果。以患者跨店识别、预约与资源协调、临床记录、诊疗结算及季度经营核算为主线，建立业务、需求、分析和数据层设计。此仓库包含设计文档、可编辑图源，以及新增的 Java 21 / JDBC 系统发布候选实现。所有演示资料均为课程合成数据。
+## 项目入口
 
-当前版本：**2026-10-20 · 状态图与文辞精修版**。
-
-系统实现：**JDBC 1.5.0-rc1 · 2026-11-02 发布准备**，见 [`system/`](system/)。保留统一账号与岗位工作区、日程、临床和结算主路径，新增诊所／医师／牙椅及营业时间维护、治疗目录版本、预约联系确认与复诊跟进。已完成本地隔离验收；真实消息送达、正式云端链接及最终报告同步仍待完成。
-
-## 系统运行与发布
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fzongdajiang%2Fadc-nexus-system-analysis-design)
-
-首次上线见 [两步发布卡](system/docs/DEPLOY_QUICKSTART.md)：先建 Neon Free 数据库，再由按钮预填 Render Free 服务；数据库连接串仅在 Render 秘密变量中输入。按钮是部署入口，当前尚无已验收的公网系统链接。
-
-Java 21 + PreparedStatement/JDBC + PostgreSQL（本地可用 SQLite），不使用 JPA/Hibernate。所有人员使用统一登录表单，按服务端实际授权进入不同首页、导航和数据范围；员工注册须匹配机构名册及激活码，不由公开选择职位授予权限。
-
-- [运行说明与源代码](system/README.md)
-- [1.5 机构设置、目录版本与复诊跟进规格](system/docs/PRACTICE_UPGRADE_V1_5.md)
-- [升级台账](system/upgrade-workbench/2026-10-30/CHANGE_LEDGER.md) · [发布后报告同步索引](system/upgrade-workbench/2026-10-30/REPORT_SYNC_INDEX.md)
-- [1.4 日常诊疗工作流与一手产品调研](system/docs/PRACTICE_WORKFLOW_V1_4.md)
-- [1.3 日程工作区修订](system/docs/CLINIC_WORKFLOW_V1_3.md)
-- [首页与岗位工作区精修、桌面启动说明](system/docs/HOMEPAGE_AND_WORKSPACE_V1_2.md)
-- [软件设计规格 SDS 与用例映射](system/docs/SDS.md)
-- [Render Free + Neon Free 网页发布手册](system/docs/DEPLOYMENT.md)，不依赖 Codex 插件连接
-- [教师试用主路径](system/docs/REVIEW_GUIDE.md) · [实施差异与保留边界](system/docs/CHANGE_CONTROL.md)
-- [集成测试证据](system/qa/)：业务检查 SQLite 178 / PostgreSQL 176，统一身份检查 51 / 49，前端请求及导出辅助 10、首页 HTTP/源码合同 36、轮播及日程逻辑 20、临床与结算投影 33、界面细节 33、设置及复诊投影 21；共 **607 项自动化检查通过**。另有八种角色浏览器核验，PG 恢复核对 10 条业务链及 146 条有效外键。云端与真实外部服务分别验收。
-- [分轮迭代与发布门槛](system/docs/RELEASE_READINESS.md)：排班变更保护、授权变化后的重试、异常输入、长表单及手机端复查；测试结果绑定被测 JAR 校验值。
-- [生产容器证据](system/qa/container-release-check.json)：另有 15 项 Linux 容器检查通过，包括 512 MiB 内存限制及重启／替换容器后的外部数据库内容保持；[对应 GitHub 运行](https://github.com/zongdajiang/adc-nexus-system-analysis-design/actions/runs/41337746997)三组均通过。这是部署前验证，公网系统仍待创建和验收。
-
-原报告数据基线仍为 61 表；当前实现为 **71 表、820 个字段、146 条外键**。两组统计分开保留，完整结构元数据见 [实施模型](system/upgrade-workbench/2026-10-30/IMPLEMENTED_SCHEMA.json)。统一身份与界面合同见 [1.1 增量规格](system/docs/AUTH_AND_UI_V1_1.md)，发送服务见 [开通手册](system/docs/CHANNEL_SETUP.md)。按约定，最终报告与 ERD 保持冻结，待公网发布及验收后整体同步。
-
-![复诊跟进工作区](system/docs/images/v1-5/recall-desktop.png)
-
-## 阅读入口
-
-| 成果 | 内容 |
+| 内容 | 文件 |
 | --- | --- |
-| [完整设计报告 / Main Report](分析设计文档/ADC_Nexus_主文档.pdf) | **83 页、55 张编号图**；正文印刷页码 1–80 |
-| [关系数据图合订本 / ERD Atlas](分析设计文档/ERD_Overview_and_9_Domains.pdf) | 全景及九张分域关系图，10 页原尺寸矢量 PDF |
-| [独立关系图 / Individual ERDs](分析设计文档/ERD_10_Individual_PDFs.zip) | 十张单页关系图，适合独立审阅 |
-| [领域类图图册 / Domain Class Atlas](分析设计文档/UML_九张领域类图_原尺寸矢量图册.pdf) | 正文图 21–29，保留关系类型、重数、属性与操作 |
-| [内部分析序列图册 / Analysis Sequence Atlas](分析设计文档/UML_六张内部分析序列_原尺寸矢量图册.pdf) | 正文图 35–40，覆盖预约、资源、临床、结算、期间关闭和绩效 |
-| [数据库 DDL](database/schema.sql) · [字段级模型](database/schema-model.json) | 物理结构、字段类型、主外键、可空性、默认值与索引 |
-| [终稿校验摘要](qa/终稿校验摘要.md) · [图号索引](qa/全文图号与顺序核对表.md) | 校验范围、证据与全部图名 |
+| 系统源码与启动 | [源码和本地运行](system/README.md) |
+| 课程演示部署 | [服务器部署指南](system/deploy/demo/部署指南.md) |
+| 独立生产环境 | [部署手册](system/DEPLOYMENT.md) |
+| 系统分析与设计报告 | [正式报告 PDF](分析设计文档/ADC_Nexus_主文档.pdf) · [图版索引](分析设计文档/报告图版核查.csv) |
+| 报告源文件与模型 | [可编辑正文和模型](分析设计文档/ADC%20Nexus%20报告源文件与模型.zip) |
+| 数据设计 | [原尺寸关系数据图](分析设计文档/ERD_Overview_and_9_Domains.pdf) |
+| 复核记录 | [当前版本的验收证据](qa/交付复核/) |
 
-建议先读主报告目录，再按关注的业务域查看图册。大幅面图保留原生尺寸；在线预览不便时，可下载后放大阅读字段。图源文件名是稳定标识，正式图号以主报告和图号索引为准。
+## 交付和验收
 
-## 内容概览
+报告共 148 页，含 83 张编号图。系统源码和部署文件来自已核验的交付。复核记录覆盖六个业务岗位的核心流程、权限请求、PostgreSQL 初始化及备份恢复，以及员工页面的响应式浏览器检查。服务器到位后需在实际域名和外部网络完成 HTTPS、部署持久化及登录验收。
 
-| 层次 | 建模内容 |
-| --- | --- |
-| **A · Business Modelling** | 业务用例；现状与改进业务序列的全景及分解图。单次就诊与季度复核分别表达 |
-| **B · Requirements** | 18 项系统用例的全景、六张分域图、用例规约与岗位权限 |
-| **C · Analysis** | 九张领域类图、四张业务对象状态图、BCE 职责及六张内部分析序列 |
-| **D · Design** | 逻辑与部署边界、界面导航、持久化职责、关系数据库及季度核算口径 |
-| **Verification** | 实现范围、测试场景、资料保护与后续验收安排 |
+![诊所经营工作台](qa/交付复核/桌面%201440%20宽%20诊所经营.png)
 
-数据层按九个业务域组织，包含 **61 张表、730 个字段、119 条已声明外键、124 个现有索引和20条跨表业务规则**。三项外键增强与52项索引评估候选单独列为建议，不计入现有约束。
+患者微信小程序的代码与相关文件待 WorkBuddy 完整成品交付后纳入。报告内的患者端用例、序列图和原型说明记录其设计范围。
 
-## 本轮修订
-
-- 同步后续新增的现状、改进业务序列全景、系统用例全景，以及资源维护、期间关闭和绩效查询的内部协作。
-- 重绘图30–33，分离事件文字、节点边界和连接线；四张图与各自守卫表同页，位于 **PDF第41–44页**。
-- 润色正文，补正需求追踪与个别易误读的说明；保持目标设计、现有实现和待验收能力的区别。
-- 核对55张图的顺序、完整题注、引用与页码；整理章节分页及参考文献。其余51张图沿用已审阅图式。
-
-详见[版本记录](docs/CHANGELOG.md)。原有主报告及ERD下载路径保持不变。
-
-## 源文件与重建
-
-| 路径 | 用途 |
-| --- | --- |
-| [`report/`](report/) | LaTeX 主文件与 D 部分表格、关系说明 |
-| [`assets/uml/`](assets/uml/) | 当前报告所用 UML 图源、场景模型、布局审计及原尺寸图版 |
-| [`assets/erd/`](assets/erd/) | 全景、九个业务域及带正式题注和页码的 ERD |
-| [`models/uml/`](models/uml/) | 用例、序列、类和状态的语义及布局模型 |
-| [`database/`](database/) | 常用数据库定义与验证摘要的直接入口 |
-| [`data-design/`](data-design/) | 迁移快照、分域配置与关系建模输出；与 `database/` 的同名定义一致 |
-| [`tools/`](tools/) | 图版、状态图生成与报告验证脚本 |
-| [`skills/`](skills/) | 重建所需的绘图运行脚本，不含第三方参考截图或完整本地资料包 |
-| [`qa/`](qa/) | 结构、布局、修订保护及文辞对照证据 |
-
-编辑图形可从同名 `.drawio`、`.svg` 或语义 JSON 入手；`.puml` 用于语义复核，不保证与精调图版逐像素一致。领域类图以 `_vector.pdf` 为矢量母版，同名 `.pdf` 为当前版副本。旧版未引用的图和过时PDF导出不再作为当前成果发布。
-
-主报告采用中文 LaTeX 排版，依赖 Windows 字体及 Tectonic/XeLaTeX 环境。现有PDF可直接阅读，无须安装工具。[重建与核验说明](docs/BUILD.md)列出所需依赖和检查方法；[SHA256SUMS.txt](SHA256SUMS.txt)用于核对发布包完整性。
-
-另保留[字段字典与约束专项底稿](data-design/output/ADC_Nexus_D部分_关系数据库设计_独立审阅稿.pdf)，生成于初始关系建模阶段，用于查阅完整字段定义；最新图式、正式图号及实现边界以本版主报告和当前图册为准。
-
-## 设计边界与资料说明
-
-现状台账、人工交接等细节属于依据课程案例提出的待核实假设。正式短信与微信通道、部分费用归属和资源审批仍有待联调或机构确认。图面与结构检查不替代真实门店的业务、并发、隐私及财务验收。
-
-课程课件、案例全文、第三方参考PDF、参考截图、账号凭据、临时文件与本地备份不纳入发布。资料使用说明见[NOTICE](NOTICE.md)。
-
-作者：蒋宗达（810224025）  
-课程：系统分析与设计  
-更新日期：2026年10月20日
+现行报告源文件以表中压缩包为准。仓库较早的报告源目录、辅助图册、迭代说明和历史核验记录供回溯。资料使用见 [NOTICE](NOTICE.md)。

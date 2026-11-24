@@ -1,0 +1,166 @@
+{
+  "41_分析序列_候补接受": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "45_分析序列_完成复诊跟进": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "46_分析序列_登记退款": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "47_分析序列_建立扩张情景": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "02A_现状业务序列全景": {
+    "in_report": true,
+    "circular_non_human": 2,
+    "human_in_circle": 6
+  },
+  "02_现状_预约与到诊": {
+    "in_report": true,
+    "circular_non_human": 0,
+    "human_in_circle": 2
+  },
+  "02B_现状_患者到诊": {
+    "in_report": true,
+    "circular_non_human": 0,
+    "human_in_circle": 2
+  },
+  "03_现状_诊疗与结算": {
+    "in_report": true,
+    "circular_non_human": 0,
+    "human_in_circle": 2
+  },
+  "03B_现状_诊疗费用结算": {
+    "in_report": true,
+    "circular_non_human": 0,
+    "human_in_circle": 2
+  },
+  "04_现状_季度核算": {
+    "in_report": true,
+    "circular_non_human": 0,
+    "human_in_circle": 3
+  },
+  "05A_改进业务序列全景": {
+    "in_report": true,
+    "circular_non_human": 4,
+    "human_in_circle": 6
+  },
+  "05_改进后_预约与到诊": {
+    "in_report": true,
+    "circular_non_human": 1,
+    "human_in_circle": 1
+  },
+  "05B_改进后_患者到诊": {
+    "in_report": true,
+    "circular_non_human": 1,
+    "human_in_circle": 1
+  },
+  "06_改进后_诊疗与结算": {
+    "in_report": true,
+    "circular_non_human": 1,
+    "human_in_circle": 1
+  },
+  "06B_改进后_诊疗费用结算": {
+    "in_report": true,
+    "circular_non_human": 1,
+    "human_in_circle": 1
+  },
+  "07_改进后_季度核算": {
+    "in_report": true,
+    "circular_non_human": 1,
+    "human_in_circle": 2
+  },
+  "18_分析序列_安排预约": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "18B_分析序列_维护排班与牙椅": {
+    "in_report": true,
+    "entity_style_heads": 3,
+    "entity_diagonal_marks": 3,
+    "boundary_control_without_baseline": 2
+  },
+  "20_分析序列_完成临床就诊": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "19_分析序列_完成就诊并开票": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "20C_分析序列_季度期间关闭": {
+    "in_report": true,
+    "entity_style_heads": 2,
+    "entity_diagonal_marks": 2,
+    "boundary_control_without_baseline": 2
+  },
+  "20B_分析序列_经营绩效查询": {
+    "in_report": true,
+    "entity_style_heads": 3,
+    "entity_diagonal_marks": 3,
+    "boundary_control_without_baseline": 2
+  },
+  "22_JDBC预约访问序列": {
+    "in_report": true,
+    "entity_style_heads": 1,
+    "entity_diagonal_marks": 1,
+    "boundary_control_without_baseline": 2
+  },
+  "37_患者小程序目标序列": {
+    "in_report": true,
+    "entity_style_heads": 1,
+    "entity_diagonal_marks": 1,
+    "boundary_control_without_baseline": 2
+  },
+  "38_患者自助预约目标序列": {
+    "in_report": true,
+    "entity_style_heads": 1,
+    "entity_diagonal_marks": 1,
+    "boundary_control_without_baseline": 2
+  },
+  "36_双岗位演示序列": {
+    "in_report": true,
+    "entity_style_heads": 1,
+    "entity_diagonal_marks": 1,
+    "boundary_control_without_baseline": 2
+  },
+  "02A_现状业务序列全景_单次就诊": {
+    "in_report": false,
+    "circular_non_human": 2,
+    "human_in_circle": 3
+  },
+  "02A_现状业务序列全景_季度复核": {
+    "in_report": false,
+    "circular_non_human": 0,
+    "human_in_circle": 3
+  },
+  "05A_改进业务序列全景_单次就诊": {
+    "in_report": false,
+    "circular_non_human": 3,
+    "human_in_circle": 3
+  },
+  "05A_改进业务序列全景_季度复核": {
+    "in_report": false,
+    "circular_non_human": 1,
+    "human_in_circle": 3
+  }
+}
