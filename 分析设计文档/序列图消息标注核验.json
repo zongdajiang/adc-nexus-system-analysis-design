@@ -1,0 +1,299 @@
+{
+  "pdf_sha256": "4a382aca829396c9d3233cb01026f88a052021bd50290ecfbd98eb7e03c973bf",
+  "pdf_pages": 148,
+  "numbered_figures": 83,
+  "checked_report_sequence_figures": 26,
+  "checked_source_overview_details": 4,
+  "report_operation_messages": 206,
+  "report_reply_messages": 123,
+  "report_signatures_added": 148,
+  "source_signatures_added": 30,
+  "modified_report_figures": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    52,
+    53,
+    54,
+    55,
+    56,
+    61,
+    73,
+    74,
+    75
+  ],
+  "modified_pdf_pages": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    88,
+    90,
+    91,
+    92,
+    96,
+    130,
+    132,
+    133
+  ],
+  "visually_identical_untargeted_pages": 128,
+  "diagrams": {
+    "41_分析序列_候补接受": {
+      "figure_label": "fig:seq-waitlist-accept",
+      "operations": 6,
+      "replies": 6,
+      "added_signatures": 6,
+      "figure_number": 53,
+      "pdf_page": 90
+    },
+    "45_分析序列_完成复诊跟进": {
+      "figure_label": "fig:seq-followup-complete",
+      "operations": 5,
+      "replies": 5,
+      "added_signatures": 5,
+      "figure_number": 54,
+      "pdf_page": 91
+    },
+    "46_分析序列_登记退款": {
+      "figure_label": "fig:seq-refund-post",
+      "operations": 6,
+      "replies": 6,
+      "added_signatures": 6,
+      "figure_number": 55,
+      "pdf_page": 91
+    },
+    "47_分析序列_建立扩张情景": {
+      "figure_label": "fig:seq-expansion-create",
+      "operations": 4,
+      "replies": 4,
+      "added_signatures": 4,
+      "figure_number": 56,
+      "pdf_page": 92
+    },
+    "02A_现状业务序列全景": {
+      "figure_label": "fig:as-is-overview",
+      "operations": 22,
+      "replies": 3,
+      "added_signatures": 22,
+      "figure_number": 4,
+      "pdf_page": 9
+    },
+    "02_现状_预约与到诊": {
+      "figure_label": "fig:as-is-booking",
+      "operations": 10,
+      "replies": 1,
+      "added_signatures": 10,
+      "figure_number": 5,
+      "pdf_page": 10
+    },
+    "02B_现状_患者到诊": {
+      "figure_label": "fig:as-is-arrival",
+      "operations": 9,
+      "replies": 0,
+      "added_signatures": 9,
+      "figure_number": 6,
+      "pdf_page": 11
+    },
+    "03_现状_诊疗与结算": {
+      "figure_label": "fig:as-is-clinical",
+      "operations": 9,
+      "replies": 0,
+      "added_signatures": 9,
+      "figure_number": 7,
+      "pdf_page": 12
+    },
+    "03B_现状_诊疗费用结算": {
+      "figure_label": "fig:as-is-billing",
+      "operations": 7,
+      "replies": 0,
+      "added_signatures": 7,
+      "figure_number": 8,
+      "pdf_page": 13
+    },
+    "04_现状_季度核算": {
+      "figure_label": "fig:as-is-quarter",
+      "operations": 9,
+      "replies": 2,
+      "added_signatures": 9,
+      "figure_number": 9,
+      "pdf_page": 14
+    },
+    "05A_改进业务序列全景": {
+      "figure_label": "fig:to-be-overview",
+      "operations": 19,
+      "replies": 6,
+      "added_signatures": 8,
+      "figure_number": 10,
+      "pdf_page": 15
+    },
+    "05_改进后_预约与到诊": {
+      "figure_label": "fig:to-be-booking",
+      "operations": 11,
+      "replies": 5,
+      "added_signatures": 7,
+      "figure_number": 11,
+      "pdf_page": 16
+    },
+    "05B_改进后_患者到诊": {
+      "figure_label": "fig:to-be-arrival",
+      "operations": 7,
+      "replies": 3,
+      "added_signatures": 5,
+      "figure_number": 12,
+      "pdf_page": 17
+    },
+    "06_改进后_诊疗与结算": {
+      "figure_label": "fig:to-be-clinical",
+      "operations": 11,
+      "replies": 5,
+      "added_signatures": 6,
+      "figure_number": 13,
+      "pdf_page": 18
+    },
+    "06B_改进后_诊疗费用结算": {
+      "figure_label": "fig:to-be-billing",
+      "operations": 7,
+      "replies": 3,
+      "added_signatures": 5,
+      "figure_number": 14,
+      "pdf_page": 19
+    },
+    "07_改进后_季度核算": {
+      "figure_label": "fig:to-be-quarter",
+      "operations": 7,
+      "replies": 8,
+      "added_signatures": 3,
+      "figure_number": 15,
+      "pdf_page": 20
+    },
+    "18_分析序列_安排预约": {
+      "figure_label": "fig:seq-booking",
+      "operations": 5,
+      "replies": 7,
+      "added_signatures": 0,
+      "figure_number": 47,
+      "pdf_page": 83
+    },
+    "18B_分析序列_维护排班与牙椅": {
+      "figure_label": "fig:seq-resource-maint",
+      "operations": 7,
+      "replies": 9,
+      "added_signatures": 0,
+      "figure_number": 48,
+      "pdf_page": 84
+    },
+    "20_分析序列_完成临床就诊": {
+      "figure_label": "fig:seq-clinical",
+      "operations": 5,
+      "replies": 7,
+      "added_signatures": 0,
+      "figure_number": 49,
+      "pdf_page": 85
+    },
+    "19_分析序列_完成就诊并开票": {
+      "figure_label": "fig:seq-invoice",
+      "operations": 6,
+      "replies": 7,
+      "added_signatures": 0,
+      "figure_number": 50,
+      "pdf_page": 86
+    },
+    "20C_分析序列_季度期间关闭": {
+      "figure_label": "fig:seq-quarter-close",
+      "operations": 7,
+      "replies": 9,
+      "added_signatures": 0,
+      "figure_number": 51,
+      "pdf_page": 87
+    },
+    "20B_分析序列_经营绩效查询": {
+      "figure_label": "fig:seq-performance",
+      "operations": 5,
+      "replies": 5,
+      "added_signatures": 5,
+      "figure_number": 52,
+      "pdf_page": 88
+    },
+    "22_JDBC预约访问序列": {
+      "figure_label": "fig:data-access-sequence",
+      "operations": 4,
+      "replies": 4,
+      "added_signatures": 4,
+      "figure_number": 61,
+      "pdf_page": 96
+    },
+    "37_患者小程序目标序列": {
+      "figure_label": "fig:miniapp-target-sequence",
+      "operations": 5,
+      "replies": 5,
+      "added_signatures": 5,
+      "figure_number": 74,
+      "pdf_page": 132
+    },
+    "38_患者自助预约目标序列": {
+      "figure_label": "fig:patient-booking-target",
+      "operations": 6,
+      "replies": 6,
+      "added_signatures": 6,
+      "figure_number": 75,
+      "pdf_page": 133
+    },
+    "36_双岗位演示序列": {
+      "figure_label": "fig:staff-demo-sequence",
+      "operations": 7,
+      "replies": 7,
+      "added_signatures": 7,
+      "figure_number": 73,
+      "pdf_page": 130
+    },
+    "02A_现状业务序列全景_单次就诊": {
+      "figure_label": null,
+      "operations": 15,
+      "replies": 3,
+      "added_signatures": 15,
+      "figure_number": null,
+      "pdf_page": null
+    },
+    "02A_现状业务序列全景_季度复核": {
+      "figure_label": null,
+      "operations": 7,
+      "replies": 0,
+      "added_signatures": 7,
+      "figure_number": null,
+      "pdf_page": null
+    },
+    "05A_改进业务序列全景_单次就诊": {
+      "figure_label": null,
+      "operations": 14,
+      "replies": 4,
+      "added_signatures": 7,
+      "figure_number": null,
+      "pdf_page": null
+    },
+    "05A_改进业务序列全景_季度复核": {
+      "figure_label": null,
+      "operations": 5,
+      "replies": 2,
+      "added_signatures": 1,
+      "figure_number": null,
+      "pdf_page": null
+    }
+  }
+}
