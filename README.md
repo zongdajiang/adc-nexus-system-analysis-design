@@ -1,12 +1,15 @@
 # ADC Nexus · 安德鲁牙科连锁运营管理系统
 
-## 患者小程序 · 微信扫码体验
+## 课程验收入口
+
+- **[打开员工端演示系统](https://adc-nexus-demo.duckdns.org/#/home)**。登录页提供六个岗位的演示账号。
+- **[查看系统分析与设计报告（PDF）](分析设计文档/ADC_Nexus_主文档.pdf)** · [下载原版 PDF](分析设计文档/ADC_Nexus_主文档.pdf?raw=true)
+
+### 患者小程序 · 微信扫码体验
 
 ![ADC Nexus 患者服务体验版二维码，12 月 2 日前有效](assets/patient-preview-qr.png)
 
 **二维码于 12 月 2 日前有效。** 请使用已加入「体验成员」的微信扫码，进入登录页后点击「直接体验」。
-
-[打开员工端课程演示网站](https://adc-nexus-demo.duckdns.org/#/home)
 
 ADC Nexus 支持患者建档、预约与资源安排、到诊接待、医师诊疗、收费退款、复诊跟进及经营核算。员工统一登录，按岗位和所属诊所进入对应工作台。服务端使用 Java 21 和 JDBC，网页随应用一起运行。本地试用使用 SQLite，服务器演示使用隔离的 PostgreSQL 和合成数据。
 
